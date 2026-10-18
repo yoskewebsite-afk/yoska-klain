@@ -6,7 +6,7 @@
 - גופן אחד: Noto Sans Hebrew. כותרות בקונדנס 800 (`font-stretch: 62.5%`), גוף ברוחב רגיל 400, תוויות 600 ברוחב 87.5%.
 - צבעים: כחול המפרץ `#0F2C47` (ועמוק `#0A1F33`), כתום מדוד `#E8813A` (טקסט כתום על לבן: `#A4521A`), לבן חם `#F6F1E8`, נייר `#FCFAF6`, אבן `#CDBFA6` / `#6A5B45`.
 - כפתורים מלבניים (רדיוס 4px), בלי זכוכית ובלי כדורים. כתום = הפעולה הראשית, כחול = משנית.
-- קבצים: `site-src/home.html` → `tools/build_site.py` → `prototype/index.html`, עם `prototype/home.css` ו-`prototype/home.js` (רק בדף הבית). שאר העמודים עדיין על `styles.css` + `app.js`.
+- קבצים: `site-src/home.html` → `tools/build_site.py` → `prototype/index.html`, עם `prototype/home.css` ו-`prototype/home.js` (רק בדף הבית). שאר העמודים (סיורים, קבוצות, גלריה, 404, עמודים משפטיים) על `styles.css` + `prototype/pages.css` + `app.js`: אותם טוקנים, נאב מוצק חם, פוטר כחול עמוק, הירו של פאנל כחול לצד הצילום (הצילומים קטנים מדי לרוחב מלא), באנד כחול לסיום. בדיקה: `tools/subpage_qa.mjs` (1440 / 390).
 
 ## רצף הדף
 | # | סקשן | אפקט | עיקרון מהרפרנס |

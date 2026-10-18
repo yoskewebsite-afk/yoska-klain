@@ -1,0 +1,238 @@
+/* Yoske Klein — inner pages (tours, groups, gallery, legal, 404) in the homepage's language (18.10.2026).
+   Same tokens as home.css: Noto Sans Hebrew, condensed 800 display, bay blue, measured orange with navy text, warm white.
+   Loaded after styles.css on every page except the homepage. No scroll scenes here: the pages read top to bottom. */
+
+:root {
+  --bay: #0F2C47;
+  --bay-2: #173E61;
+  --bay-deep: #0A1F33;
+  --ink: #16212D;
+  --ink-2: #4A5563;
+  --or: #E8813A;
+  --or-hover: #F29550;
+  --or-ink: #A4521A;      /* orange text on warm white: 4.9:1 */
+  --or-soft: #FFC79A;     /* orange text on deep blue: 9:1 */
+  --warm: #F6F1E8;
+  --warm-2: #ECE3D3;
+  --paper: #FCFAF6;
+  --stone: #CDBFA6;
+  --stone-ink: #6A5B45;
+  --line: #E2D8C6;
+  --shadow: 0 1px 2px rgb(16 33 50 / .08), 0 10px 24px -8px rgb(16 33 50 / .16), 0 34px 70px -30px rgb(16 33 50 / .32);
+  --sec: clamp(72px, 9vw, 136px);
+  --g: clamp(18px, 4.5vw, 64px);
+  --in: 1320px;
+}
+
+body.page { background: var(--warm); color: var(--ink); font-size: 18px; }
+.page :focus-visible { outline: 3px solid var(--or); outline-offset: 3px; border-radius: 4px; }
+.page .skip { border-radius: 4px; background: var(--bay); }
+.pg__in { width: min(100% - 2 * var(--g), var(--in)); margin-inline: auto; }
+
+/* ---------- type ---------- */
+.h-display { font: 800 clamp(46px, 6.2vw, 100px)/.9 var(--f); font-stretch: 62.5%; letter-spacing: -.004em; color: var(--bay); text-wrap: balance; }
+.h-display em { font-style: normal; color: inherit; } /* one colour on light, as on the homepage */
+.h-display--m { font-size: clamp(40px, 4.6vw, 72px); }
+.h-sub { font: 800 clamp(30px, 2.6vw, 40px)/1 var(--f); font-stretch: 62.5%; color: var(--bay); }
+.page .kicker { font: 600 15px/1.3 var(--f); font-stretch: 87.5%; letter-spacing: .02em; color: var(--or-ink); margin-bottom: 18px; }
+.kicker--light { color: #fff !important; }
+.kicker--light::before { content: ''; display: inline-block; width: 22px; height: 2px; margin-inline-end: 10px; vertical-align: middle; background: var(--or); }
+.page .lead { font-size: clamp(18px, 1.35vw, 21px); line-height: 1.55; color: var(--ink-2); max-width: 46ch; }
+
+/* ---------- buttons and links (same as home.css) ---------- */
+.page .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; }
+.page .btn { border-radius: 4px; min-height: 54px; padding: 0 26px; font: 600 17px/1 var(--f); gap: 10px; }
+.page .btn svg { width: 20px; height: 20px; }
+.page .btn--lg { min-height: 62px; padding: 0 32px; font-size: 19px; }
+.page .btn--orange { background: var(--or); color: var(--bay-deep); }
+.page .btn--orange:hover { background: var(--or-hover); }
+.btn--navy { background: var(--bay); color: #fff; }
+.btn--navy:hover { background: var(--bay-2); }
+.btn--outline { background: transparent; color: var(--bay); box-shadow: inset 0 0 0 1.5px var(--bay); }
+.btn--outline:hover { background: var(--bay); color: #fff; }
+.tlink { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; background: none; border: 0; padding: 0; cursor: pointer;
+  font: 600 16px/1.3 var(--f); color: var(--bay); text-decoration: underline; text-decoration-color: var(--or); text-decoration-thickness: 2px; text-underline-offset: 6px; }
+.tlink:hover { color: var(--or-ink); }
+.tlink svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.tlink--light { color: #fff; }
+.tlink--light:hover { color: var(--or-soft); }
+
+/* ---------- nav: the homepage's solid state, always (there is no sky under it here) ---------- */
+.page .nav { background: rgb(246 241 232 / .96); border-bottom: 0; box-shadow: 0 1px 0 rgb(16 33 50 / .08); -webkit-backdrop-filter: none; backdrop-filter: none; }
+.page .nav.is-solid { background: rgb(246 241 232 / .96); box-shadow: 0 1px 0 rgb(16 33 50 / .08), 0 12px 30px -20px rgb(16 33 50 / .4); }
+.page .nav .wordmark, .page .nav__links a, .page .nav__phone { color: var(--bay); }
+.page .nav .wordmark { font-stretch: 75%; font-weight: 800; font-size: 24px; }
+.page .nav .wordmark span { color: var(--ink-2); }
+.page .nav__links a { font-size: 16px; font-weight: 500; }
+.page .nav__links a:hover { color: var(--or-ink); }
+.page .nav__links a[aria-current='page'] { text-decoration: underline; text-decoration-color: var(--or); text-decoration-thickness: 2px; text-underline-offset: 8px; }
+.page .nav__cta.btn--orange { background: var(--or); color: var(--bay-deep); border-radius: 4px; }
+.page .nav__cta.btn--orange:hover { background: var(--or-hover); }
+.page .nav__menu { background: var(--paper); color: var(--bay); border-radius: 4px; box-shadow: inset 0 0 0 1px var(--line); }
+.page .menu { background: var(--warm); }
+.page .menu a { color: var(--bay); font-stretch: 75%; font-weight: 800; }
+.page .menu .menu__phone { color: var(--or-ink); font-stretch: 100%; font-weight: 600; }
+.page .float-cta { background: var(--or); color: var(--bay-deep); border-radius: 4px; box-shadow: var(--shadow); }
+.page .foot { background: var(--bay-deep); }
+.page .foot .wordmark--foot { font-stretch: 75%; font-weight: 800; font-size: 22px; color: #fff; }
+
+/* =========================================================================================
+   PAGE HERO — the bay panel and the photograph, side by side (the photos are too small to go full-bleed)
+   ========================================================================================= */
+.phero { display: grid; width: auto; margin: 0; gap: 0; align-items: stretch; background: var(--bay); color: #fff; }
+.phero__media { position: relative; overflow: hidden; background: var(--bay-deep); aspect-ratio: 4 / 3; max-height: 58svh; width: 100%; }
+.phero__media img { width: 100%; height: 100%; aspect-ratio: auto; max-height: none; object-fit: cover; border-radius: 0; }
+.phero__copy { display: grid; align-content: end; padding: 40px var(--g) 52px; }
+.phero__title { font: 800 clamp(52px, 13vw, 76px)/.9 var(--f); font-stretch: 62.5%; letter-spacing: -.004em; text-wrap: balance; }
+.phero__title .br { display: block; }
+.phero__title em { font-style: normal; color: var(--or-soft); }
+.phero__lede { margin-top: 22px; font-size: 18px; line-height: 1.55; color: #D7E0E9; max-width: 40ch; }
+.phero__acts { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; margin-top: 30px; }
+@media (min-width: 900px) {
+  .phero { grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); min-height: clamp(540px, calc(86svh - var(--nav-h)), 780px); }
+  .phero__media { order: 2; aspect-ratio: auto; max-height: none; height: 100%; }
+  .phero__media img { position: absolute; inset: 0; }
+  .phero__copy { padding: 64px var(--g) clamp(56px, 8svh, 96px); padding-inline-start: max(var(--g), (100vw - 1180px) / 2); }
+  .phero__title { font-size: clamp(64px, 6.6vw, 112px); }
+  .phero__lede { font-size: clamp(18px, 1.35vw, 21px); }
+}
+
+/* plain page top (gallery, legal, 404) */
+.ptop { padding: clamp(56px, 8vw, 112px) 0 clamp(36px, 4vw, 56px); }
+.ptop .lead { margin-top: 24px; }
+
+/* sections */
+.pg { padding-block: var(--sec); }
+.pg--paper { background: var(--paper); }
+.pg--flush { padding-top: 0; }
+
+/* =========================================================================================
+   TOURS INDEX — the homepage's tour cards, laid out as a catalogue
+   ========================================================================================= */
+.tlist { display: grid; gap: 22px; }
+.tour__in { display: grid; height: 100%; background: var(--paper); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+.tour__img { aspect-ratio: 4 / 3; overflow: hidden; background: var(--warm-2); }
+.tour__img img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s var(--ease); }
+.tour__in:hover .tour__img img { transform: scale(1.03); }
+.tour__body { display: flex; flex-direction: column; padding: 26px 24px 28px; }
+.tour__for { font: 600 14px/1 var(--f); color: var(--or-ink); }
+.tour__name { margin-top: 10px; font: 800 clamp(38px, 3.2vw, 52px)/.95 var(--f); font-stretch: 62.5%; color: var(--bay); }
+.tour__name a { color: inherit; text-decoration: none; }
+.tour__blurb { margin-top: 14px; font-size: 17px; line-height: 1.55; }
+.tour__facts { display: flex; flex-wrap: wrap; gap: 10px 28px; margin: 20px 0 0; padding-top: 16px; border-top: 1px solid var(--line); }
+.tour__facts dt { font-size: 13px; color: var(--stone-ink); }
+.tour__facts dd { margin: 2px 0 0; font-size: 16px; font-weight: 600; color: var(--ink); }
+.tour__acts { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 22px; margin-top: auto; padding-top: 24px; }
+@media (min-width: 760px) { .tlist { grid-template-columns: 1fr 1fr; } .tour--wide { grid-column: 1 / -1; } }
+@media (min-width: 900px) {
+  .tlist { gap: 28px; }
+  .tour--wide .tour__in { grid-template-columns: 52% 1fr; }
+  .tour--wide .tour__img { position: relative; aspect-ratio: auto; min-height: 520px; }
+  .tour--wide .tour__img img { position: absolute; inset: 0; }
+  .tour--wide .tour__body { padding: 44px 48px 40px; justify-content: center; }
+  .tour--wide .tour__name { font-size: clamp(52px, 4.6vw, 76px); }
+  .tour__body { padding: 30px 32px 32px; }
+}
+
+/* name-only tours: no description yet, so no page — a quieter row */
+.more { margin-top: clamp(56px, 6vw, 88px); display: grid; gap: 28px; }
+.more__head p { margin-top: 12px; color: var(--ink-2); }
+.more__list { display: grid; gap: 14px; }
+.more__item { display: grid; grid-template-columns: 112px 1fr; align-items: center; gap: 18px; padding: 12px; padding-inline-end: 22px; border-radius: 6px; background: var(--warm-2); }
+.more__item img { width: 112px; height: 84px; object-fit: cover; border-radius: 4px; }
+.more__item h3 { font: 800 30px/1 var(--f); font-stretch: 62.5%; color: var(--bay); }
+.more__item .tlink { margin-top: 4px; min-height: 40px; }
+@media (min-width: 900px) { .more { grid-template-columns: .8fr 1.2fr; align-items: start; gap: 72px; } .more__list { grid-template-columns: 1fr 1fr; } }
+
+/* =========================================================================================
+   BLUE BAND — the closing call to action (like the homepage's route section)
+   ========================================================================================= */
+.band { background: var(--bay); color: #fff; padding-block: clamp(64px, 8vw, 120px); }
+.band__in { display: grid; gap: 28px; align-items: end; }
+.band .h-display { color: #fff; }
+.band .h-display em { color: var(--or-soft); }
+.band p { font-size: 19px; line-height: 1.55; color: #D7E0E9; max-width: 40ch; }
+.band .actions { margin-top: 26px; }
+@media (min-width: 900px) { .band__in { grid-template-columns: 1.1fr .9fr; gap: 72px; } }
+
+/* =========================================================================================
+   TOUR PAGE — the stops as a numbered route, the facts beside them
+   ========================================================================================= */
+.tp { display: grid; gap: 56px; }
+.tp__route ol { margin-top: 26px; display: grid; counter-reset: s; }
+.tp__route li { counter-increment: s; display: flex; align-items: center; gap: 18px; padding: 14px 0; border-bottom: 1px solid var(--line); font: 700 clamp(22px, 1.9vw, 27px)/1.2 var(--f); font-stretch: 87.5%; color: var(--bay); }
+.tp__route li::before { content: counter(s); flex: none; display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; background: var(--bay); color: #fff; font: 700 15px/1 var(--f); font-stretch: 100%; }
+.tp__route li:first-child::before { background: var(--or); color: var(--bay-deep); }
+.tp__route li.tp__etc { font-weight: 500; color: var(--ink-2); }
+.tp__route li.tp__etc::before { content: '+'; background: transparent; color: var(--ink-2); box-shadow: inset 0 0 0 1.5px var(--stone); }
+.tp__facts { display: grid; align-content: start; }
+.tp__facts dl { display: grid; }
+.tp__facts dl > div { padding: 18px 0; border-top: 1px solid var(--line); }
+.tp__facts dl > div:first-child { border-top: 2px solid var(--bay); }
+.tp__facts dt { font-size: 14px; color: var(--stone-ink); }
+.tp__facts dd { margin: 4px 0 0; font-size: 20px; font-weight: 600; color: var(--ink); }
+.tp__facts dd.tp__soft { font-size: 17px; font-weight: 400; line-height: 1.5; }
+.tp__facts .actions { margin-top: 30px; }
+.tp--solo { max-width: 760px; }
+@media (min-width: 900px) { .tp { grid-template-columns: 1.15fr .85fr; gap: 88px; align-items: start; } .tp--solo { grid-template-columns: 1fr; } .tp__facts { position: sticky; top: calc(var(--nav-h) + 32px); } }
+.duo { margin-top: clamp(56px, 7vw, 104px); display: grid; gap: 14px; }
+.duo figure { overflow: hidden; border-radius: 6px; aspect-ratio: 4 / 3; background: var(--warm-2); }
+.duo img { width: 100%; height: 100%; object-fit: cover; }
+@media (min-width: 760px) { .duo { grid-template-columns: 1.25fr 1fr; } .duo figure:last-child { position: relative; aspect-ratio: auto; } .duo figure:last-child img { position: absolute; inset: 0; } }
+
+/* =========================================================================================
+   GROUPS — three steps, two doors
+   ========================================================================================= */
+.steps3 { display: grid; gap: 30px; counter-reset: s; }
+.steps3 li { counter-increment: s; padding-top: 22px; border-top: 2px solid var(--bay); }
+.steps3 li::before { content: '0' counter(s); display: block; font: 800 64px/1 var(--f); font-stretch: 62.5%; color: var(--or-ink); margin-bottom: 14px; }
+.steps3 h2 { font: 800 clamp(34px, 3vw, 46px)/1 var(--f); font-stretch: 62.5%; color: var(--bay); }
+.steps3 p { margin-top: 10px; font-size: 18px; color: var(--ink-2); }
+@media (max-width: 759px) {
+  .steps3 { gap: 0; }
+  .steps3 li { display: grid; grid-template-columns: 64px 1fr; align-items: baseline; padding: 18px 0 20px; border-top-width: 1px; border-top-color: var(--stone); }
+  .steps3 li:first-child { border-top: 2px solid var(--bay); }
+  .steps3 li::before { grid-row: span 2; font-size: 48px; margin: 0; }
+  .steps3 p { margin-top: 6px; }
+}
+@media (min-width: 760px) { .steps3 { grid-template-columns: repeat(3, 1fr); gap: 48px; } }
+.doors { margin-top: clamp(64px, 7vw, 104px); display: grid; gap: 22px; }
+.door { display: grid; grid-template-rows: auto 1fr; background: var(--paper); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+.door figure { aspect-ratio: 4 / 3; overflow: hidden; background: var(--warm-2); }
+.door img { width: 100%; height: 100%; object-fit: cover; }
+.door__body { display: grid; gap: 22px; align-content: space-between; justify-items: start; padding: 28px 26px 30px; }
+.door h2 { font: 800 clamp(42px, 4vw, 64px)/.92 var(--f); font-stretch: 62.5%; color: var(--bay); }
+.door h2 em { font-style: normal; }
+@media (min-width: 760px) { .doors { grid-template-columns: 1fr 1fr; gap: 28px; } .door__body { padding: 34px 36px 36px; } }
+
+/* =========================================================================================
+   GALLERY
+   ========================================================================================= */
+.ggrid { columns: 3 300px; column-gap: 12px; }
+.gitem { break-inside: avoid; margin-bottom: 12px; overflow: hidden; border-radius: 4px; background: var(--warm-2); }
+.gitem a { display: block; }
+.gitem img { width: 100%; height: auto; transition: transform .7s var(--ease), opacity .3s; }
+.gitem a:hover img { transform: scale(1.03); }
+.page .gitem a:focus-visible { outline-offset: -3px; }
+
+/* =========================================================================================
+   404 and LEGAL
+   ========================================================================================= */
+.lost { min-height: calc(78svh - var(--nav-h)); display: grid; align-content: center; padding-block: var(--sec); }
+.lost .h-display { font-size: clamp(64px, 9vw, 150px); }
+.lost .lead { margin-top: 26px; }
+.lost .actions { margin-top: 36px; }
+.legal { max-width: 820px; padding-bottom: var(--sec); }
+.legal .h-display { font-size: clamp(52px, 6vw, 92px); }
+.legal section { background: none; border-radius: 0; padding: 30px 0 4px; border-top: 1px solid var(--stone); margin-top: 30px; display: grid; gap: 12px; }
+.legal section:first-of-type { border-top: 2px solid var(--bay); }
+.legal h2 { font: 800 clamp(30px, 2.6vw, 38px)/1 var(--f); font-stretch: 62.5%; color: var(--bay); }
+.legal section p, .legal__list { font-size: 18px; line-height: 1.65; color: var(--ink); max-width: 66ch; }
+.legal strong { color: var(--bay); }
+.legal a { color: var(--bay); font-weight: 600; text-decoration-color: var(--or); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.legal__list { list-style: disc; padding-inline-start: 1.2em; display: grid; gap: 8px; }
+.legal__list li::marker { color: var(--or-ink); }
+.tbd { background: var(--or-soft); color: var(--bay-deep); padding: 1px 6px; border-radius: 3px; font-weight: 600; }
+
+@media (max-width: 899px) { .page .nav .wordmark { font-size: 21px; } }
+@media (prefers-reduced-motion: reduce) { .tour__img img, .gitem img { transition: none; } }

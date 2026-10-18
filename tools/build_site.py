@@ -186,7 +186,7 @@ def _v(rel):
     return hashlib.sha256((ROOT / rel).read_bytes()).hexdigest()[:10]
 
 
-def page(path, title, description, body, current='', body_class='page', preload='', css='', js='app.js'):
+def page(path, title, description, body, current='', body_class='page', preload='', css='pages.css', js='app.js'):
     html = f'''<!doctype html>
 <html lang="he" dir="rtl">
 <head>
@@ -226,13 +226,26 @@ def page(path, title, description, body, current='', body_class='page', preload=
     return path
 
 
-def page_hero(kicker, title_html, lede, photo, alt, pos='50% 50%'):
+def page_hero(kicker, title_html, lede, photo, alt, pos='50% 50%', acts=''):
+    """Inner-page opening: the bay-blue panel with the condensed headline beside the photograph."""
+    acts = f'\n        <div class="phero__acts">{acts}</div>' if acts else ''
     return f'''    <section class="phero">
-      <div class="phero__media">{img(photo, alt, sizes='100vw', eager=True, extra=f' style="object-position:{pos}"')}</div>
+      <div class="phero__media">{img(photo, alt, sizes='(min-width: 900px) 52vw, 100vw', eager=True, extra=f' style="object-position:{pos}"')}</div>
       <div class="phero__copy">
-        <p class="kicker">{kicker}</p>
-        <h1 class="display display--xl">{title_html}</h1>
-        <p class="lead">{lede}</p>
+        <p class="kicker kicker--light">{kicker}</p>
+        <h1 class="phero__title">{title_html}</h1>
+        <p class="phero__lede">{lede}</p>{acts}
+      </div>
+    </section>'''
+
+
+def band(title_html, text, button):
+    """Closing call to action on bay blue."""
+    para = f'<p>{text}</p>' if text else ''
+    return f'''    <section class="band">
+      <div class="pg__in band__in">
+        <h2 class="h-display h-display--m">{title_html}</h2>
+        <div>{para}<div class="actions">{button}</div></div>
       </div>
     </section>'''
 
@@ -446,59 +459,91 @@ def board_rows():
 
 
 # ------------------------------------------------------------------ tours
+def tour_facts(t):
+    facts = [('משך', t.get('duration') or 'נקבע בתיאום')]
+    facts.append(('מבנה', t['shape']) if t.get('shape') else ('מתאים ל', t.get('audience', 'כל הקבוצות')))
+    facts.append(('יציאה', 'בתיאום מראש'))
+    return ''.join(f'<div><dt>{a}</dt><dd>{b}</dd></div>' for a, b in facts)
+
+
 def tours_index():
-    cards = []
-    for t in TOURS:
+    cards, more = [], []
+    for k, t in enumerate(TOURS):
         if t.get('blurb'):
-            action = f'<a class="btn btn--primary" href="/tours/{t["slug"]}.html">לפרטי הסיור {ARROW}</a>'
-            text = f'<p>{t["blurb"]}</p>'
+            who = 'למשפחות עם ילדים' if t.get('audience') else 'לכל הקבוצות'
+            wide = ' tour--wide' if k == 0 else ''
+            sizes = '(min-width: 900px) 52vw, 92vw' if k == 0 else '(min-width: 760px) 46vw, 92vw'
+            cards.append(f'''        <li class="tour{wide}">
+          <article class="tour__in" aria-labelledby="t-{t['slug']}">
+            <figure class="tour__img">{img(t['photo'], t['alt'], sizes=sizes, extra=f' style="object-position:{t["pos"]}"')}</figure>
+            <div class="tour__body">
+              <p class="tour__for">{who}</p>
+              <h2 class="tour__name" id="t-{t['slug']}"><a href="/tours/{t['slug']}.html">{t['name']}</a></h2>
+              <p class="tour__blurb">{t['blurb']}</p>
+              <dl class="tour__facts">{tour_facts(t)}</dl>
+              <div class="tour__acts">
+                <a class="btn btn--navy" href="/tours/{t['slug']}.html">לפרטי הסיור<span class="visually-hidden"> {t['name']}</span> {ARROW}</a>
+                <a class="tlink" href="{wa_tour(t['name'])}" target="_blank" rel="noopener">בדיקת מועד בוואטסאפ<span class="visually-hidden"> ל{t['name']}</span></a>
+              </div>
+            </div>
+          </article>
+        </li>''')
         else:
-            action = f'<a class="btn btn--quiet" href="{wa_tour(t["name"])}" target="_blank" rel="noopener">{CHAT} לשאול על הסיור</a>'
-            text = ''
-        cards.append(f'''        <article class="tourcard">
-          <div class="tourcard__media win">{img(t['photo'], '', sizes='(min-width: 900px) 30vw, 92vw', extra=f' style="object-position:{t["pos"]}"')}<span class="win__rim"></span></div>
-          <h2 class="display display--card">{t['name']}</h2>
-          {text}
-          {action}
-        </article>''')
+            more.append(f'''          <li class="more__item">{img(t['photo'], '', sizes='112px', extra=f' style="object-position:{t["pos"]}"')}
+            <div><h3>{t['name']}</h3><a class="tlink" href="{wa_tour(t['name'])}" target="_blank" rel="noopener">{CHAT} לשאול על הסיור<span class="visually-hidden"> {t['name']}</span></a></div>
+          </li>''')
     body = page_hero('סיורים בחיפה', 'הסיורים <span class="br">בחיפה.</span>',
                      'חמישה סיורים קבועים, מהגנים והתצפיות ועד העיר התחתית. בחרו סיור ותאמו איתי מועד, או ספרו לי מה אתם מחפשים ונבחר יחד.',
                      'yoske-guiding-view', 'יוסק׳ה מדבר אל קבוצה ליד המעקה, העיר והמפרץ מאחוריו', '50% 62%') + f'''
-    <section class="wrap">
-      <div class="tourgrid">
+    <section class="pg">
+      <div class="pg__in">
+        <ul class="tlist">
 {chr(10).join(cards)}
+        </ul>
+        <div class="more">
+          <div class="more__head"><h2 class="h-sub">עוד סיורים</h2><p>הפרטים על הסיורים האלה בשיחה.</p></div>
+          <ul class="more__list">
+{chr(10).join(more)}
+          </ul>
+        </div>
       </div>
-      <div class="callout">
-        <h2 class="display display--m"><span class="c-orange">לא בטוחים</span> <span class="c-blue">מה מתאים לכם?</span></h2>
-        <p>ספרו לי מי מגיע ומה מסקרן אתכם, ואעזור לכם למצוא את הכיוון המתאים.</p>
-        <a class="btn btn--primary btn--lg" href="{WA['fit']}" target="_blank" rel="noopener">יוסק׳ה, מה מתאים לנו? {ARROW}</a>
-      </div>
-    </section>'''
+    </section>
+''' + band('<span class="c-orange">לא בטוחים</span> <span class="c-blue">מה מתאים לכם?</span>',
+           'ספרו לי מי מגיע ומה מסקרן אתכם, ואעזור לכם למצוא את הכיוון המתאים.',
+           f'<a class="btn btn--orange btn--lg" href="{WA["fit"]}" target="_blank" rel="noopener">יוסק׳ה, מה מתאים לנו? {ARROW}</a>')
     return page('tours/index.html', 'סיורים בחיפה | יוסק׳ה קליין', 'הסיורים של יוסק׳ה קליין בחיפה.', body, current='tours')
 
 
 def tour_page(t):
     facts = []
-    if t.get('stops'):
-        facts.append('<div class="facts__wide"><dt>בין התחנות</dt><dd><ul class="stops">' + ''.join(f'<li>{x}</li>' for x in t['stops']) + '<li>ועוד</li></ul></dd></div>')
     if t.get('duration'):
         facts.append(f'<div><dt>משך משוער</dt><dd>{t["duration"]}</dd></div>')
     if t.get('shape'):
         facts.append(f'<div><dt>מבנה</dt><dd>{t["shape"]}</dd></div>')
     if t.get('audience'):
         facts.append(f'<div><dt>למי זה מתאים</dt><dd>{t["audience"]}</dd></div>')
-    facts.append('<div><dt>מחיר ומועדים</dt><dd>תלויים בקבוצה ובתאריך. דברו איתי ונברר יחד.</dd></div>')
-    duo = ''.join(f'<figure class="win">{img(n, alt, sizes="(min-width: 900px) 30vw, 92vw")}<span class="win__rim"></span></figure>' for n, alt in t['extra'])
+    facts.append('<div><dt>מחיר ומועדים</dt><dd class="tp__soft">תלויים בקבוצה ובתאריך. דברו איתי ונברר יחד.</dd></div>')
+    route = ''
+    if t.get('stops'):
+        route = ('<div class="tp__route"><h2 class="h-sub">בין התחנות</h2><ol>' + ''.join(f'<li>{x}</li>' for x in t['stops'])
+                 + '<li class="tp__etc">ועוד</li></ol></div>')
+    duo = ''.join(f'<figure>{img(n, alt, sizes="(min-width: 760px) 50vw, 92vw")}</figure>' for n, alt in t['extra'])
+    book = f'<a class="btn btn--orange btn--lg" href="{wa_tour(t["name"])}" target="_blank" rel="noopener">לתאם את הסיור {ARROW}</a>'
     body = page_hero('סיור בחיפה', f'<span class="c-blue">{t["name"]}</span>', t['blurb'], t['photo'], t['alt'], t['pos']) + f'''
-    <section class="wrap wrap--narrow">
-      <dl class="facts">
-        {chr(10).join(facts)}
-      </dl>
-      <div class="actions">
-        <a class="btn btn--primary btn--lg" href="{wa_tour(t['name'])}" target="_blank" rel="noopener">לתאם את הסיור {ARROW}</a>
-        <a class="btn btn--quiet btn--lg" href="/tours/">לכל הסיורים בחיפה</a>
+    <section class="pg">
+      <div class="pg__in">
+        <div class="tp{'' if route else ' tp--solo'}">
+          {route}
+          <div class="tp__facts">
+            <dl>{''.join(facts)}</dl>
+            <div class="actions">
+              {book}
+              <a class="tlink" href="/tours/">לכל הסיורים בחיפה</a>
+            </div>
+          </div>
+        </div>
+        <div class="duo">{duo}</div>
       </div>
-      <div class="duo">{duo}</div>
     </section>'''
     return page(f'tours/{t["slug"]}.html', f'{t["name"]} | יוסק׳ה קליין', t['blurb'], body, current='tours')
 
@@ -508,23 +553,29 @@ def groups():
     body = page_hero('למשפחות ולארגונים', 'יום לקבוצה, <span class="br">שנבנה סביב האנשים.</span>',
                      'משפחה, חברים או צוות מהעבודה: ספרו לי מי מגיע, מה מעניין אתכם וכמה זמן יש לכם. משם נבנה יחד מסלול שמתאים לקבוצה, לקצב ולמטרה של היום.',
                      'heart-family', 'משפחות וילדים מצטלמים בתוך פסל הלב הצהוב, הים ברקע', '50% 42%') + f'''
-    <section class="wrap">
-      <ol class="steps">
-        <li><h2 class="display display--card">מכירים</h2><p>מתחילים בשיחה עליכם.</p></li>
-        <li><h2 class="display display--card">מתכננים</h2><p>בוחרים כיוון ומדייקים את הפרטים.</p></li>
-        <li><h2 class="display display--card">יוצאים</h2><p>נפגשים לחוויה שתוכננה עבורכם.</p></li>
-      </ol>
-      <div class="choice">
-        <article class="choice__card">
-          <figure class="win">{img('heart-wide', 'קבוצת משפחות עם יוסק׳ה ליד פסל הלב הצהוב מול המפרץ', sizes='(min-width: 900px) 44vw, 92vw')}<span class="win__rim"></span></figure>
-          <h2 class="display display--m"><span class="c-orange">משפחה</span> <span class="c-blue">וחברים</span></h2>
-          <a class="btn btn--primary btn--lg" href="{WA['family']}" target="_blank" rel="noopener">טיול למשפחה ולחברים {ARROW}</a>
-        </article>
-        <article class="choice__card">
-          <figure class="win">{img('red-sculpture-selfie', 'יוסק׳ה בסלפי, מאחוריו קבוצה ליד פסל לב אדום מול המפרץ', sizes='(min-width: 900px) 44vw, 92vw')}<span class="win__rim"></span></figure>
-          <h2 class="display display--m"><span class="c-blue">צוות</span> <span class="c-orange">או ארגון</span></h2>
-          <a class="btn btn--primary btn--lg" href="{WA['org']}" target="_blank" rel="noopener">יום לצוות או לארגון {ARROW}</a>
-        </article>
+    <section class="pg">
+      <div class="pg__in">
+        <ol class="steps3">
+          <li><h2>מכירים</h2><p>מתחילים בשיחה עליכם.</p></li>
+          <li><h2>מתכננים</h2><p>בוחרים כיוון ומדייקים את הפרטים.</p></li>
+          <li><h2>יוצאים</h2><p>נפגשים לחוויה שתוכננה עבורכם.</p></li>
+        </ol>
+        <div class="doors">
+          <article class="door">
+            <figure>{img('heart-wide', 'קבוצת משפחות עם יוסק׳ה ליד פסל הלב הצהוב מול המפרץ', sizes='(min-width: 760px) 46vw, 92vw')}</figure>
+            <div class="door__body">
+              <h2><span class="c-orange">משפחה</span> <span class="c-blue">וחברים</span></h2>
+              <a class="btn btn--orange btn--lg" href="{WA['family']}" target="_blank" rel="noopener">טיול למשפחה ולחברים {ARROW}</a>
+            </div>
+          </article>
+          <article class="door">
+            <figure>{img('red-sculpture-selfie', 'יוסק׳ה בסלפי, מאחוריו קבוצה ליד פסל לב אדום מול המפרץ', sizes='(min-width: 760px) 46vw, 92vw')}</figure>
+            <div class="door__body">
+              <h2><span class="c-blue">צוות</span> <span class="c-orange">או ארגון</span></h2>
+              <a class="btn btn--orange btn--lg" href="{WA['org']}" target="_blank" rel="noopener">יום לצוות או לארגון {ARROW}</a>
+            </div>
+          </article>
+        </div>
       </div>
     </section>'''
     return page('groups.html', 'למשפחות ולארגונים | יוסק׳ה קליין', 'טיולים וימי חוויה בהתאמה אישית למשפחות, לחברים, לצוותים ולארגונים.', body, current='groups')
@@ -532,32 +583,32 @@ def groups():
 
 def gallery():
     items = '\n'.join(
-        f'        <figure class="gitem gitem--{shape} win"><a href="/assets/photos/{n}.jpg" aria-label="לפתיחת התמונה בגודל מלא: {escape(alt)}">{img(n, alt, sizes="(min-width: 900px) 33vw, 92vw")}</a><span class="win__rim"></span></figure>'
+        f'        <figure class="gitem gitem--{shape}"><a href="/assets/photos/{n}.jpg" aria-label="לפתיחת התמונה בגודל מלא: {escape(alt)}">{img(n, alt, sizes="(min-width: 900px) 33vw, 92vw")}</a></figure>'
         for n, alt, shape in GALLERY)
-    body = f'''    <section class="wrap wrap--top">
+    body = f'''    <header class="pg__in ptop">
       <p class="kicker">גלריה</p>
-      <h1 class="display display--xl"><span class="c-orange">ככה זה נראה</span> <span class="c-blue">כשאנחנו יוצאים לדרך.</span></h1>
+      <h1 class="h-display"><span class="c-orange">ככה זה נראה</span> <span class="c-blue">כשאנחנו יוצאים לדרך.</span></h1>
       <p class="lead">האנשים, המקומות והרגעים שביניהם. כמה תמונות מהטיולים שלי, כדי שתוכלו להרגיש קצת מהאווירה עוד לפני שנפגשים.</p>
+    </header>
+    <section class="pg__in pg pg--flush" aria-label="תמונות מהטיולים">
       <div class="ggrid">
 {items}
       </div>
-      <div class="callout">
-        <h2 class="display display--m"><span class="c-blue">רוצים להיות</span> <span class="c-orange">בתמונה הבאה?</span></h2>
-        <a class="btn btn--primary btn--lg" href="{WA['general']}" target="_blank" rel="noopener">בואו נטייל יחד {ARROW}</a>
-      </div>
-    </section>'''
+    </section>
+''' + band('<span class="c-blue">רוצים להיות</span> <span class="c-orange">בתמונה הבאה?</span>', '',
+           f'<a class="btn btn--orange btn--lg" href="{WA["general"]}" target="_blank" rel="noopener">בואו נטייל יחד {ARROW}</a>')
     return page('gallery.html', 'גלריה | יוסק׳ה קליין', 'תמונות מהטיולים של יוסק׳ה קליין.', body, current='gallery')
 
 
 def not_found():
-    body = f'''    <section class="wrap wrap--top lost">
+    body = f'''    <section class="pg__in lost">
       <p class="kicker">404</p>
-      <h1 class="display display--xl"><span class="c-blue">העמוד הזה</span> <span class="c-orange">יצא לטייל.</span></h1>
+      <h1 class="h-display"><span class="c-blue">העמוד הזה</span> <span class="c-orange">יצא לטייל.</span></h1>
       <p class="lead">לא מצאנו את מה שחיפשתם. אפשר לחזור לדף הבית, לעבור לסיורים בחיפה, או פשוט לכתוב לי.</p>
       <div class="actions">
-        <a class="btn btn--primary btn--lg" href="/">לדף הבית {ARROW}</a>
-        <a class="btn btn--quiet btn--lg" href="/tours/">לסיורים בחיפה</a>
-        <a class="btn btn--quiet btn--lg" href="{WA['general']}" target="_blank" rel="noopener">{CHAT} נדבר בוואטסאפ</a>
+        <a class="btn btn--orange btn--lg" href="/">לדף הבית {ARROW}</a>
+        <a class="btn btn--outline btn--lg" href="/tours/">לסיורים בחיפה</a>
+        <a class="tlink" href="{WA['general']}" target="_blank" rel="noopener">{CHAT} נדבר בוואטסאפ</a>
       </div>
     </section>'''
     return page('404.html', 'העמוד לא נמצא | יוסק׳ה קליין', 'העמוד לא נמצא.', body)
@@ -574,9 +625,9 @@ TEL = f'<a href="tel:+{PHONE_INTL}" dir="ltr">{PHONE_HUMAN}</a>'
 
 
 def legal_page(path, title, desc, intro, sections):
-    secs = '\n'.join(f'      <section><h2 class="display display--card">{h}</h2>{c}</section>' for h, c in sections)
-    body = (f'    <article class="wrap wrap--top legal">\n      <p class="kicker">עודכן לאחרונה: {LEGAL_UPDATED}</p>\n'
-            f'      <h1 class="display display--m">{title}</h1>\n      <p class="lead">{intro}</p>\n{secs}\n    </article>')
+    secs = '\n'.join(f'      <section><h2>{h}</h2>{c}</section>' for h, c in sections)
+    body = (f'    <article class="pg__in ptop legal">\n      <p class="kicker">עודכן לאחרונה: {LEGAL_UPDATED}</p>\n'
+            f'      <h1 class="h-display">{title}</h1>\n      <p class="lead">{intro}</p>\n{secs}\n    </article>')
     return page(path, f'{title} | יוסק׳ה קליין', desc, body)
 
 

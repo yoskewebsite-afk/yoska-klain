@@ -13,6 +13,7 @@
   <link rel="preload" href="/fonts/noto-sans-hebrew-wdth-wght-hebrew.woff2" as="font" type="font/woff2" crossorigin>
   
   <link rel="stylesheet" href="/styles.css?v=bcd8dd879f">
+  <link rel="stylesheet" href="/pages.css?v=7c2cfb7d30">
 </head>
 <body class="page">
   <a class="skip" href="#main">דילוג לתוכן</a>
@@ -26,25 +27,27 @@
   <nav class="menu" id="menu" aria-label="תפריט" hidden><a href="/#tours" aria-current="page">הסיורים</a><a href="/#about">מי אני</a><a href="/groups.html">למשפחות ולארגונים</a><a href="/#faq">שאלות</a><a href="/#contact">יצירת קשר</a><a class="menu__phone" href="tel:+972544361667" dir="ltr">054-4361667</a></nav>
   <main id="main">
     <section class="phero">
-      <div class="phero__media"><img src="/assets/photos/clock-tower-sm.jpg" srcset="/assets/photos/clock-tower-xs.jpg 480w, /assets/photos/clock-tower-sm.jpg 820w, /assets/photos/clock-tower.jpg 1536w" sizes="100vw" width="1536" height="1536" alt="מגדל שעון מאבן מול שמיים כחולים" fetchpriority="high" style="object-position:50% 35%"></div>
+      <div class="phero__media"><img src="/assets/photos/clock-tower-sm.jpg" srcset="/assets/photos/clock-tower-xs.jpg 480w, /assets/photos/clock-tower-sm.jpg 820w, /assets/photos/clock-tower.jpg 1536w" sizes="(min-width: 900px) 52vw, 100vw" width="1536" height="1536" alt="מגדל שעון מאבן מול שמיים כחולים" fetchpriority="high" style="object-position:50% 35%"></div>
       <div class="phero__copy">
-        <p class="kicker">סיור בחיפה</p>
-        <h1 class="display display--xl">חיפה של מטה</h1>
-        <p class="lead">העיר שלמטה: בניין המפרש, מגדל השעון, כיכר פריז, השוק הטורקי, הנמל, המושבה הגרמנית ועוד.</p>
+        <p class="kicker kicker--light">סיור בחיפה</p>
+        <h1 class="phero__title">חיפה של מטה</h1>
+        <p class="phero__lede">העיר שלמטה: בניין המפרש, מגדל השעון, כיכר פריז, השוק הטורקי, הנמל, המושבה הגרמנית ועוד.</p>
       </div>
     </section>
-    <section class="wrap wrap--narrow">
-      <dl class="facts">
-        <div class="facts__wide"><dt>בין התחנות</dt><dd><ul class="stops"><li>בניין המפרש</li><li>מגדל השעון</li><li>כיכר פריז</li><li>השוק הטורקי</li><li>הנמל</li><li>המושבה הגרמנית</li><li>ועוד</li></ul></dd></div>
-<div><dt>משך משוער</dt><dd>כ-2.5 שעות</dd></div>
-<div><dt>מבנה</dt><dd>סיור לא מעגלי</dd></div>
-<div><dt>מחיר ומועדים</dt><dd>תלויים בקבוצה ובתאריך. דברו איתי ונברר יחד.</dd></div>
-      </dl>
-      <div class="actions">
-        <a class="btn btn--primary btn--lg" href="https://wa.me/972544361667?text=%D7%94%D7%99%D7%99%20%D7%99%D7%95%D7%A1%D7%A7%D7%B3%D7%94%2C%20%D7%A0%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%94%D7%A1%D7%99%D7%95%D7%A8%20%D7%B4%D7%97%D7%99%D7%A4%D7%94%20%D7%A9%D7%9C%20%D7%9E%D7%98%D7%94%D7%B4." target="_blank" rel="noopener">לתאם את הסיור <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg></a>
-        <a class="btn btn--quiet btn--lg" href="/tours/">לכל הסיורים בחיפה</a>
+    <section class="pg">
+      <div class="pg__in">
+        <div class="tp">
+          <div class="tp__route"><h2 class="h-sub">בין התחנות</h2><ol><li>בניין המפרש</li><li>מגדל השעון</li><li>כיכר פריז</li><li>השוק הטורקי</li><li>הנמל</li><li>המושבה הגרמנית</li><li class="tp__etc">ועוד</li></ol></div>
+          <div class="tp__facts">
+            <dl><div><dt>משך משוער</dt><dd>כ-2.5 שעות</dd></div><div><dt>מבנה</dt><dd>סיור לא מעגלי</dd></div><div><dt>מחיר ומועדים</dt><dd class="tp__soft">תלויים בקבוצה ובתאריך. דברו איתי ונברר יחד.</dd></div></dl>
+            <div class="actions">
+              <a class="btn btn--orange btn--lg" href="https://wa.me/972544361667?text=%D7%94%D7%99%D7%99%20%D7%99%D7%95%D7%A1%D7%A7%D7%B3%D7%94%2C%20%D7%A0%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%94%D7%A1%D7%99%D7%95%D7%A8%20%D7%B4%D7%97%D7%99%D7%A4%D7%94%20%D7%A9%D7%9C%20%D7%9E%D7%98%D7%94%D7%B4." target="_blank" rel="noopener">לתאם את הסיור <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg></a>
+              <a class="tlink" href="/tours/">לכל הסיורים בחיפה</a>
+            </div>
+          </div>
+        </div>
+        <div class="duo"><figure><img src="/assets/photos/clock-tower-sm.jpg" srcset="/assets/photos/clock-tower-xs.jpg 480w, /assets/photos/clock-tower-sm.jpg 820w, /assets/photos/clock-tower.jpg 1536w" sizes="(min-width: 760px) 50vw, 92vw" width="1536" height="1536" alt="מגדל שעון מאבן מול שמיים כחולים" loading="lazy" decoding="async"></figure><figure><img src="/assets/photos/stone-street-sm.jpg" srcset="/assets/photos/stone-street-xs.jpg 480w, /assets/photos/stone-street-sm.jpg 820w, /assets/photos/stone-street.jpg 1455w" sizes="(min-width: 760px) 50vw, 92vw" width="1455" height="1436" alt="רחוב עם בנייני אבן ישנים" loading="lazy" decoding="async"></figure></div>
       </div>
-      <div class="duo"><figure class="win"><img src="/assets/photos/clock-tower-sm.jpg" srcset="/assets/photos/clock-tower-xs.jpg 480w, /assets/photos/clock-tower-sm.jpg 820w, /assets/photos/clock-tower.jpg 1536w" sizes="(min-width: 900px) 30vw, 92vw" width="1536" height="1536" alt="מגדל שעון מאבן מול שמיים כחולים" loading="lazy" decoding="async"><span class="win__rim"></span></figure><figure class="win"><img src="/assets/photos/stone-street-sm.jpg" srcset="/assets/photos/stone-street-xs.jpg 480w, /assets/photos/stone-street-sm.jpg 820w, /assets/photos/stone-street.jpg 1455w" sizes="(min-width: 900px) 30vw, 92vw" width="1455" height="1436" alt="רחוב עם בנייני אבן ישנים" loading="lazy" decoding="async"><span class="win__rim"></span></figure></div>
     </section>
   </main>
   <footer class="foot">
