@@ -22,27 +22,34 @@
     const { desk } = ctx.conditions;
 
     /* ---------- HERO: hold → the clouds rise and swallow Yoske → «מקרוב» between sky and clouds → into the white ---------- */
-    const h = gsap.timeline({ defaults: { ease: 'none' }, scrollTrigger: { trigger: hx, start: 'top top', end: 'bottom bottom', scrub: .8, invalidateOnRefresh: true } });
+    const h = gsap.timeline({ defaults: { ease: 'none' }, scrollTrigger: { trigger: hx, start: 'top top', end: 'bottom bottom', scrub: true, invalidateOnRefresh: true } });
+    // 1. the camera descends over the bay in one continuous move (the North Face pan, reel 2.0–3.0s): the photo slides up,
+    //    the headline leaves faster than the photo, Yoske a little slower (he stands closer to us)
     h.to('[data-hx-cue]', { opacity: 0, duration: .04 }, 0)
-      .to('[data-hx-sky]', { y: () => vh() * (desk ? .05 : .03), scale: 1.05, duration: .5, ease: 'power1.inOut' }, .06)
-      .to('[data-hx-shade]', { opacity: 0, duration: .25 }, .1)
-      .to('[data-hx-hero]', { y: () => -vh() * .32, opacity: 0, duration: .22, ease: 'power2.in' }, .06)
-      .to('[data-hx-yoske]', { y: () => -vh() * .06, scale: .97, duration: .4, ease: 'power1.in' }, .06)
-      .fromTo('[data-hx-clouds]', { y: 0 }, { y: () => -vh() * (desk ? .36 : .44), duration: .4, ease: 'power2.out' }, .08)
-      .fromTo('[data-hx-wisps]', { y: 0 }, { y: () => -vh() * 1.35, duration: .5, ease: 'power1.inOut' }, .12)
-      .to('[data-hx-yoske]', { opacity: 0, duration: .07 }, .27)
-      .fromTo('[data-hx-closer]', { opacity: 0, y: 70, filter: 'blur(10px)' }, { opacity: 1, y: 0, filter: 'blur(0px)', duration: .14, ease: 'power3.out' }, .36)
-      .fromTo('[data-hx-fog]', { opacity: 0 }, { opacity: 1, duration: .12 }, .44)
-      .fromTo('[data-hx-cols]', { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: .12, ease: 'power3.out' }, .48)
-      .to('[data-hx-clouds]', { y: () => -vh() * 1.75, duration: .24, ease: 'power2.in' }, .76)
-      .to('[data-hx-sky]', { y: () => -vh() * .3, duration: .24, ease: 'power2.in' }, .76)
-      .to('[data-hx-closer]', { y: () => -vh() * .35, opacity: 0, duration: .18, ease: 'power2.in' }, .78)
-      .to('[data-hx-cols]', { y: () => -vh() * .5, opacity: 0, duration: .16, ease: 'power2.in' }, .8)
-      .to('[data-hx-fog]', { y: () => -vh() * .9, duration: .24, ease: 'power2.in' }, .76);
+      .to('[data-hx-sky]', { yPercent: -21, duration: .34, ease: 'sine.inOut' }, 0)
+      .to('[data-hx-hero]', { y: () => -vh() * .55, duration: .26, ease: 'sine.in' }, .02)
+      .to('[data-hx-hero]', { opacity: 0, duration: .1, ease: 'sine.in' }, .06)
+      .to('[data-hx-yoske]', { y: () => -vh() * .12, duration: .4, ease: 'sine.inOut' }, 0)
+      .to('[data-hx-shade]', { opacity: 0, duration: .3 }, .04)
+      // 2. the cloud bank rises like the waterline and swallows Yoske; «מקרוב» arrives between the sky and the clouds
+      .fromTo('[data-hx-clouds]', { y: 0 }, { y: () => -vh() * (desk ? .36 : .44), duration: .32, ease: 'sine.out' }, .24)
+      .fromTo('[data-hx-wisps]', { y: 0 }, { y: () => -vh() * 1.35, duration: .42, ease: 'sine.inOut' }, .22)
+      .to('[data-hx-yoske]', { opacity: 0, duration: .08 }, .36)
+      .fromTo('[data-hx-closer]', { opacity: 0, y: 70 }, { opacity: 1, y: 0, duration: .12, ease: 'sine.out' }, .4)
+      .fromTo('[data-hx-fog]', { opacity: 0 }, { opacity: 1, duration: .1 }, .48)
+      .fromTo('[data-hx-cols]', { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: .1, ease: 'sine.out' }, .5)
+      // 3. hold, then the clouds close over everything and the page continues in the white
+      .to('[data-hx-clouds]', { y: () => -vh() * 1.75, duration: .22, ease: 'sine.in' }, .78)
+      .to('[data-hx-sky]', { yPercent: -30, duration: .22, ease: 'sine.in' }, .78)
+      .to('[data-hx-closer]', { y: () => -vh() * .35, opacity: 0, duration: .18, ease: 'sine.in' }, .8)
+      .to('[data-hx-cols]', { y: () => -vh() * .5, opacity: 0, duration: .16, ease: 'sine.in' }, .82)
+      .to('[data-hx-fog]', { y: () => -vh() * .9, duration: .22, ease: 'sine.in' }, .78);
 
     /* ---------- FILM backdrop: one photograph; the clouds lift off it between the trail and the process ---------- */
-    const fc = $('[data-film-clouds]');
-    gsap.fromTo(fc, { y: () => vh() }, { y: () => -(fc.offsetHeight + 40), ease: 'power1.inOut', scrollTrigger: { trigger: '[data-proc]', start: 'top 120%', end: 'top 10%', scrub: .6, invalidateOnRefresh: true } });
+    // the bay stays under the whole film: very faint behind the trail (as before), then it comes through for the process
+    const wash = $('[data-film-wash]');
+    gsap.fromTo(wash, { opacity: 1 }, { opacity: .86, ease: 'none', scrollTrigger: { trigger: '[data-trail]', start: 'top top', end: 'top -30%', scrub: true } });
+    gsap.fromTo(wash, { opacity: .86 }, { opacity: 0, ease: 'none', immediateRender: false, scrollTrigger: { trigger: '[data-proc]', start: 'top 100%', end: 'top 15%', scrub: true } });
     gsap.fromTo('[data-film-shot]', { yPercent: -2, scale: 1.08 }, { yPercent: 2, scale: 1, ease: 'none', scrollTrigger: { trigger: film, start: 'top top', end: 'bottom bottom', scrub: true } });
 
     /* ---------- A. TRAIL: the paths draw in, the photos travel along them ---------- */
@@ -59,7 +66,7 @@
         gsap.set(d, { x, y, '--o': Math.min(1, Math.max(0, ((desk ? Math.max(cx, cy) : cy) - 1.15) / .15)) });
       });
     };
-    const tt = gsap.timeline({ scrollTrigger: { trigger: '[data-trail]', start: 'top top', end: 'bottom bottom', scrub: .6, onUpdate: s => placeDots(s.progress), onRefresh: s => placeDots(s.progress) } });
+    const tt = gsap.timeline({ scrollTrigger: { trigger: '[data-trail]', start: 'top top', end: 'bottom bottom', scrub: true, onUpdate: s => placeDots(s.progress), onRefresh: s => placeDots(s.progress) } });
     tt.fromTo(svg, { clipPath: 'inset(0 0 0 100%)' }, { clipPath: 'inset(0 0 0 0%)', duration: .4, ease: 'none' }, 0)
       .from(dots, { scale: 0, duration: .12, stagger: .04, ease: 'back.out(2.4)' }, .05)
       .from('[data-trail-text]', { y: 50, opacity: 0, duration: .18, stagger: .08, ease: 'power3.out' }, .08)
