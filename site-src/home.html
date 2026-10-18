@@ -1,174 +1,278 @@
     <svg width="0" height="0" class="sprite" aria-hidden="true" focusable="false">
-      <symbol id="i-chev" viewBox="0 0 24 24"><path d="m15 5-7 7 7 7"/></symbol>
       <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M19 12H5"/><path d="m11 6-6 6 6 6"/></symbol>
-      <symbol id="i-diag" viewBox="0 0 24 24"><path d="M17 7 7 17"/><path d="M7 9v8h8"/></symbol>
-      <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+      <symbol id="i-out" viewBox="0 0 24 24"><path d="M17 7 7 17"/><path d="M9 7h8v8"/></symbol>
       <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol>
       <symbol id="i-chat" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol>
-      <symbol id="i-fb" viewBox="0 0 24 24"><path d="M15 8h-2a1 1 0 0 0-1 1v3h3l-.5 3H12v6"/><circle cx="12" cy="12" r="9.5"/></symbol>
-      <symbol id="gondola" viewBox="0 0 44 64"><path d="M22 0v14M14 14h16M22 14v6"/><rect x="5" y="20" width="34" height="36" rx="7" class="g-body"/><path d="M5 45h34" class="g-band"/><rect x="10" y="25" width="10" height="12" rx="2"/><rect x="24" y="25" width="10" height="12" rx="2"/></symbol>
+      <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
     </svg>
 
-    <!-- ============ 1. HERO — post BpZ9TdMl08b (The North Face «Explore → Deeper»), 1:1, mirrored for RTL.
-         One word sits on the water line; the scroll dives under the surface; «לעומק» on the light, three columns, the big thin line, photo with the colour block. ============ -->
-    <section class="nf" id="top" aria-labelledby="nf-title" data-nf>
-      <div class="nf__stage">
-        <div class="nf__top" data-nf-top><img src="/assets/scenes/nf-top.webp" srcset="/assets/scenes/nf-top-960.webp 960w, /assets/scenes/nf-top.webp 1848w" sizes="100vw" width="1848" height="1040" alt="מפרץ חיפה, הנמל והעיר בשעת ערב" fetchpriority="high"></div>
-        <div class="nf__deep" data-nf-deep aria-hidden="true"><img src="/assets/scenes/nf-deep.webp" width="1440" height="1344" alt="" loading="lazy"><span class="nf__light"></span><span class="nf__rays"></span></div>
-        <h1 class="nf__word" id="nf-title" data-nf-word>לגלות <span class="visually-hidden">את חיפה עם יוסק׳ה קליין: סיורים ברגל</span></h1>
-        <p class="nf__logo" aria-hidden="true">יוסק׳ה<br>קליין</p>
-        <p class="nf__side" aria-hidden="true"><b>רחוק יותר</b> ממה שהכרתם עד היום</p>
-        <div class="nf__rail" aria-hidden="true"><i data-nf-rail></i></div>
-
-        <div class="nf__content" data-nf-content>
-          <h2 class="nf__deeper" data-nf-deeper>לעומק</h2>
-          <ol class="nf__cols">
-            <li><h3>מספרים לי מי מגיע</h3><p>כמה אתם, בני כמה, מה מעניין אתכם ואיזה קצב מתאים לכולם. שיחה קצרה מספיקה.</p><a class="nf__more" href="%%WA_general%%" target="_blank" rel="noopener">מתחילים <span aria-hidden="true">+</span></a></li>
-            <li><h3>בונים את המסלול</h3><p>בוחרים סיור קיים או מרכיבים יום משלכם, וסוגרים מראש נקודת מפגש, משך ופרטים.</p></li>
-            <li><h3>נפגשים ויוצאים</h3><p>אתם מגיעים, אני כבר שם. משם ממשיכים ברגל, מהתצפיות אל הרחובות שמתחת.</p></li>
+    <!-- ============ 1 + 2. OPENING — one bay photograph under both scenes (sticky, StickySections principle).
+         Yoske and the headline leave with the scroll, the photo stays, and «through Yoske's eyes» arrives over the same view
+         with three verified places (scroll-hotspot-tour principle). ============ -->
+    <section class="op" id="top" aria-labelledby="op-title" data-op>
+      <div class="op__stage">
+        <div class="op__scene" data-op-scene>
+          %%STORY:haifa-bay-clean|מפרץ חיפה מלמעלה: העיר, הנמל, שובר הגלים והים, מתחת לשמיים עם עננים|max(100vw, 178svh)|eager|op__img%%
+          <ol class="op__pins" aria-hidden="true">
+            <li class="pin" style="--x:62.4%;--y:68.4%" data-pin><span class="pin__dot"></span><span class="pin__label">הנמל והמפרץ</span></li>
+            <li class="pin" style="--x:74.4%;--y:65.5%" data-pin><span class="pin__dot"></span><span class="pin__label">בניין המפרש</span></li>
+            <li class="pin" style="--x:45%;--y:74.5%" data-pin><span class="pin__dot"></span><span class="pin__label">העיר שמתחת</span></li>
           </ol>
-          <p class="nf__big">חיפה, ברגל <span class="br">ובגובה העיניים</span></p>
-          <p class="nf__para">אני יוסק׳ה קליין, מדריך ומפיק סיורים. למדתי סוציולוגיה ואנתרופולוגיה באוניברסיטה הפתוחה, ומאז 2016 אני מדריך מטיילים. בחיפה אני לוקח משפחות, חברים וצוותים מהגנים והתצפיות אל המדרגות, השווקים והאנשים. מחיר ומועד נקבעים לפי הקבוצה, ואני חוזר אליכם עם הפרטים לפני שסוגרים.</p>
-          <figure class="nf__photo"><img src="/assets/approved/lookout-960.webp" width="960" height="640" alt="יוסק׳ה מסביר בתצפית, מפרץ חיפה מאחוריו" loading="lazy"><span class="nf__block" aria-hidden="true"></span></figure>
         </div>
-      </div>
-    </section>
+        <div class="op__shade" aria-hidden="true" data-op-shade></div>
+        <div class="op__shade2" aria-hidden="true" data-op-shade2></div>
+        <img class="op__yoske" data-op-yoske src="/assets/story/yoske-hero-cutout-459.webp" srcset="/assets/story/yoske-hero-cutout-320.webp 320w, /assets/story/yoske-hero-cutout-459.webp 459w" sizes="(min-width: 900px) 34vw, 62vw" width="459" height="683" alt="יוסק׳ה קליין מחייך, בחולצה אדומה ועליונית אפורה" fetchpriority="high">
 
-    <!-- ============ 2. TOURS — reel C4CjTo8Mlyx (Timed Cards), dressed exactly like the user's image (references/2026-10-18-user-tours-mock.webp).
-         Pinned: every scroll step opens the next card into the whole background. ============ -->
-    <section class="tc" id="board" aria-labelledby="tc-title" data-tc>
-      <div class="tc__stage" data-tc-stage>
-        <div class="tc__bgs">
-          <figure class="tc__bg is-on" data-tc-bg><img src="/assets/scenes/tours-intro.webp" srcset="/assets/scenes/tours-intro-960.webp 960w, /assets/scenes/tours-intro.webp 1920w" sizes="100vw" width="1920" height="1080" alt="הגנים הבהאיים, העיר והים מלמעלה" loading="lazy"></figure>
-%%TC_BGS%%
-        </div>
-        <div class="tc__shade" aria-hidden="true"></div>
-        <div class="tc__copy">
-          <div class="tc__item is-on" data-tc-item>
-            <h2 class="tc__title" id="tc-title">איזו <em>חיפה</em> <span class="br">בא לכם להכיר?</span></h2>
-            <p class="tc__sub">בוחרים מקום. יוצאים לגלות.</p>
-            <a class="tc__btn" href="/tours/"><span>לכל הסיורים</span><i aria-hidden="true"><svg><use href="#i-arrow"/></svg></i></a>
+        <div class="op__hero" data-op-hero>
+          <p class="kicker kicker--light">סיורים ברגל בחיפה · עם יוסק׳ה קליין</p>
+          <h1 class="op__title" id="op-title">את חיפה הזאת <span class="br">עוד לא הכרתם.</span></h1>
+          <p class="op__lede">סמטאות, מדרגות, שווקים וסיפורים מקומיים. יוצאים ברגל עם יוסק׳ה ומגלים מה מסתתר בין הכרמל לים.</p>
+          <div class="op__acts">
+            <a class="btn btn--orange" href="#tours">לגלות את הסיורים</a>
+            <a class="btn btn--light" href="%%WA_general%%" target="_blank" rel="noopener"><svg><use href="#i-chat"/></svg>לדבר עם יוסק׳ה</a>
           </div>
-%%TC_ITEMS%%
         </div>
-        <ul class="tc__cards" data-tc-cards>
-%%TC_CARDS%%
-        </ul>
-        <div class="tc__ctrl">
-          <button type="button" class="tc__nav" data-tc-prev aria-label="הסיור הקודם"><svg><use href="#i-chev"/></svg></button>
-          <button type="button" class="tc__nav" data-tc-next aria-label="הסיור הבא"><svg><use href="#i-chev"/></svg></button>
-          <span class="tc__line" aria-hidden="true"><i data-tc-line></i></span>
+
+        <div class="op__eyes" data-op-eyes aria-labelledby="eyes-title" role="region">
+          <h2 class="op__eyes-title" id="eyes-title">חיפה, <span class="br">דרך העיניים של יוסק׳ה</span></h2>
+          <ol class="op__steps">
+            <li class="step" data-step>
+              <p class="step__place"><span class="step__n">1</span>הנמל והמפרץ</p>
+              <h3>מכאן רואים הכול. כמעט.</h3>
+              <p>הנמל, המפרץ והעיר. זה הנוף שכולם מצלמים בדרך צפונה. מי שעוצר רק כאן, מפספס את מה שקורה למטה.</p>
+            </li>
+            <li class="step" data-step>
+              <p class="step__place"><span class="step__n">2</span>בניין המפרש</p>
+              <h3>מלמעלה הוא עוד מגדל.</h3>
+              <p>מקרוב הוא תחנה בסיור ״חיפה של מטה״, יחד עם מגדל השעון, כיכר פריז והשוק הטורקי.</p>
+            </li>
+            <li class="step" data-step>
+              <p class="step__place"><span class="step__n">3</span>העיר שמתחת</p>
+              <h3>מקרוב, הסיפור משתנה.</h3>
+              <p>בתי אבן, מדרגות וכיכרות שלא רואים מהכביש, ושכנים וקהילות שחיים כאן אחד ליד השני.</p>
+            </li>
+          </ol>
         </div>
+        <p class="op__cue" aria-hidden="true" data-op-cue>גוללים למטה</p>
       </div>
     </section>
 
-    <!-- ============ 3. THE LANDSCAPE CONTINUES — same view, the elements arrive with the scroll (fast, cinematic) ============ -->
-    <section class="cont" aria-labelledby="cont-title" data-cont>
-      <div class="cont__stage">
-        <div class="cont__bg" data-cont-bg aria-hidden="true"><img src="/assets/scenes/tours-intro.webp" width="1920" height="1080" alt="" loading="lazy"></div>
-        <h2 class="cont__title" id="cont-title" data-cont-el>ככה זה <em>מרגיש</em> בשטח</h2>
-        <dl class="cont__stats">
-          <div data-cont-el><dt>100%</dt><dd>המליצו בעמוד הפייסבוק, מתוך 10 ביקורות</dd></div>
-          <div data-cont-el><dt>2016</dt><dd>השנה שבה התחלתי להדריך, בריו דה ז׳ניירו</dd></div>
-          <div data-cont-el><dt>5</dt><dd>סיורים קבועים בחיפה</dd></div>
-        </dl>
-        <div class="cont__quotes">
-          <figure class="cq" data-cont-el><blockquote>״נסענו לחגוג לאבא שלי יום הולדת בחיפה, קבוצה של 20 מבוגרים וילדים. חיפה מהממת, אבל עוד יותר מהמם היה המדריך המוכשר, הנעים, הסבלני, הרהוט והמקצועי שליווה אותנו.״</blockquote><figcaption><b>ורד י׳</b> על ״חיפה אהובתי״, 2022</figcaption></figure>
-          <figure class="cq" data-cont-el><blockquote>״מדריך חכם וכיפי שיודע להעביר את הידע הרב שלו בצורה מאוד נעימה וקולעת. מומלץ בחום.״</blockquote><figcaption><b>סואלי ט׳</b> תגובה בפייסבוק, 2022</figcaption></figure>
-          <figure class="cq" data-cont-el><blockquote>״המלצה חמה לכל מי שמחפש מדריך זורם, כיפי, מצחיק ומלא בידע.״</blockquote><figcaption><b>חגית ל׳</b> תגובה בפייסבוק, 2022</figcaption></figure>
+    <!-- ============ 3. TOURS — 3D card stack (3DStackMotion principle): the cards wait in depth, the active one straightens and is read flat. ============ -->
+    <section class="tr" id="tours" aria-labelledby="tr-title" data-tr>
+      <div class="tr__stage">
+        <div class="tr__head">
+          <p class="kicker">ארבעה סיורים קבועים, ועוד גרסה מקוצרת</p>
+          <h2 class="h-display" id="tr-title">איזו חיפה <span class="br">בא לכם להכיר?</span></h2>
+          <p class="tr__lede">כל הסיורים יוצאים בתיאום מראש. בוחרים כיוון, ואני חוזר אליכם עם מועדים ומחיר לפני שסוגרים.</p>
+          <p class="tr__count" aria-hidden="true"><b data-tr-num>1</b><span>/ 4</span></p>
+          <a class="tlink tlink--strong" href="/tours/">לכל הסיורים והפרטים <svg><use href="#i-arrow"/></svg></a>
         </div>
-        <a class="tc__btn cont__cta" data-cont-el href="%%FB_REVIEWS%%" target="_blank" rel="noopener"><span>לכל הביקורות</span><i aria-hidden="true"><svg><use href="#i-arrow"/></svg></i></a>
+        <ol class="tr__stack" data-tr-stack>
+%%STACK%%
+        </ol>
       </div>
     </section>
 
-    <!-- ============ 4. OVERSEAS — reel DaDGxmCsg92, 1:1: mountain hero with a liquid-glass button → the white box rises (text + photo) →
-         «✦» glass squares over the landscape → «✦» two rows of tall ovals that come into focus ============ -->
-    <section class="os" id="south-america" aria-labelledby="os-title">
-      <div class="os__hero" data-os-hero>
-        <div class="os__heroimg"><img src="/assets/scenes/sa-valley.webp" srcset="/assets/scenes/sa-valley-960.webp 960w, /assets/scenes/sa-valley.webp 1920w" sizes="100vw" width="1920" height="1081" alt="עמק חקלאי בין הרים גבוהים, מאחד המסעות בדרום אמריקה" loading="lazy"></div>
-        <div class="os__herocopy" data-os-herocopy>
-          <h2 class="os__title" id="os-title">מסעות <span class="br">מעבר לים</span></h2>
-          <a class="lglass" href="%%BRAZILAO%%" target="_blank" rel="noopener">למסעות בדרום אמריקה <span aria-hidden="true">↗</span></a>
-        </div>
-      </div>
-      <div class="os__box" data-os-box>
-        <div class="os__boxin">
-          <div class="os__boxtext">
-            <h3 class="os__boxtitle">מאז 2016 אני מדריך מטיילים ישראלים <span class="br">בדרום אמריקה</span></h3>
-            <p>ההתחלה הייתה בריו דה ז׳ניירו. את המסעות המאורגנים מפעילה ברזילאו, ושם תמצאו את המסלולים, התאריכים וכל הפרטים. רוצים לדעת באילו יציאות אני מדריך? שאלו אותי.</p>
+    <!-- ============ 4. A SAMPLE ROUND — the stops of «חיפה אהובתי» from the flyer; the line draws itself, the active stop switches the panel
+         (travel-tour-template principle). An illustration of the order, not a map. ============ -->
+    <section class="rt" id="route" aria-labelledby="rt-title" data-rt>
+      <div class="rt__stage">
+        <div class="rt__copy">
+          <p class="kicker">מסלול לדוגמה · חיפה אהובתי</p>
+          <h2 class="h-display" id="rt-title">ככה נראה <span class="br">הסיבוב שלנו</span></h2>
+          <p class="rt__lede">הסיור המלא, %%ROUTE_DUR%%, %%ROUTE_SHAPE%%. אלה %%ROUTE_N%% התחנות שמופיעות בעלון הסיור, ובדרך יש עוד. את הסדר, נקודת המפגש והקצב סוגרים יחד לפני היציאה.</p>
+          <ol class="rt__list" data-rt-list>
+            %%ROUTE_STOPS%%
+          </ol>
+          <div class="rt__acts">
+            <a class="btn btn--navy" href="/tours/haifa-ahuvati.html">לפרטי חיפה אהובתי</a>
+            <a class="tlink" href="%%WA_route%%" target="_blank" rel="noopener">בדיקת מועד בוואטסאפ</a>
           </div>
-          <figure class="os__boxphoto"><img src="/assets/approved/rio-960.webp" width="956" height="960" alt="יוסק׳ה פורש ידיים מתחת לפסל ישו הגואל בריו דה ז׳ניירו" loading="lazy"></figure>
+        </div>
+        <div class="rt__visual">
+          <svg class="rt__map" viewBox="0 0 400 520" aria-hidden="true" data-rt-map>
+            <path class="rt__ghost" d="M330 40 C 250 70, 120 60, 110 140 S 290 210, 280 280 S 90 330, 110 400 S 260 470, 300 480"/>
+            <path class="rt__line" data-rt-line d="M330 40 C 250 70, 120 60, 110 140 S 290 210, 280 280 S 90 330, 110 400 S 260 470, 300 480"/>
+            <g class="rt__nodes" data-rt-nodes></g>
+            <text class="rt__end" x="352" y="34">הכרמל</text>
+            <text class="rt__end" x="348" y="500">הים</text>
+          </svg>
+          <div class="rt__figs">
+            <figure class="rt__fig rt__fig--base is-on" data-fig-base>%%STORY:haifa-lookout|מרפסת תצפית עם מעקה וספסלי אבן, מתחת העיר, הנמל והמפרץ|(min-width: 900px) 40vw, 92vw||%%<figcaption>מבט מלמעלה על העיר והמפרץ</figcaption></figure>
+            %%ROUTE_FIGS%%
+          </div>
+          <p class="rt__note">איור של סדר התחנות, לא מפה.</p>
         </div>
       </div>
-      <div class="os__why" data-os-why>
-        <div class="os__whybg" aria-hidden="true"><img src="/assets/scenes/sa-valley.webp" width="1920" height="1081" alt="" loading="lazy"><img class="os__whybg2" data-os-bg2 src="/assets/scenes/sa-iguazu.webp" width="1920" height="1015" alt="" loading="lazy"></div>
-        <div class="os__whyin">
-          <h3 class="os__label">מה יש במסעות האלה</h3>
-          <ul class="os__grid">
-            <li class="lg-card" data-os-card><h4>מדריך מהארץ</h4><p>מאז 2016 אני מדריך מטיילים ישראלים בדרום אמריקה, בעברית, מהיום הראשון ועד האחרון.</p></li>
-            <li class="lg-card" data-os-card><h4>מסעות מאורגנים</h4><p>את המסעות מפעילה ברזילאו. המסלולים, התאריכים והמחירים מתפרסמים באתר שלהם.</p></li>
-            <li class="lg-card" data-os-card><h4>ריו דה ז׳ניירו</h4><p>העיר שבה התחלתי להדריך, והפסל שכולם רוצים לעמוד מתחתיו.</p></li>
-            <li class="lg-card" data-os-card><h4>מפלי איגואסו</h4><p>המים, הרעש והרסס. מהמקומות שקשה לתאר עד שעומדים מולם.</p></li>
-            <li class="lg-card" data-os-card><h4>שואלים אותי</h4><p>רוצים לדעת באילו יציאות אני מדריך? כתבו לי.</p><a class="lglass lglass--sm" href="%%WA_sa%%" target="_blank" rel="noopener">לשאול את יוסק׳ה</a></li>
+    </section>
+
+    <!-- ============ 5. ABOUT — scattered photos settle into an ordered layout while the text stays still (ScrollBasedLayoutAnimations principle). ============ -->
+    <section class="ab" id="about" aria-labelledby="ab-title" data-ab>
+      <div class="ab__in">
+        <div class="ab__copy">
+          <p class="kicker">מי מדריך</p>
+          <h2 class="h-display" id="ab-title">יש מקומות. <span class="br">ויש מי שמכיר אותם.</span></h2>
+          <p class="ab__lead">נעים להכיר, אני יוסק׳ה קליין, מדריך ומפיק טיולים. מקומות מסקרנים אותי. אנשים מסקרנים אותי עוד יותר: איך חיים במקום, מה מחבר בין שכנים שונים, ואיך כל זה נראה ברחוב.</p>
+          <p>למדתי סוציולוגיה ואנתרופולוגיה באוניברסיטה הפתוחה. מאז 2016 אני מדריך מטיילים ישראלים בדרום אמריקה, ובארץ אני מדריך בעיקר בחיפה.</p>
+          <p>אני אוהב לספר, אבל גם להקשיב. אם באמצע הסיור מישהו שואל על הבניין ממול, כנראה שנעצור שם.</p>
+          <h3 class="ab__sub">ככה מתכננים איתי יום</h3>
+          <ol class="ab__steps">
+            <li><b>מספרים לי מי מגיע.</b> כמה אתם, בני כמה, מה מעניין אתכם ואיזה קצב מתאים לכולם.</li>
+            <li><b>בונים את המסלול.</b> בוחרים סיור קיים או מרכיבים יום משלכם, וסוגרים מראש נקודת מפגש, משך ופרטים.</li>
+            <li><b>נפגשים ויוצאים.</b> אתם מגיעים, אני כבר שם. משם ממשיכים ברגל.</li>
+          </ol>
+          <a class="btn btn--navy" href="%%WA_meet%%" target="_blank" rel="noopener"><svg><use href="#i-chat"/></svg>נכיר בשיחה</a>
+        </div>
+        <div class="ab__photos" data-ab-photos>
+          <figure class="ab__ph ab__ph--wide" data-ab-ph>%%STORY:haifa-lookout|מרפסת התצפית בכרמל, מעקה מעוטר וספסלי אבן מול העיר והמפרץ|(min-width: 900px) 46vw, 92vw||%%</figure>
+          <figure class="ab__ph ab__ph--a" data-ab-ph>%%PHOTO:lookout|יוסק׳ה מסביר בתצפית, מפרץ חיפה והנמל מאחוריו|(min-width: 900px) 22vw, 45vw|70 40%%</figure>
+          <figure class="ab__ph ab__ph--b" data-ab-ph>%%PHOTO:yoske-guiding-view|יוסק׳ה מדבר אל קבוצה ליד המעקה, העיר והמפרץ מאחוריו|(min-width: 900px) 22vw, 45vw|%%</figure>
+          <figure class="ab__ph ab__ph--c" data-ab-ph>%%PHOTO:kids-guiding|יוסק׳ה מדריך קבוצת ילדים שמרימים ידיים כדי לענות|(min-width: 900px) 15vw, 30vw|50 30%%</figure>
+          <figure class="ab__ph ab__ph--d" data-ab-ph>%%PHOTO:yoske-selfie-group|יוסק׳ה מצלם סלפי מחייך, הקבוצה יושבת מאחוריו ומנופפת|(min-width: 900px) 15vw, 30vw|50 30%%</figure>
+          <figure class="ab__ph ab__ph--e" data-ab-ph>%%PHOTO:rio|יוסק׳ה פורש ידיים מתחת לפסל ישו הגואל בריו דה ז׳ניירו|(min-width: 900px) 15vw, 30vw|%%</figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 7. MOMENTS FROM THE ROAD — a wide horizontal gallery (HorizontalSmoothScrollLayout principle).
+         From Yoske's journeys, not tours on sale: the places are not named because the posts do not name them. ============ -->
+    <section class="jr" id="journeys" aria-labelledby="jr-title" data-jr>
+      <div class="jr__stage">
+        <div class="jr__track" data-jr-track>
+          <div class="jr__intro">
+            <p class="kicker kicker--light">מהמסעות של יוסק׳ה</p>
+            <h2 class="h-display" id="jr-title">רגעים <span class="br">מהדרך</span></h2>
+            <p>מאז 2016 אני מדריך מטיילים ישראלים בדרום אמריקה. ההתחלה הייתה בריו דה ז׳ניירו. את המסעות המאורגנים מפעילה ברזילאו, ושם תמצאו את המסלולים, התאריכים וכל הפרטים.</p>
+            <div class="jr__acts">
+              <a class="btn btn--light" href="%%BRAZILAO%%" target="_blank" rel="noopener">למסעות באתר ברזילאו <svg><use href="#i-out"/></svg></a>
+              <a class="tlink tlink--light" href="%%WA_sa%%" target="_blank" rel="noopener">באילו מסעות אני מדריך? שאלו אותי</a>
+            </div>
+          </div>
+          <figure class="jr__item jr__item--wide">%%STORY:mountain-valley-wide|עמק רחב עם שדות, הרים משני הצדדים ועץ גבוה בקדמת התמונה|(min-width: 900px) 62vw, 86vw||%%<figcaption><b>עמק בין הרים</b> שדות, כפר קטן למרגלות המדרון</figcaption></figure>
+          <figure class="jr__item jr__item--tall">%%STORY:village-story|דוכן תיקים ובדים צבעוניים בכפר, תעלת מים מרוצפת וגשר עץ קטן|(min-width: 900px) 26vw, 70vw||%%<figcaption><b>בכפר</b> דוכן צבעוני ליד תעלת המים</figcaption></figure>
+          <figure class="jr__item jr__item--wide">%%STORY:mountain-path-clean|שביל עפר בין הרים, גדר בצד ובית קטן עם גג אדום|(min-width: 900px) 52vw, 86vw||%%<figcaption><b>בדרך</b> שביל עפר אל הבית הקטן</figcaption></figure>
+          <figure class="jr__item jr__item--tall">%%STORY:mountain-river|נהר חום רחב, גדה של אבנים גדולות והרים ירוקים מתחת לשמיים כחולים|(min-width: 900px) 26vw, 70vw||%%<figcaption><b>על הגדה</b> נהר, אבנים והרים</figcaption></figure>
+          <figure class="jr__item jr__item--tall">%%STORY:mountain-terraces|הרים עם טרסות מעל יישוב קטן ושדות, באור של אחר צהריים|(min-width: 900px) 26vw, 70vw||%%<figcaption><b>אחר הצהריים</b> טרסות מעל היישוב</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 6. MOUNTAINS → SEA — the signature scene. The path photo moves forward, the wide valley takes over,
+         the two ridges (separate cut-out layers) part at different speeds and reveal Haifa bay behind them. ============ -->
+    <section class="mt" id="back-to-sea" aria-labelledby="mt-title" data-mt>
+      <div class="mt__stage">
+        <div class="mt__bay mt__box" data-mt-bay>%%STORY:haifa-bay-clean|מפרץ חיפה, הנמל והעיר מלמעלה|max(100vw, 178svh)||%%</div>
+        <div class="mt__valley mt__box" data-mt-valley aria-hidden="true">
+          <img class="mt__ridge mt__ridge--r" data-mt-ridge-r src="/assets/story/valley-ridge-right-836.webp" srcset="/assets/story/valley-ridge-right-836.webp 836w, /assets/story/valley-ridge-right-1672.webp 1672w" sizes="max(100vw, 178svh)" width="1672" height="941" alt="" loading="lazy">
+          <img class="mt__ridge mt__ridge--l" data-mt-ridge-l src="/assets/story/valley-ridge-left-836.webp" srcset="/assets/story/valley-ridge-left-836.webp 836w, /assets/story/valley-ridge-left-1672.webp 1672w" sizes="max(100vw, 178svh)" width="1672" height="941" alt="" loading="lazy">
+          <div class="mt__full" data-mt-full>%%STORY:mountain-valley-wide||max(100vw, 178svh)||%%</div>
+        </div>
+        <div class="mt__path" data-mt-path aria-hidden="true">%%STORY:mountain-path-clean||100vw||%%</div>
+        <div class="mt__shade" aria-hidden="true"></div>
+        <h2 class="mt__title" id="mt-title"><span data-mt-l1>מההרים,</span> <span class="br" data-mt-l2>בחזרה אל הים.</span></h2>
+      </div>
+      <div class="mt__spacer" data-mt-spacer aria-hidden="true"></div>
+      <div class="mt__next">
+        <!-- 8. BEHIND THE PICTURE — over the same bay (stack-to-content principle) -->
+        <div class="sb" id="stories" aria-labelledby="sb-title">
+          <div class="sb__head">
+            <p class="kicker">מאחורי התמונה</p>
+            <h2 class="h-display" id="sb-title">בחזרה בחיפה. <span class="br">שלוש תמונות, שלושה סיפורים.</span></h2>
+          </div>
+          <ul class="sb__list">
+            <li><button type="button" class="sb__card" data-story="heart" aria-haspopup="dialog">%%PHOTO:heart-wide|קבוצת משפחות עם יוסק׳ה ליד פסל הלב הצהוב מול המפרץ|(min-width: 900px) 28vw, 86vw|42 60%%<span class="sb__label"><b>״יש לחיפה חור בלב״</b>מתוך סיור משפחות</span></button></li>
+            <li><button type="button" class="sb__card" data-story="hands" aria-haspopup="dialog">%%PHOTO:kids-guiding|יוסק׳ה מדריך קבוצת ילדים שמרימים ידיים כדי לענות|(min-width: 900px) 28vw, 86vw|50 35%%<span class="sb__label"><b>שאלה אחת, הרבה ידיים</b>באותו סיור</span></button></li>
+            <li><button type="button" class="sb__card" data-story="rio" aria-haspopup="dialog">%%PHOTO:rio|יוסק׳ה פורש ידיים מתחת לפסל ישו הגואל בריו דה ז׳ניירו|(min-width: 900px) 28vw, 86vw|50 40%%<span class="sb__label"><b>איפה זה התחיל</b>ריו דה ז׳ניירו</span></button></li>
           </ul>
         </div>
       </div>
-      <div class="os__ovals">
-        <h3 class="os__label os__label--ink">מהדרכים</h3>
-        <ul class="ovg" data-ovals>
-          <li><span class="ovg__o"><img src="/assets/approved/rio-480.webp" alt="" loading="lazy"></span><b>ריו דה ז׳ניירו</b></li>
-          <li><span class="ovg__o"><img src="/assets/approved/iguazu-480.webp" alt="" loading="lazy"></span><b>מפלי איגואסו</b></li>
-          <li><span class="ovg__o"><img src="/assets/approved/andes-valley-480.webp" alt="" loading="lazy"></span><b>עמק בין הרים</b></li>
-          <li><span class="ovg__o"><img src="/assets/approved/andes-village-480.webp" alt="" loading="lazy"></span><b>כפר בהרים</b></li>
-          <li><span class="ovg__o"><img src="/assets/approved/andes-trail-480.webp" alt="" loading="lazy"></span><b>שביל בהרים</b></li>
-          <li><span class="ovg__o"><img src="/assets/approved/andes-alley-480.webp" alt="" loading="lazy"></span><b>סמטת אבן</b></li>
-          <li><span class="ovg__o"><img src="/assets/approved/andes-river-480.webp" alt="" loading="lazy"></span><b>נהר ואבנים</b></li>
-          <li><span class="ovg__o"><img src="/assets/approved/andes-terraces-480.webp" alt="" loading="lazy"></span><b>בתים במדרון</b></li>
-          <li><span class="ovg__o"><img src="/assets/approved/ponchos-group-480.webp" alt="" loading="lazy"></span><b>עם הקבוצה</b></li>
-          <li><span class="ovg__o"><img src="/assets/scenes/iguazu-close-480.webp" alt="" loading="lazy"></span><b>המפלים מקרוב</b></li>
+    </section>
+
+    <dialog class="sd" data-story-dialog aria-labelledby="sd-title">
+      <div class="sd__in">
+        <figure class="sd__img" data-sd-img></figure>
+        <div class="sd__text">
+          <p class="kicker" data-sd-kicker></p>
+          <h3 class="sd__title" id="sd-title" data-sd-title>מאחורי התמונה</h3>
+          <div class="sd__body" data-sd-body></div>
+          <button type="button" class="sd__close" data-sd-close><svg aria-hidden="true"><use href="#i-close"/></svg>סגירה וחזרה לעמוד</button>
+        </div>
+      </div>
+    </dialog>
+    <template data-story-tpl="heart"><p class="kicker">סודות ורמזים בחיפה</p><h3>״יש לחיפה חור בלב״</h3><div><p>״סודות ורמזים בחיפה״ הוא סיור הפעלתי למשפחות ולילדים: יוצאים לעיר בעקבות רמזים וחידות, ומגלים בדרך את הסיפורים שלה.</p><p>התמונה הזאת מתוך הסיור: משפחות, ילדים ויוסק׳ה ליד הפסל הצהוב שכתוב עליו ״יש לחיפה חור בלב״, והמפרץ מאחוריהם.</p></div></template>
+    <template data-story-tpl="hands"><p class="kicker">סודות ורמזים בחיפה</p><h3>שאלה אחת, הרבה ידיים</h3><div><p>מאותו סיור משפחות: יוסק׳ה שואל, והילדים מרימים ידיים כדי לענות.</p><p>ככה נראה יום כזה כשהוא עובד. הילדים שואלים, וההורים מגלים שגם הם לא ידעו.</p></div></template>
+    <template data-story-tpl="rio"><p class="kicker">2016</p><h3>איפה זה התחיל</h3><div><p>ההתחלה הייתה בריו דה ז׳ניירו. מאז 2016 אני מדריך מטיילים ישראלים בדרום אמריקה.</p><p>היום אני מדריך בארץ בעיקר בחיפה, ולוקח משפחות, חברים וצוותים מהגנים והתצפיות אל הרחובות, המדרגות והאנשים שמתחת.</p></div></template>
+
+    <!-- ============ 9. JOINING — real photos from tours, the grid settles in with a light scale (StickyGridScroll principle); the reviews never move. ============ -->
+    <section class="jn" id="voices" aria-labelledby="jn-title" data-jn>
+      <div class="jn__head">
+        <p class="kicker">מהסיורים</p>
+        <h2 class="h-display" id="jn-title">ככה זה נראה <span class="br">כשמצטרפים</span></h2>
+      </div>
+      <div class="jn__gridwrap">
+        <ul class="jn__grid" data-jn-grid>
+          <li class="jn__a">%%PHOTO:lookout-group-bay|קבוצה יושבת על מדרגות התצפית ומקשיבה, המפרץ והעיר מתחת|(min-width: 900px) 50vw, 92vw|60 50%%</li>
+          <li class="jn__b">%%PHOTO:heart-family|משפחות וילדים מצטלמים בתוך פסל הלב הצהוב, הים ברקע|(min-width: 900px) 25vw, 45vw|%%</li>
+          <li class="jn__c">%%PHOTO:streetart|קבוצת מטיילים עם יוסק׳ה מול ציור קיר צבעוני|(min-width: 900px) 25vw, 45vw|%%</li>
+          <li class="jn__d">%%PHOTO:street-tour|קבוצה עומדת לאורך רחוב צר ומקשיבה|(min-width: 900px) 25vw, 45vw|%%</li>
+          <li class="jn__e">%%PHOTO:red-sculpture-selfie|יוסק׳ה בסלפי, מאחוריו קבוצה ליד פסל לב אדום מול המפרץ|(min-width: 900px) 25vw, 45vw|%%</li>
+          <li class="jn__f">%%PHOTO:stairs-group|קבוצה יושבת על מדרגות עם יוסק׳ה|(min-width: 900px) 25vw, 45vw|%%</li>
+          <li class="jn__g">%%PHOTO:square-group|קבוצה יושבת בכיכר מרוצפת בצל עצים|(min-width: 900px) 25vw, 45vw|%%</li>
         </ul>
+      </div>
+      <div class="jn__voices">
+        <p class="jn__stat"><b>100%</b> המליצו בעמוד הפייסבוק, מתוך 10 ביקורות</p>
+        <div class="jn__quotes">
+          <figure><blockquote>״נסענו לחגוג לאבא שלי יום הולדת בחיפה, קבוצה של 20 מבוגרים וילדים. חיפה מהממת, אבל עוד יותר מהמם היה המדריך המוכשר, הנעים, הסבלני, הרהוט והמקצועי שליווה אותנו.״</blockquote><figcaption><b>ורד י׳</b> על ״חיפה אהובתי״, 2022</figcaption></figure>
+          <figure><blockquote>״מדריך חכם וכיפי שיודע להעביר את הידע הרב שלו בצורה מאוד נעימה וקולעת. מומלץ בחום.״</blockquote><figcaption><b>סואלי ט׳</b> תגובה בפייסבוק, 2022</figcaption></figure>
+          <figure><blockquote>״המלצה חמה לכל מי שמחפש מדריך זורם, כיפי, מצחיק ומלא בידע.״</blockquote><figcaption><b>חגית ל׳</b> תגובה בפייסבוק, 2022</figcaption></figure>
+        </div>
+        <a class="tlink tlink--strong" href="%%FB_REVIEWS%%" target="_blank" rel="noopener">לכל הביקורות בפייסבוק <svg><use href="#i-out"/></svg></a>
       </div>
     </section>
 
-    <!-- ============ CONTACT (post DU-gvYFDNL_ «WanderNest»: a light, thin headline and glass panels floating over the landscape) ============ -->
-    <section class="contact" id="contact" aria-labelledby="contact-title">
-      <div class="contact__bg" aria-hidden="true">%%PHOTO:lookout-dusk|מרפסת התצפית בכרמל לקראת ערב|100vw|%%</div>
-      <div class="wrap contact__in">
-        <p class="contact__pill">יוצאים לדרך</p>
-        <h2 class="contact__title" id="contact-title">נדבר על היום שלכם</h2>
-        <div class="contact__grid">
-          <div class="glass contact__side">
-            <h3>מדברים ישירות</h3>
-            <p>יש שאלה, או שכבר יודעים מה רוצים? אפשר לכתוב או להתקשר.</p>
-            <a class="ccard__line" href="tel:+%%PHONE_INTL%%"><svg><use href="#i-phone"/></svg><span dir="ltr">%%PHONE%%</span></a>
-            <a class="ccard__line" href="%%WA_general%%" target="_blank" rel="noopener"><svg><use href="#i-chat"/></svg><span>וואטסאפ</span></a>
-            <a class="ccard__line" href="%%FB_PAGE%%" target="_blank" rel="noopener"><svg><use href="#i-fb"/></svg><span>עמוד הפייסבוק</span></a>
+    <!-- ============ 10. FAQ — a plain accordion ============ -->
+    <section class="fq" id="faq" aria-labelledby="fq-title">
+      <div class="fq__in">
+        <h2 class="h-display" id="fq-title">שאלות <span class="br">לפני שיוצאים</span></h2>
+        <div class="fq__list">
+          <details><summary>אפשר להתאים את היום לקבוצה שלנו?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><p>כן. מתחילים בשיחה על האנשים, על מה שמעניין אתכם ועל הקצב, ומשם בונים יחד את היום.</p></details>
+          <details><summary>יש סיור שמתאים לילדים?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><p>״סודות ורמזים בחיפה״ נבנה בשביל משפחות: חידות, רמזים ועצירות שמתאימות לילדים. ספרו לי בני כמה הם, ונבדוק.</p></details>
+          <details><summary>כמה זמן נמשך סיור?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><p>לפי העלון: ״חיפה אהובתי״ כ-5 עד 6 שעות, הגרסה המקוצרת כ-3 שעות, ״חיפה של מעלה״ ו״חיפה של מטה״ כ-2.5 שעות כל אחד. את המשך המדויק סוגרים לפני היציאה.</p></details>
+          <details><summary>כמה הולכים, ומה לגבי נגישות?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><p>בחיפה יש עליות ומדרגות, וכל מסלול שונה. ספרו לי מראש על מגבלות הליכה או צרכי נגישות, ונבדוק מה מתאים.</p></details>
+          <details><summary>איך בודקים מועד ומחיר?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><p>שולחים לי איזה סיור מעניין אתכם, כמה משתתפים ומתי. אחזור אליכם עם מועדים ומחיר לפני שסוגרים משהו.</p></details>
+          <details><summary>איפה נפגשים?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><p>תלוי במסלול. אחרי שסוגרים סיור, אשלח לכם מיקום מדויק.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 11. CONTACT — Haifa in the evening; the headline is revealed once through a mask (TextClipScroll principle). ============ -->
+    <section class="ct" id="contact" aria-labelledby="ct-title" data-ct>
+      <div class="ct__bg" aria-hidden="true">%%STORY:haifa-evening||100vw||%%</div>
+      <div class="ct__in">
+        <div class="ct__lead">
+          <h2 class="ct__title" id="ct-title"><span class="ct__line"><span data-ct-line>לאן יוצאים</span></span> <span class="ct__line br"><span data-ct-line>יחד?</span></span></h2>
+          <p>ספרו לי מי מגיע, מה מעניין אתכם ומתי בא לכם לצאת. נתחיל בשיחה, ומשם נבנה את היום.</p>
+          <div class="ct__acts">
+            <a class="btn btn--orange btn--lg" href="%%WA_general%%" target="_blank" rel="noopener"><svg><use href="#i-chat"/></svg>כתבו לי בוואטסאפ</a>
+            <a class="ct__phone" href="tel:+%%PHONE_INTL%%"><svg aria-hidden="true"><use href="#i-phone"/></svg><span dir="ltr">%%PHONE%%</span></a>
           </div>
-          <form class="glass cform" data-contact novalidate>
-            <h3>ספרו לי על היום שאתם מדמיינים</h3>
-            <div class="cform__row">
-              <div class="field"><label for="c-name">שם</label><input id="c-name" name="name" autocomplete="name" required><p class="field__err" id="c-name-err" hidden>כתבו איך לפנות אליכם.</p></div>
-              <div class="field"><label for="c-phone">טלפון לחזרה</label><input id="c-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" required><p class="field__err" id="c-phone-err" hidden>מספר הטלפון לא נראה תקין. נסו שוב, למשל 050-1234567.</p></div>
-            </div>
-            <div class="field"><label for="c-msg">על מה חשבתם? <span class="opt">(לא חובה)</span></label><textarea id="c-msg" name="msg" rows="3"></textarea></div>
-            <p class="note" id="c-note">ההודעה לא נשלחת מכאן. היא נפתחת בוואטסאפ, ואתם מחליטים אם לשלוח. הפרטים משמשים רק כדי לחזור אליכם ולתאם (<a class="textlink" href="/privacy.html">מדיניות הפרטיות</a>).</p>
-            <button class="btn btn--orange" type="submit">מכינים הודעה בוואטסאפ</button>
-            <div class="form__ready" data-ready hidden tabindex="-1">
-              <p><strong>ההודעה מוכנה.</strong> אפשר לקרוא אותה, לתקן ולשלוח.</p>
-              <pre data-preview></pre>
-              <div class="actions"><a class="btn btn--orange" data-open-wa href="#" target="_blank" rel="noopener"><svg><use href="#i-chat"/></svg>פותחים בוואטסאפ</a><button type="button" class="btn btn--ghost" data-edit>עריכה</button></div>
-            </div>
-          </form>
         </div>
-        <div class="glass cfaq" id="faq">
-          <h3 id="faq-title">שאלות לפני שיוצאים</h3>
-          <div class="cfaq__list" data-faq>
-          <details open><summary>אפשר להתאים את היום לקבוצה שלנו?</summary><p>כן. מתחילים בשיחה על האנשים, על מה שמעניין אתכם ועל הקצב, ומשם בונים יחד את היום.</p></details>
-          <details><summary>יש סיור שמתאים לילדים?</summary><p>״סודות ורמזים בחיפה״ נבנה בשביל משפחות: חידות, רמזים ועצירות שמתאימות לילדים. ספרו לי בני כמה הם, ונבדוק.</p></details>
-          <details><summary>כמה הולכים, ומה לגבי נגישות?</summary><p>בחיפה יש עליות ומדרגות, וכל מסלול שונה. ספרו לי מראש על מגבלות הליכה או צרכי נגישות, ונבדוק מה מתאים.</p></details>
-          <details><summary>איך בודקים מועד ומחיר?</summary><p>שולחים לי איזה סיור מעניין אתכם, כמה משתתפים ומתי. אחזור אליכם עם מועדים ומחיר לפני שסוגרים משהו.</p></details>
-          <details><summary>איפה נפגשים?</summary><p>תלוי במסלול. אחרי שסוגרים סיור, אשלח לכם מיקום מדויק.</p></details>
-        </div>
-        </div>
+        <form class="ct__form" data-contact novalidate>
+          <h3>או השאירו פרטים, ואכין לכם הודעה</h3>
+          <div class="ct__row">
+            <div class="field"><label for="c-name">שם</label><input id="c-name" name="name" autocomplete="name" required><p class="field__err" id="c-name-err" hidden>כתבו איך לפנות אליכם.</p></div>
+            <div class="field"><label for="c-phone">טלפון לחזרה</label><input id="c-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" required><p class="field__err" id="c-phone-err" hidden>מספר הטלפון לא נראה תקין. נסו שוב, למשל 050-1234567.</p></div>
+          </div>
+          <div class="field"><label for="c-msg">על מה חשבתם? <span class="opt">(לא חובה)</span></label><textarea id="c-msg" name="msg" rows="3"></textarea></div>
+          <p class="ct__note">ההודעה לא נשלחת מכאן. היא נפתחת בוואטסאפ, ואתם מחליטים אם לשלוח (<a href="/privacy.html">מדיניות הפרטיות</a>).</p>
+          <button class="btn btn--navy" type="submit">מכינים הודעה בוואטסאפ</button>
+          <div class="form__ready" data-ready hidden tabindex="-1">
+            <p><strong>ההודעה מוכנה.</strong> אפשר לקרוא אותה, לתקן ולשלוח.</p>
+            <pre data-preview></pre>
+            <div class="ct__acts"><a class="btn btn--orange" data-open-wa href="#" target="_blank" rel="noopener"><svg><use href="#i-chat"/></svg>פותחים בוואטסאפ</a><button type="button" class="tlink" data-edit>עריכה</button></div>
+          </div>
+        </form>
       </div>
     </section>
