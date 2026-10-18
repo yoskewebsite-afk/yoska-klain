@@ -238,16 +238,16 @@ def page_hero(kicker, title_html, lede, photo, alt, pos='50% 50%'):
     </section>'''
 
 
-# ------------------------------------------------------------------ added sections (18.10.2026): enhanced photos, route sample
-def story_img(name, alt, sizes='100vw', load='lazy', cls=''):
-    """<img> for the enhanced photos in assets/story (widths are whatever build_story_media.py produced)."""
+# ------------------------------------------------------------------ 18.10.2026: enhanced photos for the hero and the added sections
+def story_img(name, alt, sizes='100vw', load='lazy', cls='', pos=''):
     from PIL import Image
     files = sorted((ROOT / 'assets/story').glob(f'{name}-[0-9]*.webp'), key=lambda f: int(f.stem.rsplit('-', 1)[1]))
     w, h = Image.open(files[-1]).size
     srcset = ', '.join(f'/assets/story/{f.name} {f.stem.rsplit("-", 1)[1]}w' for f in files)
     attrs = 'fetchpriority="high"' if load == 'eager' else 'loading="lazy" decoding="async"'
     c = f' class="{cls}"' if cls else ''
-    return f'<img{c} src="/assets/story/{files[min(1, len(files) - 1)].name}" srcset="{srcset}" sizes="{sizes}" width="{w}" height="{h}" alt="{escape(alt)}" {attrs}>'
+    st = f' style="object-position:{pos}"' if pos else ''
+    return f'<img{c} src="/assets/story/{files[min(1, len(files) - 1)].name}" srcset="{srcset}" sizes="{sizes}" width="{w}" height="{h}" alt="{escape(alt)}" {attrs}{st}>'
 
 
 def new_img(name, alt, sizes, pos=''):
@@ -260,31 +260,15 @@ def new_img(name, alt, sizes, pos=''):
             if wd not in [v[0] for v in variants]: variants.append((wd, size))
     w, h = Image.open(ROOT / f'assets/approved/{name}-{variants[-1][1]}.webp').size
     srcset = ', '.join(f'/assets/approved/{name}-{n}.webp {wd}w' for wd, n in variants)
-    style = f' style="object-position:{pos}"' if pos else ''
-    return f'<img src="/assets/approved/{name}-960.webp" srcset="{srcset}" sizes="{sizes}" width="{w}" height="{h}" alt="{escape(alt)}" loading="lazy" decoding="async"{style}>'
+    st = f' style="object-position:{pos}"' if pos else ''
+    return f'<img src="/assets/approved/{name}-960.webp" srcset="{srcset}" sizes="{sizes}" width="{w}" height="{h}" alt="{escape(alt)}" loading="lazy" decoding="async"{st}>'
 
 
-ROUTE_PHOTO = {'הגנים הבהאיים': ('bahai-terraces', 'הגנים הבהאיים מלמעלה עם כיפת הזהב, העיר והנמל'),
-               'הנמל': ('story:haifa-bay-clean', 'הנמל והמפרץ מלמעלה')}
-
-
-def added_sections(body):
-    t = next(x for x in TOURS if x['slug'] == 'haifa-ahuvati')
-    stops, figs = [], []
-    for k, name in enumerate(t['stops']):
-        stops.append(f'<li data-stop="{k}"{" class=\"is-on\"" if k == 0 else ""}><span class="rt__n">{k + 1}</span><span class="rt__name">{name}</span></li>')
-        ph = ROUTE_PHOTO.get(name)
-        if ph:
-            im = story_img(ph[0][6:], ph[1], '(min-width: 900px) 40vw, 92vw') if ph[0].startswith('story:') else new_img(ph[0], ph[1], '(min-width: 900px) 40vw, 92vw')
-            figs.append(f'<figure class="rt__fig" data-fig="{k}">{im}<figcaption>{ph[1]}</figcaption></figure>')
-    rep = {'%%ROUTE_STOPS%%': '\n            '.join(stops), '%%ROUTE_FIGS%%': '\n            '.join(figs),
-           '%%ROUTE_N%%': str(len(t['stops'])), '%%ROUTE_DUR%%': t['duration'], '%%ROUTE_SHAPE%%': t['shape'], '%%WA_route%%': wa_tour('חיפה אהובתי')}
-    for k, v in rep.items():
-        body = body.replace(k, v)
-
+def added_tokens(body):
     def story(m):
-        name, alt, sizes, load, *cls = m.group(1).split('|')
-        return story_img(name, alt, sizes or '100vw', load or 'lazy', cls[0] if cls else '')
+        name, alt, sizes, load, *rest = m.group(1).split('|')
+        pos = rest[1].replace(' ', '% ') + '%' if len(rest) > 1 and rest[1] else ''
+        return story_img(name, alt, sizes or '100vw', load or 'lazy', rest[0] if rest else '', pos)
 
     def nphoto(m):
         name, alt, sizes, *rest = m.group(1).split('|')
@@ -295,7 +279,7 @@ def added_sections(body):
 
 # ------------------------------------------------------------------ home
 def home():
-    body = added_sections((SRC / 'home.html').read_text())
+    body = added_tokens((SRC / 'home.html').read_text())
     def approved_photo(match):
         from PIL import Image
         name, alt, sizes, extra = match.group(1).split('|')
@@ -332,7 +316,7 @@ def home():
     return page('index.html', 'יוסק׳ה קליין | סיורים בחיפה',
                 'סיורים בחיפה עם יוסק׳ה קליין, בין המקומות שמכירים לסיפורים שעוד לא שמענו. גם ימי חוויה לקבוצות ומסעות בדרום אמריקה.',
                 body, current='home', body_class='home', extra_css='story.css', extra_js='story.js',
-                preload='<link rel="preload" as="image" href="/assets/approved/haifa-panorama-1920.webp" imagesrcset="/assets/approved/haifa-panorama-960.webp 960w, /assets/approved/haifa-panorama-1920.webp 1920w" imagesizes="100vw" fetchpriority="high">')
+                preload='<link rel="preload" as="image" href="/assets/story/haifa-bay-clean-1024.webp" imagesrcset="/assets/story/haifa-bay-clean-640.webp 640w, /assets/story/haifa-bay-clean-1024.webp 1024w, /assets/story/haifa-bay-clean-1672.webp 1672w" imagesizes="max(100vw, 178svh)" fetchpriority="high">')
 
 
 BOARD_PHOTO = {'haifa-ahuvati': 'gardens', 'haifa-ahuvati-mekutzar': 'carmelit', 'haifa-shel-maala': 'bahai-terraces',
