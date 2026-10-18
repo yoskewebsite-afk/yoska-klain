@@ -318,7 +318,7 @@
     if (nf) {
       const svgNS = 'http://www.w3.org/2000/svg';
       let disp = null;
-      if (false) {   // the water ripple (underwater version) — off since 18.10: the dive now stays over Haifa
+      if (desk) {   // the water ripple from the reel (2.0–2.8s): an SVG displacement on the top photo
         const sv = document.createElementNS(svgNS, 'svg'); sv.setAttribute('width', '0'); sv.setAttribute('height', '0'); sv.style.position = 'absolute';
         sv.innerHTML = '<filter id="nf-ripple" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.004 0.03" numOctaves="2" seed="4"/><feDisplacementMap in="SourceGraphic" scale="0" xChannelSelector="R" yChannelSelector="G"/></filter>';
         document.body.appendChild(sv); disp = sv.querySelector('feDisplacementMap');
@@ -328,8 +328,7 @@
       ntl.fromTo('[data-nf-deeper]', { autoAlpha: 0, y: 30, filter: 'blur(10px)' }, { autoAlpha: 0, y: 30, filter: 'blur(10px)', duration: .001 }, 0)
         .fromTo(els, { autoAlpha: 0, y: 40 }, { autoAlpha: 0, y: 40, duration: .001 }, 0)
         .fromTo('[data-nf-rail]', { yPercent: 0 }, { yPercent: 230, duration: 1 }, 0)
-        .to('[data-nf-word]', { y: () => -innerHeight * .45, autoAlpha: 0, scale: .96, duration: .2, ease: 'power2.in' }, .02)
-        .to('[data-nf-yoske]', { yPercent: 42, xPercent: -8, autoAlpha: 0, duration: .2, ease: 'power2.in' }, 0)
+        .to('[data-nf-word]', { yPercent: -260, autoAlpha: 0, scale: .92, duration: .26, ease: 'power2.in' }, .04)
         .fromTo('[data-nf-top]', { scale: 1, yPercent: 0 }, { scale: 1.18, yPercent: -34, duration: .3, ease: 'power2.in' }, .04)
         .to('[data-nf-top]', { autoAlpha: 0, duration: .08 }, .24)
         .fromTo('[data-nf-deep]', { scale: 1.2, yPercent: 8 }, { scale: 1, yPercent: 0, duration: .36, ease: 'power2.out' }, .12)
