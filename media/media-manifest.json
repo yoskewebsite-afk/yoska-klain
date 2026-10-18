@@ -1,0 +1,660 @@
+{
+  "collected": "2026-10-14",
+  "logged_in": "partly",
+  "photos": [
+    {
+      "filename": "photos/lookout.jpg",
+      "source_file": "assets/yoske-real-haifa.jpg",
+      "source_url": "https://www.facebook.com/photo/?fbid=127749633360094",
+      "subject": "יוסק׳ה מסביר מול מפרץ חיפה והנמל (תמונת הנושא של הדף)",
+      "confirmed_location": "חיפה (המפרץ והנמל נראים בתמונה)",
+      "orientation": "לרוחב",
+      "width": 1440,
+      "height": 960,
+      "intended_use": "הירו (שכבות), סצנת סיור, סיום"
+    },
+    {
+      "filename": "photos/heart-wide.jpg",
+      "source_file": "media/facebook-originals/fb-1128594563275591.jpg",
+      "source_url": "https://www.facebook.com/photo/?fbid=1128594563275591",
+      "subject": "קבוצת משפחות עם יוסק׳ה ליד פסל הלב הצהוב, המפרץ ברקע. מתוך הפוסט על ״סודות ורמזים בחיפה״ (24.9.2026)",
+      "confirmed_location": "חיפה (הכיתוב ״יש לחיפה חור בלב״ על הפסל)",
+      "orientation": "לרוחב",
+      "width": 1600,
+      "height": 894,
+      "intended_use": "סצנת הסיור ״סודות ורמזים בחיפה״, עמוד הסיור"
+    },
+    {
+      "filename": "photos/heart-family.jpg",
+      "source_file": "media/facebook-originals/fb-1128594433275604.jpg",
+      "source_url": "https://www.facebook.com/photo/?fbid=1128594433275604",
+      "subject": "משפחות וילדים מצטלמים בתוך פסל הלב הצהוב, הים ברקע. מאותו פוסט",
+      "confirmed_location": "חיפה (אותו פסל)",
+      "orientation": "ריבוע",
+      "width": 1979,
+      "height": 1806,
+      "intended_use": "למשפחות ולארגונים, סצנת סיור, גלריה"
+    },
+    {
+      "filename": "photos/telescope.jpg",
+      "source_file": "media/facebook-originals/fb-1128594389942275.jpg",
+      "source_url": "https://www.facebook.com/photo/?fbid=1128594389942275",
+      "subject": "ילד מביט במשקפת תצפית אל העיר והמפרץ. מאותו פוסט",
+      "confirmed_location": "חיפה (נוף המפרץ)",
+      "orientation": "לאורך",
+      "width": 1200,
+      "height": 1600,
+      "intended_use": "פרק ״מתקרבים״, גלריה"
+    },
+    {
+      "filename": "photos/carmelit.jpg",
+      "source_file": "media/facebook-originals/fb-1128594319942282.jpg",
+      "source_url": "https://www.facebook.com/photo/?fbid=1128594319942282",
+      "subject": "ילדים מציצים אל קרון ברציף תחתי. מאותו פוסט",
+      "confirmed_location": null,
+      "orientation": "לרוחב",
+      "width": 2048,
+      "height": 1536,
+      "intended_use": "סצנת סיור (שיוך זמני), גלריה"
+    },
+    {
+      "filename": "photos/kids-guiding.jpg",
+      "source_file": "assets/guiding-group.jpg",
+      "source_url": "https://www.facebook.com/photo/?fbid=1128594253275622",
+      "subject": "יוסק׳ה מדריך קבוצת ילדים שמרימים ידיים. מאותו פוסט (זהה לקובץ המקורי שסופק)",
+      "confirmed_location": null,
+      "orientation": "לאורך",
+      "width": 1080,
+      "height": 1920,
+      "intended_use": "גלריה, עמוד הסיור"
+    },
+    {
+      "filename": "photos/streetart.jpg",
+      "source_file": "assets/travel-group-streetart.jpg",
+      "source_url": "(קובץ מקורי שסופק בחבילה)",
+      "subject": "קבוצת מטיילים עם יוסק׳ה מול ציור קיר גדול",
+      "confirmed_location": null,
+      "orientation": "לרוחב",
+      "width": 1600,
+      "height": 900,
+      "intended_use": "סצנת סיור (שיוך זמני), גלריה, עמוד הקבוצות"
+    },
+    {
+      "filename": "photos/mural.jpg",
+      "source_file": "assets/travel-group-streetart.jpg",
+      "source_url": "(חיתוך מתוך streetart)",
+      "subject": "פרט מציור הקיר",
+      "confirmed_location": null,
+      "orientation": "לאורך",
+      "width": 365,
+      "height": 486,
+      "intended_use": "גלריה"
+    },
+    {
+      "filename": "photos/bay.jpg",
+      "source_file": "assets/yoske-real-haifa.jpg",
+      "source_url": "(חיתוך מתוך lookout)",
+      "subject": "המפרץ והנמל בלי אנשים",
+      "confirmed_location": "חיפה",
+      "orientation": "לאורך",
+      "width": 435,
+      "height": 580,
+      "intended_use": "גלריה"
+    },
+    {
+      "filename": "photos/rio.jpg",
+      "source_file": "media/facebook-originals/fb-180511841417206.jpg",
+      "source_url": "https://www.facebook.com/photo/?fbid=180511841417206",
+      "subject": "יוסק׳ה פורש ידיים מתחת לפסל ישו הגואל (תמונת פרופיל מ-21.2.2023; בתגובות מציינים שהוא בברזיל)",
+      "confirmed_location": "ריו דה ז׳ניירו, ברזיל (הפסל מזוהה בתמונה)",
+      "orientation": "ריבוע",
+      "width": 956,
+      "height": 960,
+      "intended_use": "דרום אמריקה"
+    },
+    {
+      "filename": "photos/portrait-warm.jpg",
+      "source_file": "assets/yoske-colorful-background.jpg",
+      "source_url": "(קובץ מקורי שסופק בחבילה)",
+      "subject": "יוסק׳ה בפונצ׳ו כחול מול קיר פרחים צבעוני, מלטף חתול",
+      "confirmed_location": null,
+      "orientation": "לאורך",
+      "width": 1536,
+      "height": 1745,
+      "intended_use": "ואני? אני יוסק׳ה"
+    },
+    {
+      "filename": "photos/portrait-seated.jpg",
+      "source_file": "assets/yoske-seated.jpg",
+      "source_url": "(קובץ מקורי שסופק בחבילה)",
+      "subject": "יוסק׳ה יושב מתחת ליצירת מתכת מוזהבת",
+      "confirmed_location": null,
+      "orientation": "לאורך",
+      "width": 787,
+      "height": 1421,
+      "intended_use": "ואני? אני יוסק׳ה (משני)"
+    },
+    {
+      "filename": "photos/red-shirt.jpg",
+      "source_file": "assets/yoske-red-shirt.jpg",
+      "source_url": "(קובץ מקורי שסופק בחבילה)",
+      "subject": "יוסק׳ה בחולצה אדומה על מדרגות מבנה עמודים",
+      "confirmed_location": null,
+      "orientation": "לאורך",
+      "width": 1586,
+      "height": 2048,
+      "intended_use": "גלריה (בלי ציון מקום)"
+    },
+    {
+      "filename": "photos/logo.jpg",
+      "source_file": "media/facebook-originals/fb-615667807901605.jpg",
+      "source_url": "https://www.facebook.com/photo/?fbid=615667807901605",
+      "subject": "הלוגו: ״יוסק׳ה קליין, הפקת והדרכת טיולים, הכניסו צבע לחיים״ (תמונת פרופיל)",
+      "confirmed_location": null,
+      "orientation": "ריבוע",
+      "width": 2000,
+      "height": 2000,
+      "intended_use": "פוטר, פרק ההיכרות"
+    },
+    {
+      "filename": "photos/lookout-dusk.jpg",
+      "source_file": "media/facebook-originals/fb-845822378219479.jpg",
+      "source_url": "https://www.facebook.com/photo/?fbid=845822378219479",
+      "subject": "ילדים ומבוגרים על מרפסת תצפית מול העיר, הנמל והמפרץ לקראת ערב",
+      "confirmed_location": "חיפה (העיר והמפרץ נראים)",
+      "orientation": "לרוחב",
+      "width": 3013,
+      "height": 1392,
+      "intended_use": "סצנת ״חיפה אהובתי״, עמודי סיורים"
+    },
+    {
+      "filename": "photos/haifa-sunset.jpg",
+      "source_file": "media/facebook-originals/fb-821402390661478.jpg",
+      "source_url": "https://www.facebook.com/photo/?fbid=821402390661478",
+      "subject": "העיר, המגדלים והמפרץ בשקיעה, מבט מלמעלה",
+      "confirmed_location": "חיפה (העיר והמפרץ נראים)",
+      "orientation": "לאורך",
+      "width": 1848,
+      "height": 2037,
+      "intended_use": "סצנת ״חיפה של מעלה״, גלריה"
+    },
+    {
+      "filename": "photos/bahai-terraces.jpg",
+      "source_file": "media/facebook-originals/fb-642213798580339.jpg",
+      "source_url": "https://www.facebook.com/photo/?fbid=642213798580339",
+      "subject": "הגנים הבהאיים מלמעלה עם כיפת הזהב, העיר והנמל",
+      "confirmed_location": "חיפה, הגנים הבהאיים",
+      "orientation": "ריבוע",
+      "width": 1211,
+      "height": 1180,
+      "intended_use": "סצנת ״חיפה אהובתי מקוצר״, עמודי סיורים"
+    },
+    {
+      "filename": "photos/bahai-bay.jpg",
+      "source_file": "media/facebook-originals/fb-112909088174800.jpg",
+      "source_url": "https://www.facebook.com/photo/?fbid=112909088174800",
+      "subject": "ציר הגנים הבהאיים עד הים, קבוצה ליד השער",
+      "confirmed_location": "חיפה, הגנים הבהאיים",
+      "orientation": "לאורך",
+      "width": 1134,
+      "height": 2015,
+      "intended_use": "עמוד ״חיפה אהובתי״, גלריה"
+    },
+    {
+      "filename": "photos/clock-tower.jpg",
+      "source_file": "media/facebook-originals/fb-822240433911007.jpg",
+      "source_url": "https://www.facebook.com/photo/?fbid=822240433911007",
+      "subject": "מגדל שעון מאבן מול שמיים כחולים",
+      "confirmed_location": null,
+      "orientation": "ריבוע",
+      "width": 1536,
+      "height": 1536,
+      "intended_use": "עמוד ״חיפה של מטה״, גלריה"
+    },
+    {
+      "filename": "photos/stone-street.jpg",
+      "source_file": "media/facebook-originals/fb-821402557328128.jpg",
+      "source_url": "https://www.facebook.com/photo/?fbid=821402557328128",
+      "subject": "רחוב עם בנייני אבן ישנים",
+      "confirmed_location": null,
+      "orientation": "ריבוע",
+      "width": 1455,
+      "height": 1436,
+      "intended_use": "עמוד ״חיפה של מטה״, גלריה"
+    },
+    {
+      "filename": "photos/mural-wall.jpg",
+      "source_file": "media/facebook-originals/fb-821402657328118.jpg",
+      "source_url": "https://www.facebook.com/photo/?fbid=821402657328118",
+      "subject": "ציור קיר של אישה ופרחים על קיר אבן",
+      "confirmed_location": null,
+      "orientation": "ריבוע",
+      "width": 1303,
+      "height": 1391,
+      "intended_use": "גלריה"
+    },
+    {
+      "filename": "photos/holiday-lights.jpg",
+      "source_file": "media/facebook-originals/fb-918616907606692.jpg",
+      "source_url": "https://www.facebook.com/photo/?fbid=918616907606692",
+      "subject": "עץ מואר וקישוטי אור ברחוב בערב",
+      "confirmed_location": null,
+      "orientation": "לאורך",
+      "width": 1794,
+      "height": 2048,
+      "intended_use": "גלריה"
+    },
+    {
+      "filename": "photos/yoske-selfie-group.jpg",
+      "source_file": "media/facebook-originals/fb-821402500661467.jpg",
+      "source_url": "https://www.facebook.com/photo/?fbid=821402500661467",
+      "subject": "יוסק׳ה מצלם סלפי מחייך, הקבוצה יושבת מאחוריו ומנופפת",
+      "confirmed_location": null,
+      "orientation": "לאורך",
+      "width": 1835,
+      "height": 2048,
+      "intended_use": "ואני? אני יוסק׳ה, גלריה"
+    },
+    {
+      "filename": "photos/arches-group.jpg",
+      "source_file": "media/facebook-originals/fb-821402443994806.jpg",
+      "source_url": "https://www.facebook.com/photo/?fbid=821402443994806",
+      "subject": "קבוצה מתחת לקשתות פיסוליות",
+      "confirmed_location": null,
+      "orientation": "לרוחב",
+      "width": 1010,
+      "height": 758,
+      "intended_use": "גלריה"
+    },
+    {
+      "filename": "photos/love-haifa-group.jpg",
+      "source_file": "media/facebook-originals/fb-806001455534905.jpg",
+      "source_url": "https://www.facebook.com/photo/?fbid=806001455534905",
+      "subject": "קבוצה ליד שלט I LOVE HAIFA",
+      "confirmed_location": "חיפה (לפי השלט)",
+      "orientation": "לרוחב",
+      "width": 960,
+      "height": 640,
+      "intended_use": "גלריה"
+    },
+    {
+      "filename": "photos/lookout-big-group.jpg",
+      "source_file": "media/facebook-originals/fb-918617887606594.jpg",
+      "source_url": "https://www.facebook.com/photo/?fbid=918617887606594",
+      "subject": "קבוצה גדולה מצטלמת מול הנוף",
+      "confirmed_location": null,
+      "orientation": "ריבוע",
+      "width": 1200,
+      "height": 1124,
+      "intended_use": "עמוד הקבוצות, גלריה"
+    },
+    {
+      "filename": "photos/colorful-bus.jpg",
+      "source_file": "media/facebook-originals/fb-918617780939938.jpg",
+      "source_url": "https://www.facebook.com/photo/?fbid=918617780939938",
+      "subject": "יוסק׳ה ליד אוטובוס תיירים צבעוני",
+      "confirmed_location": null,
+      "orientation": "לרוחב",
+      "width": 1197,
+      "height": 1064,
+      "intended_use": "גלריה"
+    },
+    {
+      "filename": "photos/yoske-mural-selfie.jpg",
+      "source_file": "media/facebook-originals/fb-154538077347916.jpg",
+      "source_url": "https://www.facebook.com/photo/?fbid=154538077347916",
+      "subject": "יוסק׳ה בסלפי מול ציור הקיר הגדול",
+      "confirmed_location": null,
+      "orientation": "לרוחב",
+      "width": 960,
+      "height": 720,
+      "intended_use": "גלריה"
+    },
+    {
+      "filename": "photos/red-sculpture-selfie.jpg",
+      "source_file": "media/facebook-originals/fb-152844947517229.jpg",
+      "source_url": "https://www.facebook.com/photo/?fbid=152844947517229",
+      "subject": "יוסק׳ה בסלפי, מאחוריו קבוצה ליד פסל לב אדום מול המפרץ",
+      "confirmed_location": "חיפה (הכיתוב LOVE HAIFA על הפסל)",
+      "orientation": "לרוחב",
+      "width": 1824,
+      "height": 1368,
+      "intended_use": "למשפחות ולארגונים, גלריה"
+    },
+    {
+      "filename": "photos/yoske-guiding-view.jpg",
+      "source_file": "media/facebook-originals/fb-642213878580331.jpg",
+      "source_url": "https://www.facebook.com/photo/?fbid=642213878580331",
+      "subject": "יוסק׳ה מדבר אל קבוצה ליד המעקה, העיר והמפרץ מאחוריו",
+      "confirmed_location": "חיפה (העיר והמפרץ נראים)",
+      "orientation": "ריבוע",
+      "width": 1200,
+      "height": 1200,
+      "intended_use": "עמודי סיורים, גלריה"
+    },
+    {
+      "filename": "photos/synagogue-group.jpg",
+      "source_file": "media/facebook-originals/fb-905824245552625.jpg",
+      "source_url": "https://www.facebook.com/photo/?fbid=905824245552625",
+      "subject": "קבוצה בתוך בית כנסת עם פרוכת כחולה",
+      "confirmed_location": null,
+      "orientation": "לרוחב",
+      "width": 2048,
+      "height": 1681,
+      "intended_use": "גלריה"
+    },
+    {
+      "filename": "photos/arch-door-group.jpg",
+      "source_file": "media/facebook-originals/fb-845822348219482.jpg",
+      "source_url": "https://www.facebook.com/photo/?fbid=845822348219482",
+      "subject": "קבוצה מצטלמת בפתח קשת אבן גדולה",
+      "confirmed_location": null,
+      "orientation": "ריבוע",
+      "width": 1979,
+      "height": 2048,
+      "intended_use": "גלריה"
+    },
+    {
+      "filename": "photos/young-group.jpg",
+      "source_file": "media/facebook-originals/fb-316382884496767.jpg",
+      "source_url": "https://www.facebook.com/photo/?fbid=316382884496767",
+      "subject": "קבוצת צעירים מצטלמת מתחת לקשת",
+      "confirmed_location": null,
+      "orientation": "ריבוע",
+      "width": 1847,
+      "height": 1848,
+      "intended_use": "עמוד הקבוצות"
+    },
+    {
+      "filename": "photos/colorful-heart-group.jpg",
+      "source_file": "media/facebook-originals/fb-320692314065824.jpg",
+      "source_url": "https://www.facebook.com/photo/?fbid=320692314065824",
+      "subject": "קבוצה ליד פסל לב צבעוני מול הים",
+      "confirmed_location": null,
+      "orientation": "ריבוע",
+      "width": 1545,
+      "height": 1544,
+      "intended_use": "גלריה"
+    },
+    {
+      "filename": "photos/lookout-kids.jpg",
+      "source_file": "media/facebook-originals/fb-112509188214790.jpg",
+      "source_url": "https://www.facebook.com/photo/?fbid=112509188214790",
+      "subject": "יוסק׳ה מסביר לילדים ולהורים ליד המעקה מול המפרץ",
+      "confirmed_location": "חיפה (המפרץ נראה)",
+      "orientation": "לרוחב",
+      "width": 960,
+      "height": 540,
+      "intended_use": "עמוד ״סודות ורמזים״"
+    },
+    {
+      "filename": "photos/stairs-group.jpg",
+      "source_file": "media/facebook-originals/fb-151069211028136.jpg",
+      "source_url": "https://www.facebook.com/photo/?fbid=151069211028136",
+      "subject": "קבוצה יושבת על מדרגות עם יוסק׳ה",
+      "confirmed_location": null,
+      "orientation": "ריבוע",
+      "width": 1440,
+      "height": 1440,
+      "intended_use": "גלריה"
+    },
+    {
+      "filename": "photos/street-tour.jpg",
+      "source_file": "media/facebook-originals/fb-918616790940037.jpg",
+      "source_url": "https://www.facebook.com/photo/?fbid=918616790940037",
+      "subject": "קבוצה עומדת לאורך רחוב צר ומקשיבה",
+      "confirmed_location": null,
+      "orientation": "לרוחב",
+      "width": 2048,
+      "height": 1662,
+      "intended_use": "גלריה"
+    },
+    {
+      "filename": "photos/square-group.jpg",
+      "source_file": "media/facebook-originals/fb-918617347606648.jpg",
+      "source_url": "https://www.facebook.com/photo/?fbid=918617347606648",
+      "subject": "קבוצה יושבת בכיכר מרוצפת בצל עצים",
+      "confirmed_location": null,
+      "orientation": "לרוחב",
+      "width": 2048,
+      "height": 1819,
+      "intended_use": "גלריה"
+    },
+    {
+      "filename": "photos/group-selfie.jpg",
+      "source_file": "media/facebook-originals/fb-640531605415225.jpg",
+      "source_url": "https://www.facebook.com/photo/?fbid=640531605415225",
+      "subject": "סלפי של יוסק׳ה עם קבוצה גדולה",
+      "confirmed_location": null,
+      "orientation": "לרוחב",
+      "width": 2048,
+      "height": 1532,
+      "intended_use": "גלריה"
+    },
+    {
+      "filename": "photos/andes-valley.jpg",
+      "source_file": "media/facebook-originals/fb-1120743470727367.jpg",
+      "source_url": "https://www.facebook.com/photo/?fbid=1120743470727367",
+      "subject": "עמק חקלאי רחב בין הרים גבוהים. מפוסט ללא כיתוב מ-15.9.2026",
+      "confirmed_location": null,
+      "orientation": "לרוחב",
+      "width": 2048,
+      "height": 1153,
+      "intended_use": "דרום אמריקה (בלי ציון מקום)"
+    },
+    {
+      "filename": "photos/andes-trail.jpg",
+      "source_file": "media/facebook-originals/fb-1120743920727322.jpg",
+      "source_url": "https://www.facebook.com/photo/?fbid=1120743920727322",
+      "subject": "שביל עפר בהרים, אנשים הולכים עם תרמילים. מאותו פוסט",
+      "confirmed_location": null,
+      "orientation": "לרוחב",
+      "width": 1600,
+      "height": 1200,
+      "intended_use": "גלריה (בלי ציון מקום)"
+    },
+    {
+      "filename": "photos/ponchos-group.jpg",
+      "source_file": "media/facebook-originals/fb-1120744547393926.jpg",
+      "source_url": "https://www.facebook.com/photo/?fbid=1120744547393926",
+      "subject": "יוסק׳ה בפונצ׳ו עם חברים מחייכים. מאותו פוסט",
+      "confirmed_location": null,
+      "orientation": "לרוחב",
+      "width": 2048,
+      "height": 1536,
+      "intended_use": "גלריית הרגעים"
+    },
+    {
+      "filename": "photos/haifa-dusk-wide.jpg",
+      "source_file": "media/facebook-originals/fb-821402390661478.jpg",
+      "source_url": "https://www.facebook.com/photo/?fbid=821402390661478",
+      "subject": "חיתוך רחב (16:9) מתוך haifa-sunset: השמיים בשקיעה, המפרץ, הנמל והעיר",
+      "confirmed_location": "חיפה (העיר והמפרץ נראים)",
+      "orientation": "לרוחב",
+      "width": 1848,
+      "height": 1040,
+      "intended_use": "צילום הפתיחה במחשב"
+    },
+    {
+      "filename": "photos/facade-old.jpg",
+      "source_file": "media/facebook-originals/fb-821402417328142.jpg",
+      "source_url": "https://www.facebook.com/photo/?fbid=821402417328142",
+      "subject": "חזית ישנה של בניין אבן עם מרפסות ותוספות",
+      "confirmed_location": null,
+      "orientation": "ריבוע",
+      "width": 2048,
+      "height": 2048,
+      "intended_use": "הכניסה לעיר (שכבת עומק)"
+    },
+    {
+      "filename": "photos/stone-courtyard.jpg",
+      "source_file": "media/facebook-originals/fb-822239860577731.jpg",
+      "source_url": "https://www.facebook.com/photo/?fbid=822239860577731",
+      "subject": "חצר מרוצפת בין קירות אבן, קבוצה מקשיבה",
+      "confirmed_location": null,
+      "orientation": "לרוחב",
+      "width": 2000,
+      "height": 1500,
+      "intended_use": "הכניסה לעיר (שכבת עומק)"
+    },
+    {
+      "filename": "photos/clock-tower-sky.jpg",
+      "source_file": "media/facebook-originals/fb-845822484886135.jpg",
+      "source_url": "https://www.facebook.com/photo/?fbid=845822484886135",
+      "subject": "מגדל שעון מאבן וחצר, שמיים מעוננים",
+      "confirmed_location": null,
+      "orientation": "לאורך",
+      "width": 1032,
+      "height": 1445,
+      "intended_use": "הכניסה לעיר (שכבת עומק)"
+    },
+    {
+      "filename": "photos/silo-wall.jpg",
+      "source_file": "media/facebook-originals/fb-821402587328125.jpg",
+      "source_url": "https://www.facebook.com/photo/?fbid=821402587328125",
+      "subject": "מבנה תעשייה גבוה עם חזית מחוררת וסמל שיבולים",
+      "confirmed_location": null,
+      "orientation": "לרוחב",
+      "width": 2048,
+      "height": 1536,
+      "intended_use": "הכניסה לעיר (שכבת עומק)"
+    },
+    {
+      "filename": "photos/stone-church.jpg",
+      "source_file": "media/facebook-originals/fb-806001232201594.jpg",
+      "source_url": "https://www.facebook.com/photo/?fbid=806001232201594",
+      "subject": "מבנה אבן עם שני מגדלי פעמונים בין בנייני משרדים",
+      "confirmed_location": null,
+      "orientation": "לרוחב",
+      "width": 1076,
+      "height": 717,
+      "intended_use": "הכניסה לעיר (שכבת עומק)"
+    },
+    {
+      "filename": "photos/cable-car.jpg",
+      "source_file": "media/facebook-originals/fb-848303061304744.jpg",
+      "source_url": "https://www.facebook.com/photo/?fbid=848303061304744",
+      "subject": "קרונית רכבל על כבל מול שמיים כחולים",
+      "confirmed_location": null,
+      "orientation": "לרוחב",
+      "width": 1319,
+      "height": 879,
+      "intended_use": "הכניסה לעיר (שכבת עומק)"
+    },
+    {
+      "filename": "photos/port-cranes.jpg",
+      "source_file": "media/facebook-originals/fb-848302981304752.jpg",
+      "source_url": "https://www.facebook.com/photo/?fbid=848302981304752",
+      "subject": "מנופי נמל ומכולות מלמעלה",
+      "confirmed_location": null,
+      "orientation": "לאורך",
+      "width": 1228,
+      "height": 2048,
+      "intended_use": "הכניסה לעיר (שכבת עומק)"
+    },
+    {
+      "filename": "photos/lookout-group-bay.jpg",
+      "source_file": "media/facebook-originals/fb-617510654383987.jpg",
+      "source_url": "https://www.facebook.com/photo/?fbid=617510654383987",
+      "subject": "קבוצה יושבת על מדרגות תצפית, יוסק׳ה מדבר, המפרץ והעיר מתחת",
+      "confirmed_location": "חיפה (מתויג בפוסט, והמפרץ נראה)",
+      "orientation": "לרוחב",
+      "width": 2048,
+      "height": 946,
+      "intended_use": "גלריית הרגעים"
+    },
+    {
+      "filename": "photos/overlook-group.jpg",
+      "source_file": "media/facebook-originals/fb-318773260924396.jpg",
+      "source_url": "https://www.facebook.com/photo/?fbid=318773260924396",
+      "subject": "קבוצה מצטלמת על דק עץ מול הנוף",
+      "confirmed_location": "חיפה (מתויג בפוסט)",
+      "orientation": "ריבוע",
+      "width": 1802,
+      "height": 1801,
+      "intended_use": "גלריית הרגעים"
+    },
+    {
+      "filename": "photos/andes-river.jpg",
+      "source_file": "media/facebook-originals/fb-1120742907394090.jpg",
+      "source_url": "https://www.facebook.com/photo/?fbid=1120742907394090",
+      "subject": "נהר רחב בעמק בין הרים גבוהים. מהפוסט ללא כיתוב מ-15.9.2026",
+      "confirmed_location": null,
+      "orientation": "לאורך",
+      "width": 900,
+      "height": 1600,
+      "intended_use": "דרום אמריקה (בלי ציון מקום)"
+    },
+    {
+      "filename": "photos/andes-alley.jpg",
+      "source_file": "media/facebook-originals/fb-1120743024060745.jpg",
+      "source_url": "https://www.facebook.com/photo/?fbid=1120743024060745",
+      "subject": "סמטה מרוצפת בין קירות אבן עתיקים. מאותו פוסט",
+      "confirmed_location": null,
+      "orientation": "לאורך",
+      "width": 900,
+      "height": 1600,
+      "intended_use": "דרום אמריקה (בלי ציון מקום)"
+    },
+    {
+      "filename": "photos/andes-village.jpg",
+      "source_file": "media/facebook-originals/fb-1120742984060749.jpg",
+      "source_url": "https://www.facebook.com/photo/?fbid=1120742984060749",
+      "subject": "רחוב מרוצף ובית צבעוני למרגלות הרים. מאותו פוסט",
+      "confirmed_location": null,
+      "orientation": "לאורך",
+      "width": 900,
+      "height": 1600,
+      "intended_use": "דרום אמריקה (בלי ציון מקום)"
+    },
+    {
+      "filename": "photos/andes-terraces.jpg",
+      "source_file": "media/facebook-originals/fb-1120745114060536.jpg",
+      "source_url": "https://www.facebook.com/photo/?fbid=1120745114060536",
+      "subject": "מדרון הר עם טרסות מעל גגות כפר. מאותו פוסט",
+      "confirmed_location": null,
+      "orientation": "לאורך",
+      "width": 1500,
+      "height": 2000,
+      "intended_use": "דרום אמריקה (בלי ציון מקום)"
+    }
+  ],
+  "excluded": [
+    {
+      "files": "שאר 411 הפריטים באלבום",
+      "reason": "נסקרו כממוזערות ולא הורדו: כרזות אירועים מתוארכים, סדרת ״חידות חיפאיות בציורים״ (איורים), צילומי אוכל, כפילויות, וצילומים של גופים אחרים (חלקם עם סימן מים)"
+    },
+    {
+      "files": "פריטים 171 ו-176 (גנים בלילה, רכבל)",
+      "reason": "נושאים סימן מים של צלם אחר"
+    },
+    {
+      "files": "fb-1128594489942265.jpg",
+      "reason": "איור שסומן בפייסבוק ״תוכן שנוצר באמצעות AI״, לא צילום"
+    },
+    {
+      "files": "fb-1127707486697632.jpg",
+      "reason": "כרזת ״לילה בהאי״ של המרכז הבהאי לתאריכים 30.9–1.10.2026: אירוע מתוארך של גוף אחר"
+    },
+    {
+      "files": "fb-1121437287324652.jpg",
+      "reason": "כרזת ״לילה בהאי״ של עיריית חיפה: אותו אירוע מתוארך"
+    },
+    {
+      "files": "fb-112520281547014.jpg, fb-112521064880269.jpg",
+      "reason": "כפילויות של תמונת הנושא (lookout)"
+    },
+    {
+      "files": "fb-107107818754927.jpg, fb-127749650026759.jpg, fb-300740866060969.jpg, fb-300758659392523.jpg",
+      "reason": "תמונות פרופיל מעוצבות ברזולוציה נמוכה (423–500px)"
+    },
+    {
+      "files": "fb-615672397901146.jpg, fb-617135927754793.jpg",
+      "reason": "כפילויות של הלוגו"
+    },
+    {
+      "files": "fb-1128594253275622.jpg",
+      "reason": "זהה לקובץ המקורי guiding-group.jpg"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "yoske-prototype",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "4173",
+        "--directory",
+        "prototype"
+      ],
+      "port": 4173
+    },
+    {
+      "name": "yoske-v3",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "4180",
+        "--directory",
+        "prototype"
+      ],
+      "port": 4180
+    },
+    {
+      "name": "yoske-site",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "tools/serve.py",
+        "4190"
+      ],
+      "port": 4190
+    }
+  ]
+}

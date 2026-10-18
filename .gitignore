@@ -1,0 +1,9 @@
+.DS_Store
+captures/
+_archive/
+tools/output/
+tools/node_modules/
+tools/.browser-runtime/
+media/facebook-originals/
+media/facebook-thumbs/
+references/

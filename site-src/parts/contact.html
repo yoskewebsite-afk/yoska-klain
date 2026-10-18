@@ -1,0 +1,42 @@
+    <!-- ============ CONTACT (post DU-gvYFDNL_ «WanderNest»: a light, thin headline and glass panels floating over the landscape) ============ -->
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="contact__bg" aria-hidden="true">%%PHOTO:lookout-dusk|מרפסת התצפית בכרמל לקראת ערב|100vw|%%</div>
+      <div class="wrap contact__in">
+        <p class="contact__pill">יוצאים לדרך</p>
+        <h2 class="contact__title" id="contact-title">נדבר על היום שלכם</h2>
+        <div class="contact__grid">
+          <div class="glass contact__side">
+            <h3>מדברים ישירות</h3>
+            <p>יש שאלה, או שכבר יודעים מה רוצים? אפשר לכתוב או להתקשר.</p>
+            <a class="ccard__line" href="tel:+%%PHONE_INTL%%"><svg><use href="#i-phone"/></svg><span dir="ltr">%%PHONE%%</span></a>
+            <a class="ccard__line" href="%%WA_general%%" target="_blank" rel="noopener"><svg><use href="#i-chat"/></svg><span>וואטסאפ</span></a>
+            <a class="ccard__line" href="%%FB_PAGE%%" target="_blank" rel="noopener"><svg><use href="#i-fb"/></svg><span>עמוד הפייסבוק</span></a>
+          </div>
+          <form class="glass cform" data-contact novalidate>
+            <h3>ספרו לי על היום שאתם מדמיינים</h3>
+            <div class="cform__row">
+              <div class="field"><label for="c-name">שם</label><input id="c-name" name="name" autocomplete="name" required><p class="field__err" id="c-name-err" hidden>כתבו איך לפנות אליכם.</p></div>
+              <div class="field"><label for="c-phone">טלפון לחזרה</label><input id="c-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" required><p class="field__err" id="c-phone-err" hidden>מספר הטלפון לא נראה תקין. נסו שוב, למשל 050-1234567.</p></div>
+            </div>
+            <div class="field"><label for="c-msg">על מה חשבתם? <span class="opt">(לא חובה)</span></label><textarea id="c-msg" name="msg" rows="3"></textarea></div>
+            <p class="note" id="c-note">ההודעה לא נשלחת מכאן. היא נפתחת בוואטסאפ, ואתם מחליטים אם לשלוח. הפרטים משמשים רק כדי לחזור אליכם ולתאם (<a class="textlink" href="/privacy.html">מדיניות הפרטיות</a>).</p>
+            <button class="btn btn--orange" type="submit">מכינים הודעה בוואטסאפ</button>
+            <div class="form__ready" data-ready hidden tabindex="-1">
+              <p><strong>ההודעה מוכנה.</strong> אפשר לקרוא אותה, לתקן ולשלוח.</p>
+              <pre data-preview></pre>
+              <div class="actions"><a class="btn btn--orange" data-open-wa href="#" target="_blank" rel="noopener"><svg><use href="#i-chat"/></svg>פותחים בוואטסאפ</a><button type="button" class="btn btn--ghost" data-edit>עריכה</button></div>
+            </div>
+          </form>
+        </div>
+        <div class="glass cfaq" id="faq">
+          <h3 id="faq-title">שאלות לפני שיוצאים</h3>
+          <div class="cfaq__list" data-faq>
+          <details open><summary>אפשר להתאים את היום לקבוצה שלנו?</summary><p>כן. מתחילים בשיחה על האנשים, על מה שמעניין אתכם ועל הקצב, ומשם בונים יחד את היום.</p></details>
+          <details><summary>יש סיור שמתאים לילדים?</summary><p>״סודות ורמזים בחיפה״ נבנה בשביל משפחות: חידות, רמזים ועצירות שמתאימות לילדים. ספרו לי בני כמה הם, ונבדוק.</p></details>
+          <details><summary>כמה הולכים, ומה לגבי נגישות?</summary><p>בחיפה יש עליות ומדרגות, וכל מסלול שונה. ספרו לי מראש על מגבלות הליכה או צרכי נגישות, ונבדוק מה מתאים.</p></details>
+          <details><summary>איך בודקים מועד ומחיר?</summary><p>שולחים לי איזה סיור מעניין אתכם, כמה משתתפים ומתי. אחזור אליכם עם מועדים ומחיר לפני שסוגרים משהו.</p></details>
+          <details><summary>איפה נפגשים?</summary><p>תלוי במסלול. אחרי שסוגרים סיור, אשלח לכם מיקום מדויק.</p></details>
+        </div>
+        </div>
+      </div>
+    </section>
