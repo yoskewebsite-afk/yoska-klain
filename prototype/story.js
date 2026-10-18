@@ -1,7 +1,6 @@
-/* Yoske Klein — homepage behaviour and motion (18.10.2026, «photo story»).
-   GSAP 3.13 + ScrollTrigger + Lenis (already in the project). Sticky stages are plain CSS; ScrollTrigger only scrubs
-   transforms and opacity. Three main moves: the opening, the tour stack, the mountains that open onto the sea.
-   Without GSAP, or with reduced motion, the page falls back to html.still and everything is readable and usable. */
+/* Added sections (18.10.2026) — motion for the new sections only. Loaded after app.js, which keeps the menu, the
+   contact form, Lenis smooth scroll and the nav for the whole page; this file reuses that same Lenis (window.__lenis).
+   Without GSAP, or with reduced motion, the new sections fall back to html.still and stay readable. */
 (() => {
   'use strict';
   const doc = document.documentElement;
@@ -13,37 +12,7 @@
   const still = () => reduceMQ.matches || location.search.includes('still');
   const gsap = window.gsap, ST = window.ScrollTrigger;
   const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
-  let lenis = null;
-
-  /* ---------------- menu ---------------- */
-  const menuBtn = $('.nav__menu'), menu = $('#menu');
-  if (menuBtn && menu) {
-    const setMenu = open => { menu.hidden = !open; menuBtn.setAttribute('aria-expanded', String(open)); menuBtn.textContent = open ? 'סגירה' : 'תפריט'; };
-    menuBtn.addEventListener('click', () => setMenu(menu.hidden));
-    menu.addEventListener('click', e => { if (e.target.closest('a')) setMenu(false); });
-    document.addEventListener('keydown', e => { if (e.key === 'Escape' && !menu.hidden) { setMenu(false); menuBtn.focus(); } });
-  }
-
-  /* ---------------- contact: prepares a WhatsApp draft, never sends ---------------- */
-  const form = $('[data-contact]');
-  if (form) {
-    const ready = $('[data-ready]', form), preview = $('[data-preview]', form), openWa = $('[data-open-wa]', form);
-    const fields = { name: $('#c-name'), phone: $('#c-phone'), msg: $('#c-msg') };
-    const setErr = (el, bad) => { el.setAttribute('aria-invalid', String(bad)); const e = $(`#${el.id}-err`); if (e) e.hidden = !bad; if (bad) el.setAttribute('aria-describedby', `${el.id}-err`); else el.removeAttribute('aria-describedby'); };
-    const phoneOk = v => /^(\+?972|0)\d{8,9}$/.test(v.replace(/[^\d+]/g, ''));
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      const name = fields.name.value.trim(), phone = fields.phone.value.trim(), msg = fields.msg.value.trim();
-      const badName = !name, badPhone = !phoneOk(phone);
-      setErr(fields.name, badName); setErr(fields.phone, badPhone);
-      if (badName) return fields.name.focus();
-      if (badPhone) return fields.phone.focus();
-      const text = `היי יוסק׳ה, הגעתי דרך האתר.\nשם: ${name}\nטלפון: ${phone}` + (msg ? `\n${msg}` : '');
-      preview.textContent = text; openWa.href = wa(text); ready.hidden = false; ready.focus();
-    });
-    form.addEventListener('input', e => { if (!ready.hidden) ready.hidden = true; if (e.target.getAttribute('aria-invalid') === 'true') setErr(e.target, false); });
-    $('[data-edit]', form).addEventListener('click', () => { ready.hidden = true; fields.msg.focus(); });
-  }
+  const L = () => window.__lenis || null;
 
   /* ---------------- route: nodes on the illustrated line ---------------- */
   const rtLine = $('[data-rt-line]'), rtNodes = $('[data-rt-nodes]'), rtStops = $$('[data-rt-list] li');
@@ -87,7 +56,7 @@
       const src = $('img', btn), img = src.cloneNode();
       img.sizes = '(min-width: 860px) 60vw, 100vw'; img.loading = 'eager'; img.removeAttribute('fetchpriority');
       imgBox.replaceChildren(img);
-      if (lenis) lenis.stop();
+      if (L()) L().stop();
       dlg.showModal();
       if (gsap && !still()) {
         const a = src.getBoundingClientRect(), b = imgBox.getBoundingClientRect();
@@ -103,41 +72,14 @@
     dlg.addEventListener('close', () => {
       if (opener) opener.focus({ preventScroll: true });
       if (Math.abs(scrollY - y0) > 1) scrollTo(0, y0); // back to exactly where the reader was
-      if (lenis) { lenis.scrollTo(y0, { immediate: true, force: true }); lenis.start(); }
+      if (L()) { L().scrollTo(y0, { immediate: true, force: true }); L().start(); }
     });
   }
 
   /* ---------------- motion ---------------- */
-  if (!gsap || !ST || still()) { setRoute(1); doc.classList.add('no-float'); return; }
-  window.__motion = true;
+  if (!gsap || !ST || still()) { setRoute(1); return; }
   gsap.registerPlugin(ST);
-  ST.config({ ignoreMobileResize: true });
-
-  // smooth scroll: Lenis drives the page, GSAP's ticker drives Lenis
-  if (window.Lenis) {
-    lenis = new window.Lenis({ lerp: .09, wheelMultiplier: .95, smoothWheel: true });
-    lenis.on('scroll', ST.update);
-    gsap.ticker.add(t => lenis.raf(t * 1000));
-    gsap.ticker.lagSmoothing(0);
-    document.addEventListener('click', e => {
-      const a = e.target.closest('a[href^="#"], a[href^="/#"]'); if (!a) return;
-      const id = a.getAttribute('href').replace(/^\/?#/, ''); const el = id && document.getElementById(id); if (!el) return;
-      e.preventDefault(); lenis.scrollTo(el, { offset: 0, duration: 1.4 }); history.replaceState(null, '', '#' + id);
-      setTimeout(() => { const f = el.querySelector('h1, h2'); if (f) { f.setAttribute('tabindex', '-1'); f.focus({ preventScroll: true }); } }, 1450);
-    });
-    reduceMQ.addEventListener('change', () => { if (reduceMQ.matches) location.reload(); });
-    window.__lenis = lenis;
-  }
-
   const op = $('[data-op]');
-  const navBar = $('[data-nav]'), float = $('[data-float]');
-  // the nav stays transparent over the whole opening (the sky continues), then turns solid
-  ST.create({ trigger: op, start: () => `bottom ${navBar ? navBar.offsetHeight : 76}px`, end: 'max', onToggle: s => navBar && navBar.classList.toggle('is-solid', s.isActive) });
-  ST.create({ start: 0, end: 'max', onUpdate: s => navBar && navBar.classList.toggle('is-hidden', s.direction === 1 && s.scroll() > 240 && !navBar.contains(document.activeElement)) });
-  // the floating WhatsApp button: on phones only where it covers no running text (photo scenes and the gallery)
-  if (float) (matchMedia('(min-width: 900px)').matches ? [['#tours', 'top 60%', '#contact', 'top 80%']] : [['#journeys', 'top 50%', '#stories', 'top 90%']])
-    .forEach(([a, sa, b, eb]) => ST.create({ trigger: a, start: sa, endTrigger: b, end: eb, onToggle: s => float.classList.toggle('is-on', s.isActive) }));
-
   const mm = gsap.matchMedia();
   mm.add({ desk: '(min-width: 900px)', phone: '(max-width: 899px)' }, ctx => {
     const { desk } = ctx.conditions;
@@ -173,24 +115,6 @@
       if (k < steps.length - 1) tl.to(st, { opacity: 0, y: -22, duration: .035, ease: 'power1.in' }, b - .035);
     });
     tl.to({}, { duration: .01 }, .99); // keep the timeline exactly 1 long so the windows above match scroll progress
-
-    /* 3. tours: the 3D stack. Each card holds still for a while before the next one comes forward. */
-    if (desk) {
-      const tr = $('[data-tr]'), cards = $$('[data-tk]'), n = cards.length, num = $('[data-tr-num]');
-      const pose = p => cards.forEach((c, i) => {
-        const d = i - p;
-        if (d >= 0) gsap.set(c, { y: -d * 30, z: -d * 90, rotationX: d * 3, scale: 1 - d * .045, opacity: d > 2.6 ? clamp(3.4 - d, 0, 1) : 1, zIndex: n - i });
-        else gsap.set(c, { y: d * innerHeight * .78, z: -d * 120, rotationX: d * 12, scale: 1, opacity: clamp(1 + d * 1.25, 0, 1), zIndex: n + 1 });
-      });
-      const map = r => { const x = clamp(r * 1.12, 0, 1) * (n - 1), k = Math.min(n - 2, Math.floor(x)), f = x - k, g = clamp((f - .32) / .68, 0, 1); return k + g * g * (3 - 2 * g); };
-      const trST = ST.create({ trigger: tr, start: 'top top', end: 'bottom bottom', onUpdate: s => { const p = map(s.progress); pose(p); if (num) num.textContent = Math.round(p) + 1; } });
-      pose(0);
-      // keyboard: a link in a card that waits behind brings its card to the front
-      cards.forEach((c, i) => c.addEventListener('focusin', () => {
-        const target = trST.start + ((i / (n - 1)) * .9 / 1.12 + .02) * (trST.end - trST.start);
-        if (Math.abs(map((window.scrollY - trST.start) / (trST.end - trST.start)) - i) > .2) (lenis ? lenis.scrollTo(target, { immediate: true }) : scrollTo(0, target));
-      }));
-    }
 
     /* 4. sample round: the line draws, the stops and the photo follow it */
     if (rtLine) ST.create({ trigger: desk ? '[data-rt]' : '.rt__visual', start: desk ? 'top top' : 'top 75%', end: desk ? 'bottom bottom' : 'bottom 35%',
@@ -231,11 +155,8 @@
     gsap.fromTo('[data-jn-grid] li', { y: 60, autoAlpha: .35 }, { y: 0, autoAlpha: 1, stagger: { each: .06, from: 'center' }, ease: 'power2.out', scrollTrigger: { trigger: '.jn__gridwrap', start: 'top 88%', end: 'top 30%', scrub: .5 } });
   });
 
-  /* 11. contact: the headline is revealed once through its line masks */
-  gsap.fromTo('[data-ct-line]', { yPercent: 108 }, { yPercent: 0, duration: 1.1, stagger: .12, ease: 'power4.out', scrollTrigger: { trigger: '[data-ct]', start: 'top 62%', once: true } });
-
   setRoute(0);
   addEventListener('load', () => ST.refresh());
   // QA hook: window.__at('#back-to-sea', 0.5) jumps to a scroll progress inside a sticky section
-  window.__at = (sel, p) => { const el = $(sel), top = el.getBoundingClientRect().top + scrollY, h = el.offsetHeight - innerHeight; const y = top + h * p; lenis ? lenis.scrollTo(y, { immediate: true }) : scrollTo(0, y); ST.update(); };
+  window.__at = (sel, p) => { const el = $(sel), top = el.getBoundingClientRect().top + scrollY, h = el.offsetHeight - innerHeight; const y = top + h * p; L() ? L().scrollTo(y, { immediate: true }) : scrollTo(0, y); ST.update(); };
 })();

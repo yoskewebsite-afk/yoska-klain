@@ -130,7 +130,7 @@ def img(name, alt, cls='', sizes='(min-width: 900px) 50vw, 100vw', eager=False, 
             f'sizes="{sizes}" width="{m["width"]}" height="{m["height"]}" alt="{escape(alt)}" {load}{extra}>')
 
 
-NAV_LINKS = [('/#tours', 'הסיורים', 'tours'), ('/#about', 'מי אני', 'about'), ('/groups.html', 'למשפחות ולארגונים', 'groups'), ('/#faq', 'שאלות', 'faq')]
+NAV_LINKS = [('/#board', 'הסיורים', 'tours'), ('/#groups', 'ימים לקבוצות', 'groups'), ('/#about', 'מי אני', 'about'), ('/#faq', 'שאלות', 'faq')]
 
 
 def nav(current=''):
@@ -173,7 +173,8 @@ FOOTER = f'''<footer class="foot">
 
 # Inline head script: sets motion classes before first paint. Its hash is pinned in the Content-Security-Policy.
 HEAD_JS = ("(function(d,m){var still=m('(prefers-reduced-motion: reduce)').matches||location.search.indexOf('still')>-1;d.classList.add('js',still?'still':'motion');"
-           "if(!still)addEventListener('load',function(){if(!window.__motion){d.classList.remove('motion');d.classList.add('still')}})})(document.documentElement,matchMedia)")
+           "if(!still){var c=m('(min-width: 900px)').matches?['plan-on','fan-on','sea-on','gate-on']:['gate-on'];c.forEach(function(k){d.classList.add(k)});"
+           "addEventListener('load',function(){if(!window.__motion)c.forEach(function(k){d.classList.remove(k)})})}})(document.documentElement,matchMedia)")
 import base64, hashlib
 _HJ = base64.b64encode(hashlib.sha256(HEAD_JS.encode()).digest()).decode()
 # Everything is self-hosted; external sites are only plain links. style-src needs inline attributes (object-position, --t) and GSAP's CSSOM writes.
@@ -186,7 +187,7 @@ def _v(rel):
     return hashlib.sha256((ROOT / rel).read_bytes()).hexdigest()[:10]
 
 
-def page(path, title, description, body, current='', body_class='page', preload='', css='pages.css', js='app.js'):
+def page(path, title, description, body, current='', body_class='page', preload='', extra_css='', extra_js=''):
     html = f'''<!doctype html>
 <html lang="he" dir="rtl">
 <head>
@@ -201,7 +202,7 @@ def page(path, title, description, body, current='', body_class='page', preload=
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <link rel="preload" href="/fonts/noto-sans-hebrew-wdth-wght-hebrew.woff2" as="font" type="font/woff2" crossorigin>
   {preload}
-  <link rel="stylesheet" href="/styles.css?v={_v('styles.css')}">{f'{chr(10)}  <link rel="stylesheet" href="/{css}?v={_v(css)}">' if css else ''}
+  <link rel="stylesheet" href="/styles.css?v={_v('styles.css')}">{f'{chr(10)}  <link rel="stylesheet" href="/{extra_css}?v={_v(extra_css)}">' if extra_css else ''}
 </head>
 <body class="{body_class}">
   <a class="skip" href="#main">דילוג לתוכן</a>
@@ -214,7 +215,7 @@ def page(path, title, description, body, current='', body_class='page', preload=
   <script src="/vendor/lenis.min.js" defer></script>
   <script src="/vendor/gsap.min.js" defer></script>
   <script src="/vendor/ScrollTrigger.min.js" defer></script>
-  <script src="/{js}?v={_v(js)}" defer></script>
+  <script src="/app.js?v={_v('app.js')}" defer></script>{f'{chr(10)}  <script src="/{extra_js}?v={_v(extra_js)}" defer></script>' if extra_js else ''}
 </body>
 </html>
 '''
@@ -226,45 +227,30 @@ def page(path, title, description, body, current='', body_class='page', preload=
     return path
 
 
-def page_hero(kicker, title_html, lede, photo, alt, pos='50% 50%', acts=''):
-    """Inner-page opening: the bay-blue panel with the condensed headline beside the photograph."""
-    acts = f'\n        <div class="phero__acts">{acts}</div>' if acts else ''
+def page_hero(kicker, title_html, lede, photo, alt, pos='50% 50%'):
     return f'''    <section class="phero">
-      <div class="phero__media">{img(photo, alt, sizes='(min-width: 900px) 52vw, 100vw', eager=True, extra=f' style="object-position:{pos}"')}</div>
+      <div class="phero__media">{img(photo, alt, sizes='100vw', eager=True, extra=f' style="object-position:{pos}"')}</div>
       <div class="phero__copy">
-        <p class="kicker kicker--light">{kicker}</p>
-        <h1 class="phero__title">{title_html}</h1>
-        <p class="phero__lede">{lede}</p>{acts}
+        <p class="kicker">{kicker}</p>
+        <h1 class="display display--xl">{title_html}</h1>
+        <p class="lead">{lede}</p>
       </div>
     </section>'''
 
 
-def band(title_html, text, button):
-    """Closing call to action on bay blue."""
-    para = f'<p>{text}</p>' if text else ''
-    return f'''    <section class="band">
-      <div class="pg__in band__in">
-        <h2 class="h-display h-display--m">{title_html}</h2>
-        <div>{para}<div class="actions">{button}</div></div>
-      </div>
-    </section>'''
-
-
-# ------------------------------------------------------------------ home
-def story_img(name, alt, sizes='100vw', load='lazy', cls='', extra=''):
-    """<img> for the 18.10.2026 enhanced photos in assets/story (widths are whatever build_story_media.py produced)."""
+# ------------------------------------------------------------------ added sections (18.10.2026): enhanced photos, route sample
+def story_img(name, alt, sizes='100vw', load='lazy', cls=''):
+    """<img> for the enhanced photos in assets/story (widths are whatever build_story_media.py produced)."""
     from PIL import Image
     files = sorted((ROOT / 'assets/story').glob(f'{name}-[0-9]*.webp'), key=lambda f: int(f.stem.rsplit('-', 1)[1]))
-    widths = [int(f.stem.rsplit('-', 1)[1]) for f in files]
     w, h = Image.open(files[-1]).size
-    mid = files[min(1, len(files) - 1)].name
-    srcset = ', '.join(f'/assets/story/{f.name} {wd}w' for f, wd in zip(files, widths))
-    attrs = {'eager': 'fetchpriority="high"', 'lazy': 'loading="lazy" decoding="async"'}[load]
+    srcset = ', '.join(f'/assets/story/{f.name} {f.stem.rsplit("-", 1)[1]}w' for f in files)
+    attrs = 'fetchpriority="high"' if load == 'eager' else 'loading="lazy" decoding="async"'
     c = f' class="{cls}"' if cls else ''
-    return f'<img{c} src="/assets/story/{mid}" srcset="{srcset}" sizes="{sizes}" width="{w}" height="{h}" alt="{escape(alt)}" {attrs}{extra}>'
+    return f'<img{c} src="/assets/story/{files[min(1, len(files) - 1)].name}" srcset="{srcset}" sizes="{sizes}" width="{w}" height="{h}" alt="{escape(alt)}" {attrs}>'
 
 
-def approved_img(name, alt, sizes, load='lazy', extra=''):
+def new_img(name, alt, sizes, pos=''):
     from PIL import Image
     variants = []
     for size in (480, 960, 1920):
@@ -274,94 +260,79 @@ def approved_img(name, alt, sizes, load='lazy', extra=''):
             if wd not in [v[0] for v in variants]: variants.append((wd, size))
     w, h = Image.open(ROOT / f'assets/approved/{name}-{variants[-1][1]}.webp').size
     srcset = ', '.join(f'/assets/approved/{name}-{n}.webp {wd}w' for wd, n in variants)
-    attrs = 'loading="lazy" decoding="async"' if load == 'lazy' else 'fetchpriority="high"'
-    return f'<img src="/assets/approved/{name}-960.webp" srcset="{srcset}" sizes="{sizes}" width="{w}" height="{h}" alt="{escape(alt)}" {attrs}{extra}>'
+    style = f' style="object-position:{pos}"' if pos else ''
+    return f'<img src="/assets/approved/{name}-960.webp" srcset="{srcset}" sizes="{sizes}" width="{w}" height="{h}" alt="{escape(alt)}" loading="lazy" decoding="async"{style}>'
 
 
-# Tour cards on the homepage: the four tours with a sourced description; the short version is mentioned inside «חיפה אהובתי».
-STACK = [  # slug, photo, object-position, who it suits
-    ('haifa-ahuvati', 'bahai-bay', '50% 62%', 'לכל הקבוצות'),
-    ('haifa-shel-maala', 'telescope', '50% 40%', 'לכל הקבוצות'),
-    ('haifa-shel-mata', 'clock-tower', '50% 35%', 'לכל הקבוצות'),
-    ('sodot-veremazim', 'heart-wide', '42% 60%', 'למשפחות עם ילדים'),
-]
-
-
-def stack_cards():
-    by = {t['slug']: t for t in TOURS}
-    out = []
-    for k, (slug, photo, pos, who) in enumerate(STACK):
-        t = by[slug]
-        facts = [('משך', t.get('duration') or 'נקבע בתיאום')]
-        facts.append(('מבנה', t['shape']) if t.get('shape') else ('מתאים ל', t['audience']))
-        facts.append(('יציאה', 'בתיאום מראש'))
-        dl = ''.join(f'<div><dt>{a}</dt><dd>{b}</dd></div>' for a, b in facts)
-        extra = '<p class="tk__note">יש גם גרסה מקוצרת, כ-3 שעות. <a href="/tours/haifa-ahuvati-mekutzar.html">לחיפה אהובתי מקוצר</a></p>' if slug == 'haifa-ahuvati' else ''
-        out.append(f'''          <li class="tk" data-tk style="--i:{k}">
-            <article class="tk__in" aria-labelledby="tc-{slug}">
-              <figure class="tk__img">{approved_img(photo, t['alt'], '(min-width: 900px) 24vw, 92vw', extra=f' style="object-position:{pos}"')}</figure>
-              <div class="tk__body">
-                <p class="tk__for">{who}</p>
-                <h3 class="tk__name" id="tc-{slug}">{t['name']}</h3>
-                <p class="tk__blurb">{t['blurb']}</p>
-                <dl class="tk__facts">{dl}</dl>
-                {extra}
-                <div class="tk__acts">
-                  <a class="btn btn--navy" href="/tours/{slug}.html">לפרטי הסיור<span class="visually-hidden"> {t['name']}</span></a>
-                  <a class="tlink" href="{wa_tour(t['name'])}" target="_blank" rel="noopener">בדיקת מועד בוואטסאפ<span class="visually-hidden"> ל{t['name']}</span></a>
-                </div>
-              </div>
-            </article>
-          </li>''')
-    return '\n'.join(out)
-
-
-# Route sample: the stops of «חיפה אהובתי» in the order of Yoske's 2022 flyer. Photos only where the place is confirmed.
 ROUTE_PHOTO = {'הגנים הבהאיים': ('bahai-terraces', 'הגנים הבהאיים מלמעלה עם כיפת הזהב, העיר והנמל'),
                'הנמל': ('story:haifa-bay-clean', 'הנמל והמפרץ מלמעלה')}
 
 
-def route_parts():
+def added_sections(body):
     t = next(x for x in TOURS if x['slug'] == 'haifa-ahuvati')
     stops, figs = [], []
     for k, name in enumerate(t['stops']):
         stops.append(f'<li data-stop="{k}"{" class=\"is-on\"" if k == 0 else ""}><span class="rt__n">{k + 1}</span><span class="rt__name">{name}</span></li>')
         ph = ROUTE_PHOTO.get(name)
         if ph:
-            img = story_img(ph[0][6:], ph[1], '(min-width: 900px) 40vw, 92vw') if ph[0].startswith('story:') else approved_img(ph[0], ph[1], '(min-width: 900px) 40vw, 92vw')
-            figs.append(f'<figure class="rt__fig" data-fig="{k}">{img}<figcaption>{ph[1]}</figcaption></figure>')
-    return {'%%ROUTE_STOPS%%': '\n            '.join(stops), '%%ROUTE_FIGS%%': '\n            '.join(figs),
-            '%%ROUTE_N%%': str(len(t['stops'])), '%%ROUTE_DUR%%': t['duration'], '%%ROUTE_SHAPE%%': t['shape']}
-
-
-def home():
-    body = (SRC / 'home.html').read_text()
-    body = body.replace('%%STACK%%', stack_cards())
-    for k, v in route_parts().items():
+            im = story_img(ph[0][6:], ph[1], '(min-width: 900px) 40vw, 92vw') if ph[0].startswith('story:') else new_img(ph[0], ph[1], '(min-width: 900px) 40vw, 92vw')
+            figs.append(f'<figure class="rt__fig" data-fig="{k}">{im}<figcaption>{ph[1]}</figcaption></figure>')
+    rep = {'%%ROUTE_STOPS%%': '\n            '.join(stops), '%%ROUTE_FIGS%%': '\n            '.join(figs),
+           '%%ROUTE_N%%': str(len(t['stops'])), '%%ROUTE_DUR%%': t['duration'], '%%ROUTE_SHAPE%%': t['shape'], '%%WA_route%%': wa_tour('חיפה אהובתי')}
+    for k, v in rep.items():
         body = body.replace(k, v)
 
     def story(m):
         name, alt, sizes, load, *cls = m.group(1).split('|')
         return story_img(name, alt, sizes or '100vw', load or 'lazy', cls[0] if cls else '')
 
-    def photo(m):
+    def nphoto(m):
         name, alt, sizes, *rest = m.group(1).split('|')
-        extra = f' style="object-position:{rest[0].replace(" ", "% ")}%"' if rest and rest[0] else ''
-        return approved_img(name, alt, sizes, extra=extra)
+        return new_img(name, alt, sizes, rest[0].replace(' ', '% ') + '%' if rest and rest[0] else '')
     body = re.sub(r'%%STORY:(.*?)%%', story, body)
-    body = re.sub(r'%%PHOTO:(.*?)%%', photo, body)
-    rep = {'%%PHONE%%': PHONE_HUMAN, '%%PHONE_INTL%%': PHONE_INTL, '%%BRAZILAO%%': BRAZILAO, '%%FB_REVIEWS%%': FB_REVIEWS, '%%FB_PAGE%%': FB_PAGE}
+    return re.sub(r'%%NPHOTO:(.*?)%%', nphoto, body)
+
+
+# ------------------------------------------------------------------ home
+def home():
+    body = added_sections((SRC / 'home.html').read_text())
+    def approved_photo(match):
+        from PIL import Image
+        name, alt, sizes, extra = match.group(1).split('|')
+        w, h = Image.open(ROOT / f'assets/approved/{name}-1920.webp').size
+        variants = []
+        for size in [480, 960, 1920]:
+            actual = Image.open(ROOT / f'assets/approved/{name}-{size}.webp').width
+            if actual not in [v[0] for v in variants]: variants.append((actual, size))
+        srcset = ', '.join(f'/assets/approved/{name}-{nominal}.webp {actual}w' for actual, nominal in variants)
+        loading = {'eager': 'fetchpriority="high"', 'low': 'loading="lazy" decoding="async" fetchpriority="low"'}.get(extra, 'loading="lazy" decoding="async"')
+        if extra == 'defer':  # loaded by app.js after the page load (hero slides that are not visible yet)
+            return f'<img data-src="/assets/approved/{name}-960.webp" data-srcset="{srcset}" sizes="{escape(sizes)}" width="{w}" height="{h}" alt="{escape(alt)}" decoding="async">'
+        return f'<img src="/assets/approved/{name}-960.webp" srcset="{srcset}" sizes="{escape(sizes)}" width="{w}" height="{h}" alt="{escape(alt)}" {loading}>'
+    body = body.replace('%%BOARD%%', board_rows()).replace('%%TIMED%%', timed_tours())
+    for k, v in tc_parts().items():
+        body = body.replace(k, v)
+    body = re.sub(r'%%PHOTO:(.*?)%%', approved_photo, body)
+    rep = {
+        '%%ARROW%%': ARROW, '%%CHAT%%': CHAT, '%%PHONE%%': PHONE_HUMAN, '%%PHONE_INTL%%': PHONE_INTL,
+        '%%BRAZILAO%%': BRAZILAO, '%%FB_REVIEWS%%': FB_REVIEWS, '%%FB_PAGE%%': FB_PAGE, '%%BOARD%%': board_rows(),
+        '%%IMG_STREET%%': img('stone-street', 'רחוב עם בנייני אבן ישנים וחלונות כחולים', sizes='100vw'),
+        '%%IMG_YOSKE%%': img('lookout', 'יוסק׳ה מסביר בתצפית, מפרץ חיפה והנמל מאחוריו', sizes='(min-width: 900px) 44vw, 100vw', extra=' style="object-position:70% 40%"'),
+        '%%IMG_GROUP_PLACE%%': img('lookout-group-bay', 'קבוצה יושבת על מדרגות התצפית ומקשיבה, המפרץ והעיר מתחת', sizes='(min-width: 900px) 62vw, 100vw', extra=' style="object-position:60% 50%"'),
+        '%%IMG_GROUP_MOMENT%%': img('heart-family', 'משפחות וילדים מצטלמים בתוך פסל הלב הצהוב, הים ברקע', sizes='(min-width: 900px) 22vw, 60vw'),
+        '%%IMG_ANDES%%': img('andes-valley', 'עמק חקלאי רחב בין הרים גבוהים, מאחד המסעות בדרום אמריקה', sizes='100vw'),
+        '%%IMG_RIO%%': img('rio', 'יוסק׳ה פורש ידיים מתחת לפסל ישו הגואל בריו דה ז׳ניירו', sizes='(min-width: 900px) 12vw, 30vw'),
+        '%%IMG_FINAL%%': img('haifa-sunset', 'חיפה בשעת שקיעה: השכונות, המגדלים, הנמל והמפרץ', sizes='100vw', extra=' style="object-position:50% 30%"'),
+    }
     for k, v in WA.items():
         rep[f'%%WA_{k}%%'] = v
-    rep['%%WA_route%%'] = wa_tour('חיפה אהובתי')
     for k, v in rep.items():
         body = body.replace(k, v)
     assert '%%' not in body, 'unreplaced token in home.html: ' + body[body.index('%%'):body.index('%%') + 40]
     return page('index.html', 'יוסק׳ה קליין | סיורים בחיפה',
-                'סיורים ברגל בחיפה עם יוסק׳ה קליין: מהתצפיות אל הרחובות, המדרגות והאנשים שמתחת. גם ימים לקבוצות ומסעות בדרום אמריקה.',
-                body, current='home', body_class='home',
-                preload='<link rel="preload" as="image" href="/assets/story/haifa-bay-clean-1024.webp" imagesrcset="/assets/story/haifa-bay-clean-640.webp 640w, /assets/story/haifa-bay-clean-1024.webp 1024w, /assets/story/haifa-bay-clean-1672.webp 1672w" imagesizes="max(100vw, 178svh)" fetchpriority="high">',
-                css='home.css', js='home.js')
+                'סיורים בחיפה עם יוסק׳ה קליין, בין המקומות שמכירים לסיפורים שעוד לא שמענו. גם ימי חוויה לקבוצות ומסעות בדרום אמריקה.',
+                body, current='home', body_class='home', extra_css='story.css', extra_js='story.js',
+                preload='<link rel="preload" as="image" href="/assets/approved/haifa-panorama-1920.webp" imagesrcset="/assets/approved/haifa-panorama-960.webp 960w, /assets/approved/haifa-panorama-1920.webp 1920w" imagesizes="100vw" fetchpriority="high">')
 
 
 BOARD_PHOTO = {'haifa-ahuvati': 'gardens', 'haifa-ahuvati-mekutzar': 'carmelit', 'haifa-shel-maala': 'bahai-terraces',
@@ -459,91 +430,59 @@ def board_rows():
 
 
 # ------------------------------------------------------------------ tours
-def tour_facts(t):
-    facts = [('משך', t.get('duration') or 'נקבע בתיאום')]
-    facts.append(('מבנה', t['shape']) if t.get('shape') else ('מתאים ל', t.get('audience', 'כל הקבוצות')))
-    facts.append(('יציאה', 'בתיאום מראש'))
-    return ''.join(f'<div><dt>{a}</dt><dd>{b}</dd></div>' for a, b in facts)
-
-
 def tours_index():
-    cards, more = [], []
-    for k, t in enumerate(TOURS):
+    cards = []
+    for t in TOURS:
         if t.get('blurb'):
-            who = 'למשפחות עם ילדים' if t.get('audience') else 'לכל הקבוצות'
-            wide = ' tour--wide' if k == 0 else ''
-            sizes = '(min-width: 900px) 52vw, 92vw' if k == 0 else '(min-width: 760px) 46vw, 92vw'
-            cards.append(f'''        <li class="tour{wide}">
-          <article class="tour__in" aria-labelledby="t-{t['slug']}">
-            <figure class="tour__img">{img(t['photo'], t['alt'], sizes=sizes, extra=f' style="object-position:{t["pos"]}"')}</figure>
-            <div class="tour__body">
-              <p class="tour__for">{who}</p>
-              <h2 class="tour__name" id="t-{t['slug']}"><a href="/tours/{t['slug']}.html">{t['name']}</a></h2>
-              <p class="tour__blurb">{t['blurb']}</p>
-              <dl class="tour__facts">{tour_facts(t)}</dl>
-              <div class="tour__acts">
-                <a class="btn btn--navy" href="/tours/{t['slug']}.html">לפרטי הסיור<span class="visually-hidden"> {t['name']}</span> {ARROW}</a>
-                <a class="tlink" href="{wa_tour(t['name'])}" target="_blank" rel="noopener">בדיקת מועד בוואטסאפ<span class="visually-hidden"> ל{t['name']}</span></a>
-              </div>
-            </div>
-          </article>
-        </li>''')
+            action = f'<a class="btn btn--primary" href="/tours/{t["slug"]}.html">לפרטי הסיור {ARROW}</a>'
+            text = f'<p>{t["blurb"]}</p>'
         else:
-            more.append(f'''          <li class="more__item">{img(t['photo'], '', sizes='112px', extra=f' style="object-position:{t["pos"]}"')}
-            <div><h3>{t['name']}</h3><a class="tlink" href="{wa_tour(t['name'])}" target="_blank" rel="noopener">{CHAT} לשאול על הסיור<span class="visually-hidden"> {t['name']}</span></a></div>
-          </li>''')
+            action = f'<a class="btn btn--quiet" href="{wa_tour(t["name"])}" target="_blank" rel="noopener">{CHAT} לשאול על הסיור</a>'
+            text = ''
+        cards.append(f'''        <article class="tourcard">
+          <div class="tourcard__media win">{img(t['photo'], '', sizes='(min-width: 900px) 30vw, 92vw', extra=f' style="object-position:{t["pos"]}"')}<span class="win__rim"></span></div>
+          <h2 class="display display--card">{t['name']}</h2>
+          {text}
+          {action}
+        </article>''')
     body = page_hero('סיורים בחיפה', 'הסיורים <span class="br">בחיפה.</span>',
                      'חמישה סיורים קבועים, מהגנים והתצפיות ועד העיר התחתית. בחרו סיור ותאמו איתי מועד, או ספרו לי מה אתם מחפשים ונבחר יחד.',
                      'yoske-guiding-view', 'יוסק׳ה מדבר אל קבוצה ליד המעקה, העיר והמפרץ מאחוריו', '50% 62%') + f'''
-    <section class="pg">
-      <div class="pg__in">
-        <ul class="tlist">
+    <section class="wrap">
+      <div class="tourgrid">
 {chr(10).join(cards)}
-        </ul>
-        <div class="more">
-          <div class="more__head"><h2 class="h-sub">עוד סיורים</h2><p>הפרטים על הסיורים האלה בשיחה.</p></div>
-          <ul class="more__list">
-{chr(10).join(more)}
-          </ul>
-        </div>
       </div>
-    </section>
-''' + band('<span class="c-orange">לא בטוחים</span> <span class="c-blue">מה מתאים לכם?</span>',
-           'ספרו לי מי מגיע ומה מסקרן אתכם, ואעזור לכם למצוא את הכיוון המתאים.',
-           f'<a class="btn btn--orange btn--lg" href="{WA["fit"]}" target="_blank" rel="noopener">יוסק׳ה, מה מתאים לנו? {ARROW}</a>')
+      <div class="callout">
+        <h2 class="display display--m"><span class="c-orange">לא בטוחים</span> <span class="c-blue">מה מתאים לכם?</span></h2>
+        <p>ספרו לי מי מגיע ומה מסקרן אתכם, ואעזור לכם למצוא את הכיוון המתאים.</p>
+        <a class="btn btn--primary btn--lg" href="{WA['fit']}" target="_blank" rel="noopener">יוסק׳ה, מה מתאים לנו? {ARROW}</a>
+      </div>
+    </section>'''
     return page('tours/index.html', 'סיורים בחיפה | יוסק׳ה קליין', 'הסיורים של יוסק׳ה קליין בחיפה.', body, current='tours')
 
 
 def tour_page(t):
     facts = []
+    if t.get('stops'):
+        facts.append('<div class="facts__wide"><dt>בין התחנות</dt><dd><ul class="stops">' + ''.join(f'<li>{x}</li>' for x in t['stops']) + '<li>ועוד</li></ul></dd></div>')
     if t.get('duration'):
         facts.append(f'<div><dt>משך משוער</dt><dd>{t["duration"]}</dd></div>')
     if t.get('shape'):
         facts.append(f'<div><dt>מבנה</dt><dd>{t["shape"]}</dd></div>')
     if t.get('audience'):
         facts.append(f'<div><dt>למי זה מתאים</dt><dd>{t["audience"]}</dd></div>')
-    facts.append('<div><dt>מחיר ומועדים</dt><dd class="tp__soft">תלויים בקבוצה ובתאריך. דברו איתי ונברר יחד.</dd></div>')
-    route = ''
-    if t.get('stops'):
-        route = ('<div class="tp__route"><h2 class="h-sub">בין התחנות</h2><ol>' + ''.join(f'<li>{x}</li>' for x in t['stops'])
-                 + '<li class="tp__etc">ועוד</li></ol></div>')
-    duo = ''.join(f'<figure>{img(n, alt, sizes="(min-width: 760px) 50vw, 92vw")}</figure>' for n, alt in t['extra'])
-    book = f'<a class="btn btn--orange btn--lg" href="{wa_tour(t["name"])}" target="_blank" rel="noopener">לתאם את הסיור {ARROW}</a>'
+    facts.append('<div><dt>מחיר ומועדים</dt><dd>תלויים בקבוצה ובתאריך. דברו איתי ונברר יחד.</dd></div>')
+    duo = ''.join(f'<figure class="win">{img(n, alt, sizes="(min-width: 900px) 30vw, 92vw")}<span class="win__rim"></span></figure>' for n, alt in t['extra'])
     body = page_hero('סיור בחיפה', f'<span class="c-blue">{t["name"]}</span>', t['blurb'], t['photo'], t['alt'], t['pos']) + f'''
-    <section class="pg">
-      <div class="pg__in">
-        <div class="tp{'' if route else ' tp--solo'}">
-          {route}
-          <div class="tp__facts">
-            <dl>{''.join(facts)}</dl>
-            <div class="actions">
-              {book}
-              <a class="tlink" href="/tours/">לכל הסיורים בחיפה</a>
-            </div>
-          </div>
-        </div>
-        <div class="duo">{duo}</div>
+    <section class="wrap wrap--narrow">
+      <dl class="facts">
+        {chr(10).join(facts)}
+      </dl>
+      <div class="actions">
+        <a class="btn btn--primary btn--lg" href="{wa_tour(t['name'])}" target="_blank" rel="noopener">לתאם את הסיור {ARROW}</a>
+        <a class="btn btn--quiet btn--lg" href="/tours/">לכל הסיורים בחיפה</a>
       </div>
+      <div class="duo">{duo}</div>
     </section>'''
     return page(f'tours/{t["slug"]}.html', f'{t["name"]} | יוסק׳ה קליין', t['blurb'], body, current='tours')
 
@@ -553,29 +492,23 @@ def groups():
     body = page_hero('למשפחות ולארגונים', 'יום לקבוצה, <span class="br">שנבנה סביב האנשים.</span>',
                      'משפחה, חברים או צוות מהעבודה: ספרו לי מי מגיע, מה מעניין אתכם וכמה זמן יש לכם. משם נבנה יחד מסלול שמתאים לקבוצה, לקצב ולמטרה של היום.',
                      'heart-family', 'משפחות וילדים מצטלמים בתוך פסל הלב הצהוב, הים ברקע', '50% 42%') + f'''
-    <section class="pg">
-      <div class="pg__in">
-        <ol class="steps3">
-          <li><h2>מכירים</h2><p>מתחילים בשיחה עליכם.</p></li>
-          <li><h2>מתכננים</h2><p>בוחרים כיוון ומדייקים את הפרטים.</p></li>
-          <li><h2>יוצאים</h2><p>נפגשים לחוויה שתוכננה עבורכם.</p></li>
-        </ol>
-        <div class="doors">
-          <article class="door">
-            <figure>{img('heart-wide', 'קבוצת משפחות עם יוסק׳ה ליד פסל הלב הצהוב מול המפרץ', sizes='(min-width: 760px) 46vw, 92vw')}</figure>
-            <div class="door__body">
-              <h2><span class="c-orange">משפחה</span> <span class="c-blue">וחברים</span></h2>
-              <a class="btn btn--orange btn--lg" href="{WA['family']}" target="_blank" rel="noopener">טיול למשפחה ולחברים {ARROW}</a>
-            </div>
-          </article>
-          <article class="door">
-            <figure>{img('red-sculpture-selfie', 'יוסק׳ה בסלפי, מאחוריו קבוצה ליד פסל לב אדום מול המפרץ', sizes='(min-width: 760px) 46vw, 92vw')}</figure>
-            <div class="door__body">
-              <h2><span class="c-blue">צוות</span> <span class="c-orange">או ארגון</span></h2>
-              <a class="btn btn--orange btn--lg" href="{WA['org']}" target="_blank" rel="noopener">יום לצוות או לארגון {ARROW}</a>
-            </div>
-          </article>
-        </div>
+    <section class="wrap">
+      <ol class="steps">
+        <li><h2 class="display display--card">מכירים</h2><p>מתחילים בשיחה עליכם.</p></li>
+        <li><h2 class="display display--card">מתכננים</h2><p>בוחרים כיוון ומדייקים את הפרטים.</p></li>
+        <li><h2 class="display display--card">יוצאים</h2><p>נפגשים לחוויה שתוכננה עבורכם.</p></li>
+      </ol>
+      <div class="choice">
+        <article class="choice__card">
+          <figure class="win">{img('heart-wide', 'קבוצת משפחות עם יוסק׳ה ליד פסל הלב הצהוב מול המפרץ', sizes='(min-width: 900px) 44vw, 92vw')}<span class="win__rim"></span></figure>
+          <h2 class="display display--m"><span class="c-orange">משפחה</span> <span class="c-blue">וחברים</span></h2>
+          <a class="btn btn--primary btn--lg" href="{WA['family']}" target="_blank" rel="noopener">טיול למשפחה ולחברים {ARROW}</a>
+        </article>
+        <article class="choice__card">
+          <figure class="win">{img('red-sculpture-selfie', 'יוסק׳ה בסלפי, מאחוריו קבוצה ליד פסל לב אדום מול המפרץ', sizes='(min-width: 900px) 44vw, 92vw')}<span class="win__rim"></span></figure>
+          <h2 class="display display--m"><span class="c-blue">צוות</span> <span class="c-orange">או ארגון</span></h2>
+          <a class="btn btn--primary btn--lg" href="{WA['org']}" target="_blank" rel="noopener">יום לצוות או לארגון {ARROW}</a>
+        </article>
       </div>
     </section>'''
     return page('groups.html', 'למשפחות ולארגונים | יוסק׳ה קליין', 'טיולים וימי חוויה בהתאמה אישית למשפחות, לחברים, לצוותים ולארגונים.', body, current='groups')
@@ -583,32 +516,32 @@ def groups():
 
 def gallery():
     items = '\n'.join(
-        f'        <figure class="gitem gitem--{shape}"><a href="/assets/photos/{n}.jpg" aria-label="לפתיחת התמונה בגודל מלא: {escape(alt)}">{img(n, alt, sizes="(min-width: 900px) 33vw, 92vw")}</a></figure>'
+        f'        <figure class="gitem gitem--{shape} win"><a href="/assets/photos/{n}.jpg" aria-label="לפתיחת התמונה בגודל מלא: {escape(alt)}">{img(n, alt, sizes="(min-width: 900px) 33vw, 92vw")}</a><span class="win__rim"></span></figure>'
         for n, alt, shape in GALLERY)
-    body = f'''    <header class="pg__in ptop">
+    body = f'''    <section class="wrap wrap--top">
       <p class="kicker">גלריה</p>
-      <h1 class="h-display"><span class="c-orange">ככה זה נראה</span> <span class="c-blue">כשאנחנו יוצאים לדרך.</span></h1>
+      <h1 class="display display--xl"><span class="c-orange">ככה זה נראה</span> <span class="c-blue">כשאנחנו יוצאים לדרך.</span></h1>
       <p class="lead">האנשים, המקומות והרגעים שביניהם. כמה תמונות מהטיולים שלי, כדי שתוכלו להרגיש קצת מהאווירה עוד לפני שנפגשים.</p>
-    </header>
-    <section class="pg__in pg pg--flush" aria-label="תמונות מהטיולים">
       <div class="ggrid">
 {items}
       </div>
-    </section>
-''' + band('<span class="c-blue">רוצים להיות</span> <span class="c-orange">בתמונה הבאה?</span>', '',
-           f'<a class="btn btn--orange btn--lg" href="{WA["general"]}" target="_blank" rel="noopener">בואו נטייל יחד {ARROW}</a>')
+      <div class="callout">
+        <h2 class="display display--m"><span class="c-blue">רוצים להיות</span> <span class="c-orange">בתמונה הבאה?</span></h2>
+        <a class="btn btn--primary btn--lg" href="{WA['general']}" target="_blank" rel="noopener">בואו נטייל יחד {ARROW}</a>
+      </div>
+    </section>'''
     return page('gallery.html', 'גלריה | יוסק׳ה קליין', 'תמונות מהטיולים של יוסק׳ה קליין.', body, current='gallery')
 
 
 def not_found():
-    body = f'''    <section class="pg__in lost">
+    body = f'''    <section class="wrap wrap--top lost">
       <p class="kicker">404</p>
-      <h1 class="h-display"><span class="c-blue">העמוד הזה</span> <span class="c-orange">יצא לטייל.</span></h1>
+      <h1 class="display display--xl"><span class="c-blue">העמוד הזה</span> <span class="c-orange">יצא לטייל.</span></h1>
       <p class="lead">לא מצאנו את מה שחיפשתם. אפשר לחזור לדף הבית, לעבור לסיורים בחיפה, או פשוט לכתוב לי.</p>
       <div class="actions">
-        <a class="btn btn--orange btn--lg" href="/">לדף הבית {ARROW}</a>
-        <a class="btn btn--outline btn--lg" href="/tours/">לסיורים בחיפה</a>
-        <a class="tlink" href="{WA['general']}" target="_blank" rel="noopener">{CHAT} נדבר בוואטסאפ</a>
+        <a class="btn btn--primary btn--lg" href="/">לדף הבית {ARROW}</a>
+        <a class="btn btn--quiet btn--lg" href="/tours/">לסיורים בחיפה</a>
+        <a class="btn btn--quiet btn--lg" href="{WA['general']}" target="_blank" rel="noopener">{CHAT} נדבר בוואטסאפ</a>
       </div>
     </section>'''
     return page('404.html', 'העמוד לא נמצא | יוסק׳ה קליין', 'העמוד לא נמצא.', body)
@@ -625,9 +558,9 @@ TEL = f'<a href="tel:+{PHONE_INTL}" dir="ltr">{PHONE_HUMAN}</a>'
 
 
 def legal_page(path, title, desc, intro, sections):
-    secs = '\n'.join(f'      <section><h2>{h}</h2>{c}</section>' for h, c in sections)
-    body = (f'    <article class="pg__in ptop legal">\n      <p class="kicker">עודכן לאחרונה: {LEGAL_UPDATED}</p>\n'
-            f'      <h1 class="h-display">{title}</h1>\n      <p class="lead">{intro}</p>\n{secs}\n    </article>')
+    secs = '\n'.join(f'      <section><h2 class="display display--card">{h}</h2>{c}</section>' for h, c in sections)
+    body = (f'    <article class="wrap wrap--top legal">\n      <p class="kicker">עודכן לאחרונה: {LEGAL_UPDATED}</p>\n'
+            f'      <h1 class="display display--m">{title}</h1>\n      <p class="lead">{intro}</p>\n{secs}\n    </article>')
     return page(path, f'{title} | יוסק׳ה קליין', desc, body)
 
 

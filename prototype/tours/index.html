@@ -7,129 +7,81 @@
   <meta name="description" content="הסיורים של יוסק׳ה קליין בחיפה.">
   <meta name="robots" content="noindex">
   <link rel="icon" href="data:,">
-  <script>(function(d,m){var still=m('(prefers-reduced-motion: reduce)').matches||location.search.indexOf('still')>-1;d.classList.add('js',still?'still':'motion');if(!still)addEventListener('load',function(){if(!window.__motion){d.classList.remove('motion');d.classList.add('still')}})})(document.documentElement,matchMedia)</script>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-TwsYRgWffffmSIVSoxBkFNHwvxadf0fkisakaPwTaro='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+  <script>(function(d,m){var still=m('(prefers-reduced-motion: reduce)').matches||location.search.indexOf('still')>-1;d.classList.add('js',still?'still':'motion');if(!still){var c=m('(min-width: 900px)').matches?['plan-on','fan-on','sea-on','gate-on']:['gate-on'];c.forEach(function(k){d.classList.add(k)});addEventListener('load',function(){if(!window.__motion)c.forEach(function(k){d.classList.remove(k)})})}})(document.documentElement,matchMedia)</script>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-8kVhqqpUDP4vj3M8QyOzQpswL6YQD0HXEdjTxCm8zvE='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <link rel="preload" href="/fonts/noto-sans-hebrew-wdth-wght-hebrew.woff2" as="font" type="font/woff2" crossorigin>
   
   <link rel="stylesheet" href="/styles.css?v=bcd8dd879f">
-  <link rel="stylesheet" href="/pages.css?v=7c2cfb7d30">
 </head>
 <body class="page">
   <a class="skip" href="#main">דילוג לתוכן</a>
   <header class="nav" data-nav>
     <a class="wordmark" href="/" aria-label="יוסק׳ה קליין, לדף הבית">יוסק׳ה קליין<span>הדרכה והפקת טיולים</span></a>
-    <nav class="nav__links" aria-label="ניווט ראשי"><a href="/#tours" aria-current="page">הסיורים</a><a href="/#about">מי אני</a><a href="/groups.html">למשפחות ולארגונים</a><a href="/#faq">שאלות</a></nav>
+    <nav class="nav__links" aria-label="ניווט ראשי"><a href="/#board" aria-current="page">הסיורים</a><a href="/#groups">ימים לקבוצות</a><a href="/#about">מי אני</a><a href="/#faq">שאלות</a></nav>
     <a class="nav__phone" href="tel:+972544361667" dir="ltr">054-4361667</a>
     <a class="btn btn--orange btn--sm nav__cta" href="https://wa.me/972544361667?text=%D7%94%D7%99%D7%99%20%D7%99%D7%95%D7%A1%D7%A7%D7%B3%D7%94%2C%20%D7%94%D7%92%D7%A2%D7%A0%D7%95%20%D7%93%D7%A8%D7%9A%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%A0%D7%A9%D7%9E%D7%97%20%D7%9C%D7%AA%D7%9B%D7%A0%D7%9F%20%D7%98%D7%99%D7%95%D7%9C." target="_blank" rel="noopener">נדבר בוואטסאפ</a>
     <button class="nav__menu" type="button" aria-expanded="false" aria-controls="menu">תפריט</button>
   </header>
-  <nav class="menu" id="menu" aria-label="תפריט" hidden><a href="/#tours" aria-current="page">הסיורים</a><a href="/#about">מי אני</a><a href="/groups.html">למשפחות ולארגונים</a><a href="/#faq">שאלות</a><a href="/#contact">יצירת קשר</a><a class="menu__phone" href="tel:+972544361667" dir="ltr">054-4361667</a></nav>
+  <nav class="menu" id="menu" aria-label="תפריט" hidden><a href="/#board" aria-current="page">הסיורים</a><a href="/#groups">ימים לקבוצות</a><a href="/#about">מי אני</a><a href="/#faq">שאלות</a><a href="/#contact">יצירת קשר</a><a class="menu__phone" href="tel:+972544361667" dir="ltr">054-4361667</a></nav>
   <main id="main">
     <section class="phero">
-      <div class="phero__media"><img src="/assets/photos/yoske-guiding-view-sm.jpg" srcset="/assets/photos/yoske-guiding-view-xs.jpg 480w, /assets/photos/yoske-guiding-view-sm.jpg 820w, /assets/photos/yoske-guiding-view.jpg 1200w" sizes="(min-width: 900px) 52vw, 100vw" width="1200" height="1200" alt="יוסק׳ה מדבר אל קבוצה ליד המעקה, העיר והמפרץ מאחוריו" fetchpriority="high" style="object-position:50% 62%"></div>
+      <div class="phero__media"><img src="/assets/photos/yoske-guiding-view-sm.jpg" srcset="/assets/photos/yoske-guiding-view-xs.jpg 480w, /assets/photos/yoske-guiding-view-sm.jpg 820w, /assets/photos/yoske-guiding-view.jpg 1200w" sizes="100vw" width="1200" height="1200" alt="יוסק׳ה מדבר אל קבוצה ליד המעקה, העיר והמפרץ מאחוריו" fetchpriority="high" style="object-position:50% 62%"></div>
       <div class="phero__copy">
-        <p class="kicker kicker--light">סיורים בחיפה</p>
-        <h1 class="phero__title">הסיורים <span class="br">בחיפה.</span></h1>
-        <p class="phero__lede">חמישה סיורים קבועים, מהגנים והתצפיות ועד העיר התחתית. בחרו סיור ותאמו איתי מועד, או ספרו לי מה אתם מחפשים ונבחר יחד.</p>
+        <p class="kicker">סיורים בחיפה</p>
+        <h1 class="display display--xl">הסיורים <span class="br">בחיפה.</span></h1>
+        <p class="lead">חמישה סיורים קבועים, מהגנים והתצפיות ועד העיר התחתית. בחרו סיור ותאמו איתי מועד, או ספרו לי מה אתם מחפשים ונבחר יחד.</p>
       </div>
     </section>
-    <section class="pg">
-      <div class="pg__in">
-        <ul class="tlist">
-        <li class="tour tour--wide">
-          <article class="tour__in" aria-labelledby="t-haifa-ahuvati">
-            <figure class="tour__img"><img src="/assets/photos/bahai-bay-sm.jpg" srcset="/assets/photos/bahai-bay-xs.jpg 480w, /assets/photos/bahai-bay-sm.jpg 820w, /assets/photos/bahai-bay.jpg 1134w" sizes="(min-width: 900px) 52vw, 92vw" width="1134" height="2015" alt="ציר הגנים הבהאיים יורד במדרגות עד העיר והים" loading="lazy" decoding="async" style="object-position:50% 58%"></figure>
-            <div class="tour__body">
-              <p class="tour__for">לכל הקבוצות</p>
-              <h2 class="tour__name" id="t-haifa-ahuvati"><a href="/tours/haifa-ahuvati.html">חיפה אהובתי</a></h2>
-              <p class="tour__blurb">הסיור המלא: הגנים הבהאיים, טיילת לואי, הכרמלית, כיכר פריז, הנמל ועוד, ביום אחד.</p>
-              <dl class="tour__facts"><div><dt>משך</dt><dd>כ-5 עד 6 שעות</dd></div><div><dt>מבנה</dt><dd>סיור מעגלי</dd></div><div><dt>יציאה</dt><dd>בתיאום מראש</dd></div></dl>
-              <div class="tour__acts">
-                <a class="btn btn--navy" href="/tours/haifa-ahuvati.html">לפרטי הסיור<span class="visually-hidden"> חיפה אהובתי</span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg></a>
-                <a class="tlink" href="https://wa.me/972544361667?text=%D7%94%D7%99%D7%99%20%D7%99%D7%95%D7%A1%D7%A7%D7%B3%D7%94%2C%20%D7%A0%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%94%D7%A1%D7%99%D7%95%D7%A8%20%D7%B4%D7%97%D7%99%D7%A4%D7%94%20%D7%90%D7%94%D7%95%D7%91%D7%AA%D7%99%D7%B4." target="_blank" rel="noopener">בדיקת מועד בוואטסאפ<span class="visually-hidden"> לחיפה אהובתי</span></a>
-              </div>
-            </div>
-          </article>
-        </li>
-        <li class="tour">
-          <article class="tour__in" aria-labelledby="t-haifa-ahuvati-mekutzar">
-            <figure class="tour__img"><img src="/assets/photos/carmelit-sm.jpg" srcset="/assets/photos/carmelit-xs.jpg 480w, /assets/photos/carmelit-sm.jpg 820w, /assets/photos/carmelit.jpg 1920w" sizes="(min-width: 760px) 46vw, 92vw" width="2048" height="1536" alt="ילדים מציצים אל קרון ברציף תחתי" loading="lazy" decoding="async" style="object-position:50% 40%"></figure>
-            <div class="tour__body">
-              <p class="tour__for">לכל הקבוצות</p>
-              <h2 class="tour__name" id="t-haifa-ahuvati-mekutzar"><a href="/tours/haifa-ahuvati-mekutzar.html">חיפה אהובתי מקוצר</a></h2>
-              <p class="tour__blurb">הגרסה הקצרה: הגנים הבהאיים, טיילת לואי, הכרמלית, כיכר פריז, הנמל ועוד.</p>
-              <dl class="tour__facts"><div><dt>משך</dt><dd>כ-3 שעות</dd></div><div><dt>מבנה</dt><dd>סיור לא מעגלי</dd></div><div><dt>יציאה</dt><dd>בתיאום מראש</dd></div></dl>
-              <div class="tour__acts">
-                <a class="btn btn--navy" href="/tours/haifa-ahuvati-mekutzar.html">לפרטי הסיור<span class="visually-hidden"> חיפה אהובתי מקוצר</span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg></a>
-                <a class="tlink" href="https://wa.me/972544361667?text=%D7%94%D7%99%D7%99%20%D7%99%D7%95%D7%A1%D7%A7%D7%B3%D7%94%2C%20%D7%A0%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%94%D7%A1%D7%99%D7%95%D7%A8%20%D7%B4%D7%97%D7%99%D7%A4%D7%94%20%D7%90%D7%94%D7%95%D7%91%D7%AA%D7%99%20%D7%9E%D7%A7%D7%95%D7%A6%D7%A8%D7%B4." target="_blank" rel="noopener">בדיקת מועד בוואטסאפ<span class="visually-hidden"> לחיפה אהובתי מקוצר</span></a>
-              </div>
-            </div>
-          </article>
-        </li>
-        <li class="tour">
-          <article class="tour__in" aria-labelledby="t-haifa-shel-maala">
-            <figure class="tour__img"><img src="/assets/photos/bahai-terraces-sm.jpg" srcset="/assets/photos/bahai-terraces-xs.jpg 480w, /assets/photos/bahai-terraces-sm.jpg 820w, /assets/photos/bahai-terraces.jpg 1211w" sizes="(min-width: 760px) 46vw, 92vw" width="1211" height="1180" alt="הגנים הבהאיים מלמעלה עם כיפת הזהב, העיר והנמל" loading="lazy" decoding="async" style="object-position:50% 45%"></figure>
-            <div class="tour__body">
-              <p class="tour__for">לכל הקבוצות</p>
-              <h2 class="tour__name" id="t-haifa-shel-maala"><a href="/tours/haifa-shel-maala.html">חיפה של מעלה</a></h2>
-              <p class="tour__blurb">העיר שלמעלה: הגנים הבהאיים, טיילת לואי, רובע המדרגות, תחנה בכרמלית, גן האם ועוד.</p>
-              <dl class="tour__facts"><div><dt>משך</dt><dd>כ-2.5 שעות</dd></div><div><dt>מבנה</dt><dd>סיור לא מעגלי</dd></div><div><dt>יציאה</dt><dd>בתיאום מראש</dd></div></dl>
-              <div class="tour__acts">
-                <a class="btn btn--navy" href="/tours/haifa-shel-maala.html">לפרטי הסיור<span class="visually-hidden"> חיפה של מעלה</span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg></a>
-                <a class="tlink" href="https://wa.me/972544361667?text=%D7%94%D7%99%D7%99%20%D7%99%D7%95%D7%A1%D7%A7%D7%B3%D7%94%2C%20%D7%A0%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%94%D7%A1%D7%99%D7%95%D7%A8%20%D7%B4%D7%97%D7%99%D7%A4%D7%94%20%D7%A9%D7%9C%20%D7%9E%D7%A2%D7%9C%D7%94%D7%B4." target="_blank" rel="noopener">בדיקת מועד בוואטסאפ<span class="visually-hidden"> לחיפה של מעלה</span></a>
-              </div>
-            </div>
-          </article>
-        </li>
-        <li class="tour">
-          <article class="tour__in" aria-labelledby="t-haifa-shel-mata">
-            <figure class="tour__img"><img src="/assets/photos/clock-tower-sm.jpg" srcset="/assets/photos/clock-tower-xs.jpg 480w, /assets/photos/clock-tower-sm.jpg 820w, /assets/photos/clock-tower.jpg 1536w" sizes="(min-width: 760px) 46vw, 92vw" width="1536" height="1536" alt="מגדל שעון מאבן מול שמיים כחולים" loading="lazy" decoding="async" style="object-position:50% 35%"></figure>
-            <div class="tour__body">
-              <p class="tour__for">לכל הקבוצות</p>
-              <h2 class="tour__name" id="t-haifa-shel-mata"><a href="/tours/haifa-shel-mata.html">חיפה של מטה</a></h2>
-              <p class="tour__blurb">העיר שלמטה: בניין המפרש, מגדל השעון, כיכר פריז, השוק הטורקי, הנמל, המושבה הגרמנית ועוד.</p>
-              <dl class="tour__facts"><div><dt>משך</dt><dd>כ-2.5 שעות</dd></div><div><dt>מבנה</dt><dd>סיור לא מעגלי</dd></div><div><dt>יציאה</dt><dd>בתיאום מראש</dd></div></dl>
-              <div class="tour__acts">
-                <a class="btn btn--navy" href="/tours/haifa-shel-mata.html">לפרטי הסיור<span class="visually-hidden"> חיפה של מטה</span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg></a>
-                <a class="tlink" href="https://wa.me/972544361667?text=%D7%94%D7%99%D7%99%20%D7%99%D7%95%D7%A1%D7%A7%D7%B3%D7%94%2C%20%D7%A0%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%94%D7%A1%D7%99%D7%95%D7%A8%20%D7%B4%D7%97%D7%99%D7%A4%D7%94%20%D7%A9%D7%9C%20%D7%9E%D7%98%D7%94%D7%B4." target="_blank" rel="noopener">בדיקת מועד בוואטסאפ<span class="visually-hidden"> לחיפה של מטה</span></a>
-              </div>
-            </div>
-          </article>
-        </li>
-        <li class="tour">
-          <article class="tour__in" aria-labelledby="t-sodot-veremazim">
-            <figure class="tour__img"><img src="/assets/photos/heart-wide-sm.jpg" srcset="/assets/photos/heart-wide-xs.jpg 480w, /assets/photos/heart-wide-sm.jpg 820w, /assets/photos/heart-wide.jpg 1600w" sizes="(min-width: 760px) 46vw, 92vw" width="1600" height="894" alt="קבוצת משפחות עם יוסק׳ה ליד פסל הלב הצהוב מול המפרץ" loading="lazy" decoding="async" style="object-position:50% 60%"></figure>
-            <div class="tour__body">
-              <p class="tour__for">למשפחות עם ילדים</p>
-              <h2 class="tour__name" id="t-sodot-veremazim"><a href="/tours/sodot-veremazim.html">סודות ורמזים בחיפה</a></h2>
-              <p class="tour__blurb">סיור הפעלתי למשפחות ולילדים: יוצאים לעיר בעקבות רמזים וחידות, ומגלים בדרך את הסיפורים שלה.</p>
-              <dl class="tour__facts"><div><dt>משך</dt><dd>נקבע בתיאום</dd></div><div><dt>מתאים ל</dt><dd>משפחות וילדים</dd></div><div><dt>יציאה</dt><dd>בתיאום מראש</dd></div></dl>
-              <div class="tour__acts">
-                <a class="btn btn--navy" href="/tours/sodot-veremazim.html">לפרטי הסיור<span class="visually-hidden"> סודות ורמזים בחיפה</span> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg></a>
-                <a class="tlink" href="https://wa.me/972544361667?text=%D7%94%D7%99%D7%99%20%D7%99%D7%95%D7%A1%D7%A7%D7%B3%D7%94%2C%20%D7%A0%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%94%D7%A1%D7%99%D7%95%D7%A8%20%D7%B4%D7%A1%D7%95%D7%93%D7%95%D7%AA%20%D7%95%D7%A8%D7%9E%D7%96%D7%99%D7%9D%20%D7%91%D7%97%D7%99%D7%A4%D7%94%D7%B4." target="_blank" rel="noopener">בדיקת מועד בוואטסאפ<span class="visually-hidden"> לסודות ורמזים בחיפה</span></a>
-              </div>
-            </div>
-          </article>
-        </li>
-        </ul>
-        <div class="more">
-          <div class="more__head"><h2 class="h-sub">עוד סיורים</h2><p>הפרטים על הסיורים האלה בשיחה.</p></div>
-          <ul class="more__list">
-          <li class="more__item"><img src="/assets/photos/arches-group-sm.jpg" srcset="/assets/photos/arches-group-xs.jpg 480w, /assets/photos/arches-group-sm.jpg 820w, /assets/photos/arches-group.jpg 1010w" sizes="112px" width="1010" height="758" alt="" loading="lazy" decoding="async" style="object-position:50% 50%">
-            <div><h3>טעימה מחיפה</h3><a class="tlink" href="https://wa.me/972544361667?text=%D7%94%D7%99%D7%99%20%D7%99%D7%95%D7%A1%D7%A7%D7%B3%D7%94%2C%20%D7%A0%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%94%D7%A1%D7%99%D7%95%D7%A8%20%D7%B4%D7%98%D7%A2%D7%99%D7%9E%D7%94%20%D7%9E%D7%97%D7%99%D7%A4%D7%94%D7%B4." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg> לשאול על הסיור<span class="visually-hidden"> טעימה מחיפה</span></a></div>
-          </li>
-          <li class="more__item"><img src="/assets/photos/square-group-sm.jpg" srcset="/assets/photos/square-group-xs.jpg 480w, /assets/photos/square-group-sm.jpg 820w, /assets/photos/square-group.jpg 1920w" sizes="112px" width="2048" height="1819" alt="" loading="lazy" decoding="async" style="object-position:50% 45%">
-            <div><h3>טבע, אדם, חברה, סביבה</h3><a class="tlink" href="https://wa.me/972544361667?text=%D7%94%D7%99%D7%99%20%D7%99%D7%95%D7%A1%D7%A7%D7%B3%D7%94%2C%20%D7%A0%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%94%D7%A1%D7%99%D7%95%D7%A8%20%D7%B4%D7%98%D7%91%D7%A2%2C%20%D7%90%D7%93%D7%9D%2C%20%D7%97%D7%91%D7%A8%D7%94%2C%20%D7%A1%D7%91%D7%99%D7%91%D7%94%D7%B4." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg> לשאול על הסיור<span class="visually-hidden"> טבע, אדם, חברה, סביבה</span></a></div>
-          </li>
-          </ul>
-        </div>
+    <section class="wrap">
+      <div class="tourgrid">
+        <article class="tourcard">
+          <div class="tourcard__media win"><img src="/assets/photos/bahai-bay-sm.jpg" srcset="/assets/photos/bahai-bay-xs.jpg 480w, /assets/photos/bahai-bay-sm.jpg 820w, /assets/photos/bahai-bay.jpg 1134w" sizes="(min-width: 900px) 30vw, 92vw" width="1134" height="2015" alt="" loading="lazy" decoding="async" style="object-position:50% 58%"><span class="win__rim"></span></div>
+          <h2 class="display display--card">חיפה אהובתי</h2>
+          <p>הסיור המלא: הגנים הבהאיים, טיילת לואי, הכרמלית, כיכר פריז, הנמל ועוד, ביום אחד.</p>
+          <a class="btn btn--primary" href="/tours/haifa-ahuvati.html">לפרטי הסיור <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg></a>
+        </article>
+        <article class="tourcard">
+          <div class="tourcard__media win"><img src="/assets/photos/carmelit-sm.jpg" srcset="/assets/photos/carmelit-xs.jpg 480w, /assets/photos/carmelit-sm.jpg 820w, /assets/photos/carmelit.jpg 1920w" sizes="(min-width: 900px) 30vw, 92vw" width="2048" height="1536" alt="" loading="lazy" decoding="async" style="object-position:50% 40%"><span class="win__rim"></span></div>
+          <h2 class="display display--card">חיפה אהובתי מקוצר</h2>
+          <p>הגרסה הקצרה: הגנים הבהאיים, טיילת לואי, הכרמלית, כיכר פריז, הנמל ועוד.</p>
+          <a class="btn btn--primary" href="/tours/haifa-ahuvati-mekutzar.html">לפרטי הסיור <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg></a>
+        </article>
+        <article class="tourcard">
+          <div class="tourcard__media win"><img src="/assets/photos/bahai-terraces-sm.jpg" srcset="/assets/photos/bahai-terraces-xs.jpg 480w, /assets/photos/bahai-terraces-sm.jpg 820w, /assets/photos/bahai-terraces.jpg 1211w" sizes="(min-width: 900px) 30vw, 92vw" width="1211" height="1180" alt="" loading="lazy" decoding="async" style="object-position:50% 45%"><span class="win__rim"></span></div>
+          <h2 class="display display--card">חיפה של מעלה</h2>
+          <p>העיר שלמעלה: הגנים הבהאיים, טיילת לואי, רובע המדרגות, תחנה בכרמלית, גן האם ועוד.</p>
+          <a class="btn btn--primary" href="/tours/haifa-shel-maala.html">לפרטי הסיור <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg></a>
+        </article>
+        <article class="tourcard">
+          <div class="tourcard__media win"><img src="/assets/photos/clock-tower-sm.jpg" srcset="/assets/photos/clock-tower-xs.jpg 480w, /assets/photos/clock-tower-sm.jpg 820w, /assets/photos/clock-tower.jpg 1536w" sizes="(min-width: 900px) 30vw, 92vw" width="1536" height="1536" alt="" loading="lazy" decoding="async" style="object-position:50% 35%"><span class="win__rim"></span></div>
+          <h2 class="display display--card">חיפה של מטה</h2>
+          <p>העיר שלמטה: בניין המפרש, מגדל השעון, כיכר פריז, השוק הטורקי, הנמל, המושבה הגרמנית ועוד.</p>
+          <a class="btn btn--primary" href="/tours/haifa-shel-mata.html">לפרטי הסיור <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg></a>
+        </article>
+        <article class="tourcard">
+          <div class="tourcard__media win"><img src="/assets/photos/heart-wide-sm.jpg" srcset="/assets/photos/heart-wide-xs.jpg 480w, /assets/photos/heart-wide-sm.jpg 820w, /assets/photos/heart-wide.jpg 1600w" sizes="(min-width: 900px) 30vw, 92vw" width="1600" height="894" alt="" loading="lazy" decoding="async" style="object-position:50% 60%"><span class="win__rim"></span></div>
+          <h2 class="display display--card">סודות ורמזים בחיפה</h2>
+          <p>סיור הפעלתי למשפחות ולילדים: יוצאים לעיר בעקבות רמזים וחידות, ומגלים בדרך את הסיפורים שלה.</p>
+          <a class="btn btn--primary" href="/tours/sodot-veremazim.html">לפרטי הסיור <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg></a>
+        </article>
+        <article class="tourcard">
+          <div class="tourcard__media win"><img src="/assets/photos/arches-group-sm.jpg" srcset="/assets/photos/arches-group-xs.jpg 480w, /assets/photos/arches-group-sm.jpg 820w, /assets/photos/arches-group.jpg 1010w" sizes="(min-width: 900px) 30vw, 92vw" width="1010" height="758" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"><span class="win__rim"></span></div>
+          <h2 class="display display--card">טעימה מחיפה</h2>
+          
+          <a class="btn btn--quiet" href="https://wa.me/972544361667?text=%D7%94%D7%99%D7%99%20%D7%99%D7%95%D7%A1%D7%A7%D7%B3%D7%94%2C%20%D7%A0%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%94%D7%A1%D7%99%D7%95%D7%A8%20%D7%B4%D7%98%D7%A2%D7%99%D7%9E%D7%94%20%D7%9E%D7%97%D7%99%D7%A4%D7%94%D7%B4." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg> לשאול על הסיור</a>
+        </article>
+        <article class="tourcard">
+          <div class="tourcard__media win"><img src="/assets/photos/square-group-sm.jpg" srcset="/assets/photos/square-group-xs.jpg 480w, /assets/photos/square-group-sm.jpg 820w, /assets/photos/square-group.jpg 1920w" sizes="(min-width: 900px) 30vw, 92vw" width="2048" height="1819" alt="" loading="lazy" decoding="async" style="object-position:50% 45%"><span class="win__rim"></span></div>
+          <h2 class="display display--card">טבע, אדם, חברה, סביבה</h2>
+          
+          <a class="btn btn--quiet" href="https://wa.me/972544361667?text=%D7%94%D7%99%D7%99%20%D7%99%D7%95%D7%A1%D7%A7%D7%B3%D7%94%2C%20%D7%A0%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%94%D7%A1%D7%99%D7%95%D7%A8%20%D7%B4%D7%98%D7%91%D7%A2%2C%20%D7%90%D7%93%D7%9D%2C%20%D7%97%D7%91%D7%A8%D7%94%2C%20%D7%A1%D7%91%D7%99%D7%91%D7%94%D7%B4." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg> לשאול על הסיור</a>
+        </article>
       </div>
-    </section>
-    <section class="band">
-      <div class="pg__in band__in">
-        <h2 class="h-display h-display--m"><em>לא בטוחים</em> מה מתאים לכם?</h2>
-        <div><p>ספרו לי מי מגיע ומה מסקרן אתכם, ואעזור לכם למצוא את הכיוון המתאים.</p><div class="actions"><a class="btn btn--orange btn--lg" href="https://wa.me/972544361667?text=%D7%94%D7%99%D7%99%20%D7%99%D7%95%D7%A1%D7%A7%D7%B3%D7%94%2C%20%D7%9E%D7%94%20%D7%9E%D7%AA%D7%90%D7%99%D7%9D%20%D7%9C%D7%A0%D7%95%3F%20%D7%A0%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A2%D7%96%D7%A8%D7%94%20%D7%91%D7%91%D7%97%D7%99%D7%A8%D7%AA%20%D7%A1%D7%99%D7%95%D7%A8." target="_blank" rel="noopener">יוסק׳ה, מה מתאים לנו? <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg></a></div></div>
+      <div class="callout">
+        <h2 class="display display--m"><em>לא בטוחים</em> מה מתאים לכם?</h2>
+        <p>ספרו לי מי מגיע ומה מסקרן אתכם, ואעזור לכם למצוא את הכיוון המתאים.</p>
+        <a class="btn btn--primary btn--lg" href="https://wa.me/972544361667?text=%D7%94%D7%99%D7%99%20%D7%99%D7%95%D7%A1%D7%A7%D7%B3%D7%94%2C%20%D7%9E%D7%94%20%D7%9E%D7%AA%D7%90%D7%99%D7%9D%20%D7%9C%D7%A0%D7%95%3F%20%D7%A0%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A2%D7%96%D7%A8%D7%94%20%D7%91%D7%91%D7%97%D7%99%D7%A8%D7%AA%20%D7%A1%D7%99%D7%95%D7%A8." target="_blank" rel="noopener">יוסק׳ה, מה מתאים לנו? <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg></a>
       </div>
     </section>
   </main>

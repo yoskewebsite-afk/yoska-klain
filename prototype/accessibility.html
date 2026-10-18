@@ -7,35 +7,34 @@
   <meta name="description" content="הצהרת הנגישות של האתר של יוסק׳ה קליין.">
   <meta name="robots" content="noindex">
   <link rel="icon" href="data:,">
-  <script>(function(d,m){var still=m('(prefers-reduced-motion: reduce)').matches||location.search.indexOf('still')>-1;d.classList.add('js',still?'still':'motion');if(!still)addEventListener('load',function(){if(!window.__motion){d.classList.remove('motion');d.classList.add('still')}})})(document.documentElement,matchMedia)</script>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-TwsYRgWffffmSIVSoxBkFNHwvxadf0fkisakaPwTaro='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+  <script>(function(d,m){var still=m('(prefers-reduced-motion: reduce)').matches||location.search.indexOf('still')>-1;d.classList.add('js',still?'still':'motion');if(!still){var c=m('(min-width: 900px)').matches?['plan-on','fan-on','sea-on','gate-on']:['gate-on'];c.forEach(function(k){d.classList.add(k)});addEventListener('load',function(){if(!window.__motion)c.forEach(function(k){d.classList.remove(k)})})}})(document.documentElement,matchMedia)</script>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-8kVhqqpUDP4vj3M8QyOzQpswL6YQD0HXEdjTxCm8zvE='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <link rel="preload" href="/fonts/noto-sans-hebrew-wdth-wght-hebrew.woff2" as="font" type="font/woff2" crossorigin>
   
   <link rel="stylesheet" href="/styles.css?v=bcd8dd879f">
-  <link rel="stylesheet" href="/pages.css?v=7c2cfb7d30">
 </head>
 <body class="page">
   <a class="skip" href="#main">דילוג לתוכן</a>
   <header class="nav" data-nav>
     <a class="wordmark" href="/" aria-label="יוסק׳ה קליין, לדף הבית">יוסק׳ה קליין<span>הדרכה והפקת טיולים</span></a>
-    <nav class="nav__links" aria-label="ניווט ראשי"><a href="/#tours">הסיורים</a><a href="/#about">מי אני</a><a href="/groups.html">למשפחות ולארגונים</a><a href="/#faq">שאלות</a></nav>
+    <nav class="nav__links" aria-label="ניווט ראשי"><a href="/#board">הסיורים</a><a href="/#groups">ימים לקבוצות</a><a href="/#about">מי אני</a><a href="/#faq">שאלות</a></nav>
     <a class="nav__phone" href="tel:+972544361667" dir="ltr">054-4361667</a>
     <a class="btn btn--orange btn--sm nav__cta" href="https://wa.me/972544361667?text=%D7%94%D7%99%D7%99%20%D7%99%D7%95%D7%A1%D7%A7%D7%B3%D7%94%2C%20%D7%94%D7%92%D7%A2%D7%A0%D7%95%20%D7%93%D7%A8%D7%9A%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%A0%D7%A9%D7%9E%D7%97%20%D7%9C%D7%AA%D7%9B%D7%A0%D7%9F%20%D7%98%D7%99%D7%95%D7%9C." target="_blank" rel="noopener">נדבר בוואטסאפ</a>
     <button class="nav__menu" type="button" aria-expanded="false" aria-controls="menu">תפריט</button>
   </header>
-  <nav class="menu" id="menu" aria-label="תפריט" hidden><a href="/#tours">הסיורים</a><a href="/#about">מי אני</a><a href="/groups.html">למשפחות ולארגונים</a><a href="/#faq">שאלות</a><a href="/#contact">יצירת קשר</a><a class="menu__phone" href="tel:+972544361667" dir="ltr">054-4361667</a></nav>
+  <nav class="menu" id="menu" aria-label="תפריט" hidden><a href="/#board">הסיורים</a><a href="/#groups">ימים לקבוצות</a><a href="/#about">מי אני</a><a href="/#faq">שאלות</a><a href="/#contact">יצירת קשר</a><a class="menu__phone" href="tel:+972544361667" dir="ltr">054-4361667</a></nav>
   <main id="main">
-    <article class="pg__in ptop legal">
+    <article class="wrap wrap--top legal">
       <p class="kicker">עודכן לאחרונה: 16.10.2026</p>
-      <h1 class="h-display">הצהרת נגישות</h1>
+      <h1 class="display display--m">הצהרת נגישות</h1>
       <p class="lead">חשוב לי שכל מי שרוצה לטייל איתי יוכל להשתמש באתר. הדף הזה מתאר מה נעשה, מה עדיין לא נבדק, ואיך לפנות אם משהו לא עובד.</p>
-      <section><h2>רמת הנגישות</h2><p>האתר נבנה במטרה לעמוד בתקן הישראלי ת״י 5568, המבוסס על הנחיות WCAG ברמה AA. בבדיקות שנעשו לא נמצאו הפרות בכלי הבדיקה האוטומטי axe-core, ובדיקות ידניות של מקלדת, ניגודיות ותנועה עברו. בדיקות כאלה אינן מבטיחות נגישות מלאה, ולכן חשוב לי לשמוע אם נתקלתם בבעיה.</p></section>
-      <section><h2>מה נעשה באתר</h2><ul class="legal__list"><li>מבנה סמנטי בעברית מימין לשמאל, עם כותרות לפי סדר, אזורי ניווט ותוכן מסומנים, וקישור ״דילוג לתוכן״.</li><li>ניווט מלא במקלדת, עם סימון פוקוס בולט. הכפתור הצף לא מסתיר פריטים שהפוקוס עליהם.</li><li>ניגודיות צבעים ברמת AA, כולל טקסט שמופיע מעל צילומים (נמדד על הפיקסלים בפועל).</li><li>טקסט חלופי לצילומים בעלי משמעות; צילומים קישוטיים מוסתרים מקוראי מסך.</li><li>טפסים עם תוויות, הודעות שגיאה ברורות, ובלי שליחה אוטומטית.</li><li>כיבוד ההגדרה ״הפחתת תנועה״: אנימציות הגלילה מתבטלות וכל התוכן מוצג ברצף רגיל. התוכן זמין גם בלי JavaScript.</li><li>התאמה לטלפון, לטאבלט ולמחשב, בלי גלילה לרוחב.</li></ul></section>
-      <section><h2>מגבלות ידועות</h2><ul class="legal__list"><li>בסצנת הגלילה בראש הדף, כרטיסי הסיורים מופיעים רק כשגוללים אליהם. כל הסיורים זמינים גם ברשימה ״הסיור הבא שלכם מתחיל כאן״, שאפשר להגיע אליה במקלדת.</li><li>האתר עדיין לא נבדק עם קוראי מסך (NVDA, VoiceOver) ולא על ידי מורשה נגישות.</li><li>וואטסאפ, פייסבוק ואתר ברזילאו הם אתרים חיצוניים, והנגישות שלהם באחריותם.</li></ul></section>
-      <section><h2>נגישות בסיורים עצמם</h2><p>בחיפה יש מדרגות, עליות ומדרכות צרות, וכל מסלול שונה. ספרו לי מראש על צרכי נגישות, ונבדוק יחד אם יש מסלול מתאים או התאמות אפשריות.</p></section>
-      <section><h2>פנייה בנושא נגישות</h2><p>רכז/ת נגישות: <mark class="tbd">[נדרש להשלים: שם]</mark>. טלפון: <a href="tel:+972544361667" dir="ltr">054-4361667</a>. דוא״ל: <mark class="tbd">[נדרש להשלים: כתובת דוא״ל]</mark>. כדאי לציין באיזה דף הייתה הבעיה ומה ניסיתם לעשות.</p></section>
-      <section><h2>עדכון</h2><p>ההצהרה עודכנה ב-16.10.2026, לאחר בדיקה של גרסת האתר מאותו יום.</p></section>
+      <section><h2 class="display display--card">רמת הנגישות</h2><p>האתר נבנה במטרה לעמוד בתקן הישראלי ת״י 5568, המבוסס על הנחיות WCAG ברמה AA. בבדיקות שנעשו לא נמצאו הפרות בכלי הבדיקה האוטומטי axe-core, ובדיקות ידניות של מקלדת, ניגודיות ותנועה עברו. בדיקות כאלה אינן מבטיחות נגישות מלאה, ולכן חשוב לי לשמוע אם נתקלתם בבעיה.</p></section>
+      <section><h2 class="display display--card">מה נעשה באתר</h2><ul class="legal__list"><li>מבנה סמנטי בעברית מימין לשמאל, עם כותרות לפי סדר, אזורי ניווט ותוכן מסומנים, וקישור ״דילוג לתוכן״.</li><li>ניווט מלא במקלדת, עם סימון פוקוס בולט. הכפתור הצף לא מסתיר פריטים שהפוקוס עליהם.</li><li>ניגודיות צבעים ברמת AA, כולל טקסט שמופיע מעל צילומים (נמדד על הפיקסלים בפועל).</li><li>טקסט חלופי לצילומים בעלי משמעות; צילומים קישוטיים מוסתרים מקוראי מסך.</li><li>טפסים עם תוויות, הודעות שגיאה ברורות, ובלי שליחה אוטומטית.</li><li>כיבוד ההגדרה ״הפחתת תנועה״: אנימציות הגלילה מתבטלות וכל התוכן מוצג ברצף רגיל. התוכן זמין גם בלי JavaScript.</li><li>התאמה לטלפון, לטאבלט ולמחשב, בלי גלילה לרוחב.</li></ul></section>
+      <section><h2 class="display display--card">מגבלות ידועות</h2><ul class="legal__list"><li>בסצנת הגלילה בראש הדף, כרטיסי הסיורים מופיעים רק כשגוללים אליהם. כל הסיורים זמינים גם ברשימה ״הסיור הבא שלכם מתחיל כאן״, שאפשר להגיע אליה במקלדת.</li><li>האתר עדיין לא נבדק עם קוראי מסך (NVDA, VoiceOver) ולא על ידי מורשה נגישות.</li><li>וואטסאפ, פייסבוק ואתר ברזילאו הם אתרים חיצוניים, והנגישות שלהם באחריותם.</li></ul></section>
+      <section><h2 class="display display--card">נגישות בסיורים עצמם</h2><p>בחיפה יש מדרגות, עליות ומדרכות צרות, וכל מסלול שונה. ספרו לי מראש על צרכי נגישות, ונבדוק יחד אם יש מסלול מתאים או התאמות אפשריות.</p></section>
+      <section><h2 class="display display--card">פנייה בנושא נגישות</h2><p>רכז/ת נגישות: <mark class="tbd">[נדרש להשלים: שם]</mark>. טלפון: <a href="tel:+972544361667" dir="ltr">054-4361667</a>. דוא״ל: <mark class="tbd">[נדרש להשלים: כתובת דוא״ל]</mark>. כדאי לציין באיזה דף הייתה הבעיה ומה ניסיתם לעשות.</p></section>
+      <section><h2 class="display display--card">עדכון</h2><p>ההצהרה עודכנה ב-16.10.2026, לאחר בדיקה של גרסת האתר מאותו יום.</p></section>
     </article>
   </main>
   <footer class="foot">
