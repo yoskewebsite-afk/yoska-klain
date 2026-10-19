@@ -53,13 +53,12 @@
       ctx.add(() => () => sv.remove());
     }
     h.to('[data-hx-cue]', { opacity: 0, duration: .04 }, 0)
-      .fromTo('[data-hx-sky]', { scale: 1 }, { scale: 1.32, transformOrigin: '34% 58%', duration: .4, ease: 'sine.in' }, 0)
-      .to('[data-hx-word]', { yPercent: -38, opacity: 0, duration: .26, ease: 'sine.in' }, .02)
+            .to('[data-hx-word]', { yPercent: -38, opacity: 0, duration: .26, ease: 'sine.in' }, .02)
       .to('[data-hx-hero]', { y: () => -vh() * .3, duration: .24, ease: 'sine.in' }, .02)
       .to('[data-hx-hero]', { opacity: 0, duration: .1, ease: 'sine.in' }, .05)
       .to('[data-hx-shade]', { opacity: 0, duration: .3 }, .04)
       .to('[data-hx-sky]', { opacity: 0, duration: .07, ease: 'sine.in' }, .3)
-      .fromTo('[data-hx-bay]', { scale: 1.25 }, { scale: 1.04, duration: .4, ease: 'sine.out' }, .3);
+      .fromTo('[data-hx-bay]', { scale: 1.08 }, { scale: 1.02, duration: .4, ease: 'sine.out' }, .3);
     if (disp) h.set('[data-hx-sky]', { filter: 'none' }, 0).set('[data-hx-sky]', { filter: 'url(#hx-ripple)' }, .1)
       .fromTo(disp, { attr: { scale: 0 } }, { attr: { scale: 26 }, duration: .22, ease: 'sine.in' }, .12)
       .set('[data-hx-sky]', { filter: 'none' }, .44);

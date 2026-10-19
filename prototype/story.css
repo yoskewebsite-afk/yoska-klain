@@ -17,10 +17,7 @@ html.motion .hx__stage { position: sticky; top: 0; }
 .hx__bay img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; }
 .hx__sky { position: absolute; inset: 0; will-change: transform, opacity; }
 html.still .hx__bay { display: none; }
-.hx__photo, .hx__cut { position: absolute; top: 0; right: 0; height: 100%; width: auto; max-width: none; aspect-ratio: 2030 / 1440; }
-@media (min-aspect-ratio: 1410/1000) { .hx__photo, .hx__cut { top: auto; bottom: 0; height: 100%; } }
-.hx__photo { -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 14%); mask-image: linear-gradient(90deg, transparent 0, #000 14%); }
-.hx__fill { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 0% 50%; filter: blur(26px) brightness(.82) saturate(1.1); transform: scale(1.08); }
+.hx__photo, .hx__cut { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 78% 40%; }
 .hx__cut { z-index: 2; pointer-events: none; }
 .hx__word { position: absolute; z-index: 1; left: 5%; top: 8%; margin: 0; text-align: left; pointer-events: none;
   font: 700 min(30vw, 44svh)/1 var(--f); font-stretch: 100%; letter-spacing: -.02em; white-space: nowrap;
@@ -88,9 +85,8 @@ html.still .hx__cols { position: relative; bottom: auto; opacity: 1; margin: 6sv
 html.still .hx__wisps, html.still .hx__cue, html.still .hx__clouds { display: none; }
 
 @media (max-width: 899px) {
-  .hx__photo, .hx__cut { top: auto; bottom: 0; height: 64%; right: -30%; }
-  .hx__photo { -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 16%); mask-image: linear-gradient(180deg, transparent 0, #000 16%); }
-  .hx__word { left: 0; right: 0; text-align: center; top: 12%; font-size: 38vw; }
+  .hx__photo, .hx__cut { object-position: 61% 40%; }
+  .hx__word { left: 4%; right: auto; text-align: left; top: calc(var(--nav-h) + 4px); font-size: 22vw; }
   .hx__stats { left: 6%; right: 6%; top: 61%; justify-content: space-between; gap: 0; }
   .hx__stats dt { font-size: 30px; } .hx__stats dd { font-size: 13px; margin-top: 8px; }
   .hx__cta { left: 6%; right: 6%; top: 74%; flex-wrap: wrap; justify-content: flex-start; row-gap: 14px; }
