@@ -7,6 +7,6 @@ for (let i=0;i<60;i++){ await p.mouse.wheel(0,500); await p.waitForTimeout(40); 
 await p.waitForTimeout(800);
 for (let i=0;i<70;i++){ await p.mouse.wheel(0,-500); await p.waitForTimeout(40); }
 await p.waitForTimeout(1500);
-const st=await p.evaluate(()=>({y:scrollY, yoske:getComputedStyle(document.querySelector('[data-hx-yoske]')).opacity, hero:getComputedStyle(document.querySelector('[data-hx-hero]')).opacity, eyes:getComputedStyle(document.querySelector('[data-hx-closer]')).opacity}));
+const st=await p.evaluate(()=>({y:scrollY, yoske:getComputedStyle(document.querySelector('.hx__cut')).opacity, hero:getComputedStyle(document.querySelector('[data-hx-hero]')).opacity, eyes:getComputedStyle(document.querySelector('[data-hx-closer]')).opacity}));
 await p.screenshot({path:'output/story/1440-reverse-top.jpg',quality:70,type:'jpeg'});
 console.log(st); await b.close();

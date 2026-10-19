@@ -96,7 +96,18 @@ def ridges():
             save(rgba.resize((w, round(H * w / W)), Image.LANCZOS), f'valley-ridge-{side}-{w}.webp', 84)
 
 
+def yoske_pointing():
+    # the new hero (19.10.2026): enhanced photo + a full-frame cutout of Yoske that sits exactly on it (the word goes between)
+    bg = Image.open(SRC / 'yoske-pointing.webp').convert('RGB'); cut = Image.open(SRC / 'masks/yoske-pointing-cutout.png')
+    for w in (960, 1440, bg.width):
+        h = round(bg.height * w / bg.width)
+        save(bg.resize((w, h), Image.LANCZOS), f'yoske-pointing-{w}.webp', 84)
+        save(cut.resize((w, h), Image.LANCZOS), f'yoske-pointing-cut-{w}.webp', 88)
+
+
 if __name__ == '__main__':
-    photos(); yoske(); ridges()
+    import sys
+    if 'pointing' in sys.argv: yoske_pointing(); sys.exit()
+    photos(); yoske(); ridges(); yoske_pointing()
     for f in sorted(OUT.iterdir()):
         print(f'{f.name:44s} {Image.open(f).size} {f.stat().st_size // 1024}KB')

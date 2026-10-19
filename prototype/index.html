@@ -13,7 +13,7 @@
   <link rel="preload" href="/fonts/noto-sans-hebrew-wdth-wght-hebrew.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" as="image" href="/assets/story/haifa-bay-clean-1024.webp" imagesrcset="/assets/story/haifa-bay-clean-640.webp 640w, /assets/story/haifa-bay-clean-1024.webp 1024w, /assets/story/haifa-bay-clean-1672.webp 1672w" imagesizes="max(100vw, 178svh)" fetchpriority="high">
   <link rel="stylesheet" href="/styles.css?v=bcd8dd879f">
-  <link rel="stylesheet" href="/story.css?v=5c331ccddb">
+  <link rel="stylesheet" href="/story.css?v=0154f543ff">
 </head>
 <body class="home">
   <a class="skip" href="#main">דילוג לתוכן</a>
@@ -41,16 +41,33 @@
          One word sits on the water line; the scroll dives under the surface; «לעומק» on the light, three columns, the big thin line, photo with the colour block. ============ -->
     <section class="hx" id="top" aria-labelledby="hx-title" data-hx>
       <div class="hx__stage">
-        <div class="hx__sky" data-hx-sky><img src="/assets/story/haifa-bay-clean-1024.webp" srcset="/assets/story/haifa-bay-clean-640.webp 640w, /assets/story/haifa-bay-clean-1024.webp 1024w, /assets/story/haifa-bay-clean-1672.webp 1672w" sizes="max(100vw, 178svh)" width="1672" height="941" alt="מפרץ חיפה מלמעלה: העיר, הנמל, שובר הגלים והים, מתחת לשמיים עם עננים" fetchpriority="high"></div>
+        <!-- the hero, built 1:1 on the user's «Winzy» reference (references/2026-10-19-winzy-hero.webp):
+             one big word between the photograph and Yoske, three numbers, a pill button with a round arrow, a short line, a small slider card -->
+        <div class="hx__bay" data-hx-bay aria-hidden="true"><img src="/assets/story/haifa-bay-clean-1024.webp" srcset="/assets/story/haifa-bay-clean-640.webp 640w, /assets/story/haifa-bay-clean-1024.webp 1024w, /assets/story/haifa-bay-clean-1672.webp 1672w" sizes="100vw" width="1672" height="941" alt="" loading="lazy" decoding="async"></div>
+        <div class="hx__sky" data-hx-sky>
+          <img class="hx__fill" src="/assets/story/yoske-pointing-960.webp" width="960" height="681" alt="" aria-hidden="true">
+          <img class="hx__photo" src="/assets/story/yoske-pointing-1440.webp" srcset="/assets/story/yoske-pointing-960.webp 960w, /assets/story/yoske-pointing-1440.webp 1440w, /assets/story/yoske-pointing-2030.webp 2030w" sizes="141svh" width="2030" height="1440" alt="יוסק׳ה קליין מסביר ומצביע אל מפרץ חיפה, הנמל והים מאחוריו" fetchpriority="high">
+          <h1 class="hx__word" id="hx-title" data-hx-word>חיפה<span class="visually-hidden">. את חיפה הזאת עוד לא הכרתם: סיורים ברגל עם יוסק׳ה קליין</span></h1>
+          <img class="hx__cut" src="/assets/story/yoske-pointing-cut-1440.webp" srcset="/assets/story/yoske-pointing-cut-960.webp 960w, /assets/story/yoske-pointing-cut-1440.webp 1440w, /assets/story/yoske-pointing-cut-2030.webp 2030w" sizes="141svh" width="2030" height="1440" alt="" aria-hidden="true" fetchpriority="high">
+        </div>
         <div class="hx__shade" data-hx-shade aria-hidden="true"></div>
-        <img class="hx__yoske" data-hx-yoske src="/assets/story/yoske-hero-cutout-459.webp" srcset="/assets/story/yoske-hero-cutout-320.webp 320w, /assets/story/yoske-hero-cutout-459.webp 459w" sizes="(min-width: 900px) 40vw, 70vw" width="459" height="683" alt="יוסק׳ה קליין מחייך, בחולצה אדומה ועליונית אפורה, מעל מפרץ חיפה" fetchpriority="high">
-        <div class="hx__hero" data-hx-hero>
-          <p class="hx__kicker">סיורים ברגל בחיפה · עם יוסק׳ה קליין</p>
-          <h1 class="hx__title" id="hx-title">את חיפה הזאת <span class="br">עוד לא הכרתם.</span></h1>
-          <p class="hx__sub">סמטאות, מדרגות, שווקים וסיפורים מקומיים. יוצאים ברגל עם יוסק׳ה ומגלים מה מסתתר בין הכרמל לים.</p>
-          <div class="hx__acts">
-            <a class="hx__btn hx__btn--or" href="#board">לגלות את הסיורים</a>
-            <a class="hx__btn hx__btn--light" href="https://wa.me/972544361667?text=%D7%94%D7%99%D7%99%20%D7%99%D7%95%D7%A1%D7%A7%D7%B3%D7%94%2C%20%D7%94%D7%92%D7%A2%D7%A0%D7%95%20%D7%93%D7%A8%D7%9A%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%A0%D7%A9%D7%9E%D7%97%20%D7%9C%D7%AA%D7%9B%D7%A0%D7%9F%20%D7%98%D7%99%D7%95%D7%9C." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-chat"/></svg>לדבר עם יוסק׳ה</a>
+        <div class="hx__ui" data-hx-hero>
+          <dl class="hx__stats">
+            <div><dt>100%</dt><dd>המליצו בפייסבוק</dd></div>
+            <div><dt>2016</dt><dd>מדריך מאז</dd></div>
+            <div><dt>5</dt><dd>סיורים קבועים</dd></div>
+          </dl>
+          <div class="hx__cta">
+            <a class="hx__book" href="#board">לגלות את הסיורים</a>
+            <a class="hx__round" href="#board" aria-label="לסיורים"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
+            <p class="hx__line">את חיפה הזאת עוד לא הכרתם. סמטאות, מדרגות, שווקים <span class="br">וסיפורים מקומיים, ברגל עם יוסק׳ה.</span></p>
+          </div>
+          <div class="hx__card" data-hx-card>
+            <a class="hx__shot" href="/tours/haifa-ahuvati.html" data-hx-card-link>
+              <img data-hx-card-img src="/assets/approved/bahai-bay-480.webp" width="480" height="300" alt="" loading="eager">
+              <span class="hx__shotname" data-hx-card-name>חיפה אהובתי</span>
+            </a>
+            <div class="hx__count"><span data-hx-card-num>01</span>/04<span class="hx__bars" aria-hidden="true"><i class="is-on"></i><i></i><i></i><i></i></span></div>
           </div>
         </div>
         <h2 class="hx__closer" data-hx-closer><span>מקרוב,</span> הסיפור משתנה.</h2>
@@ -354,6 +371,6 @@
   <script src="/vendor/gsap.min.js" defer></script>
   <script src="/vendor/ScrollTrigger.min.js" defer></script>
   <script src="/app.js?v=90669a11b3" defer></script>
-  <script src="/story.js?v=4fae67b4ae" defer></script>
+  <script src="/story.js?v=fcf7b2cdc2" defer></script>
 </body>
 </html>

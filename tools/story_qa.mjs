@@ -13,7 +13,7 @@ const tag = `${w}${mode ? '-' + mode : ''}`;
 const shot = async name => { await p.waitForTimeout(1100); await p.screenshot({ path: `${out}/${tag}-${name}.jpg`, quality: 72, type: 'jpeg' }); };
 const at = async (sel, prog) => { await p.evaluate(([s, q]) => window.__at ? window.__at(s, q) : document.querySelector(s).scrollIntoView(), [sel, prog]); };
 const plan = mode === 'still' ? [['#top', 0], ['#trail', 0], ['#process', 0], ['#reviews', 0], ['#places', 0], ['#board', 0]]
-  : [['#top', 0], ['#top', .08], ['#top', .16], ['#top', .26], ['#top', .34], ['#top', .45], ['#top', .65], ['#top', 1], ['#trail', .1], ['#trail', .5], ['#trail', .9],
+  : [['#top', 0], ['#top', .06], ['#top', .14], ['#top', .22], ['#top', .3], ['#top', .38], ['#top', .45], ['#top', .65], ['#top', 1], ['#trail', .1], ['#trail', .5], ['#trail', .9],
      ['#process', 0], ['#process', .3], ['#process', .9], ['#reviews', .1], ['#reviews', .5], ['#reviews', .9], ['#places', 0], ['#places', .3], ['#places', .6], ['#board', 0], ['#south-america', 0], ['#south-america', .35]];
 for (const [sel, q] of plan) {
   if (mode === 'still') await p.evaluate(s => { const el = document.querySelector(s); scrollTo(0, el.getBoundingClientRect().top + scrollY - 80); }, sel);
