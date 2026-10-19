@@ -24,8 +24,7 @@ html.still .hx__bay { display: none; }
 .hx__cut { z-index: 2; pointer-events: none; }
 .hx__word { position: absolute; z-index: 1; left: 5%; top: 8%; margin: 0; text-align: left; pointer-events: none;
   font: 700 min(30vw, 44svh)/1 var(--f); font-stretch: 100%; letter-spacing: -.02em; white-space: nowrap;
-  background: linear-gradient(180deg, rgb(240 243 246 / .95) 0%, rgb(222 228 234 / .86) 55%, rgb(204 212 220 / .66) 100%);
-  -webkit-background-clip: text; background-clip: text; color: transparent; will-change: transform; }
+  color: rgb(232 237 242 / .84); will-change: transform; }
 .hx__sky::after { content: ''; position: absolute; inset: 0; z-index: 3; pointer-events: none;
   background: linear-gradient(180deg, rgb(10 18 26 / .42) 0, rgb(10 18 26 / .12) 22%, rgb(10 18 26 / .1) 50%, rgb(10 18 26 / .55) 82%, rgb(10 18 26 / .78) 100%); }
 .hx__shade { position: absolute; inset: 0; z-index: 3; pointer-events: none; background: radial-gradient(120% 90% at 50% 40%, transparent 55%, rgb(8 14 20 / .45) 100%); }
@@ -49,8 +48,8 @@ html.still .hx__bay { display: none; }
 .hx__shotname { position: absolute; right: 10px; bottom: 8px; font: 600 14px/1 var(--f); text-shadow: 0 1px 8px rgb(0 0 0 / .6); direction: rtl; }
 .hx__count { display: flex; align-items: center; gap: 0; height: clamp(34px, 4.3svh, 44px); font: 400 clamp(12px, .9vw, 14px)/1 var(--f); color: rgb(255 255 255 / .82); }
 .hx__bars { display: flex; gap: 4px; margin-left: auto; }
-.hx__bars i { display: block; width: 22px; height: 3px; border-radius: 2px; background: rgb(255 255 255 / .22); transition: width .4s var(--ease), background-color .4s; }
-.hx__bars i.is-on { width: 30px; background: #fff; }
+.hx__bars i { display: block; width: 30px; height: 3px; border-radius: 2px; background: rgb(255 255 255 / .22); transform: scaleX(.73); transform-origin: 100% 50%; transition: transform .4s var(--ease), background-color .4s; }
+.hx__bars i.is-on { transform: none; background: #fff; }
 
 /* the nav over the hero, like the reference: logo, a centred pill of links, an outlined pill and a white pill */
 @media (min-width: 900px) {
