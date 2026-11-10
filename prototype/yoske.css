@@ -322,31 +322,31 @@ section { position: relative; }
   border-radius: 216px 216px var(--r-card) var(--r-card); background: var(--navy); overflow: hidden; box-shadow: var(--sh-card); isolation: isolate; }
 .acard__media { position: absolute; inset: 0; }
 .acard__media img { width: 100%; height: 100%; object-fit: cover; transition: transform 900ms var(--ease-out); }
-.acard__media::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(42, 58, 92, .96) 0, rgba(42, 58, 92, .72) 24%, rgba(42, 58, 92, 0) 56%); }
-.acard__title { position: absolute; z-index: 2; inset-inline: 18px; bottom: 74px; color: var(--white); font-size: var(--fs-card); font-weight: 800; line-height: 1.15; text-align: center;
+.acard__media::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(26, 128, 147, .97) 0, rgba(37, 160, 181, .86) 22%, rgba(37, 160, 181, .35) 40%, rgba(37, 160, 181, 0) 58%); }
+.acard__title { position: absolute; z-index: 2; inset-inline: 18px; bottom: 74px; color: var(--white); text-shadow: 0 1px 2px rgba(20, 60, 70, .35); font-size: var(--fs-card); font-weight: 800; line-height: 1.15; text-align: center;
   transition: transform var(--t-slow) var(--ease-out); }
 .acard__title a { color: inherit; text-decoration: none; }
 .acard__title a::before { content: ''; position: absolute; inset: -400px -40px -80px; }  /* the whole upper card opens the tour */
 .acard__toggle { position: absolute; z-index: 4; left: 50%; bottom: 18px; translate: -50% 0; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px;
-  border-radius: var(--r-btn); border: 1px solid rgba(255, 255, 255, .7); background: rgba(42, 58, 92, .35); color: var(--white); font-size: .9375rem; font-weight: 700; cursor: pointer;
+  border-radius: var(--r-btn); border: 1px solid var(--white); background: var(--navy); color: var(--white); font-size: .9375rem; font-weight: 700; cursor: pointer;
   transition: background-color var(--t-fast), color var(--t-fast), border-color var(--t-fast); }
 .acard__toggle svg { transition: rotate var(--t-mid) var(--ease-out); }
-.acard__toggle:hover { background: rgba(42, 58, 92, .7); }
-.acard__details { position: absolute; z-index: 3; inset-inline: 0; bottom: 0; height: 64%; display: grid; align-content: start; gap: 10px; padding: 22px 22px 76px;
+.acard__toggle:hover { background: var(--navy-ink); }
+.acard__details { position: absolute; z-index: 3; inset-inline: 0; bottom: 0; height: 66%; display: grid; align-content: start; gap: 10px; padding: 22px 22px 22px;
   background: var(--white); color: var(--text); font-size: 1rem; line-height: 1.5; border-radius: 26px 26px 0 0; transform: translateY(101%); visibility: hidden;
   transition: transform var(--t-slow) var(--ease-out), visibility 0s linear var(--t-slow); overflow: hidden; }
 .acard__place { color: var(--muted); font-size: .875rem; font-weight: 500; }
 .acard__meta { color: var(--navy); font-size: .875rem; font-weight: 700; }
 .acard__details .btnrow { gap: 10px 18px; margin-top: 4px; }
-.acard.is-open .acard__details, .acard:focus-within .acard__details { transform: none; visibility: visible; transition: transform var(--t-slow) var(--ease-out), visibility 0s; }
-.acard.is-open .acard__title, .acard:focus-within .acard__title { transform: translateY(calc(60px - 82cqw)); }
-.acard.is-open .acard__toggle, .acard:focus-within .acard__toggle { background: var(--white); color: var(--navy); border-color: var(--navy); }
+.acard.is-open .acard__details, .acard:has(.acard__details :focus) .acard__details { transform: none; visibility: visible; transition: transform var(--t-slow) var(--ease-out), visibility 0s; }
+.acard.is-open .acard__title, .acard:has(.acard__details :focus) .acard__title { transform: translateY(calc(60px - 84.6cqw)); }
+.acard.is-open .acard__toggle, .acard:has(.acard__details :focus) .acard__toggle { bottom: auto; top: 22px; background: var(--white); color: var(--navy); border-color: var(--navy); }
 .acard.is-open .acard__toggle svg { rotate: 45deg; }
 @media (hover: hover) and (pointer: fine) {
   .acard:hover .acard__details { transform: none; visibility: visible; transition: transform var(--t-slow) var(--ease-out), visibility 0s; }
-  .acard:hover .acard__title { transform: translateY(calc(60px - 82cqw)); }
+  .acard:hover .acard__title { transform: translateY(calc(60px - 84.6cqw)); }
   .acard:hover .acard__media img { transform: scale(1.04); }
-  .acard:hover .acard__toggle { background: var(--white); color: var(--navy); border-color: var(--navy); }
+  .acard:hover .acard__toggle { bottom: auto; top: 22px; background: var(--white); color: var(--navy); border-color: var(--navy); }
 }
 /* the open variant: arch photo, then a white body (groups, group page) */
 .acard--open { aspect-ratio: auto; background: var(--white); display: grid; grid-template-rows: auto 1fr; }
@@ -359,18 +359,18 @@ section { position: relative; }
 
 /* the horizontal rail of tour cards */
 .tours { padding: var(--s8) 0 var(--s10); }
-.rail { position: relative; width: min(1312px, 100%); margin-inline: auto; }
+.rail { position: relative; width: 100%; }
 .rail__track { display: grid; grid-auto-flow: column; grid-auto-columns: clamp(270px, 25vw, 340px); gap: 28px; overflow-x: auto; scroll-snap-type: x mandatory;
-  padding: 10px max(var(--gut), calc((100% - 1184px) / 2)) 60px; scroll-padding-inline: max(var(--gut), calc((100% - 1184px) / 2)); scrollbar-width: none; overscroll-behavior-x: contain; }
+  padding: 10px max(var(--gut), calc((100% - 1184px) / 2)) 120px; margin-bottom: -60px; scroll-padding-inline: max(var(--gut), calc((100% - 1184px) / 2)); scrollbar-width: none; overscroll-behavior-x: contain; }
 .rail__track::-webkit-scrollbar { display: none; }
 .rail__track > li { scroll-snap-align: start; }
 .rail__btn { position: absolute; z-index: 5; top: calc(50% - 40px); display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--navy);
   background: var(--navy); color: var(--white); box-shadow: var(--sh-btn); cursor: pointer; transition: opacity var(--t-fast), transform var(--t-fast) var(--ease-out); }
 .rail__btn:hover { transform: scale(1.06); }
 .rail__btn[disabled] { opacity: 0; pointer-events: none; }
-.rail__btn--prev { inset-inline-start: 12px; }
+.rail__btn--prev { inset-inline-start: max(12px, calc((100% - 1312px) / 2)); }
 .rail__btn--prev svg { transform: scaleX(-1); }
-.rail__btn--next { inset-inline-end: 12px; }
+.rail__btn--next { inset-inline-end: max(12px, calc((100% - 1312px) / 2)); }
 @media (max-width: 699px) {
   .rail__track { grid-auto-columns: 80vw; gap: 16px; }
   .rail__btn { display: none; }
