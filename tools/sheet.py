@@ -1,12 +1,11 @@
-"""python3 sheet.py out.jpg cols thumbW file1 file2 ...  — labelled contact sheet"""
-import sys, os
-from PIL import Image, ImageDraw
-out, cols, tw = sys.argv[1], int(sys.argv[2]), int(sys.argv[3]); fs = sys.argv[4:]
-ims = [Image.open(f) for f in fs]
-th = max(int(tw * im.height / im.width) for im in ims)
-rows = (len(fs) + cols - 1) // cols
-s = Image.new('RGB', (cols * tw, rows * (th + 18)), 'white'); d = ImageDraw.Draw(s)
-for i, (f, im) in enumerate(zip(fs, ims)):
-    im = im.copy(); im.thumbnail((tw - 4, th)); x, y = (i % cols) * tw, (i // cols) * (th + 18)
-    s.paste(im, (x + 2, y)); d.text((x + 4, y + th + 3), os.path.basename(f), fill='black')
-s.save(out, quality=82)
+"""Contact sheet of QA screenshots. usage: python3 -I sheet.py out.jpg cols scale img1 img2 ..."""
+import sys
+from PIL import Image
+out, cols, scale, *files = sys.argv[1:]
+cols, scale = int(cols), float(scale)
+ims = [Image.open(f) for f in files]
+W, H = int(ims[0].width * scale), int(ims[0].height * scale)
+M = Image.new('RGB', (W * cols, H * ((len(ims) + cols - 1) // cols)), 'white')
+for i, im in enumerate(ims):
+    M.paste(im.resize((W, H)), ((i % cols) * W, (i // cols) * H))
+M.save(out, quality=82)
