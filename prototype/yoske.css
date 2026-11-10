@@ -504,7 +504,8 @@ section { position: relative; }
 .field__err { color: #B3261E; font-size: .875rem; font-weight: 700; }
 .field__err::before { content: '! '; }
 .note { color: var(--muted); font-size: .9375rem; max-width: 80ch; }
-.form__ready { display: grid; gap: var(--s4); padding: var(--s5); border: 1px solid var(--navy); border-inline-start: 6px solid var(--leaf); border-radius: var(--r-btn); background: var(--paper); }
+.form__ready { display: grid; gap: var(--s4); padding: var(--s5); border: 1px solid var(--navy); border-radius: var(--r-btn); background: var(--paper); }
+.form__ready strong::before { content: ''; display: inline-block; width: 10px; height: 10px; margin-inline-end: 8px; border-radius: 50%; background: var(--leaf); vertical-align: middle; }
 .form__ready[hidden] { display: none; }
 .form__ready pre { margin: 0; white-space: pre-wrap; font: 500 1rem/1.6 var(--font); color: var(--navy); }
 @media (max-width: 999px) {
