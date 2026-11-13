@@ -25,7 +25,7 @@ PHONE_INTL, PHONE_HUMAN = base.PHONE_INTL, '054-436-1667'   # same number, writt
 #   RIMOV_URL  address of the studio's site -> makes the credit logo a link. Empty = logo without a link.
 SITE_URL = os.environ.get('SITE_URL', '').rstrip('/')
 LAUNCH = os.environ.get('LAUNCH') == '1' and bool(SITE_URL)
-RIMOV_URL = os.environ.get('RIMOV_URL', '')
+RIMOV_URL = os.environ.get('RIMOV_URL', 'https://rimov-technologies.vercel.app/')   # given by the owner 13.11.2026
 OG_IMAGE = '/assets/brand/og-share-1200x630.jpg'
 EMAIL = 'yoske.kashlah27@gmail.com'                              # brand book, page 16
 wa_tour = base.wa_tour
