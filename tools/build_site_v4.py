@@ -149,7 +149,7 @@ FOOTER = f'''<footer class="foot">
         </div>
         <nav aria-label="מידע משפטי ונגישות">
           <h2>מידע</h2>
-          <a href="/privacy.html">מדיניות פרטיות</a><a href="/terms.html">תקנון ותנאי שימוש</a><a href="/accessibility.html">הצהרת נגישות</a>
+          <a href="/privacy.html">מדיניות פרטיות</a><a href="/terms.html">תקנון ותנאי שימוש</a><a href="/accessibility.html">הצהרת נגישות</a><a href="/privacy.html#cookies" data-cookie-open>העדפות עוגיות</a>
           <a href="{base.BRAZILAO}" target="_blank" rel="noopener">מסעות באתר ברזילאו</a>
         </nav>
       </div>
@@ -158,7 +158,9 @@ FOOTER = f'''<footer class="foot">
     <p class="wrap foot__credits">צילום מקדש הבאב והטרסות: <a href="https://commons.wikimedia.org/wiki/File:Baha%27i_gardens_in_Haifa_39.jpg">Guillaume Paumier</a>, ויקישיתוף, <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a> (הסרת השמיים, חיתוך והתאמת גודל). יתר הצילומים מהארכיון של יוסק׳ה קליין.</p>
   </footer>'''
 
-HEAD_JS = ("(function(d,m){var s=m('(prefers-reduced-motion: reduce)').matches||location.search.indexOf('still')>-1;"
+HEAD_JS = ("(function(d,m){try{var p=JSON.parse(localStorage.getItem('yoske-a11y')||'{}');if(p.v===1){if(p.t>0&&p.t<4)d.classList.add('a11y-t'+p.t);"
+           "if(p.c)d.classList.add('a11y-contrast');if(p.l)d.classList.add('a11y-links');if(p.m)d.classList.add('a11y-still')}}catch(e){}"
+           "var s=m('(prefers-reduced-motion: reduce)').matches||location.search.indexOf('still')>-1||d.classList.contains('a11y-still');"
            "d.classList.add('js',s?'still':'motion')})(document.documentElement,matchMedia)")
 _HJ = base64.b64encode(hashlib.sha256(HEAD_JS.encode()).digest()).decode()
 CSP = (f"default-src 'self'; script-src 'self' 'sha256-{_HJ}'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; "
@@ -211,11 +213,13 @@ def page(path, title, description, body, current='', body_class='page', preload=
   <aside aria-label="פנייה מהירה">
     <a class="fab" href="{WA['general']}" target="_blank" rel="noopener" data-fab><svg aria-hidden="true"><use href="#i-chat"/></svg><span>נדבר בוואטסאפ</span></a>
     <a class="totop" href="#main" aria-label="חזרה לראש העמוד" data-totop><svg aria-hidden="true"><use href="#i-up"/></svg></a>
+    <button class="a11y-fab" type="button" aria-haspopup="dialog" data-a11y-open title="אפשרויות נגישות"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.6" r="1.7" fill="currentColor" stroke="none"/><path d="M5 8.6c4.4 1.4 9.6 1.4 14 0M12 9v5.2M12 14.2l-3.2 6M12 14.2l3.2 6"/></svg><span class="visually-hidden">אפשרויות נגישות</span></button>
   </aside>
   <script src="/vendor/lenis.min.js" defer></script>
   <script src="/vendor/gsap.min.js" defer></script>
   <script src="/vendor/ScrollTrigger.min.js" defer></script>
   <script src="/yoske.js?v={_v('yoske.js')}" defer></script>
+  <script src="/prefs.js?v={_v('prefs.js')}" defer></script>
 </body>
 </html>
 '''
@@ -500,6 +504,7 @@ def accessibility():
             '<li>טקסט חלופי לצילומים בעלי משמעות; צילומים קישוטיים מוסתרים מקוראי מסך.</li>'
             '<li>טפסים עם תוויות, הודעות שגיאה ברורות, ובלי שליחה אוטומטית.</li>'
             '<li>כיבוד ההגדרה ״הפחתת תנועה״: אנימציות הגלילה מתבטלות וכל התוכן מוצג ברצף רגיל.</li>'
+            '<li>כפתור ״אפשרויות נגישות״ קבוע בכל עמוד: הגדלת טקסט, ניגודיות גבוהה, הדגשת קישורים, הפחתת תנועה ואיפוס. הבחירה נשמרת במכשיר בלבד.</li>'
             '<li>התאמה לטלפון, לטאבלט ולמחשב, בלי גלילה לרוחב.</li></ul>'),
         ('מגבלות ידועות', '<ul class="legal__list"><li>המפה בדף הבית היא איור סכמטי. כל המידע שבה מופיע גם בטקסט שלצידה.</li>'
             '<li>האתר עדיין לא נבדק עם קוראי מסך (NVDA, VoiceOver) ולא על ידי מורשה נגישות.</li>'
@@ -516,6 +521,11 @@ def privacy():
     f = ROOT / html_path
     t = f.read_text()
     t = re.sub(r'<p><strong>השאלון ״איזה סיור מתאים לכם\?״:</strong>.*?</p>', '<p><strong>המפה והכרטיסים בדף הבית:</strong> הבחירה בסיור במפה או פתיחת כרטיס לא נשמרת ולא נשלחת לשום מקום.</p>', t)
+    t = t.replace('<h2 class="h-card">עוגיות ומעקב</h2>', '<h2 class="h-card" id="cookies">עוגיות ומעקב</h2>')
+    t = re.sub(r'<p>האתר לא משתמש בעוגיות \(Cookies\), באחסון מקומי בדפדפן,.*?</p>',
+               '<p>האתר אינו יוצר עוגיות (Cookies) ואינו משתמש בכלי ניתוח תנועה, בפיקסלים של רשתות חברתיות או בפרסום. הגופנים, התמונות והקוד נטענים מהאתר עצמו ולא משירותים חיצוניים.</p>'
+               '<p><strong>אחסון בדפדפן:</strong> אם תבחרו באפשרויות בכפתור הנגישות (גודל טקסט, ניגודיות, הדגשת קישורים, הפחתת תנועה), הבחירה נשמרת במכשיר שלכם בלבד (localStorage, מפתח <bdi dir="ltr">yoske-a11y</bdi>) כדי שתישאר בין עמודים. היא לא נשלחת לשום מקום, ואפשר למחוק אותה ב״איפוס הכול״ או במחיקת נתוני האתר בדפדפן. זה אחסון חיוני לתפקוד שביקשתם, ולכן אין באנר בחירה. את ההסבר הזה אפשר לפתוח מחדש בפוטר, ב״העדפות עוגיות״.</p>'
+               '<p>אם יתווסף בעתיד כלי מדידה או שיווק, המדיניות תעודכן, ושירותים שאינם חיוניים לא ייטענו לפני שתאשרו.</p>', t, flags=re.S)
     t = t.replace('הלחיצה על ״מכינים הודעה בוואטסאפ״ רק מציגה טיוטה.', 'הלחיצה על ״מכינים הודעה בוואטסאפ״ רק מציגה טיוטה בדף.')
     f.write_text(t)
     return html_path

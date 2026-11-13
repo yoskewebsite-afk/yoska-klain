@@ -7,7 +7,7 @@
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
   const root = document.documentElement;
   const reduceMQ = matchMedia('(prefers-reduced-motion: reduce)');
-  const still = () => reduceMQ.matches || location.search.includes('still');
+  const still = () => reduceMQ.matches || location.search.includes('still') || document.documentElement.classList.contains('a11y-still');
   const PHONE = '972544361667';
   const wa = text => `https://wa.me/${PHONE}?text=${encodeURIComponent(text)}`;
 
