@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "border-accent-on-rounded",
+        "value": "*",
+        "files": [
+          "prototype/yoske.css"
+        ],
+        "createdAt": "2026-11-10T22:05:47.681Z",
+        "reason": "Claude: the navy bottom base on arched/rounded cards is the reference's measured depth (viennainhebrew.com cards: 10px solid navy border-bottom with 28.8px radius), applied deliberately per the user's brief"
+      }
+    ]
+  }
+}

@@ -1,0 +1,214 @@
+    <!-- 10.11.2026 rebuild on the composition, shapes and scroll language of viennainhebrew.com, in Yoske's brand.
+         Real content only: tours and stops from Yoske's 2022 flyer, biography from the Brazilao about page, quotes from the Facebook page. -->
+
+    <!-- ============ 1+2. HERO + ANCHORED SCENE
+         Reference: the headline stays while the palace rises over it. Here the Shrine of the Báb and the terraces
+         (sky cut away) rise over the headline, the scene anchors, the intro rises in front of it, then the page scrolls on. ============ -->
+    <section class="hero" id="top" aria-labelledby="hero-title" data-hero>
+      <div class="hero__stage" data-hero-stage>
+        <div class="hero__sky" aria-hidden="true"></div>
+        <div class="hero__head" data-hero-head>
+          <h1 class="hero__title" id="hero-title"><span class="hero__l1">חיפה כמו</span> <span class="hero__l2">שעוד לא הכרתם.</span></h1>
+          <p class="hero__sub">טיולים עם יוסק׳ה, דרך האנשים, <span class="br">הסיפורים והתרבות שמרכיבים את המקום.</span></p>
+          <a class="btn btn--ink hero__cta" href="#map" data-hero-cta>בואו נמצא את הסיור שלכם<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+        <div class="hero__scene" data-hero-scene>
+          <picture class="hero__photo">
+            <source media="(max-width: 699px), (max-width: 999px) and (orientation: portrait)" srcset="/assets/v4/hero-tall-640.webp 640w, /assets/v4/hero-tall-960.webp 960w, /assets/v4/hero-tall-1280.webp 1280w" sizes="(max-width: 699px) 140vw, 100vw" width="1280" height="1763">
+            <img src="/assets/v4/hero-wide-1440.webp" srcset="/assets/v4/hero-wide-960.webp 960w, /assets/v4/hero-wide-1440.webp 1440w, /assets/v4/hero-wide-2160.webp 2160w" sizes="max(116vw, 150svh)" width="2160" height="1434" alt="מקדש הבאב וטרסות הגנים הבהאיים במורד הכרמל, מבט מלמטה לאורך הציר" fetchpriority="high">
+          </picture>
+        </div>
+        <div class="hero__veil" aria-hidden="true" data-hero-veil></div>
+        <div class="hero__intro" data-hero-intro>
+          <h2 class="duo-title"><span class="duo-title__light">מכירים מקום דרך האנשים שלו,</span> <span class="duo-title__bold">דרך החברה <span class="hl hl--teal">והתרבות.</span></span></h2>
+          <p class="hero__lede">אני מפיק ומדריך טיולים מבעד לעדשה סוציולוגית ואנתרופולוגית. כל טיול נבנה מחדש סביב הקבוצה: תחומי העניין, הקצב והאנשים שבה.</p>
+          <ul class="values" aria-label="הערכים שלי בטיול">
+            <li>חופש</li><li>שמחה</li><li>העשרה</li><li>חברה</li><li>תרבות</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 3. CHOOSE — the reference's map section: chips over a map, a big arc on the side with the selection. ============ -->
+    <section class="map" id="map" aria-labelledby="map-title" data-map>
+      <div class="arc" aria-hidden="true" data-arc></div>
+      <div class="wrap map__in">
+        <div class="map__head">
+          <h2 class="duo-title" id="map-title"><span class="duo-title__light">איזו חיפה בא לכם לגלות?</span> <span class="duo-title__bold" data-type>בחרו סיור, והמסלול יופיע במפה</span></h2>
+          <div class="chips" role="tablist" aria-label="הסיורים במפה" data-map-chips>
+%%MAP_CHIPS%%
+          </div>
+        </div>
+        <div class="map__body">
+          <div class="map__panel" aria-live="polite" data-map-panel>
+%%MAP_PANELS%%
+          </div>
+          <figure class="map__fig">
+%%MAP_SVG%%
+            <figcaption>מפה להמחשה בלבד, לא בקנה מידה. התחנות לפי עלון הסיורים של יוסק׳ה, והמסלול המדויק נקבע מול הקבוצה.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 4. TOURS — arch cards: arched top, thin navy outline, a 10px navy base, a gradient under the title.
+         Details open on hover, keyboard focus or the «פרטים» button (touch). ============ -->
+    <section class="tours" id="tours" aria-labelledby="tours-title">
+      <div class="wrap">
+        <div class="sec-head">
+          <h2 class="duo-title" id="tours-title"><span class="duo-title__light">יוצאים לדרך ברגל, בגובה העיניים.</span> <span class="duo-title__bold">הסיורים <span class="hl">בחיפה</span></span></h2>
+          <div class="sec-head__acts">
+            <a class="btn btn--line" href="/tours/">לכל הסיורים</a>
+          </div>
+        </div>
+      </div>
+      <div class="rail" data-rail>
+        <button class="rail__btn rail__btn--prev" type="button" aria-label="הכרטיס הקודם" data-rail-prev><svg aria-hidden="true"><use href="#i-chev"/></svg></button>
+        <ul class="rail__track" data-rail-track>
+%%TOUR_CARDS%%
+        </ul>
+        <button class="rail__btn rail__btn--next" type="button" aria-label="הכרטיס הבא" data-rail-next><svg aria-hidden="true"><use href="#i-chev"/></svg></button>
+      </div>
+    </section>
+
+    <!-- ============ 5. ABOUT — the reference's navy band with the convex top edge. ============ -->
+    <section class="about" id="about" aria-labelledby="about-title">
+      <div class="about__curve" aria-hidden="true"></div>
+      <div class="wrap about__in">
+        <figure class="about__photo archframe" data-reveal>%%PHOTO:lookout|יוסק׳ה קליין מסביר לקבוצה בתצפית, מפרץ חיפה והנמל מאחוריו|(min-width: 900px) 34vw, 86vw|%%</figure>
+        <div class="about__copy">
+          <h2 class="duo-title duo-title--on-ink" id="about-title"><span class="duo-title__light">נעים להכיר,</span> <span class="duo-title__bold">יוסק׳ה <span class="hl hl--sun">קליין</span></span></h2>
+          <p>למדתי סוציולוגיה ואנתרופולוגיה באוניברסיטה הפתוחה. מאז 2016 אני מדריך מטיילים ישראלים בדרום אמריקה, ובארץ אני מדריך בעיקר בחיפה.</p>
+          <p>אני אוהב לספר, אבל גם להקשיב. אם באמצע הסיור מישהו שואל על הבניין ממול, כנראה שנעצור שם. הטיול שלי הוא איזון בין העשרה לשמחה: לומדים משהו על העיר, ונהנים בדרך.</p>
+          <dl class="about__facts">
+            <div><dt>2016</dt><dd>התחלתי להדריך, בריו דה ז׳ניירו</dd></div>
+            <div><dt>5</dt><dd>סיורים קבועים בחיפה, ועוד ימים בהתאמה</dd></div>
+          </dl>
+          <a class="btn btn--sun" href="%%WA_meet%%" target="_blank" rel="noopener">לכתוב ליוסק׳ה<svg aria-hidden="true"><use href="#i-chat"/></svg></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 6. GROUPS — the reference's coloured panel with the drawn curves, the heading on the light side, the cards across both. ============ -->
+    <section class="groups" id="groups" aria-labelledby="groups-title">
+      <div class="groups__panel" aria-hidden="true">
+        <svg viewBox="0 0 600 720" preserveAspectRatio="none"><path d="M-40 140 C 120 60, 260 220, 380 150 S 600 40, 680 120"/><path d="M-40 420 C 140 330, 240 520, 420 430 S 610 330, 700 420"/><path d="M-40 640 C 160 580, 300 720, 460 640"/></svg>
+      </div>
+      <div class="wrap groups__in">
+        <div class="groups__head">
+          <h2 class="duo-title" id="groups-title"><span class="duo-title__light">משפחה, חברים או צוות מהעבודה?</span> <span class="duo-title__bold">כל קבוצה והדרך <span class="hl hl--teal">שלה</span></span></h2>
+          <p>ספרו לי מי מגיע, מה מעניין אתכם וכמה זמן יש לכם. משם נבנה יחד מסלול שמתאים לקבוצה, לקצב ולמטרה של היום.</p>
+          <ol class="steps">
+            <li><b>מספרים לי על הקבוצה</b><span>כמה אתם, בני כמה, ומה מסקרן אתכם.</span></li>
+            <li><b>בוחרים כיוון</b><span>סיור קיים או יום משלכם. סוגרים מראש נקודת מפגש, משך ופרטים.</span></li>
+            <li><b>יוצאים לדרך</b><span>אתם מגיעים, אני כבר שם.</span></li>
+          </ol>
+        </div>
+        <ul class="groups__cards">
+          <li class="acard acard--open" data-reveal>
+            <div class="acard__media">%%PHOTO:heart-family|משפחות וילדים מצטלמים בתוך פסל הלב הצהוב, הים ברקע|(min-width: 900px) 24vw, 80vw|%%</div>
+            <div class="acard__body"><h3>משפחה וחברים</h3><p>יום הולדת, מפגש משפחתי או סתם שבת עם חברים. גם עם ילדים.</p><a class="btn btn--line btn--sm" href="%%WA_family%%" target="_blank" rel="noopener">טיול למשפחה ולחברים</a></div>
+          </li>
+          <li class="acard acard--open" data-reveal>
+            <div class="acard__media">%%PHOTO:red-sculpture-selfie|יוסק׳ה בסלפי, מאחוריו קבוצה ליד פסל לב אדום מול המפרץ|(min-width: 900px) 24vw, 80vw|%%</div>
+            <div class="acard__body"><h3>צוות או ארגון</h3><p>יום גיבוש ברגל בעיר, שנבנה סביב האנשים ומה שמעניין אותם.</p><a class="btn btn--line btn--sm" href="%%WA_org%%" target="_blank" rel="noopener">יום לצוות או לארגון</a></div>
+          </li>
+          <li class="acard acard--open" data-reveal>
+            <div class="acard__media">%%PHOTO:kids-guiding|יוסק׳ה מדריך קבוצת ילדים שמרימים ידיים כדי לענות|(min-width: 900px) 24vw, 80vw|%%</div>
+            <div class="acard__body"><h3>ילדים ומשפחות</h3><p>״סודות ורמזים בחיפה״: חידות ורמזים שמובילים אל הסיפורים של העיר.</p><a class="btn btn--line btn--sm" href="/tours/sodot-veremazim.html">לסיור המשפחות</a></div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ 7. MOMENTS — arched frames that drift with the scroll ============ -->
+    <section class="moments" id="moments" aria-labelledby="moments-title">
+      <div class="wrap sec-head">
+        <h2 class="duo-title" id="moments-title"><span class="duo-title__light">ככה זה נראה בשטח.</span> <span class="duo-title__bold">אנשים ורגעים <span class="hl hl--leaf">מהדרך</span></span></h2>
+        <div class="sec-head__acts"><a class="btn btn--line" href="/gallery.html">לגלריה המלאה</a></div>
+      </div>
+      <ul class="moments__row" data-drift tabindex="0" aria-label="תמונות מהסיורים, אפשר לגלול לצדדים">
+        <li class="archframe">%%PHOTO:yoske-selfie-group|יוסק׳ה מצלם סלפי מחייך, הקבוצה יושבת מאחוריו ומנופפת|(min-width: 900px) 20vw, 52vw|low%%</li>
+        <li class="archframe">%%PHOTO:stairs-group|קבוצה גדולה עם יוסק׳ה יושבת על מדרגות ברחוב|(min-width: 900px) 20vw, 52vw|low%%</li>
+        <li class="archframe">%%PHOTO:streetart|קבוצת מטיילים עם יוסק׳ה מול ציור קיר צבעוני|(min-width: 900px) 20vw, 52vw|low%%</li>
+        <li class="archframe">%%PHOTO:synagogue-group|קבוצה בתוך בית כנסת עם פרוכת כחולה|(min-width: 900px) 20vw, 52vw|low%%</li>
+        <li class="archframe">%%PHOTO:love-haifa-group|קבוצה מצטלמת ליד האותיות הגדולות I love Haifa|(min-width: 900px) 20vw, 52vw|low%%</li>
+        <li class="archframe">%%PHOTO:street-tour|קבוצה עומדת לאורך רחוב צר ומקשיבה|(min-width: 900px) 20vw, 52vw|low%%</li>
+        <li class="archframe">%%PHOTO:lookout-kids|יוסק׳ה מסביר לילדים ולהורים ליד המעקה מול המפרץ|(min-width: 900px) 20vw, 52vw|low%%</li>
+      </ul>
+    </section>
+
+    <!-- ============ 8. REVIEWS — the reference's last navy panel over a dimmed photo, arch cards breaking its lower edge ============ -->
+    <section class="reviews" id="reviews" aria-labelledby="reviews-title">
+      <div class="wrap">
+        <div class="reviews__panel">
+          <div class="reviews__bg" aria-hidden="true">%%PHOTO:haifa-dusk-wide|העיר והמפרץ לקראת ערב|(min-width: 900px) 84vw, 100vw|low%%</div>
+          <h2 class="duo-title duo-title--on-ink duo-title--center" id="reviews-title"><span class="duo-title__light">מה כתבו מטיילים בעמוד הפייסבוק</span> <span class="duo-title__bold">100% המליצו, <span class="hl hl--sun">מתוך 10 ביקורות</span></span></h2>
+          <p class="reviews__src">נכון ל-12.10.2026. <a href="%%FB_REVIEWS%%" target="_blank" rel="noopener">לכל הביקורות בפייסבוק</a></p>
+        </div>
+        <ul class="reviews__cards">
+          <li class="qcard" data-reveal><blockquote>״נסענו לחגוג לאבא שלי יום הולדת בחיפה, קבוצה של 20 מבוגרים וילדים. חיפה מהממת, אבל עוד יותר מהמם היה המדריך המוכשר, הנעים, הסבלני, הרהוט והמקצועי שליווה אותנו.״</blockquote><p><b>ורד י׳</b> על ״חיפה אהובתי״, 2022</p></li>
+          <li class="qcard" data-reveal><blockquote>״מדריך חכם וכיפי שיודע להעביר את הידע הרב שלו בצורה מאוד נעימה וקולעת. מומלץ בחום.״</blockquote><p><b>סואלי ט׳</b> תגובה בפייסבוק, 2022</p></li>
+          <li class="qcard" data-reveal><blockquote>״המלצה חמה לכל מי שמחפש מדריך זורם, כיפי, מצחיק ומלא בידע.״</blockquote><p><b>חגית ל׳</b> תגובה בפייסבוק, 2022</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ 9. FAQ ============ -->
+    <section class="faq" id="faq" aria-labelledby="faq-title">
+      <div class="wrap faq__in">
+        <h2 class="duo-title" id="faq-title"><span class="duo-title__light">לפני שיוצאים,</span> <span class="duo-title__bold">שאלות <span class="hl">שימושיות</span></span></h2>
+        <div class="faq__list">
+          <details open><summary>אפשר להתאים את היום לקבוצה שלנו?<i aria-hidden="true"></i></summary><p>כן. מתחילים בשיחה על האנשים, על מה שמעניין אתכם ועל הקצב, ומשם בונים יחד את היום.</p></details>
+          <details><summary>יש סיור שמתאים לילדים?<i aria-hidden="true"></i></summary><p>״סודות ורמזים בחיפה״ נבנה בשביל משפחות: חידות, רמזים ועצירות שמתאימות לילדים. ספרו לי בני כמה הם, ונבדוק.</p></details>
+          <details><summary>כמה הולכים, ומה לגבי נגישות?<i aria-hidden="true"></i></summary><p>בחיפה יש עליות ומדרגות, וכל מסלול שונה. ספרו לי מראש על מגבלות הליכה או צרכי נגישות, ונבדוק מה מתאים.</p></details>
+          <details><summary>איך בודקים מועד ומחיר?<i aria-hidden="true"></i></summary><p>שולחים לי איזה סיור מעניין אתכם, כמה משתתפים ומתי. אחזור אליכם עם מועדים ומחיר לפני שסוגרים משהו.</p></details>
+          <details><summary>איפה נפגשים?<i aria-hidden="true"></i></summary><p>תלוי במסלול. אחרי שסוגרים סיור, אשלח לכם מיקום מדויק.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 10. ABROAD — kept short, so the homepage stays about Haifa ============ -->
+    <section class="abroad" id="abroad" aria-labelledby="abroad-title">
+      <div class="wrap abroad__in">
+        <figure class="abroad__photo archframe">%%PHOTO:rio|יוסק׳ה פורש ידיים מתחת לפסל ישו הגואל בריו דה ז׳ניירו|(min-width: 900px) 22vw, 60vw|low%%</figure>
+        <div class="abroad__copy">
+          <h2 class="duo-title" id="abroad-title"><span class="duo-title__light">ומעבר לים?</span> <span class="duo-title__bold">מסעות <span class="hl hl--leaf">בדרום אמריקה</span></span></h2>
+          <p>מאז 2016 אני מדריך מטיילים ישראלים בדרום אמריקה. את המסעות המאורגנים מפעילה ברזילאו, ושם תמצאו את המסלולים, התאריכים וכל הפרטים.</p>
+          <div class="btnrow">
+            <a class="btn btn--line" href="%%BRAZILAO%%" target="_blank" rel="noopener">למסעות באתר ברזילאו<span class="visually-hidden"> (נפתח באתר אחר)</span><svg aria-hidden="true"><use href="#i-out"/></svg></a>
+            <a class="textlink" href="%%WA_sa%%" target="_blank" rel="noopener">באילו מסעות אני מדריך? שאלו אותי</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 11. CONTACT — the reference's white form card: fields in one row, the action on the side ============ -->
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="wrap">
+        <div class="contact__card">
+          <div class="contact__head">
+            <h2 class="duo-title" id="contact-title"><span class="duo-title__light">ספרו לי על היום שאתם מדמיינים,</span> <span class="duo-title__bold">ניפגש <span class="hl">בדרך</span></span></h2>
+            <ul class="contact__lines">
+              <li><a href="tel:+%%PHONE_INTL%%"><svg aria-hidden="true"><use href="#i-phone"/></svg><span dir="ltr">%%PHONE%%</span></a></li>
+              <li><a href="mailto:%%EMAIL%%"><svg aria-hidden="true"><use href="#i-mail"/></svg><span dir="ltr">%%EMAIL%%</span></a></li>
+              <li><a href="%%FB_PAGE%%" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-fb"/></svg><span>עמוד הפייסבוק</span></a></li>
+            </ul>
+          </div>
+          <form class="cform" data-contact novalidate aria-describedby="c-note">
+            <div class="cform__row">
+              <div class="field"><label for="c-name">שם</label><input id="c-name" name="name" autocomplete="name" required aria-describedby="c-name-err"><p class="field__err" id="c-name-err" hidden>כתבו איך לפנות אליכם.</p></div>
+              <div class="field"><label for="c-phone">טלפון לחזרה</label><input id="c-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" required aria-describedby="c-phone-err"><p class="field__err" id="c-phone-err" hidden>מספר הטלפון לא נראה תקין. נסו שוב, למשל 050-1234567.</p></div>
+              <div class="field field--wide"><label for="c-msg">על מה חשבתם? <span class="opt">(לא חובה)</span></label><input id="c-msg" name="msg" autocomplete="off"></div>
+              <button class="btn btn--sun cform__go" type="submit">מכינים הודעה בוואטסאפ</button>
+            </div>
+            <p class="note" id="c-note">ההודעה לא נשלחת מכאן. אחרי הלחיצה תראו טיוטה, ותוכלו לפתוח אותה בוואטסאפ ולהחליט אם לשלוח. הפרטים משמשים רק כדי לחזור אליכם ולתאם (<a class="textlink" href="/privacy.html">מדיניות הפרטיות</a>).</p>
+            <div class="form__ready" data-ready hidden tabindex="-1">
+              <p><strong>הטיוטה מוכנה, ועדיין לא נשלחה.</strong> אפשר לקרוא אותה, לתקן, ולפתוח בוואטסאפ כדי לשלוח משם.</p>
+              <pre data-preview></pre>
+              <div class="btnrow"><a class="btn btn--sun" data-open-wa href="#" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-chat"/></svg>פותחים בוואטסאפ</a><button type="button" class="btn btn--line" data-edit>עריכה</button></div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>

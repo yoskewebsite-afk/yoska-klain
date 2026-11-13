@@ -7,3 +7,5 @@ tools/.browser-runtime/
 media/facebook-originals/
 media/facebook-thumbs/
 references/
+tools/node_modules
+media/commons-originals/

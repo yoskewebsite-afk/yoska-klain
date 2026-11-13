@@ -1,3 +1,22 @@
+# יוסק׳ה, טיולים, חברה, תרבות. אתר בעברית, RTL (גרסה 10.11.2026)
+
+בנייה מחדש על השפה של viennainhebrew.com (קומפוזיציה, צורות, כפתורים, גלילה), בצבעים, בלוגו ובטיפוגרפיה של ספר המותג.
+אתר סטטי: `tools/build_site_v4.py` ← `prototype/`. עיצוב והתנהגות משותפים: `prototype/yoske.css`, `prototype/yoske.js` (GSAP 3.13 + ScrollTrigger + Lenis, מקומיים).
+מקור דף הבית: `site-src/v4/home.html`. נתוני הסיורים והטקסטים המשפטיים: `tools/build_site.py` (לא שונה, משמש כמקור נתונים).
+
+```bash
+python3 tools/build_v4_media.py      # רק אם משנים את תמונת ההירו (צריך את המקור ב-media/commons-originals/)
+(cd tools && python3 build_site_v4.py)
+python3 tools/serve.py 4190          # http://127.0.0.1:4190/
+```
+
+בדיקות (מתוך tools/, עם השרת פועל): `node v4_qa.mjs 1440 900`, `node v4_qa.mjs 390 844`, `node v4_qa.mjs 1440 900 still`, `node v4_interact.mjs` (axe, מקלדת, טופס, טעינה באמצע, שינוי גודל), `node v4_perf.mjs 390 844`, `python3 check_site.py`.
+`?still` מציג את הגרסה הסטטית. `window.__hero(0.5)` קופץ לאמצע רצף ההירו. מקורות תמונות: `media/IMAGE_SOURCES.md`. מסירה: `DELIVERY_2026-11-10.md`.
+נקודת שחזור לפני הבנייה: התגית `restore/before-vienna-rebuild-2026-11-10`.
+
+---
+הגרסאות הקודמות מתועדות למטה לצורך היסטוריה בלבד.
+
 # יוסק׳ה קליין — אתר בעברית, RTL (גרסה 16.10.2026)
 
 אתר סטטי: גנרטור Python (`tools/build_site.py`) ← `prototype/`. GSAP 3.13 + ScrollTrigger מקומיים לתנועה. מסמכים בתוקף: `DESIGN.md`, `COPY.he.md`, `STORYBOARD.md`, `DELIVERY_2026-10-16.md`.
