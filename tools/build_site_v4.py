@@ -81,7 +81,7 @@ def photo(name, alt, sizes, mode='', pos=''):
 NAV = [('/#tours', 'הסיורים'), ('/#groups', 'לקבוצות'), ('/#about', 'יוסק׳ה'), ('/gallery.html', 'גלריה'), ('/#contact', 'יצירת קשר')]
 RAIL = [('top', 'gate', 'פתיחה'), ('map', 'pin', 'המפה'), ('tours', 'route', 'הסיורים'), ('about', 'person', 'יוסק׳ה'),
         ('groups', 'group', 'לקבוצות'), ('moments', 'camera', 'מהשטח'), ('reviews', 'heart', 'המלצות'),
-        ('faq', 'question', 'שאלות'), ('abroad', 'globe', 'מעבר לים'), ('contact', 'phone', 'יצירת קשר')]
+        ('faq', 'question', 'שאלות'), ('abroad', 'globe', 'מעבר לים'), ('contact', 'phone', 'יצירת קשר'), ('trail', 'route', 'ברגל')]
 TABBAR = ['map', 'tours', 'about', 'groups', 'faq', 'contact']
 
 LOGO = ('<img class="logo" src="/assets/brand/logo-horizontal.svg" width="473" height="159" '
@@ -171,6 +171,7 @@ def page(path, title, description, body, current='', body_class='page', preload=
   <meta http-equiv="Content-Security-Policy" content="{CSP}">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <link rel="preload" href="/fonts/heebo-hebrew-300-900.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/karantina-hebrew-700.woff2" as="font" type="font/woff2" crossorigin>
   {preload}
   <link rel="stylesheet" href="/yoske.css?v={_v('yoske.css')}">
 </head>
@@ -313,15 +314,16 @@ def home():
     chips, panels = map_parts()
     rep = {'%%MAP_CHIPS%%': chips, '%%MAP_PANELS%%': panels, '%%MAP_SVG%%': map_svg(), '%%TOUR_CARDS%%': tour_cards(),
            '%%PHONE%%': PHONE_HUMAN, '%%PHONE_INTL%%': PHONE_INTL, '%%EMAIL%%': EMAIL, '%%BRAZILAO%%': base.BRAZILAO,
-           '%%FB_REVIEWS%%': base.FB_REVIEWS, '%%FB_PAGE%%': base.FB_PAGE}
+           '%%FB_REVIEWS%%': base.FB_REVIEWS, '%%FB_PAGE%%': base.FB_PAGE,
+           '%%REVIEW_SHOTS%%': (SRC / 'v4/review-shots.html').read_text(encoding='utf-8')}
     rep.update({f'%%WA_{k}%%': v for k, v in WA.items()})
     for k, v in rep.items():
         body = body.replace(k, v)
 
     def ph(m):
         name, alt, sizes, *rest = m.group(1).split('|')
-        return photo(name, alt, sizes, rest[0] if rest else '')
-    body = re.sub(r'%%PHOTO:(.*?)%%', ph, body)
+        return photo(name, alt, sizes, rest[0] if rest else '', rest[1] if len(rest) > 1 else '')
+    body = re.sub(r'%%PHOTO:(.*?)%%(?!%)', ph, body)  # (?!%): a position like "50% 45%" may end the token with "%%%"
     assert '%%' not in body, body[body.index('%%'):body.index('%%') + 60]
     pre = ('<link rel="preload" as="image" href="/assets/v4/hero-wide-1440.webp" media="(min-width: 700px)" '
            'imagesrcset="/assets/v4/hero-wide-960.webp 960w, /assets/v4/hero-wide-1440.webp 1440w, /assets/v4/hero-wide-2160.webp 2160w" imagesizes="max(116vw, 150svh)" fetchpriority="high">\n'

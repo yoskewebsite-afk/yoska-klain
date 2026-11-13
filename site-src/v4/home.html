@@ -10,15 +10,25 @@
         <div class="hero__head" data-hero-head>
           <h1 class="hero__title" id="hero-title"><span class="hero__l1">חיפה כמו</span> <span class="hero__l2">שעוד לא הכרתם.</span></h1>
           <p class="hero__sub">טיולים עם יוסק׳ה, דרך האנשים, <span class="br">הסיפורים והתרבות שמרכיבים את המקום.</span></p>
-          <a class="btn btn--ink hero__cta" href="#map" data-hero-cta>בואו נמצא את הסיור שלכם<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
         </div>
-        <div class="hero__scene" data-hero-scene>
+
+
+      </div>
+      <div class="hero__scene" data-hero-scene>
           <picture class="hero__photo">
-            <source media="(max-width: 699px), (max-width: 999px) and (orientation: portrait)" srcset="/assets/v4/hero-tall-640.webp 640w, /assets/v4/hero-tall-960.webp 960w, /assets/v4/hero-tall-1280.webp 1280w" sizes="(max-width: 699px) 140vw, 100vw" width="1280" height="1763">
-            <img src="/assets/v4/hero-wide-1440.webp" srcset="/assets/v4/hero-wide-960.webp 960w, /assets/v4/hero-wide-1440.webp 1440w, /assets/v4/hero-wide-2160.webp 2160w" sizes="max(116vw, 150svh)" width="2160" height="1434" alt="מקדש הבאב וטרסות הגנים הבהאיים במורד הכרמל, מבט מלמטה לאורך הציר" fetchpriority="high">
+            <source media="(max-width: 699px), (max-width: 999px) and (orientation: portrait)" srcset="/assets/v4/hero-tall-640.webp 640w, /assets/v4/hero-tall-960.webp 960w, /assets/v4/hero-tall-1280.webp 1280w" sizes="100vw" width="1280" height="1763">
+            <img src="/assets/v4/hero-wide-1440.webp" srcset="/assets/v4/hero-wide-960.webp 960w, /assets/v4/hero-wide-1440.webp 1440w, /assets/v4/hero-wide-2160.webp 2160w" sizes="100vw" width="2160" height="1434" alt="מקדש הבאב וטרסות הגנים הבהאיים במורד הכרמל, מבט מלמטה לאורך הציר" fetchpriority="high">
           </picture>
-        </div>
-        <div class="hero__veil" aria-hidden="true" data-hero-veil></div>
+          <!-- Yoske on the photo; the copy of the photo in front of him shows only the trees below his waist -->
+          <img class="hero__yoske" data-hero-yoske src="/assets/yoske-cutout-640.webp" srcset="/assets/yoske-cutout-640.webp 640w, /assets/yoske-cutout-900.webp 900w, /assets/yoske-cutout.webp 1252w" sizes="(max-width: 699px) 42vw, 30vw" width="900" height="908" alt="יוסק׳ה, מדריך הטיולים, מצביע על הכותרת" fetchpriority="high">
+          <div class="hero__fore" aria-hidden="true" data-hero-fore>
+  <picture>
+            <source media="(max-width: 699px), (max-width: 999px) and (orientation: portrait)" srcset="/assets/v4/hero-tall-640.webp 640w, /assets/v4/hero-tall-960.webp 960w, /assets/v4/hero-tall-1280.webp 1280w" sizes="100vw" width="1280" height="1763">
+            <img src="/assets/v4/hero-wide-1440.webp" srcset="/assets/v4/hero-wide-960.webp 960w, /assets/v4/hero-wide-1440.webp 1440w, /assets/v4/hero-wide-2160.webp 2160w" sizes="100vw" width="2160" height="1434" alt="">
+          </picture>
+          </div>
+          <a class="btn btn--ink hero__cta" href="#map" data-hero-cta>בואו נמצא את הסיור שלכם<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
         <div class="hero__intro" data-hero-intro>
           <h2 class="duo-title"><span class="duo-title__light">מכירים מקום דרך האנשים שלו,</span> <span class="duo-title__bold">דרך החברה <span class="hl hl--teal">והתרבות.</span></span></h2>
           <p class="hero__lede">אני מפיק ומדריך טיולים מבעד לעדשה סוציולוגית ואנתרופולוגית. כל טיול נבנה מחדש סביב הקבוצה: תחומי העניין, הקצב והאנשים שבה.</p>
@@ -26,7 +36,6 @@
             <li>חופש</li><li>שמחה</li><li>העשרה</li><li>חברה</li><li>תרבות</li>
           </ul>
         </div>
-      </div>
     </section>
 
     <!-- ============ 3. CHOOSE — the reference's map section: chips over a map, a big arc on the side with the selection. ============ -->
@@ -122,35 +131,45 @@
     </section>
 
     <!-- ============ 7. MOMENTS — arched frames that drift with the scroll ============ -->
-    <section class="moments" id="moments" aria-labelledby="moments-title">
-      <div class="wrap sec-head">
-        <h2 class="duo-title" id="moments-title"><span class="duo-title__light">ככה זה נראה בשטח.</span> <span class="duo-title__bold">אנשים ורגעים <span class="hl hl--leaf">מהדרך</span></span></h2>
-        <div class="sec-head__acts"><a class="btn btn--line" href="/gallery.html">לגלריה המלאה</a></div>
+    <section class="moments sgs" id="moments" aria-labelledby="moments-title" data-sgs>
+      <!-- 11.11.2026: "Sticky Grid Scroll" by Theo Plawinski for Codrops (MIT, notice in /vendor/sticky-grid-scroll/LICENSE),
+           ported 1:1 (grid, ratios, timing, easing, sticky length) with Yoske's own tour photos. -->
+      <div class="sgs__wrapper" data-sgs-wrapper>
+        <div class="sgs__content">
+          <h2 class="sgs__title" id="moments-title">ככה זה נראה בשטח</h2>
+          <p class="sgs__desc">אנשים, קבוצות ויוסק׳ה בהדרכה, מהסיורים בחיפה.</p>
+          <a class="btn btn--line sgs__btn" href="/gallery.html">לגלריה המלאה</a>
+        </div>
+        <div class="sgs__gallery">
+          <ul class="sgs__grid" aria-label="תמונות מהסיורים">
+            <li class="sgs__item">%%PHOTO:stairs-group|קבוצה גדולה עם יוסק׳ה יושבת על מדרגות ברחוב|(min-width: 700px) 32vw, 40vw|low|50% 45%%%</li>
+            <li class="sgs__item">%%PHOTO:yoske-selfie-group|יוסק׳ה מצלם סלפי מחייך, הקבוצה יושבת מאחוריו ומנופפת|(min-width: 700px) 32vw, 40vw|low|50% 72%%%</li>
+            <li class="sgs__item">%%PHOTO:streetart|קבוצת מטיילים עם יוסק׳ה מול ציור קיר צבעוני|(min-width: 700px) 32vw, 40vw|low|46% 50%%%</li>
+            <li class="sgs__item">%%PHOTO:synagogue-group|קבוצה בתוך בית כנסת עם פרוכת כחולה|(min-width: 700px) 32vw, 40vw|low|50% 60%%%</li>
+            <li class="sgs__item">%%PHOTO:yoske-guiding-view|יוסק׳ה מדריך במרפסת תצפית מעל מפרץ חיפה|(min-width: 700px) 32vw, 40vw|low|48% 70%%%</li>
+            <li class="sgs__item">%%PHOTO:love-haifa-group|קבוצה מצטלמת ליד האותיות הגדולות I love Haifa|(min-width: 700px) 32vw, 40vw|low|42% 60%%%</li>
+            <li class="sgs__item">%%PHOTO:street-tour|קבוצה עומדת לאורך רחוב צר ומקשיבה|(min-width: 700px) 32vw, 40vw|low|50% 55%%%</li>
+            <li class="sgs__item">%%PHOTO:red-sculpture-selfie|יוסק׳ה בסלפי מול הקבוצה והפסל האדום בתצפית|(min-width: 700px) 32vw, 40vw|low|22% 60%%%</li>
+            <li class="sgs__item">%%PHOTO:lookout-kids|יוסק׳ה מסביר לילדים ולהורים ליד המעקה מול המפרץ|(min-width: 700px) 32vw, 40vw|low|56% 50%%%</li>
+            <li class="sgs__item">%%PHOTO:heart-family|משפחה מצטלמת בתוך פסל הלב הצהוב בתצפית|(min-width: 700px) 32vw, 40vw|low|50% 55%%%</li>
+            <li class="sgs__item">%%PHOTO:kids-guiding|יוסק׳ה מדריך קבוצת ילדים שמצביעים למעלה|(min-width: 700px) 32vw, 40vw|low|62% 36%%%</li>
+            <li class="sgs__item">%%PHOTO:lookout-big-group|קבוצה גדולה מצטלמת בתצפית מעל המפרץ|(min-width: 700px) 32vw, 40vw|low|50% 60%%%</li>
+          </ul>
+        </div>
       </div>
-      <ul class="moments__row" data-drift tabindex="0" aria-label="תמונות מהסיורים, אפשר לגלול לצדדים">
-        <li class="archframe">%%PHOTO:yoske-selfie-group|יוסק׳ה מצלם סלפי מחייך, הקבוצה יושבת מאחוריו ומנופפת|(min-width: 900px) 20vw, 52vw|low%%</li>
-        <li class="archframe">%%PHOTO:stairs-group|קבוצה גדולה עם יוסק׳ה יושבת על מדרגות ברחוב|(min-width: 900px) 20vw, 52vw|low%%</li>
-        <li class="archframe">%%PHOTO:streetart|קבוצת מטיילים עם יוסק׳ה מול ציור קיר צבעוני|(min-width: 900px) 20vw, 52vw|low%%</li>
-        <li class="archframe">%%PHOTO:synagogue-group|קבוצה בתוך בית כנסת עם פרוכת כחולה|(min-width: 900px) 20vw, 52vw|low%%</li>
-        <li class="archframe">%%PHOTO:love-haifa-group|קבוצה מצטלמת ליד האותיות הגדולות I love Haifa|(min-width: 900px) 20vw, 52vw|low%%</li>
-        <li class="archframe">%%PHOTO:street-tour|קבוצה עומדת לאורך רחוב צר ומקשיבה|(min-width: 900px) 20vw, 52vw|low%%</li>
-        <li class="archframe">%%PHOTO:lookout-kids|יוסק׳ה מסביר לילדים ולהורים ליד המעקה מול המפרץ|(min-width: 900px) 20vw, 52vw|low%%</li>
-      </ul>
     </section>
 
-    <!-- ============ 8. REVIEWS — the reference's last navy panel over a dimmed photo, arch cards breaking its lower edge ============ -->
-    <section class="reviews" id="reviews" aria-labelledby="reviews-title">
-      <div class="wrap">
-        <div class="reviews__panel">
-          <div class="reviews__bg" aria-hidden="true">%%PHOTO:haifa-dusk-wide|העיר והמפרץ לקראת ערב|(min-width: 900px) 84vw, 100vw|low%%</div>
-          <h2 class="duo-title duo-title--on-ink duo-title--center" id="reviews-title"><span class="duo-title__light">מה כתבו מטיילים בעמוד הפייסבוק</span> <span class="duo-title__bold">100% המליצו, <span class="hl hl--sun">מתוך 10 ביקורות</span></span></h2>
-          <p class="reviews__src">נכון ל-12.10.2026. <a href="%%FB_REVIEWS%%" target="_blank" rel="noopener">לכל הביקורות בפייסבוק</a></p>
+    <!-- ============ 8. REVIEWS — 11.11.2026: a wall built while scrolling. The cards are thrown in, land on a wide arc
+         in depth, then straighten into their place in the grid (live HTML; the grid is the no-motion version too).
+         The cards are the review screenshots the user supplied (tools/build_review_shots.py). ============ -->
+    <section class="rwall" id="reviews" aria-labelledby="reviews-title" data-rwall>
+      <div class="rwall__stage" data-rwall-stage>
+        <div class="rwall__head">
+          <h2 class="rwall__title" id="reviews-title">מה אומרים אחרי טיול <span class="hl hl--sun">עם יוסק׳ה?</span></h2>
+          <p class="rwall__src">בעמוד הפייסבוק: 100% המליצו, מתוך 10 ביקורות (נכון ל-12.10.2026). <a href="%%FB_REVIEWS%%" target="_blank" rel="noopener">לכל הביקורות בפייסבוק</a></p>
         </div>
-        <ul class="reviews__cards">
-          <li class="qcard" data-reveal><blockquote>״נסענו לחגוג לאבא שלי יום הולדת בחיפה, קבוצה של 20 מבוגרים וילדים. חיפה מהממת, אבל עוד יותר מהמם היה המדריך המוכשר, הנעים, הסבלני, הרהוט והמקצועי שליווה אותנו.״</blockquote><p><b>ורד י׳</b> על ״חיפה אהובתי״, 2022</p></li>
-          <li class="qcard" data-reveal><blockquote>״מדריך חכם וכיפי שיודע להעביר את הידע הרב שלו בצורה מאוד נעימה וקולעת. מומלץ בחום.״</blockquote><p><b>סואלי ט׳</b> תגובה בפייסבוק, 2022</p></li>
-          <li class="qcard" data-reveal><blockquote>״המלצה חמה לכל מי שמחפש מדריך זורם, כיפי, מצחיק ומלא בידע.״</blockquote><p><b>חגית ל׳</b> תגובה בפייסבוק, 2022</p></li>
-        </ul>
+        <ul class="rwall__grid" data-rwall-grid aria-label="ביקורות של מטיילים, צילומי מסך. כל אחת נפתחת בגודל מלא">
+%%REVIEW_SHOTS%%        </ul>
       </div>
     </section>
 
@@ -170,16 +189,32 @@
 
     <!-- ============ 10. ABROAD — kept short, so the homepage stays about Haifa ============ -->
     <section class="abroad" id="abroad" aria-labelledby="abroad-title">
+      <!-- 11.11.2026: the reference's day-trips block (big round photo cut by the edge with a dark arc, a featured entry
+           with an icon list and a button, a row of arch cards over the photo). Places named only where verified (Rio);
+           the other photos are from Yoske's 15.9.2026 post, which names no place. -->
+      <figure class="abroad__lens" aria-hidden="true"><img src="/assets/photos/andes-village-sm.jpg" srcset="/assets/photos/andes-village-xs.jpg 480w, /assets/photos/andes-village-sm.jpg 820w, /assets/photos/andes-village.jpg 900w" sizes="(min-width: 700px) 48vw, 90vw" width="820" height="1458" alt="" loading="lazy" decoding="async"></figure>
       <div class="wrap abroad__in">
-        <figure class="abroad__photo archframe">%%PHOTO:rio|יוסק׳ה פורש ידיים מתחת לפסל ישו הגואל בריו דה ז׳ניירו|(min-width: 900px) 22vw, 60vw|low%%</figure>
-        <div class="abroad__copy">
-          <h2 class="duo-title" id="abroad-title"><span class="duo-title__light">ומעבר לים?</span> <span class="duo-title__bold">מסעות <span class="hl hl--leaf">בדרום אמריקה</span></span></h2>
-          <p>מאז 2016 אני מדריך מטיילים ישראלים בדרום אמריקה. את המסעות המאורגנים מפעילה ברזילאו, ושם תמצאו את המסלולים, התאריכים וכל הפרטים.</p>
-          <div class="btnrow">
-            <a class="btn btn--line" href="%%BRAZILAO%%" target="_blank" rel="noopener">למסעות באתר ברזילאו<span class="visually-hidden"> (נפתח באתר אחר)</span><svg aria-hidden="true"><use href="#i-out"/></svg></a>
+        <h2 class="duo-title" id="abroad-title"><span class="duo-title__light">רוצים לראות עוד עולם?</span> <span class="duo-title__bold">מסעות בדרום אמריקה</span></h2>
+        <div class="abroad__feature">
+          <ul class="abroad__facts">
+            <li><svg class="bicon bicon--orange" aria-hidden="true"><use href="#b-clock"/></svg>מדריך שם מאז 2016</li>
+            <li><svg class="bicon bicon--orange" aria-hidden="true"><use href="#b-globe"/></svg>ברזיל · ארגנטינה · פרו · אקוודור</li>
+            <li><svg class="bicon bicon--orange" aria-hidden="true"><use href="#b-group"/></svg>קבוצות מטיילים מישראל</li>
+            <li><svg class="bicon bicon--orange" aria-hidden="true"><use href="#b-route"/></svg>מסעות מאורגנים של ברזילאו</li>
+          </ul>
+          <div class="abroad__copy">
+            <h3 class="abroad__name">מסעות עם ברזילאו</h3>
+            <p>מאז 2016 אני מדריך מטיילים ישראלים בדרום אמריקה. את המסעות המאורגנים מפעילה ברזילאו, ושם תמצאו את המסלולים, התאריכים וכל הפרטים.</p>
             <a class="textlink" href="%%WA_sa%%" target="_blank" rel="noopener">באילו מסעות אני מדריך? שאלו אותי</a>
           </div>
+          <a class="btn btn--line abroad__more" href="%%BRAZILAO%%" target="_blank" rel="noopener">למידע נוסף<span class="visually-hidden"> באתר ברזילאו (נפתח באתר אחר)</span><svg aria-hidden="true"><use href="#i-out"/></svg></a>
         </div>
+        <ul class="abroad__cards" aria-label="רגעים מהמסעות">
+          <li class="tcard" data-reveal><a href="%%BRAZILAO%%" target="_blank" rel="noopener"><img src="/assets/photos/rio-sm.jpg" srcset="/assets/photos/rio-xs.jpg 480w, /assets/photos/rio-sm.jpg 820w" sizes="(min-width: 900px) 24vw, 70vw" alt="יוסק׳ה פורש ידיים מתחת לפסל ישו הגואל בריו דה ז׳ניירו" loading="lazy" decoding="async"><span class="tcard__title">ריו דה ז׳ניירו</span></a></li>
+          <li class="tcard" data-reveal><a href="%%BRAZILAO%%" target="_blank" rel="noopener"><img src="/assets/photos/andes-trail-sm.jpg" srcset="/assets/photos/andes-trail-xs.jpg 480w, /assets/photos/andes-trail-sm.jpg 820w, /assets/photos/andes-trail.jpg 1600w" sizes="(min-width: 900px) 24vw, 70vw" alt="שביל הררי במסע בדרום אמריקה" loading="lazy" decoding="async" style="object-position: 50% 60%"><span class="tcard__title">שביל בהרים</span></a></li>
+          <li class="tcard" data-reveal><a href="%%BRAZILAO%%" target="_blank" rel="noopener"><img src="/assets/photos/ponchos-group-sm.jpg" srcset="/assets/photos/ponchos-group-xs.jpg 480w, /assets/photos/ponchos-group-sm.jpg 820w, /assets/photos/ponchos-group.jpg 1920w" sizes="(min-width: 900px) 24vw, 70vw" alt="חברים בפונצ׳ו צבעוניים במסע בדרום אמריקה" loading="lazy" decoding="async"><span class="tcard__title">חברים לדרך</span></a></li>
+          <li class="tcard" data-reveal><a href="%%BRAZILAO%%" target="_blank" rel="noopener"><img src="/assets/photos/andes-alley-sm.jpg" srcset="/assets/photos/andes-alley-xs.jpg 480w, /assets/photos/andes-alley-sm.jpg 820w, /assets/photos/andes-alley.jpg 900w" sizes="(min-width: 900px) 24vw, 70vw" alt="סמטה בכפר במסע בדרום אמריקה" loading="lazy" decoding="async"><span class="tcard__title">סמטאות בדרך</span></a></li>
+        </ul>
       </div>
     </section>
 
@@ -209,6 +244,30 @@
               <div class="btnrow"><a class="btn btn--sun" data-open-wa href="#" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-chat"/></svg>פותחים בוואטסאפ</a><button type="button" class="btn btn--line" data-edit>עריכה</button></div>
             </div>
           </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 12. THE TRAIL (11.11.2026, brought back from the 18.10 version at the user's request): the photos
+         travel along two dashed paths over the bay of Haifa, with the line "ברגל ובגובה העיניים". ============ -->
+    <section class="trail" id="trail" aria-labelledby="trail-title" data-trail>
+      <div class="trail__stage" data-trail-stage>
+        <div class="trail__bg" aria-hidden="true"><picture><source media="(max-width: 699px)" srcset="/assets/story/haifa-bay-clean-portrait-529.webp"><img src="/assets/story/haifa-bay-clean-1024.webp" srcset="/assets/story/haifa-bay-clean-640.webp 640w, /assets/story/haifa-bay-clean-1024.webp 1024w, /assets/story/haifa-bay-clean-1672.webp 1672w" sizes="100vw" width="1672" height="941" alt="" loading="lazy" decoding="async"></picture></div>
+        <svg class="trail__paths" viewBox="0 0 2000 640" preserveAspectRatio="none" aria-hidden="true" data-trail-svg>
+          <path data-trail-path d="M0 230 C 150 190, 330 200, 430 232 S 600 140, 720 86 S 880 150, 960 240 S 1210 220, 1470 104 S 1800 60, 2000 90"/>
+          <path data-trail-path d="M0 515 C 250 540, 480 470, 640 520 S 880 600, 1000 590 S 1260 470, 1474 440 S 1800 470, 2000 420"/>
+        </svg>
+        <svg class="trail__pin" style="--px: 33.5%; --py: 13%" aria-hidden="true"><use href="#b-pin"/></svg>
+        <svg class="trail__pin" style="--px: 63%; --py: 87%" aria-hidden="true"><use href="#b-pin"/></svg>
+        <figure class="trail__dot" data-dot="0,.08">%%PHOTO:heart-wide|משפחות עם יוסק׳ה ליד פסל הלב הצהוב|120px|low|42% 60%%%</figure>
+        <figure class="trail__dot" data-dot="1,.14">%%PHOTO:cable-car|קרונית רכבל מול שמיים כחולים|120px|low%%</figure>
+        <figure class="trail__dot" data-dot="0,.74">%%PHOTO:telescope|ילד מביט במשקפת תצפית אל העיר והמפרץ|120px|low|50% 30%%%</figure>
+        <figure class="trail__dot" data-dot="1,.8">%%PHOTO:clock-tower|מגדל שעון מאבן מול שמיים כחולים|120px|low%%</figure>
+        <figure class="trail__dot" data-dot="0,.42">%%PHOTO:carmelit|ילדים מציצים אל קרון ברציף|120px|low%%</figure>
+        <figure class="trail__dot" data-dot="1,.5">%%PHOTO:stone-street|רחוב עם בנייני אבן ישנים|120px|low%%</figure>
+        <div class="trail__copy">
+          <h2 class="trail__title" id="trail-title" data-trail-text>יוסק׳ה קליין: סיורים בחיפה, <span class="br">ברגל ובגובה העיניים.</span></h2>
+          <p data-trail-text>אני לוקח משפחות, חברים וצוותים מהתצפיות והגנים אל הרחובות, המדרגות והאנשים שמתחת. מקומות מסקרנים אותי, ואנשים מסקרנים אותי עוד יותר.</p>
         </div>
       </div>
     </section>
