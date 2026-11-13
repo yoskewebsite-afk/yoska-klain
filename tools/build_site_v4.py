@@ -7,6 +7,7 @@ Output: prototype/ (shared yoske.css + yoske.js). The previous generator stays u
 """
 import base64
 import hashlib
+import os
 import re
 from html import escape
 from pathlib import Path
@@ -18,6 +19,14 @@ import build_site as base
 ROOT, SRC = base.ROOT, base.SRC
 WA, TOURS, FEATURED = base.WA, base.TOURS, base.FEATURED
 PHONE_INTL, PHONE_HUMAN = base.PHONE_INTL, '054-436-1667'   # same number, written as in the brand book
+# Pre-launch switches (rimov-final-checks). Nothing here is invented: while a value is empty the matching tag/link is simply not emitted.
+#   SITE_URL   production origin, e.g. https://example.co.il  -> canonical, og:url, absolute og:image, sitemap.xml
+#   LAUNCH=1   (with SITE_URL) removes noindex and opens robots.txt. Without it the site stays noindex + Disallow: / (demo/staging).
+#   RIMOV_URL  address of the studio's site -> makes the credit logo a link. Empty = logo without a link.
+SITE_URL = os.environ.get('SITE_URL', '').rstrip('/')
+LAUNCH = os.environ.get('LAUNCH') == '1' and bool(SITE_URL)
+RIMOV_URL = os.environ.get('RIMOV_URL', '')
+OG_IMAGE = '/assets/brand/og-share-1200x630.jpg'
 EMAIL = 'yoske.kashlah27@gmail.com'                              # brand book, page 16
 wa_tour = base.wa_tour
 
@@ -117,6 +126,10 @@ def rails():
             f'  <nav class="tabbar" aria-label="ניווט מהיר בדף" data-tabbar><ul>{tabs}</ul></nav>')
 
 
+_RIMOV_IMG = '<img src="/assets/brand/rimov-credit-white.webp" width="640" height="204" alt="{alt}" loading="lazy">'
+CREDIT_LOGO = (f'<a href="{RIMOV_URL}" target="_blank" rel="noopener" aria-label="לאתר של מעצבי ומפתחי האתר, RIMOV Technologies">' + _RIMOV_IMG.format(alt='') + '</a>'
+               if RIMOV_URL else _RIMOV_IMG.format(alt='RIMOV Technologies'))
+
 FOOTER = f'''<footer class="foot">
     <div class="foot__curve" aria-hidden="true"></div>
     <div class="wrap foot__in">
@@ -141,6 +154,7 @@ FOOTER = f'''<footer class="foot">
         </nav>
       </div>
     </div>
+    <p class="wrap foot__made"><span>עיצוב ופיתוח על ידי</span>{CREDIT_LOGO}</p>
     <p class="wrap foot__credits">צילום מקדש הבאב והטרסות: <a href="https://commons.wikimedia.org/wiki/File:Baha%27i_gardens_in_Haifa_39.jpg">Guillaume Paumier</a>, ויקישיתוף, <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a> (הסרת השמיים, חיתוך והתאמת גודל). יתר הצילומים מהארכיון של יוסק׳ה קליין.</p>
   </footer>'''
 
@@ -157,6 +171,11 @@ def _v(rel):
 
 def page(path, title, description, body, current='', body_class='page', preload='', **_):
     home = body_class == 'home'
+    indexable = LAUNCH and path != '404.html'
+    url = f'{SITE_URL}/' + ('' if path == 'index.html' else path.replace('index.html', ''))
+    seo = (f'\n  <link rel="canonical" href="{url}">\n  <meta property="og:url" content="{url}">' if indexable else '')
+    seo += (f'\n  <meta property="og:image" content="{SITE_URL}{OG_IMAGE}">\n  <meta property="og:image:width" content="1200">\n  <meta property="og:image:height" content="630">'
+            f'\n  <meta property="og:image:alt" content="יוסק׳ה קליין עומד ליד מעקה מול מפרץ חיפה, מוקף בקבוצה">\n  <meta name="twitter:card" content="summary_large_image">' if SITE_URL else '')
     html = f'''<!doctype html>
 <html lang="he" dir="rtl">
 <head>
@@ -164,7 +183,12 @@ def page(path, title, description, body, current='', body_class='page', preload=
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>{escape(title)}</title>
   <meta name="description" content="{escape(description)}">
-  <meta name="robots" content="noindex">
+  <meta name="robots" content="{'index, follow' if indexable else 'noindex'}">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="he_IL">
+  <meta property="og:site_name" content="יוסק׳ה קליין">
+  <meta property="og:title" content="{escape(title)}">
+  <meta property="og:description" content="{escape(description)}">{seo}
   <meta name="theme-color" content="#2A3A5C">
   <link rel="icon" href="/assets/brand/symbol.svg" type="image/svg+xml">
   <script>{HEAD_JS}</script>
@@ -346,13 +370,14 @@ def tours_index():
     body = phead('חמישה סיורים קבועים, ועוד ימים בהתאמה.', 'הסיורים <span class="hl">בחיפה</span>',
                  'מהגנים והתצפיות ועד העיר התחתית. בחרו סיור ותאמו איתי מועד, או ספרו לי מה אתם מחפשים ונבחר יחד.',
                  'yoske-guiding-view', 'יוסק׳ה מדבר אל קבוצה ליד המעקה, העיר והמפרץ מאחוריו', '50% 62%') + f'''
-    <section class="wrap">
+    <section class="wrap" aria-labelledby="tours-list-title">
+      <h2 class="visually-hidden" id="tours-list-title">הסיורים הקבועים</h2>
       <ul class="cardgrid">
 {tour_cards()}
       </ul>
     </section>
 {cta_band('לא בטוחים מה מתאים לכם?', 'ספרו לי מי <span class="hl">מגיע</span>', 'יוסק׳ה, מה מתאים לנו?', WA['fit'])}'''
-    return page('tours/index.html', 'הסיורים בחיפה | יוסק׳ה', 'הסיורים של יוסק׳ה קליין בחיפה.', body, current='tours')
+    return page('tours/index.html', 'הסיורים בחיפה | יוסק׳ה', 'חמישה סיורים קבועים בחיפה עם יוסק׳ה קליין, מהגנים והתצפיות ועד העיר התחתית, וימים בהתאמה לקבוצות.', body, current='tours')
 
 
 def tour_page(t):
@@ -434,7 +459,7 @@ def gallery():
       </ul>
     </section>
 {cta_band('רוצים להיות', 'בתמונה <span class="hl">הבאה?</span>', 'בואו נטייל יחד', WA['general'])}'''
-    return page('gallery.html', 'גלריה | יוסק׳ה', 'תמונות מהטיולים של יוסק׳ה קליין.', body, current='gallery')
+    return page('gallery.html', 'גלריה | יוסק׳ה', 'גלריית תמונות מהטיולים של יוסק׳ה קליין בחיפה: האנשים, המקומות והרגעים שביניהם.', body, current='gallery')
 
 
 def not_found():
@@ -445,7 +470,7 @@ def not_found():
         <div class="btnrow"><a class="btn btn--ink" href="/">לדף הבית</a><a class="btn btn--line" href="/tours/">לסיורים בחיפה</a><a class="btn btn--line" href="{WA['general']}" target="_blank" rel="noopener">נדבר בוואטסאפ</a></div>
       </div>
     </section>'''
-    return page('404.html', 'העמוד לא נמצא | יוסק׳ה', 'העמוד לא נמצא.', body)
+    return page('404.html', 'העמוד לא נמצא | יוסק׳ה', 'העמוד שחיפשתם לא נמצא. אפשר לחזור לדף הבית, לעבור לסיורים בחיפה או לכתוב ליוסק׳ה בוואטסאפ.', body)
 
 
 def legal_page(path, title, desc, intro, sections):
@@ -505,3 +530,14 @@ base.LEGAL_UPDATED = LEGAL_UPDATED
 if __name__ == '__main__':
     built = [home(), tours_index()] + [tour_page(t) for t in TOURS if t.get('blurb')] + [groups(), gallery(), not_found(), privacy(), base.terms(), accessibility()]
     print('built:', ', '.join(built))
+    # robots.txt / sitemap.xml: closed until LAUNCH=1 with SITE_URL (no domain is invented)
+    if LAUNCH:
+        urls = [('/' if b == 'index.html' else '/' + b.replace('index.html', '')) for b in built if b != '404.html']
+        today = __import__('datetime').date.today().isoformat()
+        (ROOT / 'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+            + '\n'.join(f'  <url><loc>{SITE_URL}{u}</loc><lastmod>{today}</lastmod></url>' for u in urls) + '\n</urlset>\n')
+        (ROOT / 'robots.txt').write_text(f'User-agent: *\nAllow: /\nSitemap: {SITE_URL}/sitemap.xml\n')
+    else:
+        (ROOT / 'robots.txt').write_text('User-agent: *\nDisallow: /\n')
+        (ROOT / 'sitemap.xml').unlink(missing_ok=True)
+    print('seo:', 'LAUNCH (indexable, sitemap)' if LAUNCH else 'closed (noindex, Disallow: /)')

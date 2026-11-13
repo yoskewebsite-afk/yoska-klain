@@ -481,6 +481,7 @@ section { position: relative; }
    Every shot opens full size (dialog) so the small text is readable. */
 .rwall { position: relative; padding: var(--s9) 0; }
 .rwall__head { padding-inline: var(--gut); text-align: center; }
+:root:not(.rwall-on) .rwall__title .hl--sun { color: var(--orange); } /* sun yellow on a white section was 1.9:1; orange passes 3:1 for large text */
 .rwall__title { color: var(--navy); font-size: clamp(2.125rem, 1.4rem + 2.6vw, 4rem); font-weight: 800; line-height: 1.08; letter-spacing: -.02em; }
 .rwall__src { max-width: 60ch; margin: var(--s4) auto 0; color: var(--muted); font-size: var(--fs-small); }
 .rwall__src a { color: var(--navy); font-weight: 700; text-decoration-color: var(--sun); text-underline-offset: 4px; }
@@ -726,3 +727,8 @@ h1, h2, h3, .hero__title, .hero__l1, .hero__l2, .duo-title__bold, .duo-title__li
   font-family: var(--font-display); font-weight: 700; font-synthesis: none; letter-spacing: 0; }
 .duo-title__light { font-weight: 400; }
 .hero__sub, .hero__cta, .hero__intro p { font-family: var(--font-hero); }
+
+.foot__made { display: flex; align-items: center; gap: var(--s3); margin-top: var(--s5); color: rgba(255, 255, 255, .72); font-size: .8125rem; }
+.foot__made img { display: block; height: 40px; width: auto; }
+.foot__made a { display: inline-flex; border-radius: 6px; }
+.foot__made a:focus-visible { outline: 3px solid var(--sun); outline-offset: 4px; }
