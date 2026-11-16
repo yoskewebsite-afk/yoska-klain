@@ -17,3 +17,6 @@ backups/
 .env
 .env.*
 .dev.log
+.vercel
+.env*
+.secrets/

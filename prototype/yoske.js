@@ -25,6 +25,40 @@
     addEventListener('keydown', e => { if (e.key === 'Escape' && !menu.hidden) { set(false); menuBtn.focus(); } });
   }
 
+  /* ---------------- phones: smart header (16.11.2026) ----------------
+     The accessibility button moves into the header (it no longer floats over the text). Once the page has moved the
+     header becomes a fixed bar: it slides away while you read downwards and comes back the moment you scroll up. */
+  const top = $('[data-top]');
+  if (top) {
+    const fabA = $('[data-a11y-open]');
+    if (menuBtn) {
+      const end = document.createElement('div'); end.className = 'top__end';
+      menuBtn.before(end); if (fabA) end.append(fabA); end.append(menuBtn);
+    }
+    const phoneMQ = matchMedia('(max-width: 999px)');
+    const isHome = top.classList.contains('top--home');
+    const spacer = document.createElement('div'); spacer.className = 'top-spacer'; spacer.setAttribute('aria-hidden', 'true');
+    let lastY = scrollY, stuck = false, tick = false;
+    const unstick = () => { stuck = false; top.style.transition = 'none'; top.classList.remove('is-stuck', 'is-away'); spacer.remove(); void top.offsetHeight; top.style.transition = ''; };
+    const upd = () => {
+      tick = false;
+      const y = Math.max(0, scrollY), dy = y - lastY; lastY = y;
+      if (!phoneMQ.matches) { if (stuck) unstick(); return; }
+      const h = top.offsetHeight;
+      if (!stuck && y > h + 40) {
+        if (!isHome) { spacer.style.height = h + 'px'; top.after(spacer); }
+        stuck = true; top.style.transition = 'none'; top.classList.add('is-stuck', 'is-away'); void top.offsetHeight; top.style.transition = '';
+      } else if (stuck && y <= 4) unstick();
+      if (!stuck || document.body.classList.contains('menu-open')) return;
+      if (top.contains(document.activeElement)) { top.classList.remove('is-away'); return; }
+      if (dy > 6 && y > h * 2) top.classList.add('is-away');
+      else if (dy < -6) top.classList.remove('is-away');
+    };
+    addEventListener('scroll', () => { if (!tick) { tick = true; requestAnimationFrame(upd); } }, { passive: true });
+    top.addEventListener('focusin', () => top.classList.remove('is-away'));
+    phoneMQ.addEventListener('change', upd);
+  }
+
   /* ---------------- map: tabs that light the tour's stops ---------------- */
   const chipsBox = $('[data-map-chips]');
   if (chipsBox) {
@@ -140,7 +174,8 @@
       // height on the right, the trees under the stone house from ~30%
       if (!narrow) y = Math.max(y, imgH * .3 + 70 - h);
       // phones: the headline spans the whole width, so he stands on the photo under the button, among its trees
-      else y = imgH * .3 - h;
+      // …and never higher than the subline: his raised hand points at the button below it, not into the text
+      else { const sb = $('.hero__sub'); y = Math.max(imgH * .3 - h, sb ? sb.getBoundingClientRect().bottom + scrollY - scTop + 10 : -1e9); }
       yoske.style.setProperty('--yw', Math.round(w) + 'px');
       // phones: the ש can sit at the very edge, keep him (most of him) on screen
       const x = narrow ? iw - sr.left - w * .9 : hx - shiftX - sr.left - w * .06;

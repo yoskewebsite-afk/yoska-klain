@@ -79,7 +79,8 @@ function fileStore(dir) {
 // ---------------------------------------------------------------- supabase backend
 function supabaseStore(url, key) {
   const base = url.replace(/\/+$/, '');
-  const h = (extra = {}) => ({ apikey: key, Authorization: `Bearer ${key}`, ...extra });
+  // legacy JWT keys (eyJ…) go in both headers; the newer opaque secret keys (sb_secret_…) are not JWTs and must be sent as `apikey` only
+  const h = (extra = {}) => ({ apikey: key, ...(key.startsWith('sb_') ? {} : { Authorization: `Bearer ${key}` }), ...extra });
   const rest = async (qs, init = {}) => {
     const r = await fetch(`${base}/rest/v1/kv?${qs}`, { ...init, headers: h({ 'Content-Type': 'application/json', ...(init.headers || {}) }) });
     if (!r.ok) throw new Error(`supabase ${r.status}: ${(await r.text()).slice(0, 200)}`);

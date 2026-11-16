@@ -12,7 +12,11 @@ export async function render(root) {
   const from = h('input', { type: 'date', 'aria-label': 'מתאריך', value: range.from, onchange: () => { range.days = ''; range.from = from.value; range.to = to.value || iso(new Date()); load(); } });
   const to = h('input', { type: 'date', 'aria-label': 'עד תאריך', value: range.to, onchange: () => { range.days = ''; range.from = from.value || range.from; range.to = to.value; load(); } });
   const bseg = h('div', { class: 'seg', role: 'group', 'aria-label': 'קיבוץ' }, [['day', 'לפי יום'], ['week', 'לפי שבוע']].map(([k, l]) => h('button', { class: 'seg__b', type: 'button', 'aria-pressed': String(bucket === k), onclick: () => { bucket = k; load(); } }, l)));
-  const toolbar = h('div', { class: 'toolbar' }, rangeSeg, h('span', { class: 'count', text: 'או' }), from, h('span', { class: 'count', text: 'עד' }), to, h('span', { class: 'pagehead__sp' }), bseg);
+  // phones: the custom from/to range folds away (the 7/30/90 buttons cover the everyday case) so the numbers start on the first screen
+  const custom = h('details', { class: 'filters filters--range' }, h('summary', { class: 'filters__s' }, icon('clock'), h('span', { text: 'טווח תאריכים אחר' })),
+    h('div', { class: 'filters__b' }, h('span', { class: 'count filters__or', text: 'או' }), h('div', { class: 'filters__dates' }, from, h('span', { class: 'count', text: 'עד' }), to)));
+  const wide = matchMedia('(min-width: 961px)'); custom.open = wide.matches || !!range.from; wide.addEventListener('change', () => { custom.open = wide.matches || !!range.from; });
+  const toolbar = h('div', { class: 'toolbar' }, rangeSeg, custom, h('span', { class: 'pagehead__sp' }), bseg);
   const body = h('div', { style: 'display:grid;gap:20px' });
   root.append(head, toolbar, body);
 

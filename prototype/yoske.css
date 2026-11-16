@@ -1719,3 +1719,64 @@ h1, h2, h3, .duo-title__bold, .duo-title__light, .h-card, .acard__title, .acard-
 @media (max-width: 899px), (pointer: coarse) { .tc2__name a, .acard__title a { padding-block: 11px; } }
 
 @media (max-width: 899px), (pointer: coarse) { table a { display: inline-block; padding-block: 11px; } }
+
+/* ================= mobile UX pass (16.11.2026) — mobile first: the page is read and steered with one thumb =================
+   - the header comes back as soon as you scroll up (hidden while reading downwards), so the menu is never far away
+   - the accessibility button lives in that header on phones instead of floating over the text
+   - one floating action only (WhatsApp) on inner pages; the home tab bar keeps its 5 links at full width
+   - compact footer, card copy that stays inside its card, doodles that never cross a headline */
+@media (max-width: 999px) {
+  .top { padding-block: 12px; }
+  .top__menu, .top .a11y-fab { width: 48px; height: 48px; }
+  .top__end { display: flex; align-items: center; gap: 8px; }
+  .top .a11y-fab { position: static; inset: auto; bottom: auto; box-shadow: none; border-radius: 0; border: 1px solid var(--navy); background: var(--white); transform: none; }
+  .top .a11y-fab svg { width: 24px; height: 24px; }
+  .top .a11y-fab.is-active { background: var(--navy); color: var(--white); box-shadow: none; }
+  /* smart header: fixed white bar once the page has moved; it slides away going down and returns going up */
+  .top.is-stuck { position: fixed; inset-inline: 0; top: 0; z-index: 45; width: 100%; padding-inline: max(16px, 3vw); margin: 0;
+    background: var(--white); border-bottom: 1px solid var(--line); box-shadow: 0 6px 20px rgba(42, 58, 92, .07);
+    transition: transform .32s cubic-bezier(.22, 1, .36, 1); }
+  .top.is-stuck .top__logo .logo { width: 150px; }
+  .top.is-stuck.is-away { transform: translateY(-110%); }
+  .top-spacer { display: block; }
+  body.menu-open .top.is-stuck { transform: none; }
+  .tabbar ul { grid-template-columns: repeat(5, 1fr); }
+  .tabbar a { font-size: .8125rem; color: var(--navy); }
+  .tabbar .bicon { opacity: .7; }
+  .fab { width: 52px; height: 52px; inset-inline-start: 16px; bottom: calc(18px + env(safe-area-inset-bottom)); }
+  .totop { display: none; }   /* the header returns on any scroll up, a second floating button only covers text */
+  section[id], [id].sec-anchor { scroll-margin-top: 84px; }
+}
+@media (prefers-reduced-motion: reduce) { .top.is-stuck { transition: none; } }
+.top-spacer { display: none; }
+
+@media (max-width: 699px) {
+  /* footer: two short columns of links instead of one 1,000px list */
+  .foot { padding-top: var(--s6); }
+  .foot__brand img { width: 190px; }
+  .foot__say { font-size: 2.5rem; margin-top: var(--s4); }
+  .foot__in { gap: var(--s6); }
+  .foot__cols { grid-template-columns: 1fr 1fr; column-gap: var(--s5); row-gap: var(--s6); }
+  .foot__cols > :nth-child(2) { grid-column: 1 / -1; order: 3; }
+  .foot__cols > :nth-child(2) a { overflow-wrap: normal; word-break: normal; }
+  .foot__cols > * { gap: 0; }
+  .foot__cols a, .foot .linkbtn { min-height: 44px; font-size: .9375rem; }
+  .foot__cols h2 { margin-bottom: 4px; }
+  .foot__credits { margin-top: var(--s6); line-height: 1.6; }
+  .foot__credits a { display: inline-block; min-height: 44px; padding-block: 12px; margin-block: -12px; line-height: 20px; }
+
+  /* the closing card: copy stays inside the white card, the dashed paths go quiet behind it */
+  .trail__stage { padding-inline: 0; }
+  .trail__copy { max-width: calc(100vw - 2 * clamp(16px, 8vw, 160px) - 40px); }
+  .trail__title { font-size: 2.125rem; }
+  .trail__copy p { font-size: 1rem; }
+  .trail__paths path { opacity: .35; }
+
+  /* hand-drawn lines: a quiet corner accent, never across a headline */
+  .doodle { opacity: .3; }
+  .doodle--a, .doodle--c, .doodle--e, .doodle--f { top: 6px; height: 64px; }
+  .doodle--b, .doodle--d { height: 70px; }
+
+  /* hero: the button sits on the open side of the photo, Yoske points at it from the other side */
+  .hero__cta { left: var(--gut); translate: none; }
+}

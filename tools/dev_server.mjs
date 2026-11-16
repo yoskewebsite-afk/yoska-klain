@@ -11,7 +11,7 @@ const port = +process.argv[2] || +process.env.PORT || 4200;
 const MIME = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.mjs': 'text/javascript; charset=utf-8', '.json': 'application/json', '.svg': 'image/svg+xml', '.webp': 'image/webp', '.jpg': 'image/jpeg', '.png': 'image/png', '.woff2': 'font/woff2', '.txt': 'text/plain', '.xml': 'application/xml', '.ico': 'image/x-icon', '.mp4': 'video/mp4' };
 
 const pageMod = await import('../api/page.mjs');
-const catchAll = await import('../api/[...path].mjs');
+const catchAll = await import('../api/index.mjs');
 
 /** mirrors the "routes" array of vercel.json, in the same order */
 function route(pathname) {

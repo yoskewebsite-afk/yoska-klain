@@ -1,0 +1,10 @@
+.data
+.data-*
+tools
+media
+references
+backups
+.env.local
+.impeccable
+*.md
+.secrets

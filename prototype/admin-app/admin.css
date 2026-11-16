@@ -449,3 +449,65 @@ input, select, textarea { min-width: 0; max-width: 100%; }
 
 @media (max-width: 960px) { .app { grid-template-columns: minmax(0, 1fr); } .top, .main { grid-column: 1; } .side { display: none; } }
 @media (max-width: 960px) { .notice a { display: inline-flex; align-items: center; min-height: 44px; } .toolbar input[type="date"] { flex: 1 1 calc(50% - 6px); width: auto; min-width: 0; } .toolbar > .count { flex: 1 1 100%; } }
+
+/* ================= mobile UX pass (16.11.2026): the first screen shows the work, not the controls ================= */
+/* folded filters: open (and invisible as a fold) on desktop, one "סינון" row on phones */
+.filters { display: contents; }
+.filters__s { display: none; }
+.filters__b { display: contents; }
+.filters__dates { display: contents; }
+@media (max-width: 960px) {
+  .filters { display: block; flex: 1 1 100%; border: 1px solid var(--line-strong); border-radius: var(--r-ctl); background: var(--surface-solid); }
+  :root[data-theme="glass"] .filters { background: rgba(255, 255, 255, .7); }
+  .filters__s { display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 14px; font-weight: 700; color: var(--text); list-style: none; cursor: pointer; }
+  .filters__s::-webkit-details-marker { display: none; }
+  .filters__s::after { content: ''; margin-inline-start: auto; width: 8px; height: 8px; border-inline-end: 2px solid var(--text-3); border-bottom: 2px solid var(--text-3); rotate: 45deg; translate: 0 -2px; transition: rotate var(--t-fast) var(--ease); }
+  .filters[open] .filters__s::after { rotate: -135deg; translate: 0 2px; }
+  .filters__n { min-width: 22px; padding: 0 6px; border-radius: 11px; background: var(--action); color: var(--on-action); font-size: 12px; line-height: 22px; text-align: center; }
+  .filters__b { display: grid; gap: 10px; padding: 4px 12px 12px; }
+  .filters__b select { width: 100%; }
+  .filters__dates { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 10px; align-items: center; }
+  .filters--range .filters__dates { grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); }
+  .filters__or { display: none; }
+  .filters__dates input[type="date"] { width: 100%; min-width: 0; }
+  .toolbar { gap: 10px; }
+  .toolbar > .pagehead__sp { display: none; }
+  .toolbar .seg { display: flex; } .toolbar .seg .seg__b { flex: 1 1 0; justify-content: center; }
+
+  /* lead cards with call / WhatsApp */
+  .lcard { display: grid; gap: 0; padding: 0; overflow: hidden; }
+  .lcard__open { display: grid; gap: 6px; width: 100%; padding: 14px 16px; border: 0; background: transparent; text-align: start; color: inherit; }
+  .lcard__acts { display: flex; gap: 8px; padding: 0 12px 12px; }
+  .lcard__acts .btn { flex: 1 1 0; }
+
+  /* pages: section rows never run off the card */
+  .sec { min-width: 0; }
+  .sec__main { overflow: hidden; }
+  .sec .grip { display: none; }
+}
+@media (max-width: 960px) and (pointer: coarse) { .sec[draggable] { -webkit-user-drag: none; } }
+
+/* tours list: one row on desktop, a composed card on phones */
+.tourrow { display: grid; grid-template-columns: 96px minmax(0, 1fr) auto; grid-template-areas: "img main act"; gap: 16px; align-items: center; padding: 14px 16px; }
+.tourrow.is-off { opacity: .82; }
+.tourrow__img { grid-area: img; aspect-ratio: 4 / 3; }
+.tourrow__main { grid-area: main; min-width: 0; display: grid; gap: 4px; }
+.tourrow__name { font-weight: 800; font-size: 17px; color: var(--text); text-decoration: none; }
+.tourrow__tags { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.tourrow__act { grid-area: act; display: flex; gap: 4px; flex-wrap: wrap; justify-content: flex-end; }
+@media (max-width: 720px) {
+  .tourrow { grid-template-columns: 84px minmax(0, 1fr); grid-template-areas: "img main" "act act"; gap: 12px 14px; align-items: start; padding: 12px; }
+  .tourrow__name { font-size: 16.5px; line-height: 1.3; display: flex; align-items: center; min-height: 44px; margin-block: -10px -6px; }
+  .tourrow__main .count { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .tourrow__act { justify-content: stretch; padding-top: 10px; border-top: 1px solid var(--line); }
+  .tourrow__act { gap: 8px; }
+  .tourrow__act > a.btn { order: -1; flex: 1 1 calc(50% - 4px); }
+  .tourrow__act > button.btn { flex: 1 1 0; width: auto; }
+}
+
+/* the "notify me" prompt: compact on phones, it never covers half the screen */
+@media (max-width: 960px) {
+  .sidenote { padding: 12px 14px; gap: 10px; border-radius: 18px; }
+  .sidenote__ic { width: 34px; height: 34px; border-radius: 11px; }
+  .sidenote__b { font-size: 14px; line-height: 1.45; }
+}

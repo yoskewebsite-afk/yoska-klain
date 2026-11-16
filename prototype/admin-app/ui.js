@@ -99,11 +99,24 @@ export function drawer({ title, body, footer, cls = '', onClose }) {
   document.body.append(scrim, el);
   document.documentElement.style.overflow = 'hidden';
   requestAnimationFrame(() => { scrim.classList.add('on'); el.classList.add('on'); });
-  let back;
+  let back, done = false, popped = false;
+  // phones: the drawer is a full screen, so the system back gesture / back button must close it (not leave the admin).
+  // It gets its own history entry; closing it any other way removes that entry again. A route change closes it too.
+  try { history.pushState({ ...(history.state || {}), drawer: (history.state?.drawer || 0) + 1 }, ''); } catch { /* sandboxed */ }
+  const onPop = () => { popped = true; api_.close(); };
+  const onRoute = () => { popped = true; api_.close(true); };
+  addEventListener('popstate', onPop); addEventListener('hashchange', onRoute);
   const api_ = { el, body: bodyEl, close: async (force) => {
-    if (!force && onClose && (await onClose()) === false) return;
+    if (done) return;
+    if (!force && onClose && (await onClose()) === false) {
+      if (popped) { popped = false; try { history.pushState({ ...(history.state || {}), drawer: 1 }, ''); } catch { /* */ } }
+      return;
+    }
+    done = true; removeEventListener('popstate', onPop); removeEventListener('hashchange', onRoute);
     scrim.classList.remove('on'); el.classList.remove('on'); document.documentElement.style.overflow = '';
     setTimeout(() => { scrim.remove(); el.remove(); }, 240); back && back();
+    // remove the drawer's history entry and wait for it, so a navigation right after close() is not undone by it
+    if (!popped && history.state?.drawer) await new Promise((res) => { const t = setTimeout(res, 400); addEventListener('popstate', () => { clearTimeout(t); res(); }, { once: true }); history.back(); });
   } };
   closeBtn.addEventListener('click', () => api_.close());
   scrim.addEventListener('click', () => api_.close());

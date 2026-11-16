@@ -23,8 +23,16 @@ export async function render(root, params) {
   const csv = h('a', { class: 'btn', href: '#', onclick: (e) => { e.currentTarget.href = '/api/admin/leads.csv?' + qs(); } }, icon('download'), 'ייצוא לאקסל');
   const add = h('button', { class: 'btn btn--primary', type: 'button', onclick: () => openAdd() }, icon('plus'), 'פנייה חדשה');
   const out = h('div'), count = h('p', { class: 'count', 'aria-live': 'polite', style: 'margin-bottom:8px' });
+  // phones: the five filters fold into one "סינון" row (with the number of active filters), so the leads start on the first screen
+  const nOn = () => ['status', 'tour', 'form', 'from', 'to'].filter((k) => F[k]).length;
+  const fsum = h('summary', { class: 'filters__s' }, icon('gear'), h('span', { text: 'סינון' }), h('b', { class: 'filters__n' }));
+  const filters = h('details', { class: 'filters' }, fsum, h('div', { class: 'filters__b' }, status, tour, form, h('div', { class: 'filters__dates' }, from, to)));
+  const markN = () => { const n = nOn(); fsum.lastChild.textContent = n ? String(n) : ''; fsum.lastChild.hidden = !n; };
+  const wide = matchMedia('(min-width: 961px)'); filters.open = wide.matches; wide.addEventListener('change', () => { filters.open = wide.matches; });
+  filters.addEventListener('change', markN); markN();
+
   root.append(h('div', { class: 'pagehead' }, h('h1', { text: 'פניות' }), h('span', { class: 'pagehead__sp' }), csv, add),
-    h('div', { class: 'toolbar' }, h('div', { class: 'search' }, icon('search'), q), status, tour, form, from, to, views), count, out);
+    h('div', { class: 'toolbar' }, h('div', { class: 'search' }, icon('search'), q), filters, views), count, out);
 
   let rows = [], selected = null;
   async function fetchList() {
@@ -40,8 +48,13 @@ export async function render(root, params) {
       h('tbody', {}, rows.map((l) => { const tr = h('tr', { class: 'rowh', tabindex: '0', 'aria-selected': String(selected === l.id), onclick: () => open(l.id), onkeydown: (e) => { if (e.key === 'Enter') open(l.id); } },
         h('td', {}, h('div', { class: 'cell-main' }, h('b', { text: l.name || '(ללא שם)' }), h('span', { class: 'ltr', text: l.phone }))), h('td', {}, statusTag(l.status), l.reminder && !l.reminder.done ? h('span', { class: 'count', style: 'display:block;margin-top:2px', text: 'תזכורת ' + fmtDate(l.reminder.at, { day: 'numeric', month: 'short' }) }) : null),
         h('td', { text: l.tourName || '—' }), h('td', { text: fmtDateTime(l.createdAt) }), h('td', { text: { form: 'טופס באתר', phone: 'טלפון', whatsapp: 'וואטסאפ', manual: 'ידני' }[l.channel] || '' })); tr.dataset.id = l.id; return tr; }))));
-    const cards = h('div', { class: 'cards' }, rows.map((l) => h('button', { class: 'lcard', type: 'button', onclick: () => open(l.id) },
-      h('div', { class: 'lcard__r' }, h('b', { text: l.name || '(ללא שם)' }), statusTag(l.status)), h('div', { class: 'lcard__r' }, h('span', { text: l.tourName || 'ללא טיול' }), h('small', { text: fmtDateTime(l.createdAt) })), h('small', { class: 'ltr', text: l.phone }))));
+    // phone cards: the whole card opens the lead; call and WhatsApp are one tap away without opening it
+    const cards = h('div', { class: 'cards' }, rows.map((l) => h('div', { class: 'lcard' },
+      h('button', { class: 'lcard__open', type: 'button', onclick: () => open(l.id) },
+        h('div', { class: 'lcard__r' }, h('b', { text: l.name || '(ללא שם)' }), statusTag(l.status)), h('div', { class: 'lcard__r' }, h('span', { text: l.tourName || 'ללא טיול' }), h('small', { text: fmtDateTime(l.createdAt) })), h('small', { class: 'ltr', text: l.phone })),
+      l.phone ? h('div', { class: 'lcard__acts' },
+        h('a', { class: 'btn btn--sm', href: 'tel:' + String(l.phone).replace(/[^\d+]/g, ''), 'aria-label': 'חיוג ל' + (l.name || 'פונה') }, icon('phone'), 'חיוג'),
+        waLink(l.phone) ? h('a', { class: 'btn btn--sm', href: waLink(l.phone), target: '_blank', rel: 'noopener', 'aria-label': 'וואטסאפ ל' + (l.name || 'פונה') }, icon('chat'), 'וואטסאפ') : null) : null)));
     out.replaceChildren(tbl, cards);
   }
   async function open(id) {
@@ -104,7 +117,7 @@ function openAdd() {
     err.hidden = true;
     if (!name.value.trim() && !phone.value.trim()) { err.textContent = 'צריך לפחות שם או טלפון.'; err.hidden = false; return; }
     save.setAttribute('aria-busy', 'true');
-    try { const r = await api('POST', '/api/admin/leads', { name: name.value, phone: phone.value, message: msg.value, channel: ch.value, tour: tour.value }); dr.close(true); toast('הפנייה נוספה'); go('#/leads/' + r.lead.id); location.reload(); }
+    try { const r = await api('POST', '/api/admin/leads', { name: name.value, phone: phone.value, message: msg.value, channel: ch.value, tour: tour.value }); await dr.close(true); toast('הפנייה נוספה'); go('#/leads/' + r.lead.id); location.reload(); }
     catch (e) { err.textContent = e.message; err.hidden = false; } finally { save.removeAttribute('aria-busy'); }
   } }, 'שמירת פנייה');
   const dr = drawer({ title: 'פנייה חדשה', body: h('div', { style: 'display:grid;gap:14px' }, f('שם', name), f('טלפון', phone), f('איך הגיעה?', ch), f('טיול שמעניין אותם', tour), f('מה סוכם / נאמר', msg), err), footer: [save, h('button', { class: 'btn', type: 'button', onclick: () => dr.close() }, 'ביטול')] });

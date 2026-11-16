@@ -33,12 +33,12 @@ function list(root) {
   const paint = () => {
     out.replaceChildren(...S.tours.map((t, i) => {
       const [stl, stc] = STATE[t.status] || STATE.hidden;
-      return h('article', { class: 'glass', style: 'display:grid;grid-template-columns:96px minmax(0,1fr) auto;gap:16px;align-items:center;padding:14px 16px' + (t.status !== 'published' ? ';opacity:.82' : '') },
-        h('div', { class: 'thumb', style: 'aspect-ratio:4/3' }, h('img', { src: t.card?.src || '', alt: '' })),
-        h('div', { style: 'min-width:0;display:grid;gap:4px' }, h('a', { href: '#/tours/' + t.slug, style: 'font-weight:800;font-size:17px;color:var(--text);text-decoration:none', text: t.name }), h('span', { class: 'count', text: t.place || (hasPage(t) ? '' : 'אין עדיין עמוד לטיול: הכרטיס מפנה לוואטסאפ') }),
-          h('div', { style: 'display:flex;flex-wrap:wrap;gap:6px;align-items:center' }, h('span', { class: `tag tag--${stc === 'ok' ? 'new' : 'mute'}`, text: stl }), t.home ? h('span', { class: 'tag', text: 'בדף הבית' }) : null, t.featured && hasPage(t) ? h('span', { class: 'tag', text: 'במפה' }) : null,
+      return h('article', { class: 'glass tourrow' + (t.status !== 'published' ? ' is-off' : '') },
+        h('div', { class: 'thumb tourrow__img' }, h('img', { src: t.card?.src || '', alt: '' })),
+        h('div', { class: 'tourrow__main' }, h('a', { class: 'tourrow__name', href: '#/tours/' + t.slug, text: t.name }), h('span', { class: 'count', text: t.place || (hasPage(t) ? '' : 'אין עדיין עמוד לטיול: הכרטיס מפנה לוואטסאפ') }),
+          h('div', { class: 'tourrow__tags' }, h('span', { class: `tag tag--${stc === 'ok' ? 'new' : 'mute'}`, text: stl }), t.home ? h('span', { class: 'tag', text: 'בדף הבית' }) : null, t.featured && hasPage(t) ? h('span', { class: 'tag', text: 'במפה' }) : null,
             h('a', { class: 'btn btn--sm btn--ghost', href: '#/leads?tour=' + t.slug, text: `${counts[t.slug] || 0} פניות` }))),
-        h('div', { style: 'display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end' },
+        h('div', { class: 'tourrow__act' },
           h('button', { class: 'btn btn--sm btn--icon', type: 'button', 'aria-label': 'העלאה בסדר', disabled: i === 0, onclick: () => move(i, -1) }, icon('up')), h('button', { class: 'btn btn--sm btn--icon', type: 'button', 'aria-label': 'הורדה בסדר', disabled: i === S.tours.length - 1, onclick: () => move(i, 1) }, icon('down')),
           h('a', { class: 'btn btn--sm', href: '#/tours/' + t.slug }, 'עריכה'), hasPage(t) ? h('a', { class: 'btn btn--sm', href: '#/pages/tour-' + t.slug }, 'עמוד הטיול') : null,
           h('button', { class: 'btn btn--sm btn--icon', type: 'button', 'aria-label': 'שכפול', title: 'שכפול', onclick: () => dup(t) }, icon('copy')),

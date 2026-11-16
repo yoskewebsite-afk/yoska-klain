@@ -33,6 +33,15 @@
         "4190"
       ],
       "port": 4190
+    },
+    {
+      "name": "yoske-mobile",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "tools/dev_server.mjs",
+        "4210"
+      ],
+      "port": 4210
     }
   ]
 }
