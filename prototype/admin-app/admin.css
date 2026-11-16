@@ -411,3 +411,41 @@ body.auth { display: grid; place-items: center; min-height: 100vh; padding: 20px
 .sidenote__b { display: grid; gap: 2px; min-width: 0; } .sidenote__b span { color: var(--text-2); overflow-wrap: anywhere; }
 .sidenote__a { grid-column: 1 / -1; display: flex; gap: 8px; align-items: center; }
 @media (max-width: 960px) { .sidenotes { inset-inline: 16px; bottom: calc(92px + env(safe-area-inset-bottom)); width: auto; } }
+
+/* ================= mobile-first protocol: 44px touch targets, 16px fields (no iOS zoom), nothing wider than the screen ================= */
+.main, .glass, .card, .grid > *, .fld, .item, .group, .ed__panel, .ed__list { min-width: 0; }
+input, select, textarea { min-width: 0; max-width: 100%; }
+@media (max-width: 960px), (pointer: coarse) {
+  .btn, .seg__b, .nav a, .pop button, .rowlink, summary { min-height: 44px; }
+  .btn--sm { min-height: 44px; padding-inline: 14px; }
+  .btn--icon, .btn--icon.btn--sm, .sec .mv { min-width: 44px; width: 44px; min-height: 44px; height: 44px; }
+  .modebtn { min-width: 44px; }
+  input[type="text"], input[type="email"], input[type="password"], input[type="tel"], input[type="url"], input[type="search"], input[type="date"], input[type="datetime-local"], input:not([type]), select, textarea { font-size: 16px; min-height: 44px; }
+  input[type="checkbox"] { width: 24px; height: 24px; }
+  .switch { min-height: 44px; }
+  summary { display: flex; align-items: center; cursor: pointer; }
+  .tag { min-height: 28px; }
+  .toolbar > * { flex: 1 1 100%; }
+  .toolbar .seg { flex: 1 1 100%; overflow-x: auto; scrollbar-width: none; } .toolbar .seg::-webkit-scrollbar { display: none; }
+  .toolbar select, .toolbar input[type="date"] { width: 100%; }
+  .pagehead > .btn, .pagehead > a.btn { flex: 1 1 auto; }
+  .savebar { gap: 8px; } .savebar .btn { flex: 1 1 auto; } .savebar__st { flex: 1 1 100%; order: -1; }
+  .tabs, .statusrow { overflow-x: auto; flex-wrap: nowrap; scrollbar-width: none; } .tabs::-webkit-scrollbar { display: none; } .tabs .seg__b, .statusrow .seg__b { flex: none; }
+  .top__act .pubtxt { display: none; } .top__act .btn { min-width: 44px; padding-inline: 12px; } .top__act .tag { display: none; }
+  .drawer__f { position: sticky; bottom: 0; background: var(--float); }
+  .drawer__f .btn { flex: 1 1 auto; }
+  .dlg__f .btn { flex: 1 1 auto; }
+  .formrow { grid-template-columns: minmax(0, 1fr) auto; }
+  .imgfld__acts .btn { flex: 1 1 auto; }
+}
+@media (max-width: 420px) { .metric__n { font-size: 32px; } .pagehead h1 { font-size: 24px; } .card { padding: 16px; } .ed__panel { padding: 16px; } }
+
+@media (max-width: 960px) { p.count a, .hint a { display: inline-flex; align-items: center; min-height: 44px; } }
+
+.rowlink { margin-inline: 0; max-width: 100%; box-sizing: border-box; }
+.rows { min-width: 0; overflow: hidden; }
+
+@media (max-width: 720px) { .intg { grid-template-columns: minmax(0, 1fr); } .intg > .tag { justify-self: start; } .intg ul, .intg__d { overflow-wrap: anywhere; } }
+
+@media (max-width: 960px) { .app { grid-template-columns: minmax(0, 1fr); } .top, .main { grid-column: 1; } .side { display: none; } }
+@media (max-width: 960px) { .notice a { display: inline-flex; align-items: center; min-height: 44px; } .toolbar input[type="date"] { flex: 1 1 calc(50% - 6px); width: auto; min-width: 0; } .toolbar > .count { flex: 1 1 100%; } }
