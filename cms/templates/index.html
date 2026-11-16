@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>{{seo.title}}</title>
+  <meta name="description" content="{{seo.description}}">
+  <meta name="robots" content="{{seo.robots}}">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="he_IL">
+  <meta property="og:site_name" content="{{set.siteName}}">
+  <meta property="og:title" content="{{seo.ogTitle}}">
+  <meta property="og:description" content="{{seo.ogDescription}}">{{{seo.extra}}}
+  <meta name="theme-color" content="#2A3A5C">
+  <link rel="icon" href="/assets/brand/symbol.svg" type="image/svg+xml">
+  <script>(function(d,m){try{var p=JSON.parse(localStorage.getItem('yoske-a11y')||'{}');if(p.v===1){if(p.t>0&&p.t<4)d.classList.add('a11y-t'+p.t);if(p.c)d.classList.add('a11y-contrast');if(p.l)d.classList.add('a11y-links');if(p.m)d.classList.add('a11y-still')}}catch(e){}var s=m('(prefers-reduced-motion: reduce)').matches||location.search.indexOf('still')>-1||d.classList.contains('a11y-still');d.classList.add('js',s?'still':'motion')})(document.documentElement,matchMedia)</script>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-ByKFsFmarMtuOkMP8IhgjLWo8qzWcHP70UHQPYl9pQ0='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="preload" href="/fonts/heebo-hebrew-300-900.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/karantina-hebrew-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" as="image" href="/assets/v4/hero-wide-1440.webp" media="(min-width: 700px)" fetchpriority="high">
+  <link rel="stylesheet" href="/yoske.css?v=4d63797624">
+{{{head.extra}}}</head>
+<body class="home" data-ga4="">
+  <a class="skip" href="#main">דילוג לתוכן</a>
+  <svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false"><symbol id="b-route" viewBox="0 0 48 48"><path d="M11.5 35.5C15.5 31.5 20.5 32 24 29.5s2.6-5.4 2.2-8.2c-.4-2.9 1.6-5.2 5-6.3 3.3-1 5.5-2.3 6.8-4.5"/><circle class="o" cx="9" cy="38.5" r="3.6"/><circle class="nf" cx="9" cy="38.5" r="1"/><circle class="of" cx="38.6" cy="9.6" r="3.2"/></symbol><symbol id="b-pin" viewBox="0 0 48 48"><path d="M24 42C16.5 33.5 11 27 11 20a13 13 0 0 1 26 0c0 7-5.5 13.5-13 22Z"/><circle class="t" cx="24" cy="20" r="4.6"/></symbol><symbol id="b-group" viewBox="0 0 48 48"><circle class="g" cx="24" cy="12.5" r="4.6"/><path class="g" d="M15.5 39v-3.5a8.5 8.5 0 0 1 17 0V39"/><circle cx="11.5" cy="18" r="3.6"/><circle cx="36.5" cy="18" r="3.6"/><path d="M5.5 38.5c0-5.2 3.2-8.7 7.6-8.7M42.5 38.5c0-5.2-3.2-8.7-7.6-8.7"/></symbol><symbol id="b-culture" viewBox="0 0 48 48"><path d="M11 40V13a2 2 0 0 1 2-2h22a2 2 0 0 1 2 2v27"/><path d="M6 40.5h36"/><path class="o" d="M18 40V25.5a6 6 0 0 1 12 0V40"/></symbol><symbol id="b-calendar" viewBox="0 0 48 48"><rect x="7.5" y="12" width="33" height="28.5" rx="4.5"/><path d="M7.5 20.5h33M17 7.5v7M31 7.5v7"/><circle class="sf" cx="17" cy="28.5" r="1.9"/><circle class="sf" cx="24" cy="28.5" r="1.9"/><circle class="sf" cx="31" cy="28.5" r="1.9"/><circle class="sf" cx="17" cy="34.8" r="1.9"/><circle class="sf" cx="24" cy="34.8" r="1.9"/></symbol><symbol id="b-mobile" viewBox="0 0 48 48"><rect x="14.5" y="5.5" width="19" height="37" rx="4.5"/><path class="t" d="M21 11h6"/><circle class="tf" cx="24" cy="36.4" r="1.7"/></symbol><symbol id="b-camera" viewBox="0 0 48 48"><rect x="6" y="15" width="36" height="25" rx="5"/><path d="m16.5 15 2.8-4.5h9.4l2.8 4.5"/><circle class="s" cx="24" cy="27.5" r="6.4"/><circle class="nf" cx="35.2" cy="20.8" r="1.6"/></symbol><symbol id="b-nature" viewBox="0 0 48 48"><path class="s" d="M7.5 24.8a16.5 16.5 0 0 1 33 0"/><path class="s" d="M14.5 24.8a9.5 9.5 0 0 1 19 0"/><path class="g" d="M5.5 40C11 34.5 17.5 31.3 24 31.3S37 34.5 42.5 40"/><path d="M3.5 40.6h41"/></symbol><symbol id="b-person" viewBox="0 0 48 48"><circle cx="24" cy="15" r="7"/><path class="b" d="M10 41c1.5-8 7-12.5 14-12.5S36.5 33 38 41"/></symbol><symbol id="b-heart" viewBox="0 0 48 48"><path d="M24 40S7 30.5 7 18.5a8.5 8.5 0 0 1 17-3.5 8.5 8.5 0 0 1 17 3.5C41 30.5 24 40 24 40Z"/><path class="b" d="M14 18.5a4 4 0 0 1 4-4"/></symbol><symbol id="b-question" viewBox="0 0 48 48"><circle cx="24" cy="24" r="17"/><path class="b" d="M19 19.5a5 5 0 1 1 7 4.6c-1.3.6-2 1.6-2 3v1.4"/><path class="b" d="M24 34.5v.1"/></symbol><symbol id="b-globe" viewBox="0 0 48 48"><circle cx="24" cy="24" r="17"/><path class="b" d="M7.5 24h33M24 7c-4.6 4.8-7 10.6-7 17s2.4 12.2 7 17c4.6-4.8 7-10.6 7-17s-2.4-12.2-7-17Z"/></symbol><symbol id="b-clock" viewBox="0 0 48 48"><circle cx="24" cy="24" r="17"/><path class="b" d="M24 14v10l7 4.5"/></symbol><symbol id="b-gate" viewBox="0 0 48 48"><path d="M11 40V13a2 2 0 0 1 2-2h22a2 2 0 0 1 2 2v27"/><path d="M6 40.5h36"/><path class="o" d="M18 40V25.5a6 6 0 0 1 12 0V40"/></symbol><symbol id="b-sun" viewBox="0 0 48 48"><path class="s" d="M7.5 24.8a16.5 16.5 0 0 1 33 0"/><path class="s" d="M14.5 24.8a9.5 9.5 0 0 1 19 0"/><path class="g" d="M5.5 40C11 34.5 17.5 31.3 24 31.3S37 34.5 42.5 40"/><path d="M3.5 40.6h41"/></symbol><symbol id="i-arrow" viewBox="0 0 24 24"><path d="M19 12H5"/><path d="m11 6-6 6 6 6"/></symbol><symbol id="i-chev" viewBox="0 0 24 24"><path d="m14.5 5-7 7 7 7"/></symbol><symbol id="i-up" viewBox="0 0 24 24"><path d="M12 19V5"/><path d="m6 11 6-6 6 6"/></symbol><symbol id="i-chat" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><path d="M9 10.5c.5 2 2.3 3.9 4.5 4.5"/></symbol><symbol id="i-fb" viewBox="0 0 24 24"><path d="M15 8h-2a1 1 0 0 0-1 1v3h3l-.5 3H12v6"/><circle cx="12" cy="12" r="9.5"/></symbol><symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="3"/><path d="m4.5 8 7.5 5.5L19.5 8"/></symbol><symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol><symbol id="i-out" viewBox="0 0 24 24"><path d="M14 4h6v6"/><path d="m20 4-9 9"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></symbol><symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol><symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></symbol><symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol></svg>
+  <header class="top top--home" data-top>
+    <a class="top__logo" href="{{shared.head.l1}}" aria-label="{{shared.head.t1}}"><img class="logo" src="{{set.logo}}" width="473" height="159" alt="יוסק׳ה, טיולים, חברה, תרבות"></a>
+    <nav class="top__pill" aria-label="ניווט ראשי"><a href="{{shared.head.l2}}">{{shared.head.t2}}</a><a href="{{shared.head.l3}}">{{shared.head.t3}}</a><a href="{{shared.head.l4}}">{{shared.head.t4}}</a><a href="{{shared.head.l5}}">{{shared.head.t5}}</a><a href="{{shared.head.l6}}"{{ext:shared.head.l6}} data-track="outbound_brazilao">{{shared.head.t6}}<svg class="ext" aria-hidden="true"><use href="#i-out"/></svg><span class="visually-hidden"> (באתר ברזילאו, נפתח בכרטיסייה חדשה)</span></a><a href="{{shared.head.l7}}">{{shared.head.t7}}</a></nav>
+    <div class="top__icons">
+      <a class="btn btn--sun btn--sm top__quiz" href="{{shared.head.l8}}" data-track="quiz_entry" data-track-from="header">{{shared.head.t8}}</a>
+      <a class="roundbtn" href="{{shared.head.l9}}"{{ext:shared.head.l9}} aria-label="{{shared.head.t9}}" data-track="whatsapp_click"><svg aria-hidden="true"><use href="#i-chat"/></svg></a>
+      <a class="roundbtn" href="tel:+{{set.phoneIntl}}" aria-label="{{shared.head.t10}}" data-track="phone_click"><svg aria-hidden="true"><use href="#i-phone"/></svg></a>
+    </div>
+    <button class="top__menu roundbtn" type="button" aria-expanded="false" aria-controls="menu" data-menu-btn><svg aria-hidden="true"><use href="#i-menu"/></svg><span class="visually-hidden">תפריט</span></button>
+  </header>
+  <div class="menu" id="menu" hidden data-menu>
+    <nav aria-label="תפריט"><a href="{{shared.menu.l1}}">{{shared.menu.t1}}</a><a href="{{shared.menu.l2}}">{{shared.menu.t2}}</a><a href="{{shared.menu.l3}}">{{shared.menu.t3}}</a><a href="{{shared.menu.l4}}">{{shared.menu.t4}}</a><a href="{{shared.menu.l5}}"{{ext:shared.menu.l5}} data-track="outbound_brazilao">{{shared.menu.t5}}<svg class="ext" aria-hidden="true"><use href="#i-out"/></svg><span class="visually-hidden"> (באתר ברזילאו, נפתח בכרטיסייה חדשה)</span></a><a href="{{shared.menu.l6}}">{{shared.menu.t6}}</a><a href="{{shared.menu.l7}}">{{shared.menu.t7}}</a><a href="{{shared.menu.l8}}">{{shared.menu.t8}}</a><a href="{{shared.menu.l9}}">{{shared.menu.t9}}</a></nav>
+    <p class="menu__contact"><a href="tel:+{{set.phoneIntl}}" dir="ltr">{{set.phone}}</a><a href="{{shared.menu.l10}}"{{ext:shared.menu.l10}}>{{shared.menu.t10}}</a><a href="{{set.facebook}}" target="_blank" rel="noopener">{{shared.menu.t11}}</a></p>
+  </div>
+  <nav class="siderail" aria-label="ניווט בין חלקי הדף" data-siderail><span class="siderail__bar" aria-hidden="true"><i data-rail-progress></i></span><ul><li><a href="#top" data-rail-link="top"><svg class="bicon" aria-hidden="true"><use href="#b-culture"/></svg><span>פתיחה</span></a></li><li><a href="#unique" data-rail-link="unique"><svg class="bicon" aria-hidden="true"><use href="#b-nature"/></svg><span>הייחודיות</span></a></li><li><a href="#about" data-rail-link="about"><svg class="bicon" aria-hidden="true"><use href="#b-person"/></svg><span>יוסק׳ה</span></a></li><li><a href="#map" data-rail-link="map"><svg class="bicon" aria-hidden="true"><use href="#b-pin"/></svg><span>המפה</span></a></li><li><a href="#tours" data-rail-link="tours"><svg class="bicon" aria-hidden="true"><use href="#b-route"/></svg><span>הסיורים</span></a></li><li><a href="#upcoming" data-rail-link="upcoming"><svg class="bicon" aria-hidden="true"><use href="#b-calendar"/></svg><span>סיורים קרובים</span></a></li><li><a href="#groups" data-rail-link="groups"><svg class="bicon" aria-hidden="true"><use href="#b-group"/></svg><span>לקבוצות</span></a></li><li><a href="#moments" data-rail-link="moments"><svg class="bicon" aria-hidden="true"><use href="#b-camera"/></svg><span>מהשטח</span></a></li><li><a href="#reviews" data-rail-link="reviews"><svg class="bicon" aria-hidden="true"><use href="#b-heart"/></svg><span>המלצות</span></a></li><li><a href="#abroad" data-rail-link="abroad"><svg class="bicon" aria-hidden="true"><use href="#b-globe"/></svg><span>דרום אמריקה</span></a></li><li><a href="#faq" data-rail-link="faq"><svg class="bicon" aria-hidden="true"><use href="#b-question"/></svg><span>שאלות</span></a></li><li><a href="#contact" data-rail-link="contact"><svg class="bicon" aria-hidden="true"><use href="#b-mobile"/></svg><span>יצירת קשר</span></a></li><li><a href="#trail" data-rail-link="trail"><svg class="bicon" aria-hidden="true"><use href="#b-nature"/></svg><span>ברגל</span></a></li></ul></nav>
+  <nav class="tabbar" aria-label="ניווט מהיר בדף" data-tabbar><ul><li><a href="#unique" data-rail-link="unique"><svg class="bicon" aria-hidden="true"><use href="#b-nature"/></svg><span>הייחודיות</span></a></li><li><a href="#about" data-rail-link="about"><svg class="bicon" aria-hidden="true"><use href="#b-person"/></svg><span>יוסק׳ה</span></a></li><li><a href="#tours" data-rail-link="tours"><svg class="bicon" aria-hidden="true"><use href="#b-route"/></svg><span>הסיורים</span></a></li><li><a href="#groups" data-rail-link="groups"><svg class="bicon" aria-hidden="true"><use href="#b-group"/></svg><span>לקבוצות</span></a></li><li><a href="#contact" data-rail-link="contact"><svg class="bicon" aria-hidden="true"><use href="#b-mobile"/></svg><span>יצירת קשר</span></a></li></ul></nav>
+  <main id="main">
+    <!-- Homepage, 15.11.2026 (final pass): the live site's sections and drawings, plus the new content and functions. -->
+    <!-- ============ 1+2. HERO + ANCHORED SCENE
+         Reference: the headline stays while the palace rises over it. Here the Shrine of the Báb and the terraces
+         (sky cut away) rise over the headline, the scene anchors, the intro rises in front of it, then the page scrolls on. ============ -->
+    <!--cms:s top--><section class="hero" id="top" data-hero-variant="a" aria-labelledby="hero-title" data-hero>
+      <div class="hero__stage" data-hero-stage>
+        <div class="hero__sky" aria-hidden="true"></div>
+        <div class="hero__head" data-hero-head>
+          <h1 class="hero__title" id="hero-title"><span class="hero__l1">{{top.t1}}</span> <span class="hero__l2">{{top.t2}}</span></h1>
+          <p class="hero__sub">{{top.t3}}</p>
+        </div>
+
+
+      </div>
+      <div class="hero__scene" data-hero-scene>
+          <picture class="hero__photo">
+            <source media="(max-width: 699px), (max-width: 999px) and (orientation: portrait)" srcset="{{top.img1.s0}}" sizes="100vw" width="1280" height="1763">
+            <img src="{{top.img1.src}}" srcset="{{top.img1.srcset}}" sizes="100vw" width="{{top.img1.w}}" height="{{top.img1.h}}" alt="{{top.img1.alt}}" fetchpriority="high">
+          </picture>
+          <!-- Yoske on the photo; the copy of the photo in front of him shows only the trees below his waist -->
+          <img class="hero__yoske" data-hero-yoske src="{{top.img2.src}}" srcset="{{top.img2.srcset}}" sizes="(max-width: 699px) 42vw, 30vw" width="{{top.img2.w}}" height="{{top.img2.h}}" alt="{{top.img2.alt}}" fetchpriority="high">
+          <div class="hero__fore" aria-hidden="true" data-hero-fore>
+  <picture>
+            <source media="(max-width: 699px), (max-width: 999px) and (orientation: portrait)" srcset="/assets/v4/hero-tall-640.webp 640w, /assets/v4/hero-tall-960.webp 960w, /assets/v4/hero-tall-1280.webp 1280w" sizes="100vw" width="1280" height="1763">
+            <img src="/assets/v4/hero-wide-1440.webp" srcset="/assets/v4/hero-wide-960.webp 960w, /assets/v4/hero-wide-1440.webp 1440w, /assets/v4/hero-wide-2160.webp 2160w" sizes="100vw" width="2160" height="1434" alt="">
+          </picture>
+          </div>
+          <a class="btn btn--ink hero__cta" data-hero-cta data-x="1" href="{{top.l1}}"{{ext:top.l1}} data-track="hero_upcoming_tours_click" data-track-from="hero">{{top.t4}}<svg aria-hidden="true"><use href="#i-out"/></svg><span class="visually-hidden"> (קישור חיצוני, נפתח בלשונית חדשה)</span></a>
+      </div>
+    </section><!--/cms:s top-->
+
+
+    <!-- ============ UNIQUENESS — 15.11.2026: the live site's centred block (the client's screenshot), now the loudest part
+         of the page: values that fill with colour, the definition of the sociology-anthropology lens, the balance between
+         happiness and enrichment, the "wow" promise, and a moving band with every word of Yoske's uniqueness list. ============ -->
+    <!--cms:s unique--><section class="uq" id="unique" aria-labelledby="unique-title" data-uq>
+      <svg class="doodle doodle--a doodle--teal" viewBox="0 0 600 200" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path data-draw d="M5 120C80 40 160 180 250 110S420 30 595 90"/></svg>
+      <svg class="doodle doodle--b doodle--sun" viewBox="0 0 600 200" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path data-draw d="M5 60C120 150 220 10 330 90S500 170 595 40"/></svg>
+      <div class="wrap uq__in">
+        <h2 class="duo-title duo-title--center" id="unique-title"><span class="duo-title__light">{{unique.t1}}</span> <span class="duo-title__bold">{{unique.t2}} <span class="hl hl--teal">{{unique.t3}}</span></span></h2>
+        <p class="uq__lede">{{unique.t4}} <mark class="mk mk--teal">{{unique.t5}}</mark>{{unique.t6}}</p>
+        <ul class="values uq__values" aria-label="הערכים שלי בטיול"><!--cms:list unique.list1--><li>{{i.t1}}</li><!--/cms:list--></ul>
+        <div class="uq__grid">
+          <article class="uq__card uq__card--lens">
+            <svg class="bicon" aria-hidden="true"><use href="#b-group"/></svg>
+            <p class="uq__k">{{unique.t7}}</p>
+            <p class="uq__big">{{unique.t8}} <mark class="mk mk--sun">{{unique.t9}}</mark> {{unique.t10}} <mark class="mk mk--orange">{{unique.t11}}</mark>.</p>
+            <p>{{unique.t12}}</p>
+          </article>
+          <article class="uq__card uq__card--balance" aria-label="איזון נכון בין אושר להעשרה">
+            <p class="uq__k">{{unique.t13}}</p>
+            <svg class="balance" viewBox="0 0 320 170" aria-hidden="true" focusable="false">
+              <path class="balance__base" d="M160 160V96M120 160h80"/>
+              <g class="balance__beam" data-balance><path d="M30 96h260"/><circle class="balance__l" cx="40" cy="70" r="26"/><circle class="balance__r" cx="280" cy="70" r="26"/></g>
+              <circle class="balance__pin" cx="160" cy="96" r="7"/>
+            </svg>
+            <p class="uq__pair"><span class="c-sun">{{unique.t14}}</span><span class="uq__amp">+</span><span class="c-teal">{{unique.t15}}</span></p>
+            <p>{{unique.t16}}</p>
+          </article>
+          <article class="uq__card uq__card--wow">
+            <svg class="bicon" aria-hidden="true"><use href="#b-route"/></svg>
+            <p class="uq__k">{{unique.t17}}</p>
+            <p class="uq__big">{{unique.t18}} <mark class="mk mk--orange">{{unique.t19}}</mark>{{unique.t20}}</p>
+            <p>{{unique.t21}}</p>
+          </article>
+        </div>
+      </div>
+    </section><!--/cms:s unique-->
+
+    <!-- ============ ABOUT — 15.11.2026, redesigned from scratch: a colourful collage of Yoske's own photos that moves at
+         different speeds, a short personal story, a drawn timeline (studies, Rio 2016, Haifa today) and counters. ============ -->
+    <!--cms:s about--><section class="ab2" id="about" aria-labelledby="about-title" data-ab2>
+      <svg class="doodle doodle--g doodle--orange" viewBox="0 0 600 200" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path data-draw d="M5 150C90 100 170 160 260 120S430 60 595 130"/></svg>
+      <div class="wrap ab2__in">
+        <div class="ab2__collage" aria-hidden="true">
+          <svg class="ab2__sun" viewBox="0 0 400 220"><path d="M30 210a170 170 0 0 1 340 0"/><path d="M95 210a105 105 0 0 1 210 0"/></svg>
+          <figure class="ab2__main" data-parallax="-0.06"><img src="/assets/approved/portrait-warm-960.webp" srcset="/assets/approved/portrait-warm-480.webp 480w, /assets/approved/portrait-warm-960.webp 960w, /assets/approved/portrait-warm-1920.webp 1536w" sizes="(min-width: 900px) 30vw, 70vw" width="1536" height="1745" alt="" loading="lazy" decoding="async" fetchpriority="low" style="object-position:50% 35%"></figure>
+          <figure class="ab2__round" data-parallax="0.08"><img src="/assets/approved/rio-960.webp" srcset="/assets/approved/rio-480.webp 480w, /assets/approved/rio-960.webp 956w" sizes="(min-width: 900px) 14vw, 36vw" width="956" height="960" alt="" loading="lazy" decoding="async" fetchpriority="low" style="object-position:50% 40%"></figure>
+          <figure class="ab2__small" data-parallax="0.12"><img src="/assets/approved/lookout-960.webp" srcset="/assets/approved/lookout-480.webp 480w, /assets/approved/lookout-960.webp 960w, /assets/approved/lookout-1920.webp 1440w" sizes="(min-width: 900px) 16vw, 40vw" width="1440" height="960" alt="" loading="lazy" decoding="async" fetchpriority="low" style="object-position:45% 50%"></figure>
+        </div>
+        <div class="ab2__copy">
+          <p class="kicker"><svg class="bicon" aria-hidden="true"><use href="#b-person"/></svg>{{about.t1}}</p>
+          <h2 class="duo-title" id="about-title"><span class="duo-title__light">{{about.t2}}</span> <span class="duo-title__bold">{{about.t3}} <span class="hl">{{about.t4}}</span></span></h2>
+          <p class="ab2__lead">{{about.t5}}</p><p class="ab2__p">{{about.t6}}</p><p class="ab2__p">{{about.t7}}</p><p class="ab2__p">{{about.t8}}</p>
+          <ol class="ab2__time" data-time><!--cms:list about.list1--><li><span class="{{i.a1}}"></span><b>{{i.t1}}</b><span>{{i.t2}}</span></li><!--/cms:list--></ol>
+          
+          <div class="btnrow"><a class="btn btn--ink" href="{{about.l1}}">{{about.t9}}<svg aria-hidden="true"><use href="#i-arrow"/></svg></a><a class="btn btn--line" href="{{about.l2}}"{{ext:about.l2}}>{{about.t10}}</a></div>
+        </div>
+      </div>
+    </section><!--/cms:s about-->
+
+
+    <!-- ============ 3. CHOOSE — the reference's map section: chips over a map, a big arc on the side with the selection. ============ -->
+    <!--cms:s map--><section class="map" id="map" aria-labelledby="map-title" data-map>
+      <svg class="doodle doodle--d doodle--orange" viewBox="0 0 600 200" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path data-draw d="M5 60C120 150 220 10 330 90S500 170 595 40"/></svg>
+
+      <div class="arc" aria-hidden="true" data-arc></div>
+      <div class="wrap map__in">
+        <div class="map__head">
+          <h2 class="duo-title" id="map-title"><span class="duo-title__light">{{map.t1}}</span> <span class="duo-title__bold" data-type>{{map.t2}}</span></h2>
+          <div class="chips" role="tablist" aria-label="הסיורים במפה" data-map-chips><!--cms:r tour-chips--><!--/cms:r--></div>
+        </div>
+        <div class="map__body">
+          <div class="map__panel" aria-live="polite" data-map-panel><!--cms:r tour-panels--><!--/cms:r--></div>
+          <figure class="map__fig">
+            <div class="map__scroll" data-map-scroll tabindex="0" role="region" aria-label="המפה, אפשר לגלול לצדדים"><svg class="hmap" viewBox="0 0 900 600" role="img" aria-labelledby="hmap-t" data-hmap>
+              <title id="hmap-t">מפה סכמטית של חיפה: הים בצפון, העיר התחתית לאורך הנמל, הגנים הבהאיים במורד הכרמל וטיילת לואי בראשו</title>
+              <path class="hmap__sea" d="M0 0H900V138C800 160 700 182 600 196C500 210 420 214 330 230C230 248 120 286 0 330Z"/>
+              <path class="hmap__coast" d="M900 138C800 160 700 182 600 196C500 210 420 214 330 230C230 248 120 286 0 330"/>
+              <path class="hmap__pier" d="M560 204C600 176 650 150 712 132"/>
+              <g class="hmap__streets"><path d="M120 340C260 300 420 300 560 330S800 350 900 300"/><path d="M60 420C240 380 400 410 560 440S780 440 900 400"/><path d="M200 520C340 480 480 520 620 540S820 520 900 500"/><path d="M300 250C330 330 360 420 380 520"/><path d="M700 240C690 330 690 430 700 560"/><path d="M460 230C470 300 500 380 560 430"/></g>
+              <g class="hmap__ridge"><path d="M0 560C180 510 360 520 520 548S780 560 900 530"/><path d="M0 590C200 548 380 560 540 584S800 590 900 566"/></g>
+              <path class="hmap__axis" d="M268 282L392 486"/>
+              <path class="hmap__carmelit" d="M606 300L640 410L676 512"/>
+              <text class="hmap__sealabel" x="300" y="120">הים התיכון</text><text class="hmap__sealabel" x="760" y="80">מפרץ חיפה</text><text class="hmap__mtlabel" x="170" y="560">הכרמל</text>
+              <g class="pin" data-place="port" transform="translate(0 0)"><circle class="pin__dot" cx="616" cy="206" r="7"/><g class="pin__tag"><rect x="585" y="166" width="62" height="26" rx="8"/><text x="616" y="184">הנמל</text></g></g><g class="pin" data-place="sail" transform="translate(0 0)"><circle class="pin__dot" cx="790" cy="236" r="7"/><g class="pin__tag"><rect x="720" y="196" width="139" height="26" rx="8"/><text x="790" y="214">בניין המפרש</text></g></g><g class="pin" data-place="market" transform="translate(0 0)"><circle class="pin__dot" cx="468" cy="262" r="7"/><g class="pin__tag"><rect x="398" y="222" width="139" height="26" rx="8"/><text x="468" y="240">השוק הטורקי</text></g></g><g class="pin" data-place="paris" transform="translate(0 0)"><circle class="pin__dot" cx="606" cy="300" r="7"/><g class="pin__tag"><rect x="548" y="260" width="117" height="26" rx="8"/><text x="606" y="278">כיכר פריז</text></g></g><g class="pin" data-place="clock" transform="translate(0 0)"><circle class="pin__dot" cx="748" cy="318" r="7"/><g class="pin__tag"><rect x="684" y="278" width="128" height="26" rx="8"/><text x="748" y="296">מגדל השעון</text></g></g><g class="pin" data-place="german" transform="translate(0 0)"><circle class="pin__dot" cx="268" cy="282" r="7"/><g class="pin__tag"><rect x="182" y="242" width="172" height="26" rx="8"/><text x="268" y="260">המושבה הגרמנית</text></g></g><g class="pin" data-place="bahai" transform="translate(0 0)"><circle class="pin__dot" cx="330" cy="380" r="7"/><g class="pin__tag"><rect x="250" y="340" width="161" height="26" rx="8"/><text x="330" y="358">הגנים הבהאיים</text></g></g><g class="pin" data-place="louis" transform="translate(0 0)"><circle class="pin__dot" cx="392" cy="486" r="7"/><g class="pin__tag"><rect x="328" y="446" width="128" height="26" rx="8"/><text x="392" y="464">טיילת לואי</text></g></g><g class="pin" data-place="stairs" transform="translate(0 0)"><circle class="pin__dot" cx="500" cy="410" r="7"/><g class="pin__tag"><rect x="425" y="370" width="150" height="26" rx="8"/><text x="500" y="388">רובע המדרגות</text></g></g><g class="pin" data-place="carmelit" transform="translate(0 0)"><circle class="pin__dot" cx="640" cy="410" r="7"/><g class="pin__tag"><rect x="592" y="370" width="95" height="26" rx="8"/><text x="640" y="388">הכרמלית</text></g></g><g class="pin" data-place="ganhaem" transform="translate(0 0)"><circle class="pin__dot" cx="676" cy="512" r="7"/><g class="pin__tag"><rect x="634" y="472" width="84" height="26" rx="8"/><text x="676" y="490">גן האם</text></g></g>
+            </svg></div>
+            <figcaption>{{map.t3}}</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section><!--/cms:s map-->
+
+    <!-- ============ TOURS — 15.11.2026: straight photo cards (no arch), thin navy outline, navy base.
+         Details open on hover, keyboard focus or the «פרטים» button (touch). ============ -->
+    <!--cms:s tours--><section class="tours" id="tours" aria-labelledby="tours-title">
+      <div class="obj obj--camera" aria-hidden="true" data-float data-y="0" data-r="0" data-x="0" data-travel="camera"><div class="obj__bob"><img src="/assets/objects/camera-pentax.webp" width="854" height="670" alt="" loading="lazy" decoding="async"></div></div>
+      <svg class="doodle doodle--e doodle--leaf" viewBox="0 0 600 200" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path data-draw d="M5 120C80 40 160 180 250 110S420 30 595 90"/></svg>
+
+      <svg class="bicon deco deco--c" aria-hidden="true" focusable="false"><use href="#b-route"/></svg>
+      <div class="wrap">
+        <div class="sec-head">
+          <h2 class="duo-title" id="tours-title"><span class="duo-title__light">{{tours.t1}}</span> <span class="duo-title__bold">{{tours.t2}} <span class="hl">{{tours.t3}}</span></span></h2>
+          <div class="sec-head__acts">
+            <a class="btn btn--ink" href="{{tours.l1}}">{{tours.t4}}</a>
+            <a class="btn btn--line" href="{{tours.l2}}" data-track="quiz_entry" data-track-from="tours">{{tours.t5}}</a>
+          </div>
+        </div>
+      </div>
+      <div class="rail" data-rail>
+        <button class="rail__btn rail__btn--prev" type="button" aria-label="הכרטיס הקודם" data-rail-prev><svg aria-hidden="true"><use href="#i-chev"/></svg></button>
+        <ul class="rail__track" data-rail-track><!--cms:r tour-cards-rail--><!--/cms:r--></ul>
+        <button class="rail__btn rail__btn--next" type="button" aria-label="הכרטיס הבא" data-rail-next><svg aria-hidden="true"><use href="#i-chev"/></svg></button>
+      </div>
+      <div class="wrap">
+        <p class="topicstrip"><span>{{tours.t6}}</span> {{tours.t7}} <a class="textlink" href="{{tours.l3}}">{{tours.t8}}</a></p>
+      </div>
+    </section><!--/cms:s tours-->
+
+    <!-- ============ UPCOMING — dates published from the admin (/admin/ -> /api/dates). ============ -->
+    <!--cms:s upcoming--><section class="upsec" id="upcoming" aria-labelledby="up-title">
+      <svg class="bicon deco deco--b" aria-hidden="true" focusable="false"><use href="#b-calendar"/></svg>
+      <div class="wrap">
+        <div class="sec-head">
+          <h2 class="duo-title" id="up-title"><span class="duo-title__light">{{upcoming.t1}}</span> <span class="duo-title__bold">{{upcoming.t2}} <span class="hl hl--sun-dark">{{upcoming.t3}}</span></span></h2>
+          <div class="sec-head__acts"><a class="btn btn--line" href="{{upcoming.l1}}" data-track="quiz_entry" data-track-from="upcoming">{{upcoming.t4}}</a></div>
+        </div>
+        <div class="upcoming2" id="home-up"><p>{{upcoming.t5}}</p><a class="btn btn--sun" href="{{upcoming.l2}}"{{ext:upcoming.l2}} data-track="upcoming_sales_page_click" data-track-from="home">{{upcoming.t6}}<svg aria-hidden="true"><use href="#i-out"/></svg><span class="visually-hidden"> (קישור חיצוני, נפתח בלשונית חדשה)</span></a></div>
+      </div>
+    </section><!--/cms:s upcoming-->
+
+    <!-- ============ 6. GROUPS — the reference's coloured panel with the drawn curves, the heading on the light side, the cards across both. ============ -->
+    <!--cms:s groups--><section class="groups" id="groups" aria-labelledby="groups-title">
+      <svg class="cable" viewBox="0 0 1440 300" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M-20 18L1460 112"/></svg>
+      <div class="obj obj--cabin" aria-hidden="true" data-float data-y="0" data-r="0" data-x="0" data-travel="cable"><div class="obj__bob"><img src="/assets/objects/cable-car-cabin.webp" width="313" height="434" alt="" loading="lazy" decoding="async"></div></div>
+      <div class="groups__panel" aria-hidden="true" data-panel>
+        <svg viewBox="0 0 600 720" preserveAspectRatio="none" class="groups__lines"><path data-draw d="M-40 140 C 120 60, 260 220, 380 150 S 600 40, 680 120"/><path data-draw d="M-40 420 C 140 330, 240 520, 420 430 S 610 330, 700 420"/><path data-draw d="M-40 640 C 160 580, 300 720, 460 640"/></svg>
+      </div>
+      <div class="wrap groups__in">
+        <div class="groups__head">
+          <h2 class="duo-title" id="groups-title"><span class="duo-title__light">{{groups.t1}}</span> <span class="duo-title__bold">{{groups.t2}} <span class="hl hl--teal">{{groups.t3}}</span></span></h2>
+          <p>{{groups.t4}}</p>
+          <ol class="steps" data-steps><!--cms:list groups.list1--><li><b>{{i.t1}}</b><span>{{i.t2}}</span></li><!--/cms:list--></ol>
+        </div>
+        <ul class="groups__cards"><!--cms:list groups.list2--><li class="{{i.cls}}" data-reveal>
+            <div class="acard__media"><img src="{{i.img1.src}}" srcset="{{i.img1.srcset}}" sizes="(min-width: 900px) 24vw, 80vw" width="{{i.img1.w}}" height="{{i.img1.h}}" alt="{{i.img1.alt}}" loading="lazy" decoding="async"{{sty:i.img1}}></div>
+            <div class="acard__body"><h3>{{i.t1}}</h3><p>{{i.t2}}</p><a class="btn btn--line btn--sm" href="{{i.l1}}" data-track="{{i.a1}}"{{ext:i.l1}}>{{i.t3}}</a></div>
+          </li><!--/cms:list--></ul>
+      </div>
+    </section><!--/cms:s groups-->
+
+    <!-- ============ 7. MOMENTS — arched frames that drift with the scroll ============ -->
+    <!--cms:s moments--><section class="moments sgs" id="moments" aria-labelledby="moments-title" data-sgs>
+      <!-- 11.11.2026: "Sticky Grid Scroll" by Theo Plawinski for Codrops (MIT, notice in /vendor/sticky-grid-scroll/LICENSE),
+           ported 1:1 (grid, ratios, timing, easing, sticky length) with Yoske's own tour photos. -->
+      <div class="sgs__wrapper" data-sgs-wrapper>
+        <div class="sgs__content">
+          <h2 class="sgs__title" id="moments-title">{{moments.t1}}</h2>
+          <p class="sgs__desc">{{moments.t2}}</p>
+          <a class="btn btn--line sgs__btn" href="{{moments.l1}}">{{moments.t3}}</a>
+        </div>
+        <div class="sgs__gallery">
+          <ul class="sgs__grid" aria-label="תמונות מהסיורים"><!--cms:list moments.list1--><li class="{{i.cls}}"><img src="{{i.img1.src}}" srcset="{{i.img1.srcset}}" sizes="(min-width: 700px) 32vw, 40vw" width="{{i.img1.w}}" height="{{i.img1.h}}" alt="{{i.img1.alt}}" loading="lazy" decoding="async" fetchpriority="low" style="object-position:{{i.img1.pos}}"></li><!--/cms:list--></ul>
+        </div>
+      </div>
+    </section><!--/cms:s moments-->
+
+    <!-- ============ 8. REVIEWS — 11.11.2026: a wall built while scrolling. The cards are thrown in, land on a wide arc
+         in depth, then straighten into their place in the grid (live HTML; the grid is the no-motion version too).
+         The cards are the review screenshots the user supplied (tools/build_review_shots.py). ============ -->
+    <!--cms:s reviews--><section class="rwall" id="reviews" aria-labelledby="reviews-title" data-rwall>
+      <div class="rwall__stage" data-rwall-stage>
+        <div class="rwall__head">
+          <h2 class="rwall__title" id="reviews-title">{{reviews.t1}} <span class="hl hl--sun">{{reviews.t2}}</span></h2>
+          <p class="rwall__src">{{reviews.t3}}</p>
+        </div>
+        <ul class="rwall__grid" data-rwall-grid aria-label="ביקורות של מטיילים, צילומי מסך. כל אחת נפתחת בגודל מלא"><!--cms:list reviews.list1--><li class="{{i.cls}}" data-lead-shot><a class="rshot__a" href="{{i.l1}}" data-shot aria-label="{{i.t1}}"{{ext:i.l1}}><img src="{{i.img1.src}}" srcset="{{i.img1.srcset}}" sizes="(min-width: 700px) 330px, 46vw" width="{{i.img1.w}}" height="{{i.img1.h}}" alt="{{i.img1.alt}}" loading="lazy" decoding="async"{{sty:i.img1}}></a></li><!--/cms:list--></ul>
+      </div>
+    </section><!--/cms:s reviews-->
+    <!--cms:s blk10--><section class="rwall-more" aria-label="ביקורות נוספות">
+      <!-- 15.11.2026: the wall opens with the strongest shots (cropped to the review itself); the rest stay one click away -->
+      <div class="wrap rwall__more">
+        <button type="button" class="btn btn--line" aria-expanded="false" aria-controls="reviews-more" data-more-reviews>{{blk10.t1}}</button>
+        <ul class="rwall__extra" id="reviews-more" hidden aria-label="ביקורות נוספות, צילומי מסך"><!--cms:list blk10.list1--><li class="{{i.cls}}"><a class="rshot__a" href="{{i.l1}}" data-shot aria-label="{{i.t1}}"{{ext:i.l1}}><img src="{{i.img1.src}}" srcset="{{i.img1.srcset}}" sizes="(min-width: 700px) 330px, 46vw" width="{{i.img1.w}}" height="{{i.img1.h}}" alt="{{i.img1.alt}}" loading="lazy" decoding="async"{{sty:i.img1}}></a></li><!--/cms:list--></ul>
+      </div>
+    </section><!--/cms:s blk10-->
+
+    <!-- ============ 10. ABROAD — kept short, so the homepage stays about Haifa ============ -->
+    <!--cms:s abroad--><section class="abroad" id="abroad" aria-labelledby="abroad-title">
+      <svg class="trailline" viewBox="0 0 1440 400" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path data-trail d="M1460 340C1180 320 1020 160 760 170S360 60 -20 30"/></svg>
+      <div class="obj obj--plane" aria-hidden="true" data-float data-y="0" data-r="0" data-x="0" data-travel="plane"><div class="obj__bob"><img src="/assets/objects/plane-787.webp" width="1217" height="333" alt="" loading="lazy" decoding="async"></div></div>
+      <!-- 11.11.2026: the reference's day-trips block (big round photo cut by the edge with a dark arc, a featured entry
+           with an icon list and a button, a row of arch cards over the photo). Places named only where verified (Rio);
+           the other photos are from Yoske's 15.9.2026 post, which names no place. -->
+      <figure class="abroad__lens" aria-hidden="true"><img src="/assets/photos/andes-village-sm.jpg" srcset="/assets/photos/andes-village-xs.jpg 480w, /assets/photos/andes-village-sm.jpg 820w, /assets/photos/andes-village.jpg 900w" sizes="(min-width: 700px) 48vw, 90vw" width="820" height="1458" alt="" loading="lazy" decoding="async"></figure>
+      <div class="wrap abroad__in">
+        <h2 class="duo-title" id="abroad-title"><span class="duo-title__light">{{abroad.t1}}</span> <span class="duo-title__bold">{{abroad.t2}}</span></h2>
+        <div class="abroad__feature">
+          <ul class="abroad__facts"><!--cms:list abroad.list1--><li><svg class="bicon bicon--orange" aria-hidden="true"><use href="#b-{{i.ic1}}"/></svg>{{i.t1}}</li><!--/cms:list--></ul>
+          <div class="abroad__copy">
+            <h3 class="abroad__name">{{abroad.t3}}</h3>
+            <p>{{abroad.t4}}</p>
+            <a class="textlink" href="{{abroad.l1}}"{{ext:abroad.l1}}>{{abroad.t5}}</a>
+          </div>
+          <a class="btn btn--line abroad__more" href="{{abroad.l2}}" data-track="sa_page_click">{{abroad.t6}}<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+        <ul class="abroad__cards" aria-label="רגעים מהמסעות"><!--cms:list abroad.list2--><li class="{{i.cls}}" data-reveal><a href="{{i.l1}}"{{ext:i.l1}}><img src="{{i.img1.src}}" srcset="{{i.img1.srcset}}" sizes="(min-width: 900px) 24vw, 70vw" alt="{{i.img1.alt}}" loading="lazy" decoding="async"{{sty:i.img1}}><span class="tcard__title">{{i.t1}}</span></a></li><!--/cms:list--></ul>
+      </div>
+    </section><!--/cms:s abroad-->
+
+    <!-- ============ FAQ — 15.11.2026: questions that help choose and book (answers describe how Yoske actually works). ============ -->
+    <!--cms:s faq--><section class="faq" id="faq" aria-labelledby="faq-title">
+      <svg class="doodle doodle--f doodle--teal" viewBox="0 0 600 200" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path data-draw d="M5 150C90 100 170 160 260 120S430 60 595 130"/></svg>
+
+      <svg class="bicon deco deco--h" aria-hidden="true" focusable="false"><use href="#b-pin"/></svg>
+      <div class="wrap faq__in">
+        <div>
+          <h2 class="duo-title" id="faq-title"><span class="duo-title__light">{{faq.t1}}</span> <span class="duo-title__bold">{{faq.t2}}<span class="hl">...?</span></span></h2>
+          <p class="faq__aside"><a class="btn btn--line" href="{{faq.l1}}">{{faq.t3}}</a></p>
+        </div>
+        <div class="faq__list"><!--cms:list faq.list1--><details{{#if first}} open{{/if}}><summary>{{i.t1}}<i aria-hidden="true"></i></summary><p>{{i.t2}}</p></details><!--/cms:list--></div>
+      </div>
+    </section><!--/cms:s faq-->
+
+    <!-- ============ CONTACT — 15.11.2026: a real lead form (saved in the CRM through /api/leads), WhatsApp stays a separate channel. ============ -->
+    <!--cms:s contact--><section class="contact" id="contact" aria-labelledby="contact-title">
+      <svg class="bicon deco deco--i" aria-hidden="true" focusable="false"><use href="#b-mobile"/></svg>
+      <div class="wrap">
+        <div class="contact__card">
+          <div class="contact__head">
+            <h2 class="duo-title" id="contact-title"><span class="duo-title__light">{{contact.t1}}</span> <span class="duo-title__bold">{{contact.t2}} <span class="hl">{{contact.t3}}</span></span></h2>
+            <p>{{contact.t4}}</p>
+            <ul class="contact__lines">
+              <li><a href="tel:+{{set.phoneIntl}}" data-track="phone_click"><svg aria-hidden="true"><use href="#i-phone"/></svg><span dir="ltr">{{set.phone}}</span></a></li>
+              <li><a href="{{contact.l1}}"{{ext:contact.l1}} data-track="whatsapp_click"><svg aria-hidden="true"><use href="#i-chat"/></svg><span>{{contact.t5}}</span></a></li>
+              <li><a href="mailto:{{set.email}}"><svg aria-hidden="true"><use href="#i-mail"/></svg><span dir="ltr">{{set.email}}</span></a></li>
+            </ul>
+          </div>
+          <form class="cform" data-lead novalidate aria-describedby="c-note">
+            <p class="cform__context" data-lead-context hidden></p>
+            <div class="cform__row">
+              <div class="field"><label for="c-name">שם</label><input id="c-name" name="name" autocomplete="name" required maxlength="80" aria-describedby="c-name-err"><p class="field__err" id="c-name-err" data-err="name" hidden></p></div>
+              <div class="field"><label for="c-phone">טלפון</label><input id="c-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" required maxlength="20" aria-describedby="c-phone-err"><p class="field__err" id="c-phone-err" data-err="phone" hidden></p></div>
+              <div class="field"><label for="c-kind">במה מתעניינים?</label><select id="c-kind" name="kind"><option value="tour" selected>סיור בחיפה</option><option value="org">יום לצוות או לארגון</option><option value="family">פעילות למשפחה</option><option value="private">טיול פרטי לקבוצה</option><option value="general">עוד לא בטוח, רוצים לשמוע</option></select></div><div class="field"><label for="c-people">כמה משתתפים בערך?</label><input id="c-people" name="x_people" data-msg="כמה משתתפים בערך?" type="text" autocomplete="off" maxlength="120"></div><div class="field"><label for="c-dates">תאריך או טווח תאריכים</label><input id="c-dates" name="x_dates" data-msg="תאריך או טווח תאריכים" type="text" autocomplete="off" maxlength="120"></div>
+              <div class="field field--wide"><label for="c-msg">משהו נוסף שכדאי לדעת <span class="opt">(לא חובה)</span></label><textarea id="c-msg" name="message" rows="2" maxlength="1200"></textarea></div>
+              <input type="hidden" name="tour_slug" value=""><input type="hidden" name="date_id" value="">
+              <div class="hp" aria-hidden="true"><label for="c-web">אתר</label><input id="c-web" name="website" tabindex="-1" autocomplete="off"></div>
+              <button class="btn btn--sun cform__go" type="submit">אני רוצה שיוסק׳ה יחזור אליי</button>
+            </div>
+            <p class="note" id="c-note">הפרטים משמשים רק כדי לחזור אליכם ולבדוק התאמה. <a class="textlink" href="/privacy.html#leads">מדיניות הפרטיות</a></p>
+            <div class="form__bad" data-lead-bad hidden tabindex="-1" role="alert"><p data-bad-text></p><div class="btnrow"><button class="btn btn--ink btn--sm" type="submit">לנסות שוב</button><a class="btn btn--line btn--sm" href="https://wa.me/{{set.waNumber}}?text=%D7%94%D7%99%D7%99%20%D7%99%D7%95%D7%A1%D7%A7%D7%B3%D7%94%2C%20%D7%94%D7%92%D7%A2%D7%A0%D7%95%20%D7%93%D7%A8%D7%9A%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%A0%D7%A9%D7%9E%D7%97%20%D7%9C%D7%91%D7%93%D7%95%D7%A7%20%D7%90%D7%99%D7%96%D7%94%20%D7%A1%D7%99%D7%95%D7%A8%20%D7%90%D7%95%20%D7%99%D7%95%D7%9D%20%D7%99%D7%9B%D7%95%D7%9C%20%D7%9C%D7%94%D7%AA%D7%90%D7%99%D7%9D%20%D7%9C%D7%A0%D7%95." target="_blank" rel="noopener" data-track="whatsapp_click" data-track-from="form-error">לכתוב ליוסק׳ה בוואטסאפ<span class="visually-hidden"> (קישור חיצוני, נפתח בלשונית חדשה)</span></a></div></div>
+          </form>
+          <div class="form__ok" data-lead-ok hidden tabindex="-1" role="status">
+            <svg class="bicon" aria-hidden="true"><use href="#b-mobile"/></svg>
+            <p><strong>{{contact.t6}}</strong> {{contact.t7}}</p>
+            <button type="button" class="btn btn--line btn--sm" data-lead-again>{{contact.t8}}</button>
+          </div>
+        </div>
+      </div>
+    </section><!--/cms:s contact-->
+    <!-- ============ 12. THE TRAIL (11.11.2026, brought back from the 18.10 version at the user's request): the photos
+         travel along two dashed paths over the bay of Haifa, with the line "ברגל ובגובה העיניים". ============ -->
+    <!--cms:s trail--><section class="trail" id="trail" aria-labelledby="trail-title" data-trail>
+      <div class="trail__stage" data-trail-stage>
+        <div class="trail__bg" aria-hidden="true"><picture><source media="(max-width: 699px)" srcset="/assets/story/haifa-bay-clean-portrait-529.webp"><img src="/assets/story/haifa-bay-clean-1024.webp" srcset="/assets/story/haifa-bay-clean-640.webp 640w, /assets/story/haifa-bay-clean-1024.webp 1024w, /assets/story/haifa-bay-clean-1672.webp 1672w" sizes="100vw" width="1672" height="941" alt="" loading="lazy" decoding="async"></picture></div>
+        <svg class="trail__paths" viewBox="0 0 2000 640" preserveAspectRatio="none" aria-hidden="true" data-trail-svg>
+          <path data-trail-path d="M0 230 C 150 190, 330 200, 430 232 S 600 140, 720 86 S 880 150, 960 240 S 1210 220, 1470 104 S 1800 60, 2000 90"/>
+          <path data-trail-path d="M0 515 C 250 540, 480 470, 640 520 S 880 600, 1000 590 S 1260 470, 1474 440 S 1800 470, 2000 420"/>
+        </svg>
+        <svg class="trail__pin" style="--px: 33.5%; --py: 13%" aria-hidden="true"><use href="#b-pin"/></svg>
+        <svg class="trail__pin" style="--px: 63%; --py: 87%" aria-hidden="true"><use href="#b-pin"/></svg>
+        <figure class="trail__dot" data-dot="0,.08"><img src="{{trail.img1.src}}" srcset="{{trail.img1.srcset}}" sizes="120px" width="{{trail.img1.w}}" height="{{trail.img1.h}}" alt="{{trail.img1.alt}}" loading="lazy" decoding="async" fetchpriority="low" style="object-position:{{trail.img1.pos}}"></figure>
+        <figure class="trail__dot" data-dot="1,.14"><img src="{{trail.img2.src}}" srcset="{{trail.img2.srcset}}" sizes="120px" width="{{trail.img2.w}}" height="{{trail.img2.h}}" alt="{{trail.img2.alt}}" loading="lazy" decoding="async" fetchpriority="low"{{sty:trail.img2}}></figure>
+        <figure class="trail__dot" data-dot="0,.74"><img src="{{trail.img3.src}}" srcset="{{trail.img3.srcset}}" sizes="120px" width="{{trail.img3.w}}" height="{{trail.img3.h}}" alt="{{trail.img3.alt}}" loading="lazy" decoding="async" fetchpriority="low" style="object-position:{{trail.img3.pos}}"></figure>
+        <figure class="trail__dot" data-dot="1,.8"><img src="{{trail.img4.src}}" srcset="{{trail.img4.srcset}}" sizes="120px" width="{{trail.img4.w}}" height="{{trail.img4.h}}" alt="{{trail.img4.alt}}" loading="lazy" decoding="async" fetchpriority="low"{{sty:trail.img4}}></figure>
+        <figure class="trail__dot" data-dot="0,.42"><img src="{{trail.img5.src}}" srcset="{{trail.img5.srcset}}" sizes="120px" width="{{trail.img5.w}}" height="{{trail.img5.h}}" alt="{{trail.img5.alt}}" loading="lazy" decoding="async" fetchpriority="low"{{sty:trail.img5}}></figure>
+        <figure class="trail__dot" data-dot="1,.5"><img src="{{trail.img6.src}}" srcset="{{trail.img6.srcset}}" sizes="120px" width="{{trail.img6.w}}" height="{{trail.img6.h}}" alt="{{trail.img6.alt}}" loading="lazy" decoding="async" fetchpriority="low"{{sty:trail.img6}}></figure>
+        <div class="trail__copy">
+          <h2 class="trail__title" id="trail-title" data-trail-text>{{trail.t1}} <span class="br">{{trail.t2}}</span></h2>
+          <p data-trail-text>{{trail.t3}}</p>
+        </div>
+      </div>
+    </section><!--/cms:s trail-->
+
+  </main>
+  <footer class="foot">
+    <div class="foot__curve" aria-hidden="true"></div>
+    <div class="wrap foot__in">
+      <div class="foot__brand">
+        <img src="{{set.logoDark}}" width="473" height="159" alt="יוסק׳ה, טיולים, חברה, תרבות" loading="lazy">
+        <p class="foot__say">{{shared.foot.t1}} <span>{{shared.foot.t2}}</span></p>
+      </div>
+      <div class="foot__cols">
+        <nav aria-label="באתר">
+          <h2>{{shared.foot.t3}}</h2>
+          <a href="{{shared.foot.l1}}">{{shared.foot.t4}}</a><a href="{{shared.foot.l2}}">{{shared.foot.t5}}</a><a href="{{shared.foot.l3}}">{{shared.foot.t6}}</a><a href="{{shared.foot.l4}}">{{shared.foot.t7}}</a><a href="{{shared.foot.l5}}">{{shared.foot.t8}}</a><a href="{{shared.foot.l6}}">{{shared.foot.t9}}</a><a href="{{shared.foot.l7}}">{{shared.foot.t10}}</a><a href="{{shared.foot.l8}}">{{shared.foot.t11}}</a>
+        </nav>
+        <div>
+          <h2>{{shared.foot.t12}}</h2>
+          <a href="tel:+{{set.phoneIntl}}" dir="ltr">{{set.phone}}</a><a href="mailto:{{set.email}}" dir="ltr">{{set.email}}</a>
+          <a href="{{shared.foot.l9}}"{{ext:shared.foot.l9}}>{{shared.foot.t13}}</a><a href="{{set.facebook}}" target="_blank" rel="noopener">{{shared.foot.t14}}</a>
+          
+        </div>
+        <nav aria-label="מידע משפטי ונגישות">
+          <h2>{{shared.foot.t15}}</h2>
+          <a href="{{shared.foot.l10}}">{{shared.foot.t16}}</a><a href="{{shared.foot.l11}}">{{shared.foot.t17}}</a><a href="{{shared.foot.l12}}">{{shared.foot.t18}}</a><button type="button" class="linkbtn foot__prefs" data-cookie-open>{{shared.foot.t19}}</button>
+        </nav>
+      </div>
+    </div>
+    <p class="wrap foot__made"><span>{{shared.foot.t20}}</span><a href="{{shared.foot.l13}}"{{ext:shared.foot.l13}} aria-label="{{shared.foot.t21}}"><img src="{{shared.foot.img1.src}}" width="{{shared.foot.img1.w}}" height="{{shared.foot.img1.h}}" alt="{{shared.foot.img1.alt}}" loading="lazy"{{sty:shared.foot.img1}}></a></p>
+    <p class="wrap foot__credits">{{shared.foot.t22}} <a href="{{shared.foot.l14}}">{{shared.foot.t23}}</a>{{shared.foot.t24}} <a href="{{shared.foot.l15}}">{{shared.foot.t25}}</a> {{shared.foot.t26}}</p>
+  </footer>
+  <aside aria-label="פנייה מהירה">
+    <a class="fab" href="https://wa.me/{{set.waNumber}}?text={{set.waTextEnc}}" target="_blank" rel="noopener" data-fab><svg aria-hidden="true"><use href="#i-chat"/></svg><span>נדבר בוואטסאפ</span></a>
+    <a class="totop" href="#main" aria-label="חזרה לראש העמוד" data-totop><svg aria-hidden="true"><use href="#i-up"/></svg></a>
+    <button class="a11y-fab" type="button" aria-haspopup="dialog" data-a11y-open title="אפשרויות נגישות"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.6" r="1.7" fill="currentColor" stroke="none"/><path d="M5 8.6c4.4 1.4 9.6 1.4 14 0M12 9v5.2M12 14.2l-3.2 6M12 14.2l3.2 6"/></svg><span class="visually-hidden">אפשרויות נגישות</span></button>
+  </aside>
+  <script src="/vendor/lenis.min.js" defer></script>
+  <script src="/vendor/gsap.min.js" defer></script>
+  <script src="/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="/yoske.js?v=e617dfa752" defer></script>
+  <script src="/prefs.js?v=bfa6208799" defer></script>
+  <script src="/analytics.js?v=7008b080ee" defer></script>
+  <script src="/forms.js?v=5f35b0a4d0" defer></script>
+  <script src="/site.js" defer data-cms></script>
+</body>
+</html>

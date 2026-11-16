@@ -1,0 +1,2978 @@
+{
+ "version": 2,
+ "pages": {
+  "index": {
+   "path": "/",
+   "seo": {
+    "title": "יוסק׳ה | טיולים, חברה, תרבות. סיורים בחיפה",
+    "description": "סיורים בחיפה וימי גיבוש לארגונים, לצוותים, למשפחות ולקבוצות. עם תוכן מעניין, תכנון מסודר ויוסק׳ה אחד שיודע להחזיק את היום."
+   },
+   "fields": {
+    "top.t1": "תפסיקו לשבור את הראש",
+    "top.t2": "על הטיול הבא",
+    "top.t3": "סיורים בחיפה וימי גיבוש לארגונים, לצוותים, למשפחות ולקבוצות. עם תוכן מעניין, תכנון מסודר ויוסק׳ה אחד שיודע להחזיק את היום.",
+    "top.img1": {
+     "src": "/assets/v4/hero-wide-1440.webp",
+     "alt": "מקדש הבאב וטרסות הגנים הבהאיים במורד הכרמל, מבט מלמטה לאורך הציר",
+     "srcset": "/assets/v4/hero-wide-960.webp 960w, /assets/v4/hero-wide-1440.webp 1440w, /assets/v4/hero-wide-2160.webp 2160w",
+     "w": "2160",
+     "h": "1434",
+     "s": [
+      "/assets/v4/hero-tall-640.webp 640w, /assets/v4/hero-tall-960.webp 960w, /assets/v4/hero-tall-1280.webp 1280w"
+     ]
+    },
+    "top.img2": {
+     "src": "/assets/yoske-cutout-640.webp",
+     "alt": "יוסק׳ה, מדריך הטיולים, מצביע על הכותרת",
+     "srcset": "/assets/yoske-cutout-640.webp 640w, /assets/yoske-cutout-900.webp 900w, /assets/yoske-cutout.webp 1252w",
+     "w": "900",
+     "h": "908"
+    },
+    "top.l1": "https://paypage.takbull.co.il/3BEQx",
+    "top.t4": "לסיורים הקרובים",
+    "unique.t1": "מכירים מקום דרך האנשים שלו,",
+    "unique.t2": "דרך החברה",
+    "unique.t3": "והתרבות.",
+    "unique.t4": "אני מפיק ומדריך טיולים מבעד לעדשה",
+    "unique.t5": "סוציולוגית ואנתרופולוגית",
+    "unique.t6": ". כל טיול נבנה מחדש סביב הקבוצה: תחומי העניין, הקצב והאנשים שבה.",
+    "unique.t7": "סוציולוגיה ואנתרופולוגיה, בשפה פשוטה",
+    "unique.t8": "ניתוחים של",
+    "unique.t9": "תופעות חברתיות",
+    "unique.t10": "ושל",
+    "unique.t11": "הבדלים תרבותיים",
+    "unique.t12": "בשטח זה אומר לשאול מי חי כאן, איך אנשים שונים חיים זה לצד זה, ומה רואים ברחוב כשמתחילים להסתכל.",
+    "unique.t13": "איזון נכון",
+    "unique.t14": "אושר",
+    "unique.t15": "העשרה",
+    "unique.t16": "יום כיפי ומגבש, ובאותה נשימה משהו שממשיכים לחשוב עליו.",
+    "unique.t17": "ההבטחה",
+    "unique.t18": "יום שבו",
+    "unique.t19": "נהנים, לומדים ומתחברים",
+    "unique.t20": ", בלי שאחד הדברים יבוא על חשבון האחרים.",
+    "unique.t21": "יוסק׳ה מחבר בין ידע, שיחה ותכנון מסודר, וקורא את הקבוצה לאורך כל היום.",
+    "about.t1": "נעים להכיר",
+    "about.t2": "נעים להכיר,",
+    "about.t3": "יוסק׳ה",
+    "about.t4": "קליין",
+    "about.t5": "אני יוסק׳ה, ואני אוהב אנשים כמעט כמו שאני אוהב לטייל. למזלי, מצאתי עבודה שמחברת בין השניים.",
+    "about.t6": "אני מדריך ומפיק סיורים בחיפה, ומדריך לעיתים גם קבוצות במסעות בדרום אמריקה. אני מגיע לכל מקום דרך האנשים שחיים בו, התרבות שנוצרה בו והשאלות שמסתתרות מאחורי מה שרואים ברחוב. הלימודים שלי בסוציולוגיה ובאנתרופולוגיה נותנים לי עוד דרך להבין מקום, אבל בסיור עצמו הידע לא מגיע כהרצאה. הוא נכנס דרך סיפור טוב, שאלה, שיחה ורגע שגורם להסתכל אחרת.",
+    "about.t7": "חשוב לי שבכל יום יהיה גם חופש לנשום ולהגיב למה שקורה, גם הרבה שמחה והנאה, וגם תוכן שנשאר בראש אחר כך. אני בונה את הרצף, מחזיק את הקצב וקורא את הקבוצה, כדי שגם מי שבאו בשביל ההיסטוריה, גם מי שבאו בשביל האוכל וגם מי שפשוט רצו לצאת מהשגרה ירגישו חלק מהיום.",
+    "about.t8": "בסוף, המטרה אינה רק שתכירו עוד כמה מקומות בחיפה. אני רוצה שתצאו עם נקודת מבט חדשה, שיחה טובה שנפתחה בתוך הקבוצה, וכמה רגעים שתרצו להמשיך לדבר עליהם גם בדרך הביתה.",
+    "about.l1": "/about.html",
+    "about.t9": "להכיר את יוסק׳ה",
+    "about.l2": "https://wa.me/{{set.waNumber}}?text=%D7%94%D7%99%D7%99%20%D7%99%D7%95%D7%A1%D7%A7%D7%B3%D7%94%2C%20%D7%A0%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%9B%D7%99%D7%A8.",
+    "about.t10": "לכתוב לי בוואטסאפ",
+    "map.t1": "איזו חיפה בא לכם לגלות?",
+    "map.t2": "בחרו סיור, והמסלול יופיע במפה",
+    "map.t3": "מפה להמחשה בלבד, לא בקנה מידה. התחנות לפי עלון הסיורים של יוסק׳ה, והמסלול המדויק נקבע מול הקבוצה.",
+    "tours.t1": "בחרו את חיפה שמתאימה ליום שלכם.",
+    "tours.t2": "הסיורים של יוסק׳ה",
+    "tours.t3": "בחיפה",
+    "tours.l1": "/tours/",
+    "tours.t4": "לכל הסיורים",
+    "tours.l2": "/quiz.html",
+    "tours.t5": "איזה סיור מתאים לנו?",
+    "tours.t6": "על מה מדברים בדרך:",
+    "tours.t7": "דו-קיום · תעשייה, מפרץ ונמל · נדל״ן ייחודי · חזירי הבר · הבדלי גובה בעיר אחת",
+    "tours.l3": "/tours/#topics",
+    "tours.t8": "לנושאים ולמקומות",
+    "upcoming.t1": "רוצים להצטרף לסיור בלי לארגן קבוצה משלכם?",
+    "upcoming.t2": "הסיורים",
+    "upcoming.t3": "הקרובים",
+    "upcoming.l1": "/quiz.html",
+    "upcoming.t4": "לא בטוחים? לשאלון ההתאמה",
+    "upcoming.t5": "בעמוד הסיורים הקרובים מחכים המועדים הפתוחים, כל הפרטים ואפשרות להזמין מקום ולשלם.",
+    "upcoming.l2": "https://paypage.takbull.co.il/3BEQx",
+    "upcoming.t6": "למועדים, הרשמה ותשלום",
+    "groups.t1": "טיול פרטי, יום גיבוש או אירוע משפחתי.",
+    "groups.t2": "כל קבוצה והדרך",
+    "groups.t3": "שלה",
+    "groups.t4": "קבוצה מהעבודה, משפחה, חברים או אירוע שאתם רוצים לציין בדרך קצת אחרת. לכל אחד יש סיבה אחרת לצאת, ולכן גם היום עצמו לא צריך להיראות אותו דבר.",
+    "moments.t1": "ככה זה נראה בשטח",
+    "moments.t2": "אנשים, קבוצות ויוסק׳ה בהדרכה, מהסיורים בחיפה.",
+    "moments.l1": "/gallery.html",
+    "moments.t3": "לגלריה המלאה",
+    "reviews.t1": "מה החברים לדרך",
+    "reviews.t2": "מספרים",
+    "reviews.t3": "מטיילים, משפחות וצוותים כבר כתבו. חבל שרק יוסק׳ה יראה.",
+    "blk10.t1": "לעוד 13 ביקורות",
+    "abroad.t1": "חיפה במרכז, ולא רק היא.",
+    "abroad.t2": "יוסק׳ה בדרום אמריקה",
+    "abroad.t3": "מסעות עם ברזילאו",
+    "abroad.t4": "לעיתים יוסק׳ה מדריך קבוצות ישראליות במסעות המאורגנים של ברזילאו בדרום אמריקה, ומביא גם לשם את אותה סקרנות לאנשים, לתרבות ולסיפורים שמאחורי הנוף. ההרשמה, המסלולים והתפעול נעשים דרך ברזילאו.",
+    "abroad.l1": "https://wa.me/{{set.waNumber}}?text=%D7%94%D7%99%D7%99%20%D7%99%D7%95%D7%A1%D7%A7%D7%B3%D7%94%2C%20%D7%91%D7%90%D7%99%D7%9C%D7%95%20%D7%9E%D7%A1%D7%A2%D7%95%D7%AA%20%D7%91%D7%93%D7%A8%D7%95%D7%9D%20%D7%90%D7%9E%D7%A8%D7%99%D7%A7%D7%94%20%D7%90%D7%AA%D7%94%20%D7%9E%D7%93%D7%A8%D7%99%D7%9A%3F",
+    "abroad.t5": "באילו מסעות אני מדריך? שאלו אותי",
+    "abroad.l2": "/south-america.html",
+    "abroad.t6": "למסעות בדרום אמריקה",
+    "faq.t1": "רגע,",
+    "faq.t2": "ומה לגבי",
+    "faq.l1": "/contact.html#faq",
+    "faq.t3": "לכל השאלות",
+    "contact.t1": "רוצים שיוסק׳ה יחזור אליכם",
+    "contact.t2": "עם כיוון",
+    "contact.t3": "מתאים?",
+    "contact.t4": "ספרו בקצרה מי מגיע ומה אתם מחפשים. יוסק׳ה יחזור אליכם, ישאל את מה שצריך ויעזור להבין איזה סיור או יום יכול להתאים.",
+    "contact.l1": "https://wa.me/{{set.waNumber}}?text={{set.waTextEnc}}",
+    "contact.t5": "מעדיפים WhatsApp? כתבו ליוסק׳ה",
+    "contact.t6": "הפרטים הגיעו ליוסק׳ה.",
+    "contact.t7": "הוא יחזור אליכם כדי להבין מי מגיע ומה יכול להתאים.",
+    "contact.t8": "לשלוח פנייה נוספת",
+    "trail.img1": {
+     "src": "/assets/approved/heart-wide-960.webp",
+     "alt": "משפחות עם יוסק׳ה ליד פסל הלב הצהוב",
+     "srcset": "/assets/approved/heart-wide-480.webp 480w, /assets/approved/heart-wide-960.webp 960w, /assets/approved/heart-wide-1920.webp 1600w",
+     "w": "1600",
+     "h": "894",
+     "pos": "42% 60%"
+    },
+    "trail.img2": {
+     "src": "/assets/approved/cable-car-960.webp",
+     "alt": "קרונית רכבל מול שמיים כחולים",
+     "srcset": "/assets/approved/cable-car-480.webp 480w, /assets/approved/cable-car-960.webp 960w, /assets/approved/cable-car-1920.webp 1319w",
+     "w": "1319",
+     "h": "879"
+    },
+    "trail.img3": {
+     "src": "/assets/approved/telescope-960.webp",
+     "alt": "ילד מביט במשקפת תצפית אל העיר והמפרץ",
+     "srcset": "/assets/approved/telescope-480.webp 480w, /assets/approved/telescope-960.webp 960w, /assets/approved/telescope-1920.webp 1200w",
+     "w": "1200",
+     "h": "1600",
+     "pos": "50% 30%"
+    },
+    "trail.img4": {
+     "src": "/assets/approved/clock-tower-960.webp",
+     "alt": "מגדל שעון מאבן מול שמיים כחולים",
+     "srcset": "/assets/approved/clock-tower-480.webp 480w, /assets/approved/clock-tower-960.webp 960w, /assets/approved/clock-tower-1920.webp 1536w",
+     "w": "1536",
+     "h": "1536"
+    },
+    "trail.img5": {
+     "src": "/assets/approved/carmelit-960.webp",
+     "alt": "ילדים מציצים אל קרון ברציף",
+     "srcset": "/assets/approved/carmelit-480.webp 480w, /assets/approved/carmelit-960.webp 960w, /assets/approved/carmelit-1920.webp 1920w",
+     "w": "1920",
+     "h": "1440"
+    },
+    "trail.img6": {
+     "src": "/assets/approved/stone-street-960.webp",
+     "alt": "רחוב עם בנייני אבן ישנים",
+     "srcset": "/assets/approved/stone-street-480.webp 480w, /assets/approved/stone-street-960.webp 960w, /assets/approved/stone-street-1920.webp 1455w",
+     "w": "1455",
+     "h": "1436"
+    },
+    "trail.t1": "יוסק׳ה קליין: סיורים בחיפה,",
+    "trail.t2": "ברגל ובגובה העיניים.",
+    "trail.t3": "אני לוקח משפחות, חברים וצוותים מהתצפיות והגנים אל הרחובות, המדרגות והאנשים שמתחת. מקומות מסקרנים אותי, ואנשים מסקרנים אותי עוד יותר."
+   },
+   "lists": {
+    "unique.list1": [
+     {
+      "i.t1": "חופש"
+     },
+     {
+      "i.t1": "שמחה"
+     },
+     {
+      "i.t1": "העשרה"
+     },
+     {
+      "i.t1": "חברה"
+     },
+     {
+      "i.t1": "תרבות"
+     }
+    ],
+    "about.list1": [
+     {
+      "i.t1": "נהנים בדרך",
+      "i.t2": "תוכן רציני לא חייב להגיע עם פרצוף רציני.",
+      "i.a1": "ab2__dot ab2__dot--teal"
+     },
+     {
+      "i.t1": "מבינים יותר",
+      "i.t2": "לא רק מה רואים, אלא איך אנשים, חברה ותרבות יצרו את המקום.",
+      "i.a1": "ab2__dot ab2__dot--sun"
+     },
+     {
+      "i.t1": "מתחברים כקבוצה",
+      "i.t2": "העיר נותנת את הרקע, והיום נותן לאנשים סיבה לדבר, להשתתף ולחוות משהו יחד.",
+      "i.a1": "ab2__dot ab2__dot--orange"
+     }
+    ],
+    "groups.list1": [
+     {
+      "i.t1": "מספרים מי מגיע",
+      "i.t2": "קבוצה, משפחה או צוות, כמה אנשים, מה מציינים, מה מעניין אתכם וכמה זמן יש."
+     },
+     {
+      "i.t1": "בוחרים את הכיוון",
+      "i.t2": "יוסק׳ה מציע סיור קיים או מבנה מתאים ומדייק את הפרטים יחד אתכם."
+     },
+     {
+      "i.t1": "סוגרים ויוצאים",
+      "i.t2": "מאשרים מועד, מבנה ופרטים מעשיים. ביום עצמו נפגשים ויוצאים לדרך."
+     }
+    ],
+    "groups.list2": [
+     {
+      "i.img1": {
+       "src": "/assets/approved/heart-family-960.webp",
+       "alt": "משפחות וילדים מצטלמים בתוך פסל הלב הצהוב, הים ברקע",
+       "srcset": "/assets/approved/heart-family-480.webp 480w, /assets/approved/heart-family-960.webp 960w, /assets/approved/heart-family-1920.webp 1920w",
+       "w": "1920",
+       "h": "1752"
+      },
+      "i.t1": "משפחות",
+      "i.t2": "פעילות משפחתית שגם הילדים באמת משתתפים בה: חידות, משימות ורמזים שמכניסים אותם לתוך הסיפור.",
+      "i.l1": "/families.html",
+      "i.t3": "לפעילויות למשפחות",
+      "i.cls": "acard acard--open",
+      "i.a1": "families_contact_click"
+     },
+     {
+      "i.img1": {
+       "src": "/assets/approved/red-sculpture-selfie-960.webp",
+       "alt": "יוסק׳ה בסלפי, מאחוריו קבוצה ליד פסל לב אדום מול המפרץ",
+       "srcset": "/assets/approved/red-sculpture-selfie-480.webp 480w, /assets/approved/red-sculpture-selfie-960.webp 960w, /assets/approved/red-sculpture-selfie-1920.webp 1824w",
+       "w": "1824",
+       "h": "1368"
+      },
+      "i.t1": "ארגונים וצוותים",
+      "i.t2": "יום גיבוש שגם התוכן בו מחזיק את הקבוצה: סיור, תוכן ואפשרויות נוספות ליום אחד שיש לו קצב והיגיון.",
+      "i.l1": "/orgs.html",
+      "i.t3": "לתכנון יום לצוות",
+      "i.cls": "acard acard--open",
+      "i.a1": "orgs_contact_click"
+     },
+     {
+      "i.img1": {
+       "src": "/assets/approved/kids-guiding-960.webp",
+       "alt": "יוסק׳ה מדריך קבוצת ילדים שמרימים ידיים כדי לענות",
+       "srcset": "/assets/approved/kids-guiding-480.webp 480w, /assets/approved/kids-guiding-960.webp 960w, /assets/approved/kids-guiding-1920.webp 1080w",
+       "w": "1080",
+       "h": "1920"
+      },
+      "i.t1": "קבוצות פרטיות",
+      "i.t2": "יש קבוצה. עכשיו צריך להפוך אותה ליום מוצלח. אפשר לבחור סיור קיים או לדבר עם יוסק׳ה על יום שמתאים לכם.",
+      "i.l1": "/private-groups.html",
+      "i.t3": "לתכנון טיול פרטי",
+      "i.cls": "acard acard--open",
+      "i.a1": "private-groups_contact_click"
+     }
+    ],
+    "moments.list1": [
+     {
+      "i.img1": {
+       "src": "/assets/approved/stairs-group-960.webp",
+       "alt": "קבוצה גדולה עם יוסק׳ה יושבת על מדרגות ברחוב",
+       "srcset": "/assets/approved/stairs-group-480.webp 480w, /assets/approved/stairs-group-960.webp 960w, /assets/approved/stairs-group-1920.webp 1440w",
+       "w": "1440",
+       "h": "1440",
+       "pos": "50% 45%"
+      },
+      "i.cls": "sgs__item"
+     },
+     {
+      "i.img1": {
+       "src": "/assets/approved/yoske-selfie-group-960.webp",
+       "alt": "יוסק׳ה מצלם סלפי מחייך, הקבוצה יושבת מאחוריו ומנופפת",
+       "srcset": "/assets/approved/yoske-selfie-group-480.webp 480w, /assets/approved/yoske-selfie-group-960.webp 960w, /assets/approved/yoske-selfie-group-1920.webp 1835w",
+       "w": "1835",
+       "h": "2048",
+       "pos": "50% 72%"
+      },
+      "i.cls": "sgs__item"
+     },
+     {
+      "i.img1": {
+       "src": "/assets/approved/streetart-960.webp",
+       "alt": "קבוצת מטיילים עם יוסק׳ה מול ציור קיר צבעוני",
+       "srcset": "/assets/approved/streetart-480.webp 480w, /assets/approved/streetart-960.webp 960w, /assets/approved/streetart-1920.webp 1600w",
+       "w": "1600",
+       "h": "900",
+       "pos": "46% 50%"
+      },
+      "i.cls": "sgs__item"
+     },
+     {
+      "i.img1": {
+       "src": "/assets/approved/synagogue-group-960.webp",
+       "alt": "קבוצה בתוך בית כנסת עם פרוכת כחולה",
+       "srcset": "/assets/approved/synagogue-group-480.webp 480w, /assets/approved/synagogue-group-960.webp 960w, /assets/approved/synagogue-group-1920.webp 1920w",
+       "w": "1920",
+       "h": "1576",
+       "pos": "50% 60%"
+      },
+      "i.cls": "sgs__item"
+     },
+     {
+      "i.img1": {
+       "src": "/assets/approved/yoske-guiding-view-960.webp",
+       "alt": "יוסק׳ה מדריך במרפסת תצפית מעל מפרץ חיפה",
+       "srcset": "/assets/approved/yoske-guiding-view-480.webp 480w, /assets/approved/yoske-guiding-view-960.webp 960w, /assets/approved/yoske-guiding-view-1920.webp 1200w",
+       "w": "1200",
+       "h": "1200",
+       "pos": "48% 70%"
+      },
+      "i.cls": "sgs__item"
+     },
+     {
+      "i.img1": {
+       "src": "/assets/approved/love-haifa-group-960.webp",
+       "alt": "קבוצה מצטלמת ליד האותיות הגדולות I love Haifa",
+       "srcset": "/assets/approved/love-haifa-group-480.webp 480w, /assets/approved/love-haifa-group-960.webp 960w",
+       "w": "960",
+       "h": "640",
+       "pos": "42% 60%"
+      },
+      "i.cls": "sgs__item"
+     },
+     {
+      "i.img1": {
+       "src": "/assets/approved/street-tour-960.webp",
+       "alt": "קבוצה עומדת לאורך רחוב צר ומקשיבה",
+       "srcset": "/assets/approved/street-tour-480.webp 480w, /assets/approved/street-tour-960.webp 960w, /assets/approved/street-tour-1920.webp 1920w",
+       "w": "1920",
+       "h": "1558",
+       "pos": "50% 55%"
+      },
+      "i.cls": "sgs__item"
+     },
+     {
+      "i.img1": {
+       "src": "/assets/approved/red-sculpture-selfie-960.webp",
+       "alt": "יוסק׳ה בסלפי מול הקבוצה והפסל האדום בתצפית",
+       "srcset": "/assets/approved/red-sculpture-selfie-480.webp 480w, /assets/approved/red-sculpture-selfie-960.webp 960w, /assets/approved/red-sculpture-selfie-1920.webp 1824w",
+       "w": "1824",
+       "h": "1368",
+       "pos": "22% 60%"
+      },
+      "i.cls": "sgs__item"
+     },
+     {
+      "i.img1": {
+       "src": "/assets/approved/lookout-kids-960.webp",
+       "alt": "יוסק׳ה מסביר לילדים ולהורים ליד המעקה מול המפרץ",
+       "srcset": "/assets/approved/lookout-kids-480.webp 480w, /assets/approved/lookout-kids-960.webp 960w",
+       "w": "960",
+       "h": "540",
+       "pos": "56% 50%"
+      },
+      "i.cls": "sgs__item"
+     },
+     {
+      "i.img1": {
+       "src": "/assets/approved/heart-family-960.webp",
+       "alt": "משפחה מצטלמת בתוך פסל הלב הצהוב בתצפית",
+       "srcset": "/assets/approved/heart-family-480.webp 480w, /assets/approved/heart-family-960.webp 960w, /assets/approved/heart-family-1920.webp 1920w",
+       "w": "1920",
+       "h": "1752",
+       "pos": "50% 55%"
+      },
+      "i.cls": "sgs__item"
+     },
+     {
+      "i.img1": {
+       "src": "/assets/approved/kids-guiding-960.webp",
+       "alt": "יוסק׳ה מדריך קבוצת ילדים שמצביעים למעלה",
+       "srcset": "/assets/approved/kids-guiding-480.webp 480w, /assets/approved/kids-guiding-960.webp 960w, /assets/approved/kids-guiding-1920.webp 1080w",
+       "w": "1080",
+       "h": "1920",
+       "pos": "62% 36%"
+      },
+      "i.cls": "sgs__item"
+     },
+     {
+      "i.img1": {
+       "src": "/assets/approved/lookout-big-group-960.webp",
+       "alt": "קבוצה גדולה מצטלמת בתצפית מעל המפרץ",
+       "srcset": "/assets/approved/lookout-big-group-480.webp 480w, /assets/approved/lookout-big-group-960.webp 960w, /assets/approved/lookout-big-group-1920.webp 1200w",
+       "w": "1200",
+       "h": "1124",
+       "pos": "50% 60%"
+      },
+      "i.cls": "sgs__item"
+     }
+    ],
+    "reviews.list1": [
+     {
+      "i.l1": "/assets/reviews/r03.webp",
+      "i.t1": "להגדלה: ביקורת של ליאב הלפרין",
+      "i.img1": {
+       "src": "/assets/reviews/r03-480.webp",
+       "alt": "צילום מסך של ביקורת על יוסק׳ה: ליאב הלפרין, המלצה בפייסבוק",
+       "srcset": "/assets/reviews/r03-480.webp 480w, /assets/reviews/r03.webp 1076w",
+       "w": "480",
+       "h": "358"
+      },
+      "i.cls": "rshot"
+     },
+     {
+      "i.l1": "/assets/reviews/r05.webp",
+      "i.t1": "להגדלה: ביקורת של מירב רביב",
+      "i.img1": {
+       "src": "/assets/reviews/r05-480.webp",
+       "alt": "צילום מסך של ביקורת על יוסק׳ה: מירב רביב, המלצה בפייסבוק",
+       "srcset": "/assets/reviews/r05-480.webp 480w, /assets/reviews/r05.webp 1080w",
+       "w": "480",
+       "h": "347"
+      },
+      "i.cls": "rshot"
+     },
+     {
+      "i.l1": "/assets/reviews/r02.webp",
+      "i.t1": "להגדלה: ביקורת של קסניה גרלייב",
+      "i.img1": {
+       "src": "/assets/reviews/r02-480.webp",
+       "alt": "צילום מסך של ביקורת על יוסק׳ה: קסניה גרלייב, המלצה בפייסבוק",
+       "srcset": "/assets/reviews/r02-480.webp 480w, /assets/reviews/r02.webp 1080w",
+       "w": "480",
+       "h": "285"
+      },
+      "i.cls": "rshot"
+     },
+     {
+      "i.l1": "/assets/reviews/r06.webp",
+      "i.t1": "להגדלה: ביקורת של אפי יוספי",
+      "i.img1": {
+       "src": "/assets/reviews/r06-480.webp",
+       "alt": "צילום מסך של ביקורת על יוסק׳ה: אפי יוספי, המלצה בפייסבוק",
+       "srcset": "/assets/reviews/r06-480.webp 480w, /assets/reviews/r06.webp 1080w",
+       "w": "480",
+       "h": "252"
+      },
+      "i.cls": "rshot"
+     },
+     {
+      "i.l1": "/assets/reviews/r09.webp",
+      "i.t1": "להגדלה: ביקורת של ורד יאיר",
+      "i.img1": {
+       "src": "/assets/reviews/r09-480.webp",
+       "alt": "צילום מסך של ביקורת על יוסק׳ה: ורד יאיר, פוסט בפייסבוק",
+       "srcset": "/assets/reviews/r09-480.webp 480w, /assets/reviews/r09.webp 1080w",
+       "w": "480",
+       "h": "480"
+      },
+      "i.cls": "rshot"
+     },
+     {
+      "i.l1": "/assets/reviews/r12.webp",
+      "i.t1": "להגדלה: ביקורת של נטלי אייזנברג",
+      "i.img1": {
+       "src": "/assets/reviews/r12-480.webp",
+       "alt": "צילום מסך של ביקורת על יוסק׳ה: נטלי אייזנברג, המלצה בפייסבוק",
+       "srcset": "/assets/reviews/r12-480.webp 480w, /assets/reviews/r12.webp 1080w",
+       "w": "480",
+       "h": "252"
+      },
+      "i.cls": "rshot"
+     },
+     {
+      "i.l1": "/assets/reviews/r14.webp",
+      "i.t1": "להגדלה: ביקורת של גל כליל החורש",
+      "i.img1": {
+       "src": "/assets/reviews/r14-480.webp",
+       "alt": "צילום מסך של ביקורת על יוסק׳ה: גל כליל החורש, המלצה בפייסבוק",
+       "srcset": "/assets/reviews/r14-480.webp 480w, /assets/reviews/r14.webp 1080w",
+       "w": "480",
+       "h": "308"
+      },
+      "i.cls": "rshot"
+     },
+     {
+      "i.l1": "/assets/reviews/r18.webp",
+      "i.t1": "להגדלה: ביקורת של טלי פרידלר",
+      "i.img1": {
+       "src": "/assets/reviews/r18-480.webp",
+       "alt": "צילום מסך של ביקורת על יוסק׳ה: טלי פרידלר, פוסט בפייסבוק",
+       "srcset": "/assets/reviews/r18-480.webp 480w, /assets/reviews/r18.webp 1080w",
+       "w": "480",
+       "h": "450"
+      },
+      "i.cls": "rshot"
+     },
+     {
+      "i.l1": "/assets/reviews/r07.webp",
+      "i.t1": "להגדלה: ביקורת של ורד יאיר ורעומה נחום",
+      "i.img1": {
+       "src": "/assets/reviews/r07-480.webp",
+       "alt": "צילום מסך של ביקורת על יוסק׳ה: ורד יאיר ורעומה נחום, תגובות בפייסבוק",
+       "srcset": "/assets/reviews/r07-480.webp 480w, /assets/reviews/r07.webp 1080w",
+       "w": "480",
+       "h": "503"
+      },
+      "i.cls": "rshot"
+     },
+     {
+      "i.l1": "/assets/reviews/r13.webp",
+      "i.t1": "להגדלה: ביקורת של חן שכטר",
+      "i.img1": {
+       "src": "/assets/reviews/r13-480.webp",
+       "alt": "צילום מסך של ביקורת על יוסק׳ה: חן שכטר, פוסט בפייסבוק",
+       "srcset": "/assets/reviews/r13-480.webp 480w, /assets/reviews/r13.webp 1080w",
+       "w": "480",
+       "h": "375"
+      },
+      "i.cls": "rshot"
+     },
+     {
+      "i.l1": "/assets/reviews/r16.webp",
+      "i.t1": "להגדלה: ביקורת של איציק לינדנר",
+      "i.img1": {
+       "src": "/assets/reviews/r16-480.webp",
+       "alt": "צילום מסך של ביקורת על יוסק׳ה: איציק לינדנר, פייסבוק",
+       "srcset": "/assets/reviews/r16-480.webp 480w, /assets/reviews/r16.webp 1028w",
+       "w": "480",
+       "h": "211"
+      },
+      "i.cls": "rshot"
+     },
+     {
+      "i.l1": "/assets/reviews/r22.webp",
+      "i.t1": "להגדלה: ביקורת של סופי כץ, Visit Haifa",
+      "i.img1": {
+       "src": "/assets/reviews/r22-480.webp",
+       "alt": "צילום מסך של ביקורת על יוסק׳ה: סופי כץ, Visit Haifa, הודעה",
+       "srcset": "/assets/reviews/r22-480.webp 480w, /assets/reviews/r22.webp 1080w",
+       "w": "480",
+       "h": "317"
+      },
+      "i.cls": "rshot"
+     }
+    ],
+    "blk10.list1": [
+     {
+      "i.l1": "/assets/reviews/r01.webp",
+      "i.t1": "להגדלה: ביקורת של שרון ירדני",
+      "i.img1": {
+       "src": "/assets/reviews/r01-480.webp",
+       "alt": "צילום מסך של ביקורת על יוסק׳ה: שרון ירדני, פייסבוק",
+       "srcset": "/assets/reviews/r01-480.webp 480w, /assets/reviews/r01.webp 1080w",
+       "w": "480",
+       "h": "168"
+      },
+      "i.cls": "rshot"
+     },
+     {
+      "i.l1": "/assets/reviews/r04.webp",
+      "i.t1": "להגדלה: ביקורת של מאיה נמרי",
+      "i.img1": {
+       "src": "/assets/reviews/r04-480.webp",
+       "alt": "צילום מסך של ביקורת על יוסק׳ה: מאיה נמרי, המלצה בפייסבוק",
+       "srcset": "/assets/reviews/r04-480.webp 480w, /assets/reviews/r04.webp 1080w",
+       "w": "480",
+       "h": "199"
+      },
+      "i.cls": "rshot"
+     },
+     {
+      "i.l1": "/assets/reviews/r08.webp",
+      "i.t1": "להגדלה: ביקורת של סואלי טולוב",
+      "i.img1": {
+       "src": "/assets/reviews/r08-480.webp",
+       "alt": "צילום מסך של ביקורת על יוסק׳ה: סואלי טולוב, פייסבוק",
+       "srcset": "/assets/reviews/r08-480.webp 480w, /assets/reviews/r08.webp 1080w",
+       "w": "480",
+       "h": "242"
+      },
+      "i.cls": "rshot"
+     },
+     {
+      "i.l1": "/assets/reviews/r10.webp",
+      "i.t1": "להגדלה: ביקורת של שוקי רוק",
+      "i.img1": {
+       "src": "/assets/reviews/r10-480.webp",
+       "alt": "צילום מסך של ביקורת על יוסק׳ה: שוקי רוק, פוסט בפייסבוק",
+       "srcset": "/assets/reviews/r10-480.webp 480w, /assets/reviews/r10.webp 1080w",
+       "w": "480",
+       "h": "283"
+      },
+      "i.cls": "rshot"
+     },
+     {
+      "i.l1": "/assets/reviews/r11.webp",
+      "i.t1": "להגדלה: ביקורת של קובי רינת",
+      "i.img1": {
+       "src": "/assets/reviews/r11-480.webp",
+       "alt": "צילום מסך של ביקורת על יוסק׳ה: קובי רינת, פייסבוק",
+       "srcset": "/assets/reviews/r11-480.webp 480w, /assets/reviews/r11.webp 1080w",
+       "w": "480",
+       "h": "128"
+      },
+      "i.cls": "rshot"
+     },
+     {
+      "i.l1": "/assets/reviews/r15.webp",
+      "i.t1": "להגדלה: ביקורת של קובי ומיקה רינת",
+      "i.img1": {
+       "src": "/assets/reviews/r15-480.webp",
+       "alt": "צילום מסך של ביקורת על יוסק׳ה: קובי ומיקה רינת, פוסט בפייסבוק",
+       "srcset": "/assets/reviews/r15-480.webp 480w, /assets/reviews/r15.webp 1080w",
+       "w": "480",
+       "h": "242"
+      },
+      "i.cls": "rshot"
+     },
+     {
+      "i.l1": "/assets/reviews/r17.webp",
+      "i.t1": "להגדלה: ביקורת של חגית לונדנר",
+      "i.img1": {
+       "src": "/assets/reviews/r17-480.webp",
+       "alt": "צילום מסך של ביקורת על יוסק׳ה: חגית לונדנר, פייסבוק",
+       "srcset": "/assets/reviews/r17-480.webp 480w, /assets/reviews/r17.webp 1022w",
+       "w": "480",
+       "h": "168"
+      },
+      "i.cls": "rshot"
+     },
+     {
+      "i.l1": "/assets/reviews/r19.webp",
+      "i.t1": "להגדלה: ביקורת של שירה כמה דר",
+      "i.img1": {
+       "src": "/assets/reviews/r19-480.webp",
+       "alt": "צילום מסך של ביקורת על יוסק׳ה: שירה כמה דר, פוסט בפייסבוק",
+       "srcset": "/assets/reviews/r19-480.webp 480w, /assets/reviews/r19.webp 1080w",
+       "w": "480",
+       "h": "232"
+      },
+      "i.cls": "rshot"
+     },
+     {
+      "i.l1": "/assets/reviews/r20.webp",
+      "i.t1": "להגדלה: ביקורת של קובי הלפגוט",
+      "i.img1": {
+       "src": "/assets/reviews/r20-480.webp",
+       "alt": "צילום מסך של ביקורת על יוסק׳ה: קובי הלפגוט, אינסטגרם",
+       "srcset": "/assets/reviews/r20-480.webp 480w, /assets/reviews/r20.webp 1080w",
+       "w": "480",
+       "h": "272"
+      },
+      "i.cls": "rshot"
+     },
+     {
+      "i.l1": "/assets/reviews/r21.webp",
+      "i.t1": "להגדלה: ביקורת של אלישבע רוק",
+      "i.img1": {
+       "src": "/assets/reviews/r21-480.webp",
+       "alt": "צילום מסך של ביקורת על יוסק׳ה: אלישבע רוק, פוסט בפייסבוק",
+       "srcset": "/assets/reviews/r21-480.webp 480w, /assets/reviews/r21.webp 623w",
+       "w": "480",
+       "h": "136"
+      },
+      "i.cls": "rshot"
+     },
+     {
+      "i.l1": "/assets/reviews/r23.webp",
+      "i.t1": "להגדלה: ביקורת של משתתפי סיור",
+      "i.img1": {
+       "src": "/assets/reviews/r23-480.webp",
+       "alt": "צילום מסך של ביקורת על יוסק׳ה: משתתפי סיור, משוב מסקר",
+       "srcset": "/assets/reviews/r23-480.webp 480w, /assets/reviews/r23.webp 540w",
+       "w": "480",
+       "h": "484"
+      },
+      "i.cls": "rshot"
+     },
+     {
+      "i.l1": "/assets/reviews/r24.webp",
+      "i.t1": "להגדלה: ביקורת של משתתפי סיור",
+      "i.img1": {
+       "src": "/assets/reviews/r24-480.webp",
+       "alt": "צילום מסך של ביקורת על יוסק׳ה: משתתפי סיור, משוב מסקר",
+       "srcset": "/assets/reviews/r24-480.webp 480w, /assets/reviews/r24.webp 540w",
+       "w": "480",
+       "h": "332"
+      },
+      "i.cls": "rshot"
+     },
+     {
+      "i.l1": "/assets/reviews/r25.webp",
+      "i.t1": "להגדלה: ביקורת של משתתפי סיור",
+      "i.img1": {
+       "src": "/assets/reviews/r25-480.webp",
+       "alt": "צילום מסך של ביקורת על יוסק׳ה: משתתפי סיור, משוב מסקר",
+       "srcset": "/assets/reviews/r25-480.webp 480w, /assets/reviews/r25.webp 536w",
+       "w": "480",
+       "h": "136"
+      },
+      "i.cls": "rshot"
+     }
+    ],
+    "abroad.list1": [
+     {
+      "i.ic1": "clock",
+      "i.t1": "מדריך לעיתים במסעות ברזילאו"
+     },
+     {
+      "i.ic1": "globe",
+      "i.t1": "ברזיל · ארגנטינה · צ׳ילה · פרו · אקוודור"
+     },
+     {
+      "i.ic1": "group",
+      "i.t1": "קבוצות מטיילים מישראל"
+     },
+     {
+      "i.ic1": "route",
+      "i.t1": "מסעות מאורגנים של ברזילאו"
+     }
+    ],
+    "abroad.list2": [
+     {
+      "i.l1": "https://www.brazilao.com/organized-tours",
+      "i.img1": {
+       "src": "/assets/photos/rio-sm.jpg",
+       "alt": "יוסק׳ה פורש ידיים מתחת לפסל ישו הגואל בריו דה ז׳ניירו",
+       "srcset": "/assets/photos/rio-xs.jpg 480w, /assets/photos/rio-sm.jpg 820w"
+      },
+      "i.t1": "ריו דה ז׳ניירו",
+      "i.cls": "tcard"
+     },
+     {
+      "i.l1": "https://www.brazilao.com/organized-tours",
+      "i.img1": {
+       "src": "/assets/photos/andes-trail-sm.jpg",
+       "alt": "שביל הררי במסע בדרום אמריקה",
+       "srcset": "/assets/photos/andes-trail-xs.jpg 480w, /assets/photos/andes-trail-sm.jpg 820w, /assets/photos/andes-trail.jpg 1600w",
+       "pos": " 50% 60%"
+      },
+      "i.t1": "שביל בהרים",
+      "i.cls": "tcard"
+     },
+     {
+      "i.l1": "https://www.brazilao.com/organized-tours",
+      "i.img1": {
+       "src": "/assets/photos/ponchos-group-sm.jpg",
+       "alt": "חברים בפונצ׳ו צבעוניים במסע בדרום אמריקה",
+       "srcset": "/assets/photos/ponchos-group-xs.jpg 480w, /assets/photos/ponchos-group-sm.jpg 820w, /assets/photos/ponchos-group.jpg 1920w"
+      },
+      "i.t1": "חברים לדרך",
+      "i.cls": "tcard"
+     },
+     {
+      "i.l1": "https://www.brazilao.com/organized-tours",
+      "i.img1": {
+       "src": "/assets/photos/andes-alley-sm.jpg",
+       "alt": "סמטה בכפר במסע בדרום אמריקה",
+       "srcset": "/assets/photos/andes-alley-xs.jpg 480w, /assets/photos/andes-alley-sm.jpg 820w, /assets/photos/andes-alley.jpg 900w"
+      },
+      "i.t1": "סמטאות בדרך",
+      "i.cls": "tcard"
+     }
+    ],
+    "faq.list1": [
+     {
+      "i.t1": "מה הופך סיור עם יוסק׳ה לשונה מסיור רגיל?",
+      "i.t2": "הסיור לא בנוי כמו הרצאה שעוברת ממקום למקום. יוסק׳ה מחבר את הסיפורים למה שרואים ברחוב, שואל, מגיב לקבוצה ומשאיר מקום למה שקורה בדרך. יש הרבה תוכן, אבל הוא מגיע בשיחה ולא בשיעור."
+     },
+     {
+      "i.t1": "אנחנו חיפאים. באמת יש ליוסק׳ה מה לחדש לנו?",
+      "i.t2": "דווקא למי שמכירים את הרחובות יש יתרון. אפשר לדלג על ההיכרות הבסיסית ולהיכנס לסיפורים, לחיבורים ולפרטים שעוברים לידם כל שבוע. המטרה אינה רק להראות מקום חדש, אלא לגרום להסתכל אחרת על מקום מוכר."
+     },
+     {
+      "i.t1": "ומה אם לא כולם בקבוצה אוהבים את אותם הדברים?",
+      "i.t2": "זה כמעט תמיד המצב. יש מי שבאו בשביל האוכל, מי שרוצים היסטוריה ומי שפשוט שמחים לצאת מהמשרד. בשיחה הראשונה מבינים מה חשוב לקבוצה ובונים רצף שנותן מקום ליותר מסוג אחד של עניין."
+     },
+     {
+      "i.t1": "אנחנו לא ממש אנשים של סיורים. זה עדיין יכול להתאים?",
+      "i.t2": "כן, כל עוד אתם מוכנים ללכת, להסתכל ולשמוע סיפור טוב. הסיורים אינם בנויים על עמידה ממושכת מול מדריך שמדבר לבד. הקצב, השאלות והרחוב הם חלק מהדרך שבה התוכן עובר."
+     },
+     {
+      "i.t1": "איך יודעים איזה סיור לבחור?",
+      "i.t2": "אפשר להתחיל בשאלון ההתאמה או לפנות ליוסק׳ה ולספר מי מגיע, כמה זמן יש ומה מעניין אתכם. לא צריך להגיע עם שם של סיור. כן כדאי להגיע עם כמה פרטים על הקבוצה."
+     },
+     {
+      "i.t1": "אפשר לשלב אוכל או פעילות נוספת?",
+      "i.t2": "בחלק מהימים אפשר לשלב טעימות, ארוחה או פעילות קבוצתית. האפשרויות תלויות בקבוצה, במועד ובמבנה היום, ולכן סוגרים אותן בשיחה עם יוסק׳ה."
+     },
+     {
+      "i.t1": "ומה לגבי הליכה ונגישות?",
+      "i.t2": "לכל סיור יש מבנה אחר. לפני שסוגרים עוברים עם יוסק׳ה על מרחק, מדרגות, עליות וכל צורך נגישות רלוונטי, כדי לבדוק מה מתאים למסלול ולקבוצה."
+     }
+    ]
+   }
+  },
+  "tours": {
+   "path": "/tours/",
+   "seo": {
+    "title": "הסיורים בחיפה | יוסק׳ה",
+    "description": "איזו חיפה בא לכם להכיר? סיורים בחיפה עם יוסק׳ה קליין, מהכרמל ועד הנמל, העיר התחתית והאוכל."
+   },
+   "fields": {
+    "blk1.t1": "אפשר להתחיל מהכרמל ולרדת עד הנמל.",
+    "blk1.t2": "איזו חיפה בא לכם",
+    "blk1.t3": "להכיר?",
+    "blk1.t4": "אפשר להתחיל מהכרמל ולרדת עד הנמל, להישאר בחלק העליון, להיכנס לרחובות של העיר התחתית או להכיר את חיפה דרך האוכל. כל סיור פותח חלק אחר של העיר, אבל כולם מחברים בין המקום לבין האנשים, החברה והתרבות שמאחוריו.",
+    "blk1.img1": {
+     "src": "/assets/approved/lookout-dusk-960.webp",
+     "alt": "אנשים על מרפסת תצפית מול העיר, הנמל והמפרץ לקראת ערב",
+     "srcset": "/assets/approved/lookout-dusk-480.webp 480w, /assets/approved/lookout-dusk-960.webp 960w, /assets/approved/lookout-dusk-1920.webp 1920w",
+     "w": "1920",
+     "h": "887",
+     "pos": "50% 55%"
+    },
+    "blk2.t1": "בחרו לפי הזמן שיש לכם ולפי מה שמסקרן אתכם. אם עדיין לא ברור, שאלון ההתאמה או שיחה קצרה עם יוסק׳ה יעשו סדר.",
+    "blk3.t1": "הכרטיסים מציגים את ההבדל בין האפשרויות.",
+    "blk3.t2": "הסיורים",
+    "blk3.t3": "בחיפה",
+    "blk3.t4": "בעמוד של כל סיור מחכים המסלול, הנושאים, משך ההליכה וכל מה שכדאי לדעת לפני שסוגרים.",
+    "blk4.t1": "השוואה קצרה",
+    "blk4.t2": "סיור",
+    "blk4.t3": "סוג החוויה",
+    "blk4.t4": "משך",
+    "blk4.t5": "מתאים במיוחד",
+    "blk4.l1": "/tours/haifa-ahuvati.html",
+    "blk4.t6": "חיפה אהובתי",
+    "blk4.t7": "להבין את חיפה מההר ועד הנמל",
+    "blk4.t8": "כ־5 עד 6 שעות",
+    "blk4.t9": "מי שמגיעים לחיפה בפעם הראשונה או רוצים לקבל תמונה רחבה ומחוברת של העיר.",
+    "blk4.l2": "/tours/haifa-ahuvati-mekutzar.html",
+    "blk4.t10": "חיפה אהובתי מקוצר",
+    "blk4.t11": "התמונה הרחבה, בזמן קצר יותר",
+    "blk4.t12": "כ־3 שעות",
+    "blk4.t13": "קבוצות עם זמן מוגבל או למי שרוצים פתיחה טובה לעיר.",
+    "blk4.l3": "/tours/haifa-shel-maala.html",
+    "blk4.t14": "חיפה של מעלה",
+    "blk4.t15": "לראות את העיר מלמעלה, ולהבין מה קורה מתחת",
+    "blk4.t16": "כ־2.5 שעות",
+    "blk4.t17": "מי שאוהבים נוף, קצב נוח וסיפורים שמחברים בין תכנון עירוני, תרבות ואנשים.",
+    "blk4.l4": "/tours/haifa-shel-mata.html",
+    "blk4.t18": "חיפה של מטה",
+    "blk4.t19": "החלק של חיפה שמרגישים דרך הרחוב",
+    "blk4.t20": "כ־2.5 שעות",
+    "blk4.t21": "מי שאוהבים רחובות, היסטוריה עירונית וסיפורים על האנשים שעיצבו את המקום.",
+    "blk4.l5": "/tours/teima-mehaifa.html",
+    "blk4.t22": "טעימה מחיפה",
+    "blk4.t23": "להבין את העיר גם דרך מה שאוכלים בה",
+    "blk4.t24": "כ־2 עד 3 שעות",
+    "blk4.t25": "מי שאוהבים אוכל טוב וסיפור טוב",
+    "blk4.l6": "/tours/teva-adam-hevra-sviva.html",
+    "blk4.t26": "טבע, אדם, חברה, סביבה",
+    "blk4.t27": "יום שמחבר בין רעיונות גדולים למה שפוגשים בשטח",
+    "blk4.t28": "נקבע מול יוסק׳ה",
+    "blk4.t29": "קבוצות, מוסדות וארגונים שמחפשים יום עם נושא, דיון ותוכן עמוק יותר.",
+    "blk5.t1": "לא בטוחים איזה סיור מתאים?",
+    "blk5.t2": "חמש שאלות קצרות על הקבוצה, הזמן והקצב, והמלצה על סיור שקיים בפועל. פרטי קשר רק אם תרצו.",
+    "blk5.l1": "/quiz.html",
+    "blk5.t3": "לשאלון ההתאמה",
+    "blk6.t1": "לא בטוחים מה מתאים?",
+    "blk6.t2": "ספרו ליוסק׳ה",
+    "blk6.t3": "מי מגיע",
+    "blk6.t4": "ספרו ליוסק׳ה מי מגיע, כמה זמן יש ומה בדרך כלל גורם לקבוצה שלכם ליהנות.",
+    "blk6.l1": "/contact.html",
+    "blk6.t5": "יוסק׳ה, מה מתאים לנו?"
+   },
+   "lists": {}
+  },
+  "about": {
+   "path": "/about.html",
+   "seo": {
+    "title": "אודות יוסק׳ה | יוסק׳ה",
+    "description": "יוסק׳ה קליין, מדריך ומפיק טיולים בחיפה, עם סקרנות לתרבות, לחברה ולמה שקורה כשאנשים ומקום נפגשים."
+   },
+   "fields": {
+    "blk3.t1": "מדריך ומפיק טיולים בחיפה, עם סקרנות לתרבות, לחברה ולמה שקורה כשאנשים ומקום נפגשים.",
+    "blk3.t2": "אני יוסק׳ה, ואני אוהב אנשים",
+    "blk3.t3": "כמעט כמו שאני אוהב לטייל",
+    "blk3.t4": "מדריך ומפיק טיולים בחיפה, עם סקרנות לתרבות, לחברה ולמה שקורה כשאנשים ומקום נפגשים.",
+    "blk3.img1": {
+     "src": "/assets/approved/portrait-warm-960.webp",
+     "alt": "יוסק׳ה קליין בפונצ׳ו כחול ליד קיר פרחים צבעוני",
+     "srcset": "/assets/approved/portrait-warm-480.webp 480w, /assets/approved/portrait-warm-960.webp 960w, /assets/approved/portrait-warm-1920.webp 1536w",
+     "w": "1536",
+     "h": "1745",
+     "pos": "50% 35%"
+    },
+    "blk4.t1": "הסיפור",
+    "blk4.t2": "שלי",
+    "blk4.t3": "מצאתי בעבודה הזאת חיבור בין כמה דברים שמעניינים אותי באמת: אנשים, מקומות, תרבות והשאלות שמסתתרות מאחורי מה שנראה מובן מאליו.",
+    "blk4.t4": "אני מגיע לסיור עם ידע ותכנון, אבל לא רוצה שהקבוצה תרגיש שהיא נכנסה לשיעור. הלימודים שלי בסוציולוגיה ובאנתרופולוגיה נותנים לי כלים לקרוא תופעות חברתיות ותרבותיות; העבודה בשטח מלמדת אותי איך להפוך אותן לסיפור שאפשר להבין, לשאול עליו וליהנות ממנו.",
+    "blk5.t1": "איך אני רואה",
+    "blk5.t2": "סיור טוב",
+    "blk5.t3": "סיור טוב אינו רק רצף של עובדות. הוא צריך לתת חופש להגיב למה שקורה, שמחה שאינה מאולצת, תוכן שמעשיר בלי להכביד וחיבור אמיתי בין האנשים שהגיעו יחד.",
+    "blk5.t4": "אני רוצה שהקבוצה תצא עם יותר מידע, אבל גם עם יותר שיחה. עם רגעים מצחיקים, אבל גם עם מחשבה אחת או שתיים שנכנסות לחיים האישיים. עם תחושה שהיום היה מקצועי ומסודר, בלי שהסדר השתלט על החוויה.",
+    "blk6.t1": "למה",
+    "blk6.t2": "חיפה",
+    "blk6.t3": "חיפה נותנת לי בדיוק את החיבור הזה. הר וים, נמל וגנים, שכונות שונות, דתות, תרבויות, תחבורה, תעשייה וטבע. היא עיר שאפשר להסתכל עליה מכמה כיוונים וכל פעם לקבל סיפור אחר.",
+    "blk7.t1": "מעבר",
+    "blk7.t2": "לחיפה",
+    "blk7.t3": "לעיתים אני מדריך גם קבוצות ישראליות במסעות של ברזילאו בדרום אמריקה. המקומות משתנים, אבל הסקרנות נשארת: להבין אנשים ותרבות, ולא להסתפק רק בנוף.",
+    "blk8.l1": "/tours/",
+    "blk8.t1": "לסיורים של יוסק׳ה"
+   },
+   "lists": {}
+  },
+  "families": {
+   "path": "/families.html",
+   "seo": {
+    "title": "פעילות משפחתית בחיפה | יוסק׳ה",
+    "description": "פעילות בחיפה שבה הילדים הם חלק מהסיפור: חידות, משימות ורמזים לכל המשפחה, עם יוסק׳ה קליין."
+   },
+   "fields": {
+    "blk1.t1": "חידות, משימות ורמזים שמכניסים את כל המשפחה לעיר.",
+    "blk1.t2": "פעילות בחיפה שבה הילדים הם",
+    "blk1.t3": "חלק מהסיפור",
+    "blk1.t4": "חידות, משימות ורמזים שמכניסים את כל המשפחה לעיר, בלי לגרור אף אחד מאחור ובלי להפוך את היום לשיעור.",
+    "blk1.img1": {
+     "src": "/assets/approved/lookout-kids-960.webp",
+     "alt": "יוסק׳ה מסביר לילדים ולהורים ליד המעקה מול המפרץ",
+     "srcset": "/assets/approved/lookout-kids-480.webp 480w, /assets/approved/lookout-kids-960.webp 960w",
+     "w": "960",
+     "h": "540",
+     "pos": "50% 50%"
+    },
+    "blk2.l1": "#lead",
+    "blk2.t1": "למציאת הפעילות למשפחה שלנו",
+    "blk3.t1": "ב״סודות ורמזים בחיפה״ הילדים",
+    "blk3.t2": "לא מחכים",
+    "blk3.t3": "הם מחפשים, פותרים, שואלים ומובילים את המשפחה אל הסיפור הבא. הפעילות משלבת משחק עם תוכן ומאפשרת גם למבוגרים לראות את העיר אחרת. בוחרים את האזור לפי הגילאים, הזמן והקצב של המשפחה, ויוצאים ליום שבו כולם משתתפים.",
+    "blk4.t1": "ארבע אפשרויות",
+    "blk4.t2": "בחיפה",
+    "blk5.t1": "איך",
+    "blk5.t2": "בוחרים",
+    "blk5.t3": "לא לפי הכותרת היפה ביותר, אלא לפי הגילאים, משך הזמן, רמת ההליכה, עגלות, נגישות ומה שהילדים אוהבים לעשות. יוסק׳ה עובר אתכם על האפשרויות ועוזר לבחור.",
+    "pf.t1": "שאלות",
+    "pf.t2": "של",
+    "pf.t3": "הורים",
+    "lead.t1": "לבדיקת פעילות",
+    "lead.t2": "למשפחה",
+    "lead.t3": "ספרו בני כמה הילדים, כמה זמן יש ומתי תרצו לצאת. יוסק׳ה יחזור אליכם.",
+    "lead.l1": "https://wa.me/{{set.waNumber}}?text=%D7%94%D7%99%D7%99%20%D7%99%D7%95%D7%A1%D7%A7%D7%B3%D7%94%2C%20%D7%94%D7%92%D7%A2%D7%A0%D7%95%20%D7%93%D7%A8%D7%9A%20%D7%A2%D7%9E%D7%95%D7%93%20%D7%94%D7%9E%D7%A9%D7%A4%D7%97%D7%95%D7%AA%20%D7%95%D7%A0%D7%A9%D7%9E%D7%97%20%D7%9C%D7%91%D7%93%D7%95%D7%A7%20%D7%90%D7%99%D7%96%D7%95%20%D7%A4%D7%A2%D7%99%D7%9C%D7%95%D7%AA%20%D7%9E%D7%AA%D7%90%D7%99%D7%9E%D7%94%20%D7%9C%D7%A0%D7%95.",
+    "lead.t4": "מעדיפים WhatsApp? כתבו ליוסק׳ה",
+    "lead.t5": "הפרטים הגיעו ליוסק׳ה.",
+    "lead.t6": "הוא יחזור אליכם כדי להבין מי מגיע ומה יכול להתאים.",
+    "lead.t7": "לשלוח פנייה נוספת"
+   },
+   "lists": {
+    "blk4.list1": [
+     {
+      "i.t1": "1",
+      "i.t2": "מרכז הכרמל",
+      "i.t3": "פעילות עירונית באזור מרכז הכרמל, עם חידות ורמזים שמובילים בין נקודות וסיפורים. הפעילות נמשכת כשעתיים, באורך של כ־1.3 ק״מ ומתאימה לגילאי 5 עד 13.",
+      "i.cls": "fopt"
+     },
+     {
+      "i.t1": "2",
+      "i.t2": "המושבה הגרמנית",
+      "i.t3": "פעילות בין הרחובות והסיפורים של המושבה, עם משימות שמזמינות את הילדים להסתכל על מבנים, פרטים והקשר שבין השכונה לעיר.",
+      "i.cls": "fopt"
+     },
+     {
+      "i.t1": "3",
+      "i.t2": "שקמונה",
+      "i.t3": "פעילות ליד הים שמאפשרת לחבר בין טבע, עבר, עיר וסביבה דרך חיפוש, תנועה ומשימות משפחתיות.",
+      "i.cls": "fopt"
+     },
+     {
+      "i.t1": "4",
+      "i.t2": "מערת אליהו וסטלה מאריס",
+      "i.t3": "פעילות שמחברת בין הר, ים, אמונות וסיפורים מקומיים באזור שיש בו כמה שכבות תרבותיות במרחק קצר.",
+      "i.cls": "fopt"
+     }
+    ],
+    "pf.list1": [
+     {
+      "i.t1": "לאילו גילאים זה מתאים?",
+      "i.t2": "הגילאים משתנים בין הפעילויות. מוסרים ליוסק׳ה את גילאי הילדים ובודקים איזו אפשרות מתאימה."
+     },
+     {
+      "i.t1": "ומה אם הילד או הילדה לא אוהבים להקשיב להסברים?",
+      "i.t2": "הפעילות בנויה על משימות, חיפוש ורמזים. התוכן מגיע כחלק מהמשחק ולא כהרצאה ארוכה."
+     },
+     {
+      "i.t1": "אפשר להגיע עם עגלה?",
+      "i.t2": "המסלולים שונים זה מזה. בודקים מראש את רמת ההליכה, המדרגות וההתאמה לעגלה בכל אזור."
+     },
+     {
+      "i.t1": "אפשר להזמין ליום הולדת או מפגש משפחתי?",
+      "i.t2": "מספרים ליוסק׳ה מה מציינים, מי מגיע ומה מסגרת הזמן, ובודקים איזו פעילות ואיזה מבנה יכולים להתאים."
+     }
+    ]
+   }
+  },
+  "orgs": {
+   "path": "/orgs.html",
+   "seo": {
+    "title": "ימי גיבוש לחברות ולארגונים | יוסק׳ה",
+    "description": "יום בחיפה שהצוות באמת נכנס אליו: תוכן, תכנון ואווירה שמחברת בין אנשים שונים, עם יוסק׳ה קליין."
+   },
+   "fields": {
+    "blk1.t1": "תוכן, תכנון ואווירה שמחברת בין אנשים שונים.",
+    "blk1.t2": "יום בחיפה שהצוות",
+    "blk1.t3": "באמת נכנס אליו",
+    "blk1.t4": "תוכן, תכנון ואווירה שמחברת בין אנשים שונים, גם כשלא כולם מגיעים עם אותה רמת התלהבות מסיור מודרך.",
+    "blk1.img1": {
+     "src": "/assets/approved/stairs-group-960.webp",
+     "alt": "קבוצה גדולה עם יוסק׳ה יושבת על מדרגות ברחוב",
+     "srcset": "/assets/approved/stairs-group-480.webp 480w, /assets/approved/stairs-group-960.webp 960w, /assets/approved/stairs-group-1920.webp 1440w",
+     "w": "1440",
+     "h": "1440",
+     "pos": "50% 45%"
+    },
+    "blk2.l1": "#lead",
+    "blk2.t1": "לתכנון יום לצוות",
+    "blk3.t1": "יום גיבוש טוב לא מתחיל",
+    "blk3.t2": "בבחירת אטרקציה",
+    "blk3.t3": "הוא מתחיל בהבנה של האנשים: מי מגיע, מה הצוות עבר יחד, מה רוצים שיקרה ביום הזה ומה ממש לא מתאים לו.",
+    "blk3.t4": "יוסק׳ה בונה את היום סביב הקבוצה ומחבר בין סיור בחיפה, תוכן חברתי־תרבותי, אוכל ופעילויות מאושרות. המטרה היא לא למלא שעות, אלא ליצור רצף שבו אנשים זזים, מדברים, לומדים, צוחקים ומקבלים הזדמנות לפגוש זה את זה מחוץ לתפקידים הרגילים.",
+    "blk4.t1": "למה זה עובד",
+    "blk4.t2": "לצוותים",
+    "blk4.t3": "שונים",
+    "blk4.t4": "בכל צוות יש מי שרוצים היסטוריה, מי שמחכים לאוכל, מי שמעדיפים פעילות ומי שהיו שמחים לדעת מתי חוזרים למשרד. יוסק׳ה אינו מתעלם מהפערים האלה. הוא משתמש בהם כדי לבנות יום עם קצב, גיוון ומקום ליותר מסוג אחד של עניין.",
+    "blk4.t5": "מאחורי הקלילות יש תכנון: רצף, זמנים, נקודות מפגש, מעברים ודרך ברורה להחזיק את הקבוצה. ביום עצמו התוכן מגיע בגובה העיניים, בלי להפוך את הגיבוש ליום לימודים.",
+    "blk5.t1": "מה אפשר",
+    "blk5.t2": "לבנות",
+    "blk6.t1": "איך זה",
+    "blk6.t2": "עובד",
+    "blk7.t1": "ומה אם חלק מהצוות",
+    "blk7.t2": "לא אוהב סיורים?",
+    "blk7.t3": "היום אינו מבוסס על עמידה והקשבה בלבד. הרחוב, השאלות, המעברים והקבוצה הם חלק מהדרך שבה התוכן עובר. בשיחה הראשונה בודקים מה עלול לאבד את האנשים ומתכננים בהתאם.",
+    "lead.t1": "ספרו ליוסק׳ה",
+    "lead.t2": "על הצוות",
+    "lead.t3": "לא צריך להגיע עם תכנית. צריך לדעת מי מגיע, מה אתם רוצים להשיג ומה מסגרת הזמן.",
+    "lead.l1": "https://wa.me/{{set.waNumber}}?text=%D7%94%D7%99%D7%99%20%D7%99%D7%95%D7%A1%D7%A7%D7%B3%D7%94%2C%20%D7%94%D7%92%D7%A2%D7%A0%D7%95%20%D7%93%D7%A8%D7%9A%20%D7%A2%D7%9E%D7%95%D7%93%20%D7%94%D7%90%D7%A8%D7%92%D7%95%D7%A0%D7%99%D7%9D%20%D7%95%D7%A0%D7%A9%D7%9E%D7%97%20%D7%9C%D7%93%D7%91%D7%A8%20%D7%A2%D7%9C%20%D7%99%D7%95%D7%9D%20%D7%9C%D7%A6%D7%95%D7%95%D7%AA%20%D7%A9%D7%9C%D7%A0%D7%95.",
+    "lead.t4": "מעדיפים WhatsApp? כתבו ליוסק׳ה",
+    "lead.t5": "הפרטים הגיעו ליוסק׳ה.",
+    "lead.t6": "הוא יחזור אליכם כדי להבין מי מגיע ומה יכול להתאים.",
+    "lead.t7": "לשלוח פנייה נוספת"
+   },
+   "lists": {
+    "blk5.list1": [
+     {
+      "i.ic1": "pin",
+      "i.t1": "סיור תוכן בחיפה."
+     },
+     {
+      "i.ic1": "pin",
+      "i.t1": "יום סביב נושא חברתי, תרבותי או סביבתי."
+     },
+     {
+      "i.ic1": "pin",
+      "i.t1": "שילוב אוכל או טעימות, לפי האפשרויות הפעילות."
+     },
+     {
+      "i.ic1": "pin",
+      "i.t1": "משימות ושיחה קבוצתית."
+     },
+     {
+      "i.ic1": "pin",
+      "i.t1": "יום רחב יותר המשלב כמה חלקים, לאחר אישור ותכנון."
+     }
+    ],
+    "blk6.list1": [
+     {
+      "i.t1": "1",
+      "i.t2": "מבינים את הצוות",
+      "i.t3": "מספר משתתפים, גילאים, תפקידים, מטרת היום, זמן ותקציב."
+     },
+     {
+      "i.t1": "2",
+      "i.t2": "בונים כיוון",
+      "i.t3": "יוסק׳ה מציע סיור קיים או מבנה יום ומסביר מה מתאים ולמה."
+     },
+     {
+      "i.t1": "3",
+      "i.t2": "מדייקים את הפרטים",
+      "i.t3": "תוכן, קצב, אוכל, מעברים, מפגש וסיום."
+     },
+     {
+      "i.t1": "4",
+      "i.t2": "יוצאים לדרך",
+      "i.t3": "הצוות מגיע ליום שנבנה כיחידה אחת, לא כאוסף תחנות."
+     }
+    ]
+   }
+  },
+  "private": {
+   "path": "/private-groups.html",
+   "seo": {
+    "title": "טיול פרטי לקבוצה בחיפה | יוסק׳ה",
+    "description": "יש קבוצה? בואו נבנה לה יום בחיפה: סיור קיים או יום רחב יותר, לפי הזמן, ההרכב ומה שמעניין אתכם."
+   },
+   "fields": {
+    "blk1.t1": "לחברים, קהילות, אורחים ואירועים פרטיים שרוצים יותר מעוד מפגש סביב שולחן.",
+    "blk1.t2": "יש קבוצה.",
+    "blk1.t3": "בואו נבנה לה",
+    "blk1.t4": "יום בחיפה.",
+    "blk1.t5": "לחברים, קהילות, אורחים ואירועים פרטיים שרוצים יותר מעוד מפגש סביב שולחן.",
+    "blk1.img1": {
+     "src": "/assets/approved/lookout-big-group-960.webp",
+     "alt": "קבוצה גדולה מצטלמת בתצפית מעל המפרץ",
+     "srcset": "/assets/approved/lookout-big-group-480.webp 480w, /assets/approved/lookout-big-group-960.webp 960w, /assets/approved/lookout-big-group-1920.webp 1200w",
+     "w": "1200",
+     "h": "1124",
+     "pos": "50% 60%"
+    },
+    "blk2.t1": "בוחרים סיור קיים, או",
+    "blk2.t2": "יום רחב יותר",
+    "blk2.t3": "אפשר לבחור אחד מהסיורים הקיימים או לבנות יום רחב יותר סביב הזמן, ההרכב ומה שמעניין את הקבוצה. יוסק׳ה עוזר לבחור את האזור, הקצב והתוכן ומוודא שהיום מרגיש מחובר ולא כמו רשימת תחנות.",
+    "blk2.t4": "הקבוצה יכולה להגיע בשביל חיפה, בשביל תוכן, בשביל אוכל או פשוט בשביל זמן משותף. השיחה הראשונה נועדה להבין מה חשוב לכם ומה יעזור לכולם להיכנס ליום.",
+    "blk3.l1": "/tours/",
+    "blk3.t1": "לכל הסיורים בחיפה",
+    "lead.t1": "ספרו על הקבוצה",
+    "lead.t2": "ונבנה את",
+    "lead.t3": "היום",
+    "lead.t4": "מי מגיע, כמה אתם ומה הייתם רוצים שיקרה ביום הזה.",
+    "lead.l1": "https://wa.me/{{set.waNumber}}?text=%D7%94%D7%99%D7%99%20%D7%99%D7%95%D7%A1%D7%A7%D7%B3%D7%94%2C%20%D7%94%D7%92%D7%A2%D7%A0%D7%95%20%D7%93%D7%A8%D7%9A%20%D7%A2%D7%9E%D7%95%D7%93%20%D7%94%D7%A7%D7%91%D7%95%D7%A6%D7%95%D7%AA%20%D7%94%D7%A4%D7%A8%D7%98%D7%99%D7%95%D7%AA%20%D7%95%D7%A0%D7%A9%D7%9E%D7%97%20%D7%9C%D7%AA%D7%9B%D7%A0%D7%9F%20%D7%98%D7%99%D7%95%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99.",
+    "lead.t5": "מעדיפים WhatsApp? כתבו ליוסק׳ה",
+    "lead.t6": "הפרטים הגיעו ליוסק׳ה.",
+    "lead.t7": "הוא יחזור אליכם כדי להבין מי מגיע ומה יכול להתאים.",
+    "lead.t8": "לשלוח פנייה נוספת"
+   },
+   "lists": {}
+  },
+  "south-america": {
+   "path": "/south-america.html",
+   "seo": {
+    "title": "דרום אמריקה עם יוסק׳ה | יוסק׳ה",
+    "description": "מסעות מאורגנים של ברזילאו שבהם יוסק׳ה מדריך לעיתים קבוצות ישראליות: ברזיל, ארגנטינה, צ׳ילה, פרו ואקוודור."
+   },
+   "fields": {
+    "blk3.t1": "מסעות מאורגנים של ברזילאו שבהם יוסק׳ה מדריך לעיתים קבוצות ישראליות ומחבר בין נוף, אנשים ותרבות.",
+    "blk3.t2": "דרום אמריקה",
+    "blk3.t3": "עם יוסק׳ה",
+    "blk3.t4": "מסעות מאורגנים של ברזילאו שבהם יוסק׳ה מדריך לעיתים קבוצות ישראליות ומחבר בין נוף, אנשים ותרבות.",
+    "blk3.img1": {
+     "src": "/assets/approved/rio-960.webp",
+     "alt": "יוסק׳ה פורש ידיים מתחת לפסל ישו הגואל בריו דה ז׳ניירו",
+     "srcset": "/assets/approved/rio-480.webp 480w, /assets/approved/rio-960.webp 956w",
+     "w": "956",
+     "h": "960",
+     "pos": "50% 35%"
+    },
+    "blk4.t1": "דרום אמריקה אינה רק",
+    "blk4.t2": "רשימת יעדים",
+    "blk4.t3": "כל מדינה וכל מסע פותחים עולם אחר של חברה, תרבות, היסטוריה ונוף. יוסק׳ה מביא למסעות את אותה דרך עבודה שמאפיינת אותו בחיפה: הרבה ידע, סקרנות לאנשים ותוכן שמגיע בשיחה ולא בהרצאה.",
+    "blk4.t4": "ברזילאו היא הגוף שמפעיל את המסעות, מנהל את המסלולים, המועדים וההרשמה. בעמוד זה אפשר להכיר את היעדים ולראות את הקישורים הרלוונטיים למסעות שבהם יוסק׳ה מדריך.",
+    "blk5.t1": "1",
+    "blk5.t2": "ברזיל",
+    "blk5.t3": "ברזיל מופיעה במסעות ממוקדים כמו ״ברזיל אהובתי״ ו״טעימה ברזילאית״, וגם כחלק ממסעות רחבים יותר. בין ערים, חופים, איים, מוזיקה וקרנבל, יוסק׳ה מחבר את מה שרואים לשאלות על החברה הברזילאית ועל ההבדלים בין האזורים והאנשים.",
+    "blk5.l1": "https://www.brazilao.com/group-travel/brazil-my-love/",
+    "blk5.t4": "ברזיל אהובתי, כולל מצעד המנצחות",
+    "blk5.t5": "2",
+    "blk5.t6": "ארגנטינה",
+    "blk5.t7": "ארגנטינה משולבת כיום במסעות כמו ״דרום אמריקה הקלאסית״ ו״קרנבל ברזילאי וקרחון ארגנטינאי״. המעבר בין תרבות עירונית, מרחבים וקרחונים מאפשר להכיר מדינה שיש בה כמה עולמות שונים מאוד זה מזה.",
+    "blk5.l2": "https://www.brazilao.com/group-travel/classic-south-america/",
+    "blk5.t8": "דרום אמריקה הקלאסית",
+    "blk5.l3": "https://www.brazilao.com/group-travel/brazilian-carnaval-and-glaciers/",
+    "blk5.t9": "קרנבל ברזילאי וקרחון ארגנטינאי",
+    "blk5.t10": "3",
+    "blk5.t11": "צ׳ילה",
+    "blk5.t12": "צ׳ילה מופיעה במסעות משולבים עם ארגנטינה וברזיל, ובהם ״חלום דרום אמריקאי״ ו״מסע גיאוגרפי באמריקה הלטינית״. המסלול מחבר בין רכס האנדים, אגמים, מרחבים והחברה שהתפתחה בין ההרים לאוקיינוס.",
+    "blk5.l4": "https://www.brazilao.com/group-travel/south-american-dream/",
+    "blk5.t13": "חלום דרום אמריקאי",
+    "blk5.l5": "https://www.brazilao.com/group-travel/journey-in-latin-america/",
+    "blk5.t14": "מסע גיאוגרפי באמריקה הלטינית",
+    "blk5.t15": "4",
+    "blk5.t16": "פרו",
+    "blk5.t17": "במסע ״פרו ואקוודור, מסע אל האנדים״ פוגשים את נופי האנדים, תרבות האינקה, כפרים, היסטוריה עתיקה ואוכל מקומי. כל אלה מתחברים למסע אחד, ולא נשארים רשימת אתרים.",
+    "blk5.l6": "https://www.brazilao.com/group-travel/peru-ecuador-machu-pichu/",
+    "blk5.t18": "פרו ואקוודור, מסע אל האנדים",
+    "blk5.t19": "5",
+    "blk5.t20": "אקוודור",
+    "blk5.t21": "אקוודור משולבת עם פרו במסע אל האנדים. זהו מעבר בין נופים, כפרים וקהילות שמאפשר לראות כיצד תרבות, היסטוריה וסביבה משתנות גם בתוך אזור גאוגרפי משותף.",
+    "blk5.l7": "https://www.brazilao.com/group-travel/peru-ecuador-machu-pichu/",
+    "blk5.t22": "פרו ואקוודור, מסע אל האנדים",
+    "blk6.t1": "שקיפות",
+    "blk6.t2": "המסעות מופעלים על ידי ברזילאו. יוסק׳ה אינו מדריך בכל מועד ובכל מסלול. בכל יעד מוצג קישור מדויק למסע הפעיל ולמידע המעודכן.",
+    "blk7.l1": "https://www.brazilao.com/organized-tours",
+    "blk7.t1": "למסעות הפעילים בברזילאו"
+   },
+   "lists": {}
+  },
+  "contact": {
+   "path": "/contact.html",
+   "seo": {
+    "title": "יצירת קשר | יוסק׳ה",
+    "description": "השאירו פרטים ויוסק׳ה יחזור אליכם, או התקשרו ושלחו וואטסאפ. ושאלות נפוצות לפני שבוחרים סיור."
+   },
+   "fields": {
+    "contact.t1": "ספרו על היום שאתם מדמיינים,",
+    "contact.t2": "ניפגש",
+    "contact.t3": "בדרך",
+    "contact.t4": "השאירו שם וטלפון, ויוסק׳ה יחזור אליכם.",
+    "contact.l1": "https://wa.me/{{set.waNumber}}?text={{set.waTextEnc}}",
+    "contact.t5": "וואטסאפ",
+    "contact.t6": "הפנייה התקבלה ונשמרה.",
+    "contact.t7": "יוסק׳ה יחזור אליכם בטלפון שהשארתם, בדרך כלל אחרי שהוא חוזר מהשטח. רוצים לדבר כבר עכשיו?",
+    "contact.t8": "לשלוח פנייה נוספת",
+    "faq.t1": "רגע,",
+    "faq.t2": "ומה לגבי",
+    "faq.t3": "לא מצאתם תשובה?",
+    "faq.l1": "#contact",
+    "faq.t4": "כתבו לנו",
+    "faq.t5": "או",
+    "faq.l2": "/quiz.html",
+    "faq.t6": "נסו את שאלון ההתאמה"
+   },
+   "lists": {
+    "faq.list1": [
+     {
+      "i.t1": "מה הופך סיור עם יוסק׳ה לשונה מסיור רגיל?",
+      "i.t2": "הסיור לא בנוי כמו הרצאה שעוברת ממקום למקום. יוסק׳ה מחבר את הסיפורים למה שרואים ברחוב, שואל, מגיב לקבוצה ומשאיר מקום למה שקורה בדרך. יש הרבה תוכן, אבל הוא מגיע בשיחה ולא בשיעור."
+     },
+     {
+      "i.t1": "אנחנו חיפאים. באמת יש ליוסק׳ה מה לחדש לנו?",
+      "i.t2": "דווקא למי שמכירים את הרחובות יש יתרון. אפשר לדלג על ההיכרות הבסיסית ולהיכנס לסיפורים, לחיבורים ולפרטים שעוברים לידם כל שבוע. המטרה אינה רק להראות מקום חדש, אלא לגרום להסתכל אחרת על מקום מוכר."
+     },
+     {
+      "i.t1": "ומה אם לא כולם בקבוצה אוהבים את אותם הדברים?",
+      "i.t2": "זה כמעט תמיד המצב. יש מי שבאו בשביל האוכל, מי שרוצים היסטוריה ומי שפשוט שמחים לצאת מהמשרד. בשיחה הראשונה מבינים מה חשוב לקבוצה ובונים רצף שנותן מקום ליותר מסוג אחד של עניין."
+     },
+     {
+      "i.t1": "אנחנו לא ממש אנשים של סיורים. זה עדיין יכול להתאים?",
+      "i.t2": "כן, כל עוד אתם מוכנים ללכת, להסתכל ולשמוע סיפור טוב. הסיורים אינם בנויים על עמידה ממושכת מול מדריך שמדבר לבד. הקצב, השאלות והרחוב הם חלק מהדרך שבה התוכן עובר."
+     },
+     {
+      "i.t1": "איך יודעים איזה סיור לבחור?",
+      "i.t2": "אפשר להתחיל בשאלון ההתאמה או לפנות ליוסק׳ה ולספר מי מגיע, כמה זמן יש ומה מעניין אתכם. לא צריך להגיע עם שם של סיור. כן כדאי להגיע עם כמה פרטים על הקבוצה."
+     },
+     {
+      "i.t1": "אפשר לשלב אוכל או פעילות נוספת?",
+      "i.t2": "בחלק מהימים אפשר לשלב טעימות, ארוחה או פעילות קבוצתית. האפשרויות תלויות בקבוצה, במועד ובמבנה היום, ולכן סוגרים אותן בשיחה עם יוסק׳ה."
+     },
+     {
+      "i.t1": "ומה לגבי הליכה ונגישות?",
+      "i.t2": "לכל סיור יש מבנה אחר. לפני שסוגרים עוברים עם יוסק׳ה על מרחק, מדרגות, עליות וכל צורך נגישות רלוונטי, כדי לבדוק מה מתאים למסלול ולקבוצה."
+     }
+    ]
+   }
+  },
+  "quiz": {
+   "path": "/quiz.html",
+   "seo": {
+    "title": "איזה סיור מתאים לכם? | יוסק׳ה",
+    "description": "שאלון קצר שממליץ על סיור בחיפה לפי הקבוצה, הזמן, תחומי העניין והקצב."
+   },
+   "fields": {
+    "blk1.l1": "/",
+    "blk1.t1": "לדף הבית",
+    "blk1.t2": "חמש שאלות קצרות,",
+    "blk1.t3": "איזה סיור",
+    "blk1.t4": "מתאים לכם?",
+    "blk1.t5": "ההמלצה מופיעה מיד, על סיור שקיים בפועל. פרטי קשר רק אם תרצו שיוסק׳ה יחזור אליכם.",
+    "blk2.t1": "ההמלצה שלנו",
+    "blk2.l1": "/tours/",
+    "blk2.t2": "לדף הסיור",
+    "blk2.t3": "לענות מחדש",
+    "blk2.t4": "רוצים שיוסק׳ה יחזור אליכם?",
+    "blk2.t5": "התשובות שלכם יצורפו לפנייה, כדי שלא תצטרכו להסביר הכול מההתחלה.",
+    "blk2.t6": "הפנייה התקבלה ונשמרה.",
+    "blk2.t7": "יוסק׳ה יחזור אליכם בטלפון שהשארתם, בדרך כלל אחרי שהוא חוזר מהשטח. רוצים לדבר כבר עכשיו?",
+    "blk2.t8": "לשלוח פנייה נוספת"
+   },
+   "lists": {}
+  },
+  "sale": {
+   "path": "/sale.html",
+   "seo": {
+    "title": "הרשמה לסיור | יוסק׳ה",
+    "description": "הרשמה ותשלום לסיור עם יוסק׳ה קליין בחיפה.",
+    "noindex": true
+   },
+   "fields": {
+    "blk1.t1": "[נדרש להשלים: שם ההצעה, למשל סיור מסוים במועד מסוים]",
+    "blk1.t2": "יום אחד בחיפה,",
+    "blk1.t3": "שממשיכים לחשוב עליו",
+    "blk1.t4": "גם אחרי",
+    "blk1.t5": "סיור עם יוסק׳ה הוא יום כיפי ומגבש, דרך האנשים, הקהילות והסיפורים שמרכיבים את העיר.",
+    "blk1.t6": "[נדרש להשלים: תיאור ההצעה במשפט אחד]",
+    "blk1.t7": "הרשמה ותשלום",
+    "blk1.t8": "[נדרש להשלים: מחיר למשתתף / לקבוצה, כולל מע״מ אם רלוונטי]",
+    "blk1.t9": "מה כלול:",
+    "blk1.t10": "[נדרש להשלים: מה כלול ומה לא]",
+    "blk1.t11": "ביטול ושינוי:",
+    "blk1.t12": "[נדרש להשלים: מדיניות ביטול לפי חוק הגנת הצרכן]",
+    "blk1.l1": "https://paypage.takbull.co.il/3BEQx",
+    "blk1.t13": "למעבר לתשלום מאובטח",
+    "blk1.t14": "התשלום מתבצע בדף הסליקה של Takbull. פרטי האשראי לא עוברים דרך האתר הזה.",
+    "blk2.t1": "מה חווים",
+    "blk2.t2": "ומה",
+    "blk2.t3": "לוקחים הביתה",
+    "blk2.t4": "הזווית של יוסק׳ה סוציולוגית ואנתרופולוגית: הוא מסתכל על מקום דרך האנשים, החברה והתרבות שלו. בפועל זה אומר שהתחנות הן נקודת פתיחה לשיחה על מי חי כאן, איך קהילות ותרבויות שונות חיות זו לצד זו, ומה אפשר ללמוד מזה על כולנו. ויש גם הרבה צחוק בדרך: האיזון בין העשרה לשמחה הוא חלק מהתוכנית.",
+    "blk2.t5": "[נדרש להשלים: 2–3 דוגמאות לנושאי ההדרכה של הסיור הזה, מהסילבוס]",
+    "blk2.img1": {
+     "src": "/assets/approved/streetart-960.webp",
+     "alt": "קבוצת מטיילים עם יוסק׳ה מול ציור קיר צבעוני",
+     "srcset": "/assets/approved/streetart-480.webp 480w, /assets/approved/streetart-960.webp 960w, /assets/approved/streetart-1920.webp 1600w",
+     "w": "1600",
+     "h": "900"
+    },
+    "sale-lead.t1": "שאלה לפני שנרשמים?",
+    "sale-lead.t2": "נחזור",
+    "sale-lead.t3": "אליכם",
+    "sale-lead.t4": "הפנייה התקבלה ונשמרה.",
+    "sale-lead.t5": "יוסק׳ה יחזור אליכם בטלפון שהשארתם, בדרך כלל אחרי שהוא חוזר מהשטח. רוצים לדבר כבר עכשיו?",
+    "sale-lead.t6": "לשלוח פנייה נוספת"
+   },
+   "lists": {
+    "blk1.list1": [
+     {
+      "i.ic1": "calendar",
+      "i.t1": "מתי",
+      "i.t2": "[נדרש להשלים: תאריך ושעה]",
+      "i.a1": "bicon bicon--teal"
+     },
+     {
+      "i.ic1": "pin",
+      "i.t1": "נקודת מפגש",
+      "i.t2": "[נדרש להשלים: נקודת מפגש]",
+      "i.a1": "bicon bicon--teal"
+     },
+     {
+      "i.ic1": "clock",
+      "i.t1": "משך",
+      "i.t2": "[נדרש להשלים: משך]",
+      "i.a1": "bicon bicon--orange"
+     },
+     {
+      "i.ic1": "group",
+      "i.t1": "למי זה מתאים",
+      "i.t2": "[נדרש להשלים: קהל, גילים, מספר משתתפים]",
+      "i.a1": "bicon bicon--teal"
+     }
+    ]
+   }
+  },
+  "gallery": {
+   "path": "/gallery.html",
+   "seo": {
+    "title": "גלריה | יוסק׳ה",
+    "description": "גלריית תמונות מהטיולים של יוסק׳ה קליין בחיפה: האנשים, המקומות והרגעים שביניהם."
+   },
+   "fields": {
+    "blk1.t1": "האנשים, המקומות והרגעים שביניהם.",
+    "blk1.t2": "ככה זה נראה",
+    "blk1.t3": "בשטח",
+    "blk1.t4": "כמה תמונות מהטיולים, כדי להרגיש קצת מהאווירה עוד לפני שנפגשים.",
+    "blk3.t1": "רוצים להיות",
+    "blk3.t2": "בתמונה",
+    "blk3.t3": "הבאה?",
+    "blk3.l1": "https://wa.me/{{set.waNumber}}?text={{set.waTextEnc}}",
+    "blk3.t4": "בואו נטייל יחד"
+   },
+   "lists": {
+    "blk2.list1": [
+     {
+      "i.l1": "/assets/photos/lookout-dusk.jpg",
+      "i.t1": "לפתיחת התמונה בגודל מלא: אנשים על מרפסת תצפית מול העיר, הנמל והמפרץ לקראת ערב",
+      "i.img1": {
+       "src": "/assets/photos/lookout-dusk-sm.jpg",
+       "alt": "אנשים על מרפסת תצפית מול העיר, הנמל והמפרץ לקראת ערב",
+       "srcset": "/assets/photos/lookout-dusk-xs.jpg 480w, /assets/photos/lookout-dusk-sm.jpg 820w, /assets/photos/lookout-dusk.jpg 1920w",
+       "w": "3013",
+       "h": "1392"
+      },
+      "i.cls": "gitem gitem--wide"
+     },
+     {
+      "i.l1": "/assets/photos/yoske-selfie-group.jpg",
+      "i.t1": "לפתיחת התמונה בגודל מלא: יוסק׳ה מצלם סלפי מחייך, הקבוצה יושבת מאחוריו ומנופפת",
+      "i.img1": {
+       "src": "/assets/photos/yoske-selfie-group-sm.jpg",
+       "alt": "יוסק׳ה מצלם סלפי מחייך, הקבוצה יושבת מאחוריו ומנופפת",
+       "srcset": "/assets/photos/yoske-selfie-group-xs.jpg 480w, /assets/photos/yoske-selfie-group-sm.jpg 820w, /assets/photos/yoske-selfie-group.jpg 1835w",
+       "w": "1835",
+       "h": "2048"
+      },
+      "i.cls": "gitem gitem--tall"
+     },
+     {
+      "i.l1": "/assets/photos/heart-family.jpg",
+      "i.t1": "לפתיחת התמונה בגודל מלא: משפחות וילדים מצטלמים בתוך פסל הלב הצהוב, הים ברקע",
+      "i.img1": {
+       "src": "/assets/photos/heart-family-sm.jpg",
+       "alt": "משפחות וילדים מצטלמים בתוך פסל הלב הצהוב, הים ברקע",
+       "srcset": "/assets/photos/heart-family-xs.jpg 480w, /assets/photos/heart-family-sm.jpg 820w, /assets/photos/heart-family.jpg 1920w",
+       "w": "1979",
+       "h": "1806"
+      },
+      "i.cls": "gitem gitem--wide"
+     },
+     {
+      "i.l1": "/assets/photos/bahai-bay.jpg",
+      "i.t1": "לפתיחת התמונה בגודל מלא: ציר הגנים הבהאיים עד הים, וקבוצה ליד השער",
+      "i.img1": {
+       "src": "/assets/photos/bahai-bay-sm.jpg",
+       "alt": "ציר הגנים הבהאיים עד הים, וקבוצה ליד השער",
+       "srcset": "/assets/photos/bahai-bay-xs.jpg 480w, /assets/photos/bahai-bay-sm.jpg 820w, /assets/photos/bahai-bay.jpg 1134w",
+       "w": "1134",
+       "h": "2015"
+      },
+      "i.cls": "gitem gitem--tall"
+     },
+     {
+      "i.l1": "/assets/photos/red-sculpture-selfie.jpg",
+      "i.t1": "לפתיחת התמונה בגודל מלא: יוסק׳ה בסלפי, מאחוריו קבוצה ליד פסל לב אדום מול המפרץ",
+      "i.img1": {
+       "src": "/assets/photos/red-sculpture-selfie-sm.jpg",
+       "alt": "יוסק׳ה בסלפי, מאחוריו קבוצה ליד פסל לב אדום מול המפרץ",
+       "srcset": "/assets/photos/red-sculpture-selfie-xs.jpg 480w, /assets/photos/red-sculpture-selfie-sm.jpg 820w, /assets/photos/red-sculpture-selfie.jpg 1824w",
+       "w": "1824",
+       "h": "1368"
+      },
+      "i.cls": "gitem gitem--wide"
+     },
+     {
+      "i.l1": "/assets/photos/kids-guiding.jpg",
+      "i.t1": "לפתיחת התמונה בגודל מלא: יוסק׳ה מדריך קבוצת ילדים שמרימים ידיים כדי לענות",
+      "i.img1": {
+       "src": "/assets/photos/kids-guiding-sm.jpg",
+       "alt": "יוסק׳ה מדריך קבוצת ילדים שמרימים ידיים כדי לענות",
+       "srcset": "/assets/photos/kids-guiding-xs.jpg 480w, /assets/photos/kids-guiding-sm.jpg 820w, /assets/photos/kids-guiding.jpg 1080w",
+       "w": "1080",
+       "h": "1920"
+      },
+      "i.cls": "gitem gitem--tall"
+     },
+     {
+      "i.l1": "/assets/photos/haifa-sunset.jpg",
+      "i.t1": "לפתיחת התמונה בגודל מלא: העיר, המגדלים והמפרץ בשקיעה, מבט מלמעלה",
+      "i.img1": {
+       "src": "/assets/photos/haifa-sunset-sm.jpg",
+       "alt": "העיר, המגדלים והמפרץ בשקיעה, מבט מלמעלה",
+       "srcset": "/assets/photos/haifa-sunset-xs.jpg 480w, /assets/photos/haifa-sunset-sm.jpg 820w, /assets/photos/haifa-sunset.jpg 1848w",
+       "w": "1848",
+       "h": "2037"
+      },
+      "i.cls": "gitem gitem--tall"
+     },
+     {
+      "i.l1": "/assets/photos/streetart.jpg",
+      "i.t1": "לפתיחת התמונה בגודל מלא: קבוצת מטיילים עם יוסק׳ה מול ציור קיר צבעוני",
+      "i.img1": {
+       "src": "/assets/photos/streetart-sm.jpg",
+       "alt": "קבוצת מטיילים עם יוסק׳ה מול ציור קיר צבעוני",
+       "srcset": "/assets/photos/streetart-xs.jpg 480w, /assets/photos/streetart-sm.jpg 820w, /assets/photos/streetart.jpg 1600w",
+       "w": "1600",
+       "h": "900"
+      },
+      "i.cls": "gitem gitem--wide"
+     },
+     {
+      "i.l1": "/assets/photos/telescope.jpg",
+      "i.t1": "לפתיחת התמונה בגודל מלא: ילד מביט במשקפת תצפית אל העיר והמפרץ",
+      "i.img1": {
+       "src": "/assets/photos/telescope-sm.jpg",
+       "alt": "ילד מביט במשקפת תצפית אל העיר והמפרץ",
+       "srcset": "/assets/photos/telescope-xs.jpg 480w, /assets/photos/telescope-sm.jpg 820w, /assets/photos/telescope.jpg 1200w",
+       "w": "1200",
+       "h": "1600"
+      },
+      "i.cls": "gitem gitem--tall"
+     },
+     {
+      "i.l1": "/assets/photos/yoske-guiding-view.jpg",
+      "i.t1": "לפתיחת התמונה בגודל מלא: יוסק׳ה מדבר אל קבוצה ליד המעקה, העיר והמפרץ מאחוריו",
+      "i.img1": {
+       "src": "/assets/photos/yoske-guiding-view-sm.jpg",
+       "alt": "יוסק׳ה מדבר אל קבוצה ליד המעקה, העיר והמפרץ מאחוריו",
+       "srcset": "/assets/photos/yoske-guiding-view-xs.jpg 480w, /assets/photos/yoske-guiding-view-sm.jpg 820w, /assets/photos/yoske-guiding-view.jpg 1200w",
+       "w": "1200",
+       "h": "1200"
+      },
+      "i.cls": "gitem gitem--wide"
+     },
+     {
+      "i.l1": "/assets/photos/clock-tower.jpg",
+      "i.t1": "לפתיחת התמונה בגודל מלא: מגדל שעון מאבן מול שמיים כחולים",
+      "i.img1": {
+       "src": "/assets/photos/clock-tower-sm.jpg",
+       "alt": "מגדל שעון מאבן מול שמיים כחולים",
+       "srcset": "/assets/photos/clock-tower-xs.jpg 480w, /assets/photos/clock-tower-sm.jpg 820w, /assets/photos/clock-tower.jpg 1536w",
+       "w": "1536",
+       "h": "1536"
+      },
+      "i.cls": "gitem gitem--tall"
+     },
+     {
+      "i.l1": "/assets/photos/colorful-bus.jpg",
+      "i.t1": "לפתיחת התמונה בגודל מלא: יוסק׳ה ליד אוטובוס תיירים צבעוני",
+      "i.img1": {
+       "src": "/assets/photos/colorful-bus-sm.jpg",
+       "alt": "יוסק׳ה ליד אוטובוס תיירים צבעוני",
+       "srcset": "/assets/photos/colorful-bus-xs.jpg 480w, /assets/photos/colorful-bus-sm.jpg 820w, /assets/photos/colorful-bus.jpg 1197w",
+       "w": "1197",
+       "h": "1064"
+      },
+      "i.cls": "gitem gitem--wide"
+     },
+     {
+      "i.l1": "/assets/photos/lookout.jpg",
+      "i.t1": "לפתיחת התמונה בגודל מלא: יוסק׳ה מסביר מול מפרץ חיפה והנמל",
+      "i.img1": {
+       "src": "/assets/photos/lookout-sm.jpg",
+       "alt": "יוסק׳ה מסביר מול מפרץ חיפה והנמל",
+       "srcset": "/assets/photos/lookout-xs.jpg 480w, /assets/photos/lookout-sm.jpg 820w, /assets/photos/lookout.jpg 1440w",
+       "w": "1440",
+       "h": "960"
+      },
+      "i.cls": "gitem gitem--wide"
+     },
+     {
+      "i.l1": "/assets/photos/mural-wall.jpg",
+      "i.t1": "לפתיחת התמונה בגודל מלא: ציור קיר של אישה ופרחים על קיר אבן",
+      "i.img1": {
+       "src": "/assets/photos/mural-wall-sm.jpg",
+       "alt": "ציור קיר של אישה ופרחים על קיר אבן",
+       "srcset": "/assets/photos/mural-wall-xs.jpg 480w, /assets/photos/mural-wall-sm.jpg 820w, /assets/photos/mural-wall.jpg 1303w",
+       "w": "1303",
+       "h": "1391"
+      },
+      "i.cls": "gitem gitem--tall"
+     },
+     {
+      "i.l1": "/assets/photos/square-group.jpg",
+      "i.t1": "לפתיחת התמונה בגודל מלא: קבוצה יושבת בכיכר מרוצפת בצל עצים",
+      "i.img1": {
+       "src": "/assets/photos/square-group-sm.jpg",
+       "alt": "קבוצה יושבת בכיכר מרוצפת בצל עצים",
+       "srcset": "/assets/photos/square-group-xs.jpg 480w, /assets/photos/square-group-sm.jpg 820w, /assets/photos/square-group.jpg 1920w",
+       "w": "2048",
+       "h": "1819"
+      },
+      "i.cls": "gitem gitem--wide"
+     },
+     {
+      "i.l1": "/assets/photos/bahai-terraces.jpg",
+      "i.t1": "לפתיחת התמונה בגודל מלא: הגנים הבהאיים מלמעלה עם כיפת הזהב, העיר והנמל",
+      "i.img1": {
+       "src": "/assets/photos/bahai-terraces-sm.jpg",
+       "alt": "הגנים הבהאיים מלמעלה עם כיפת הזהב, העיר והנמל",
+       "srcset": "/assets/photos/bahai-terraces-xs.jpg 480w, /assets/photos/bahai-terraces-sm.jpg 820w, /assets/photos/bahai-terraces.jpg 1211w",
+       "w": "1211",
+       "h": "1180"
+      },
+      "i.cls": "gitem gitem--wide"
+     },
+     {
+      "i.l1": "/assets/photos/stone-street.jpg",
+      "i.t1": "לפתיחת התמונה בגודל מלא: רחוב עם בנייני אבן ישנים",
+      "i.img1": {
+       "src": "/assets/photos/stone-street-sm.jpg",
+       "alt": "רחוב עם בנייני אבן ישנים",
+       "srcset": "/assets/photos/stone-street-xs.jpg 480w, /assets/photos/stone-street-sm.jpg 820w, /assets/photos/stone-street.jpg 1455w",
+       "w": "1455",
+       "h": "1436"
+      },
+      "i.cls": "gitem gitem--tall"
+     },
+     {
+      "i.l1": "/assets/photos/carmelit.jpg",
+      "i.t1": "לפתיחת התמונה בגודל מלא: ילדים מציצים אל קרון ברציף",
+      "i.img1": {
+       "src": "/assets/photos/carmelit-sm.jpg",
+       "alt": "ילדים מציצים אל קרון ברציף",
+       "srcset": "/assets/photos/carmelit-xs.jpg 480w, /assets/photos/carmelit-sm.jpg 820w, /assets/photos/carmelit.jpg 1920w",
+       "w": "2048",
+       "h": "1536"
+      },
+      "i.cls": "gitem gitem--wide"
+     },
+     {
+      "i.l1": "/assets/photos/arch-door-group.jpg",
+      "i.t1": "לפתיחת התמונה בגודל מלא: קבוצה מצטלמת בפתח קשת אבן גדולה",
+      "i.img1": {
+       "src": "/assets/photos/arch-door-group-sm.jpg",
+       "alt": "קבוצה מצטלמת בפתח קשת אבן גדולה",
+       "srcset": "/assets/photos/arch-door-group-xs.jpg 480w, /assets/photos/arch-door-group-sm.jpg 820w, /assets/photos/arch-door-group.jpg 1920w",
+       "w": "1979",
+       "h": "2048"
+      },
+      "i.cls": "gitem gitem--tall"
+     },
+     {
+      "i.l1": "/assets/photos/heart-wide.jpg",
+      "i.t1": "לפתיחת התמונה בגודל מלא: קבוצה עם יוסק׳ה ליד פסל הלב הצהוב מול המפרץ",
+      "i.img1": {
+       "src": "/assets/photos/heart-wide-sm.jpg",
+       "alt": "קבוצה עם יוסק׳ה ליד פסל הלב הצהוב מול המפרץ",
+       "srcset": "/assets/photos/heart-wide-xs.jpg 480w, /assets/photos/heart-wide-sm.jpg 820w, /assets/photos/heart-wide.jpg 1600w",
+       "w": "1600",
+       "h": "894"
+      },
+      "i.cls": "gitem gitem--wide"
+     },
+     {
+      "i.l1": "/assets/photos/holiday-lights.jpg",
+      "i.t1": "לפתיחת התמונה בגודל מלא: עץ מואר וקישוטי אור ברחוב בערב",
+      "i.img1": {
+       "src": "/assets/photos/holiday-lights-sm.jpg",
+       "alt": "עץ מואר וקישוטי אור ברחוב בערב",
+       "srcset": "/assets/photos/holiday-lights-xs.jpg 480w, /assets/photos/holiday-lights-sm.jpg 820w, /assets/photos/holiday-lights.jpg 1794w",
+       "w": "1794",
+       "h": "2048"
+      },
+      "i.cls": "gitem gitem--tall"
+     },
+     {
+      "i.l1": "/assets/photos/street-tour.jpg",
+      "i.t1": "לפתיחת התמונה בגודל מלא: קבוצה עומדת לאורך רחוב צר ומקשיבה",
+      "i.img1": {
+       "src": "/assets/photos/street-tour-sm.jpg",
+       "alt": "קבוצה עומדת לאורך רחוב צר ומקשיבה",
+       "srcset": "/assets/photos/street-tour-xs.jpg 480w, /assets/photos/street-tour-sm.jpg 820w, /assets/photos/street-tour.jpg 1920w",
+       "w": "2048",
+       "h": "1662"
+      },
+      "i.cls": "gitem gitem--wide"
+     },
+     {
+      "i.l1": "/assets/photos/synagogue-group.jpg",
+      "i.t1": "לפתיחת התמונה בגודל מלא: קבוצה בתוך בית כנסת עם פרוכת כחולה",
+      "i.img1": {
+       "src": "/assets/photos/synagogue-group-sm.jpg",
+       "alt": "קבוצה בתוך בית כנסת עם פרוכת כחולה",
+       "srcset": "/assets/photos/synagogue-group-xs.jpg 480w, /assets/photos/synagogue-group-sm.jpg 820w, /assets/photos/synagogue-group.jpg 1920w",
+       "w": "2048",
+       "h": "1681"
+      },
+      "i.cls": "gitem gitem--wide"
+     },
+     {
+      "i.l1": "/assets/photos/lookout-big-group.jpg",
+      "i.t1": "לפתיחת התמונה בגודל מלא: קבוצה גדולה מצטלמת מול הנוף",
+      "i.img1": {
+       "src": "/assets/photos/lookout-big-group-sm.jpg",
+       "alt": "קבוצה גדולה מצטלמת מול הנוף",
+       "srcset": "/assets/photos/lookout-big-group-xs.jpg 480w, /assets/photos/lookout-big-group-sm.jpg 820w, /assets/photos/lookout-big-group.jpg 1200w",
+       "w": "1200",
+       "h": "1124"
+      },
+      "i.cls": "gitem gitem--wide"
+     },
+     {
+      "i.l1": "/assets/photos/andes-trail.jpg",
+      "i.t1": "לפתיחת התמונה בגודל מלא: שביל עפר בהרים, אנשים הולכים עם תרמילים",
+      "i.img1": {
+       "src": "/assets/photos/andes-trail-sm.jpg",
+       "alt": "שביל עפר בהרים, אנשים הולכים עם תרמילים",
+       "srcset": "/assets/photos/andes-trail-xs.jpg 480w, /assets/photos/andes-trail-sm.jpg 820w, /assets/photos/andes-trail.jpg 1600w",
+       "w": "1600",
+       "h": "1200"
+      },
+      "i.cls": "gitem gitem--wide"
+     },
+     {
+      "i.l1": "/assets/photos/rio.jpg",
+      "i.t1": "לפתיחת התמונה בגודל מלא: יוסק׳ה פורש ידיים מתחת לפסל ישו הגואל בריו דה ז׳ניירו",
+      "i.img1": {
+       "src": "/assets/photos/rio-sm.jpg",
+       "alt": "יוסק׳ה פורש ידיים מתחת לפסל ישו הגואל בריו דה ז׳ניירו",
+       "srcset": "/assets/photos/rio-xs.jpg 480w, /assets/photos/rio-sm.jpg 820w, /assets/photos/rio.jpg 956w",
+       "w": "956",
+       "h": "960"
+      },
+      "i.cls": "gitem gitem--tall"
+     },
+     {
+      "i.l1": "/assets/photos/red-shirt.jpg",
+      "i.t1": "לפתיחת התמונה בגודל מלא: יוסק׳ה בחולצה אדומה על מדרגות מבנה עמודים",
+      "i.img1": {
+       "src": "/assets/photos/red-shirt-sm.jpg",
+       "alt": "יוסק׳ה בחולצה אדומה על מדרגות מבנה עמודים",
+       "srcset": "/assets/photos/red-shirt-xs.jpg 480w, /assets/photos/red-shirt-sm.jpg 820w, /assets/photos/red-shirt.jpg 1586w",
+       "w": "1586",
+       "h": "2048"
+      },
+      "i.cls": "gitem gitem--tall"
+     },
+     {
+      "i.l1": "/assets/photos/facade-old.jpg",
+      "i.t1": "לפתיחת התמונה בגודל מלא: חזית ישנה של בניין אבן עם מרפסות ותוספות",
+      "i.img1": {
+       "src": "/assets/photos/facade-old-sm.jpg",
+       "alt": "חזית ישנה של בניין אבן עם מרפסות ותוספות",
+       "srcset": "/assets/photos/facade-old-xs.jpg 480w, /assets/photos/facade-old-sm.jpg 820w, /assets/photos/facade-old.jpg 1920w",
+       "w": "2048",
+       "h": "2048"
+      },
+      "i.cls": "gitem gitem--tall"
+     },
+     {
+      "i.l1": "/assets/photos/lookout-group-bay.jpg",
+      "i.t1": "לפתיחת התמונה בגודל מלא: קבוצה יושבת על מדרגות התצפית ומקשיבה, המפרץ מתחת",
+      "i.img1": {
+       "src": "/assets/photos/lookout-group-bay-sm.jpg",
+       "alt": "קבוצה יושבת על מדרגות התצפית ומקשיבה, המפרץ מתחת",
+       "srcset": "/assets/photos/lookout-group-bay-xs.jpg 480w, /assets/photos/lookout-group-bay-sm.jpg 820w, /assets/photos/lookout-group-bay.jpg 1920w",
+       "w": "2048",
+       "h": "946"
+      },
+      "i.cls": "gitem gitem--wide"
+     },
+     {
+      "i.l1": "/assets/photos/clock-tower-sky.jpg",
+      "i.t1": "לפתיחת התמונה בגודל מלא: מגדל שעון מאבן וחצר, שמיים מעוננים",
+      "i.img1": {
+       "src": "/assets/photos/clock-tower-sky-sm.jpg",
+       "alt": "מגדל שעון מאבן וחצר, שמיים מעוננים",
+       "srcset": "/assets/photos/clock-tower-sky-xs.jpg 480w, /assets/photos/clock-tower-sky-sm.jpg 820w, /assets/photos/clock-tower-sky.jpg 1032w",
+       "w": "1032",
+       "h": "1445"
+      },
+      "i.cls": "gitem gitem--tall"
+     },
+     {
+      "i.l1": "/assets/photos/cable-car.jpg",
+      "i.t1": "לפתיחת התמונה בגודל מלא: קרונית רכבל על כבל מול שמיים כחולים",
+      "i.img1": {
+       "src": "/assets/photos/cable-car-sm.jpg",
+       "alt": "קרונית רכבל על כבל מול שמיים כחולים",
+       "srcset": "/assets/photos/cable-car-xs.jpg 480w, /assets/photos/cable-car-sm.jpg 820w, /assets/photos/cable-car.jpg 1319w",
+       "w": "1319",
+       "h": "879"
+      },
+      "i.cls": "gitem gitem--wide"
+     },
+     {
+      "i.l1": "/assets/photos/stone-courtyard.jpg",
+      "i.t1": "לפתיחת התמונה בגודל מלא: חצר מרוצפת בין קירות אבן, קבוצה מקשיבה",
+      "i.img1": {
+       "src": "/assets/photos/stone-courtyard-sm.jpg",
+       "alt": "חצר מרוצפת בין קירות אבן, קבוצה מקשיבה",
+       "srcset": "/assets/photos/stone-courtyard-xs.jpg 480w, /assets/photos/stone-courtyard-sm.jpg 820w, /assets/photos/stone-courtyard.jpg 1920w",
+       "w": "2000",
+       "h": "1500"
+      },
+      "i.cls": "gitem gitem--wide"
+     },
+     {
+      "i.l1": "/assets/photos/andes-village.jpg",
+      "i.t1": "לפתיחת התמונה בגודל מלא: רחוב מרוצף ובית צבעוני למרגלות הרים, מאחד המסעות בדרום אמריקה",
+      "i.img1": {
+       "src": "/assets/photos/andes-village-sm.jpg",
+       "alt": "רחוב מרוצף ובית צבעוני למרגלות הרים, מאחד המסעות בדרום אמריקה",
+       "srcset": "/assets/photos/andes-village-xs.jpg 480w, /assets/photos/andes-village-sm.jpg 820w, /assets/photos/andes-village.jpg 900w",
+       "w": "900",
+       "h": "1600"
+      },
+      "i.cls": "gitem gitem--tall"
+     },
+     {
+      "i.l1": "/assets/photos/andes-alley.jpg",
+      "i.t1": "לפתיחת התמונה בגודל מלא: סמטה מרוצפת בין קירות אבן עתיקים, מאחד המסעות בדרום אמריקה",
+      "i.img1": {
+       "src": "/assets/photos/andes-alley-sm.jpg",
+       "alt": "סמטה מרוצפת בין קירות אבן עתיקים, מאחד המסעות בדרום אמריקה",
+       "srcset": "/assets/photos/andes-alley-xs.jpg 480w, /assets/photos/andes-alley-sm.jpg 820w, /assets/photos/andes-alley.jpg 900w",
+       "w": "900",
+       "h": "1600"
+      },
+      "i.cls": "gitem gitem--tall"
+     },
+     {
+      "i.l1": "/assets/photos/ponchos-group.jpg",
+      "i.t1": "לפתיחת התמונה בגודל מלא: יוסק׳ה בפונצ׳ו עם חברים מחייכים בטיול בדרום אמריקה",
+      "i.img1": {
+       "src": "/assets/photos/ponchos-group-sm.jpg",
+       "alt": "יוסק׳ה בפונצ׳ו עם חברים מחייכים בטיול בדרום אמריקה",
+       "srcset": "/assets/photos/ponchos-group-xs.jpg 480w, /assets/photos/ponchos-group-sm.jpg 820w, /assets/photos/ponchos-group.jpg 1920w",
+       "w": "2048",
+       "h": "1536"
+      },
+      "i.cls": "gitem gitem--wide"
+     }
+    ]
+   }
+  },
+  "privacy": {
+   "path": "/privacy.html",
+   "seo": {
+    "title": "מדיניות פרטיות | יוסק׳ה",
+    "description": "איזה מידע האתר של יוסק׳ה קליין אוסף, למה, איפה הוא נשמר ואיך מבקשים למחוק אותו."
+   },
+   "fields": {
+    "blk1.t1": "עודכן לאחרונה: 15.11.2026",
+    "blk1.t2": "מדיניות פרטיות",
+    "blk1.t3": "בקצרה: מידע אישי מגיע אלינו רק כשאתם שולחים טופס או פונים ישירות. הוא נשמר במערכת הפניות של יוסק׳ה ומשמש רק כדי לחזור אליכם ולתאם. כלי מדידה, אם יופעל, ייטען רק אחרי שתאשרו.",
+    "blk1.t4": "מי אחראי למידע",
+    "blk1.t5": "האתר מופעל על ידי יוסק׳ה קליין, הדרכה והפקת טיולים (",
+    "blk1.t6": "[נדרש להשלים: שם משפטי מלא ומספר עוסק]",
+    "blk1.t7": "). פניות בנושא פרטיות:",
+    "blk1.t8": ", טלפון",
+    "blk1.t9": ". מי מטפל בפניות האלה:",
+    "blk1.t10": "[נדרש להשלים: שם האחראי/ת לטיפול בפניות פרטיות]",
+    "blk1.t11": "מה נאסף בטפסים",
+    "blk1.t12": "טופס יצירת קשר, טופס בדף סיור ובקשה למועד:",
+    "blk1.t13": "שם, טלפון, סוג הפנייה (למשל משפחה או ארגון), הסיור או המועד שבחרתם, ותוכן ההודעה אם כתבתם. נשמרים גם הדף שממנו נשלחה הפנייה, האתר שהפנה אליו (אם יש) ותגיות קמפיין בכתובת (utm) אם הגעתם מקישור כזה.",
+    "blk1.t14": "השאלון ״איזה סיור מתאים לכם?״:",
+    "blk1.t15": "התשובות נשארות בדפדפן ומשמשות להצגת ההמלצה. הן נשלחות רק אם תבחרו לשלוח פנייה בסוף השאלון, ואז הן מצורפות לפנייה.",
+    "blk1.t16": "פנייה ישירה",
+    "blk1.t17": "בטלפון, בוואטסאפ או בפייסבוק: מה שאתם בוחרים לשתף, למשל מספר משתתפים, גילים, צרכים מיוחדים ומועד מבוקש.",
+    "blk1.t18": "למה משמש המידע",
+    "blk1.t19": "כדי לחזור אליכם, להציע ולתאם סיור, ולנהל את הפניות (למשל לסמן שחזרנו אליכם). המידע לא נמכר ולא מועבר לאחרים לצורכי פרסום. לא תישלח אליכם פרסומת בלי הסכמה מפורשת ונפרדת.",
+    "blk1.t20": "איפה המידע נשמר",
+    "blk1.t21": "האתר מתארח ב-Vercel. הפניות נשמרות במאגר מידע מאובטח (",
+    "blk1.t22": "[נדרש להשלים: ספק מאגר הפניות, למשל Supabase, ואזור האחסון]",
+    "blk1.t23": "), שהגישה אליו מוגבלת לשרת של האתר ולממשק הניהול של יוסק׳ה, בסיסמה. תוכן הפניות ותשובות השאלון לא נשלחים לשום כלי מדידה.",
+    "blk1.t24": "עוגיות, אחסון בדפדפן ומדידה",
+    "blk1.t25": "חיוני:",
+    "blk1.t26": "האתר לא יוצר עוגיות לגולשים. העדפות הנגישות שבחרתם ובחירת העוגיות נשמרות בדפדפן שלכם בלבד (localStorage, המפתחות",
+    "blk1.t27": "yoske-a11y",
+    "blk1.t28": "ו-",
+    "blk1.t29": "yoske-consent",
+    "blk1.t30": "). בממשק הניהול, למורשים בלבד, נשמרת עוגיית כניסה חיונית.",
+    "blk1.t31": "מדידה:",
+    "blk1.t32": "כרגע לא פעיל כלי מדידה. אם יופעל (למשל Google Analytics), הוא יספור כניסות לדפים ולחיצות על כפתורים, בלי שם, טלפון או תוכן פנייה, וייטען רק אחרי שתאשרו בחלון ״העדפות עוגיות ומדידה״. אפשר לפתוח את החלון בכל עת מהכפתור בתחתית כל עמוד ולשנות את הבחירה. ספק המדידה ותקופת השמירה שלו:",
+    "blk1.t33": "[נדרש להשלים: ספק המדידה, אם יופעל, ותקופת השמירה]",
+    "blk1.t34": "תשלום",
+    "blk1.t35": "אם תירשמו לסיור בתשלום, התשלום מתבצע בדף הסליקה של Takbull, אתר חיצוני. פרטי האשראי לא עוברים דרך האתר הזה, והם כפופים למדיניות של חברת הסליקה.",
+    "blk1.t36": "מידע טכני",
+    "blk1.t37": "כמו בכל אתר, שרת האחסון רושם פרטים טכניים על בקשות לדפים: כתובת IP, סוג דפדפן, הדף שנטען ושעה. תקופת השמירה של היומנים:",
+    "blk1.t38": "[נדרש להשלים: תקופת השמירה של יומני Vercel בחבילה שנבחרה]",
+    "blk1.t39": "כמה זמן נשמר המידע",
+    "blk1.t40": "[נדרש להשלים: כמה זמן נשמרות פניות שלא התקדמו, ופניות של לקוחות, ומתי הן נמחקות]",
+    "blk1.t41": "הזכויות שלכם",
+    "blk1.t42": "לפי חוק הגנת הפרטיות, התשמ״א-1981, אפשר לבקש לעיין במידע שנשמר עליכם, לתקן אותו או למחוק אותו. פנו ל-",
+    "blk1.t43": "או בטלפון",
+    "blk1.t44": ", ונענה תוך",
+    "blk1.t45": "[נדרש להשלים: זמן מענה]",
+    "blk1.t46": "שירותים של אחרים",
+    "blk1.t47": "וואטסאפ ופייסבוק הם שירותים של Meta, ופנייה דרכם כפופה גם למדיניות שלהם. הקישורים לאתר ברזילאו, ל-Takbull ולוויקימדיה מובילים לאתרים אחרים, עם מדיניות משלהם.",
+    "blk1.t48": "צילומים באתר",
+    "blk1.t49": "באתר מופיעים צילומים מסיורים, ובחלקם משתתפים. מי שמזהה את עצמו ומבקש להסיר צילום, מוזמן לפנות, והצילום יוסר.",
+    "blk1.t50": "ילדים",
+    "blk1.t51": "הטפסים מיועדים למבוגרים שמתאמים סיור.",
+    "blk1.t52": "שינויים",
+    "blk1.t53": "המדיניות תתעדכן כשהאתר משתנה. תאריך העדכון האחרון מופיע בראש הדף."
+   },
+   "lists": {}
+  },
+  "terms": {
+   "path": "/terms.html",
+   "seo": {
+    "title": "תקנון ותנאי שימוש | יוסק׳ה",
+    "description": "תנאי השימוש באתר של יוסק׳ה קליין, ותנאי הזמנה וביטול."
+   },
+   "fields": {
+    "blk1.t1": "עודכן לאחרונה: 15.11.2026",
+    "blk1.t2": "תקנון ותנאי שימוש",
+    "blk1.t3": "האתר מציג מידע על סיורים בחיפה, על סיורי משפחות ועל ימים לחברות ולארגונים. אפשר לשלוח בו פנייה, ובמועדים מסוימים גם להירשם ולשלם בדף סליקה חיצוני.",
+    "blk1.t4": "מפעיל האתר",
+    "blk1.t5": "יוסק׳ה קליין, הדרכה והפקת טיולים (",
+    "blk1.t6": "[נדרש להשלים: שם משפטי מלא ומספר עוסק]",
+    "blk1.t7": "). כתובת למשלוח דואר:",
+    "blk1.t8": "[נדרש להשלים: כתובת]",
+    "blk1.t9": ". טלפון:",
+    "blk1.t10": "המידע על הסיורים",
+    "blk1.t11": "תיאורי המסלולים, התחנות והמשכים באתר הם מידע כללי. המסלול, המשך, המחיר והמועד נקבעים בתיאום, ויכולים להשתנות לפי הקבוצה, מזג האוויר, אירועים בעיר וגישה למקומות. פנייה באתר אינה הזמנה ואינה התחייבות למועד.",
+    "blk1.t12": "הזמנה ותשלום",
+    "blk1.t13": "סיור פרטי נסגר בשיחה, אחרי שקיבלתם מחיר ופרטים. במועד פתוח שמוצע בו כפתור ״הרשמה ותשלום״, התשלום מתבצע בדף הסליקה של Takbull. מה כלול במחיר, מתי מקבלים אישור וקבלה:",
+    "blk1.t14": "[נדרש להשלים: תהליך ההרשמה, האישור והקבלה]",
+    "blk1.t15": "ביטול ושינוי",
+    "blk1.t16": "[נדרש להשלים: מדיניות ביטול ושינוי לסיורים פרטיים ולמועדים פתוחים, כולל דמי ביטול והחזרים, בהתאם לחוק הגנת הצרכן, התשמ״א-1981, ולתקנות הגנת הצרכן (ביטול עסקה)]",
+    "blk1.t17": ". ביטול סיור מצד המדריך (למשל בגלל מזג אוויר):",
+    "blk1.t18": "[נדרש להשלים: מה קורה במקרה כזה]",
+    "blk1.t19": ". אין בתקנון כדי לגרוע מזכויות שהחוק נותן לצרכנים.",
+    "blk1.t20": "השתתפות בסיור",
+    "blk1.t21": "חלק מהמסלולים כוללים עליות, מדרגות והליכה ממושכת. כדאי לספר מראש על מגבלות הליכה, צרכי נגישות או גילאי ילדים. ביטוח והוראות בטיחות:",
+    "blk1.t22": "[נדרש להשלים: האם יש ביטוח ומה נדרש מהמשתתפים]",
+    "blk1.t23": "מסעות בדרום אמריקה",
+    "blk1.t24": "הלשונית ״דרום אמריקה״ מובילה לאתר ברזילאו, שמפעילה את המסעות המאורגנים. ההזמנה, התשלום ותנאי ההתקשרות למסעות האלה נעשים מול ברזילאו ולפי התנאים שבאתר שלה.",
+    "blk1.t25": "תוכן וזכויות",
+    "blk1.t26": "הטקסטים והצילומים באתר שייכים ליוסק׳ה קליין, למעט צילומים שמצוין לידם מקור אחר. אין להעתיק או לפרסם אותם בלי רשות. צילומי ההמלצות הם ממה שמטיילים פרסמו או שלחו.",
+    "blk1.t27": "קרדיטים לצילומים",
+    "blk1.t28": "המטוס בדף הבית: צילום",
+    "blk1.l1": "https://commons.wikimedia.org/wiki/File:Singapore_Airlines_Boeing_787_9V-SCI_Perth_2024_(01).jpg",
+    "blk1.t29": "Bahnfrend",
+    "blk1.t30": ", ויקישיתוף,",
+    "blk1.l2": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "blk1.t31": "CC BY-SA 4.0",
+    "blk1.t32": ". נעשו בו חיתוך מהרקע והתאמת גודל.",
+    "blk1.t33": "המצלמה בדף הבית: צילום",
+    "blk1.l3": "https://commons.wikimedia.org/wiki/File:Pentax_MX_(black)_with_film.jpg",
+    "blk1.t34": "Bilby",
+    "blk1.t35": ", ויקישיתוף,",
+    "blk1.l4": "https://creativecommons.org/licenses/by/3.0/",
+    "blk1.t36": "CC BY 3.0",
+    "blk1.t37": ". נעשו בו חיתוך מהרקע וחיתוך של גליל הפילם.",
+    "blk1.t38": "צילום מקדש הבאב והטרסות:",
+    "blk1.l5": "https://commons.wikimedia.org/wiki/File:Baha%27i_gardens_in_Haifa_39.jpg",
+    "blk1.t39": "Guillaume Paumier",
+    "blk1.t40": ", ויקישיתוף,",
+    "blk1.l6": "https://creativecommons.org/licenses/by/3.0/",
+    "blk1.t41": "CC BY 3.0",
+    "blk1.t42": "(הסרת השמיים, חיתוך והתאמת גודל).",
+    "blk1.t43": "יתר הצילומים, כולל קרונית הרכבל, מהארכיון של יוסק׳ה קליין.",
+    "blk1.t44": "קישורים לאתרים אחרים",
+    "blk1.t45": "האתר מקשר לוואטסאפ, לפייסבוק, לברזילאו, ל-Takbull ולוויקימדיה. לאתרים האלה תנאים ומדיניות פרטיות משלהם.",
+    "blk1.t46": "דין וסמכות",
+    "blk1.t47": "על התקנון חל הדין הישראלי. מקום השיפוט:",
+    "blk1.t48": "[נדרש להשלים: בית המשפט המוסמך]",
+    "blk1.t49": "שינויים ופנייה",
+    "blk1.t50": "התקנון יכול להתעדכן. שאלות?",
+    "blk1.t51": "או",
+    "blk1.l7": "https://wa.me/{{set.waNumber}}?text={{set.waTextEnc}}",
+    "blk1.t52": "וואטסאפ"
+   },
+   "lists": {}
+  },
+  "accessibility": {
+   "path": "/accessibility.html",
+   "seo": {
+    "title": "הצהרת נגישות | יוסק׳ה",
+    "description": "הצהרת הנגישות של האתר של יוסק׳ה קליין."
+   },
+   "fields": {
+    "blk1.t1": "עודכן לאחרונה: 15.11.2026",
+    "blk1.t2": "הצהרת נגישות",
+    "blk1.t3": "חשוב לי שכל מי שרוצה לטייל איתי יוכל להשתמש באתר. הדף הזה מתאר מה נעשה, מה עדיין לא נבדק, ואיך לפנות אם משהו לא עובד.",
+    "blk1.t4": "רמת הנגישות",
+    "blk1.t5": "האתר נבנה במטרה לעמוד בתקן הישראלי ת״י 5568, המבוסס על הנחיות WCAG ברמה AA. בדיקות אוטומטיות וידניות של מקלדת, ניגודיות ותנועה נעשו בגרסה הזו, אבל הן אינן מבטיחות נגישות מלאה, ולכן חשוב לי לשמוע אם נתקלתם בבעיה.",
+    "blk1.t6": "מה נעשה באתר",
+    "blk1.t7": "מגבלות ידועות",
+    "blk1.t8": "נגישות בסיורים עצמם",
+    "blk1.t9": "בחיפה יש מדרגות, עליות ומדרכות צרות, וכל מסלול שונה. ספרו לי מראש על צרכי נגישות, ונבדוק יחד אם יש מסלול מתאים או התאמות אפשריות.",
+    "blk1.t10": "פנייה בנושא נגישות",
+    "blk1.t11": "איש הקשר לפניות בנושא נגישות באתר ובסיורים:",
+    "blk1.t12": "[נדרש להשלים: שם איש/אשת הקשר]",
+    "blk1.t13": ". טלפון:",
+    "blk1.t14": ". דוא״ל:",
+    "blk1.t15": ". כדאי לציין באיזה דף הייתה הבעיה ומה ניסיתם לעשות, ונחזור אליכם.",
+    "blk1.t16": "עדכון",
+    "blk1.t17": "ההצהרה עודכנה ב-15.11.2026, לאחר בדיקה של גרסת האתר מאותו יום."
+   },
+   "lists": {
+    "blk1.list1": [
+     {
+      "i.t1": "מבנה סמנטי בעברית מימין לשמאל, עם כותרות לפי סדר, אזורי ניווט ותוכן מסומנים, וקישור ״דילוג לתוכן״."
+     },
+     {
+      "i.t1": "ניווט מלא במקלדת, עם סימון פוקוס בולט. פרטי הסיורים נפתחים גם בכפתור ״פרטים״, ולא רק במעבר עכבר."
+     },
+     {
+      "i.t1": "טקסט חלופי לצילומים בעלי משמעות; צילומים קישוטיים מוסתרים מקוראי מסך."
+     },
+     {
+      "i.t1": "טפסים עם תוויות, הודעות שגיאה ברורות ליד השדה, והודעת אישור רק אחרי שהפנייה נשמרה. השאלון עובד במקלדת, שאלה אחר שאלה."
+     },
+     {
+      "i.t1": "כיבוד ההגדרה ״הפחתת תנועה״: אנימציות הגלילה מתבטלות וכל התוכן מוצג ברצף רגיל."
+     },
+     {
+      "i.t1": "כפתור ״אפשרויות נגישות״ קבוע בכל עמוד: הגדלת טקסט, ניגודיות גבוהה, הדגשת קישורים, הפחתת תנועה ואיפוס. הבחירה נשמרת במכשיר בלבד."
+     },
+     {
+      "i.t1": "התאמה לטלפון, לטאבלט ולמחשב, בלי גלילה לרוחב."
+     }
+    ],
+    "blk1.list2": [
+     {
+      "i.t1": "קיר ההמלצות מציג צילומי מסך של ביקורות. כל צילום נפתח בגודל מלא, ולכל אחד יש תיאור עם שם הכותב/ת; הטקסט עצמו לא מוקלד באתר."
+     },
+     {
+      "i.t1": "האתר עדיין לא נבדק עם קוראי מסך (NVDA, VoiceOver) ולא על ידי מורשה נגישות."
+     },
+     {
+      "i.t1": "וואטסאפ, פייסבוק ואתר ברזילאו הם אתרים חיצוניים, והנגישות שלהם באחריותם."
+     }
+    ]
+   }
+  },
+  "notfound": {
+   "path": "/404.html",
+   "seo": {
+    "title": "העמוד לא נמצא | יוסק׳ה",
+    "description": "העמוד שחיפשתם לא נמצא. אפשר לחזור לדף הבית, לעבור לסיורים בחיפה או לכתוב ליוסק׳ה בוואטסאפ.",
+    "noindex": true
+   },
+   "fields": {
+    "blk1.t1": "404",
+    "blk1.t2": "העמוד הזה",
+    "blk1.t3": "יצא לטייל.",
+    "blk1.t4": "לא מצאנו את מה שחיפשתם. אפשר לחזור לדף הבית, לעבור לסיורים בחיפה, או פשוט לכתוב לי.",
+    "blk1.l1": "/",
+    "blk1.t5": "לדף הבית",
+    "blk1.l2": "/tours/",
+    "blk1.t6": "לסיורים בחיפה",
+    "blk1.l3": "https://wa.me/{{set.waNumber}}?text={{set.waTextEnc}}",
+    "blk1.t7": "נדבר בוואטסאפ"
+   },
+   "lists": {}
+  },
+  "tour-haifa-ahuvati": {
+   "path": "/tours/haifa-ahuvati.html",
+   "seo": {
+    "title": "חיפה אהובתי | יוסק׳ה",
+    "description": "יום שמחבר בין הכרמל, הגנים, הכרמלית, העיר התחתית והנמל, ונותן תמונה רחבה של העיר מההר ועד הים."
+   },
+   "fields": {
+    "blk1.l1": "/tours/",
+    "blk1.t1": "לכל הסיורים",
+    "blk1.t2": "סיור בחיפה עם יוסק׳ה",
+    "blk1.t3": "חיפה אהובתי",
+    "blk1.t4": "יום שמחבר בין הכרמל, הגנים, הכרמלית, העיר התחתית והנמל, ונותן תמונה רחבה של העיר מההר ועד הים.",
+    "blk1.img1": {
+     "src": "/assets/approved/bahai-bay-960.webp",
+     "alt": "ציר הגנים הבהאיים יורד עד העיר והים",
+     "srcset": "/assets/approved/bahai-bay-480.webp 480w, /assets/approved/bahai-bay-960.webp 960w, /assets/approved/bahai-bay-1920.webp 1134w",
+     "w": "1134",
+     "h": "2015",
+     "pos": "50% 62%"
+    },
+    "blk2.t1": "חיפה אינה עיר שמבינים מנקודה אחת. היא בנויה לגובה, נפתחת לכמה כיוונים ומחזיקה יחד נמל ותעשייה, גנים ותצפיות, שכונות שונות וסיפורים שלא תמיד מסתדרים בתוך משפט אחד.",
+    "blk2.t2": "ב״חיפה אהובתי״ עוברים בין החלקים האלה ומחברים אותם. לא רק רואים את המקומות המוכרים, אלא מדברים על הנושאים שמעצבים את החיים בעיר: תחבורה, עבודה, חיים משותפים, תעשייה, תרבות, סביבה והקשר שבין הכרמל למפרץ.",
+    "blk2.t3": "משך משוער",
+    "blk2.t4": "כ־5 עד 6 שעות",
+    "blk2.t5": "מבנה",
+    "blk2.t6": "מסלול רחב שמשלב כמה אזורים בעיר",
+    "blk3.t1": "מה פוגשים",
+    "blk3.t2": "בדרך",
+    "blk3.t3": "המסלול כולל את החלק העליון של הגנים הבהאיים, טיילת לואי, נסיעה בכרמלית, כיכר פריז, העיר התחתית, אזור הנמל ועצירות נוספות בהתאם לקבוצה ולתנאים ביום הסיור.",
+    "blk3.t4": "בכל נקודה שואלים לא רק ״מה קרה כאן״, אלא גם ״מה זה אומר על חיפה ועל האנשים שחיים בה היום״.",
+    "blk4.t1": "למי הסיור מתאים",
+    "blk4.t2": "מידע שימושי",
+    "blk5.t1": "תמונות מהשטח",
+    "blk5.img1": {
+     "src": "/assets/approved/bahai-bay-960.webp",
+     "alt": "ציר הגנים הבהאיים עד הים, וקבוצה ליד השער",
+     "srcset": "/assets/approved/bahai-bay-480.webp 480w, /assets/approved/bahai-bay-960.webp 960w, /assets/approved/bahai-bay-1920.webp 1134w",
+     "w": "1134",
+     "h": "2015"
+    },
+    "blk5.img2": {
+     "src": "/assets/approved/yoske-guiding-view-960.webp",
+     "alt": "יוסק׳ה מדבר אל קבוצה ליד המעקה, העיר והמפרץ מאחוריו",
+     "srcset": "/assets/approved/yoske-guiding-view-480.webp 480w, /assets/approved/yoske-guiding-view-960.webp 960w, /assets/approved/yoske-guiding-view-1920.webp 1200w",
+     "w": "1200",
+     "h": "1200"
+    },
+    "lead.t1": "רוצים לצאת לחיפה אהובתי?",
+    "lead.t2": "ספרו ליוסק׳ה כמה אתם, מתי תרצו להגיע ומה חשוב לדעת על הקבוצה.",
+    "lead.l1": "https://wa.me/{{set.waNumber}}?text=%D7%94%D7%99%D7%99%20%D7%99%D7%95%D7%A1%D7%A7%D7%B3%D7%94%2C%20%D7%A0%D7%A9%D7%9E%D7%97%20%D7%9C%D7%91%D7%93%D7%95%D7%A7%20%D7%9E%D7%95%D7%A2%D7%93%20%D7%95%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%91%D7%95%D7%A8%20%D7%94%D7%A1%D7%99%D7%95%D7%A8%20%D7%B4%D7%97%D7%99%D7%A4%D7%94%20%D7%90%D7%94%D7%95%D7%91%D7%AA%D7%99%D7%B4.",
+    "lead.t3": "מעדיפים WhatsApp? כתבו ליוסק׳ה",
+    "lead.t4": "הפרטים הגיעו ליוסק׳ה.",
+    "lead.t5": "הוא יחזור אליכם כדי להבין מי מגיע ומה יכול להתאים.",
+    "lead.t6": "לשלוח פנייה נוספת",
+    "blk7.t1": "סיורים נוספים בחיפה"
+   },
+   "lists": {
+    "blk4.list1": [
+     {
+      "i.ic1": "group",
+      "i.t1": "למי שמגיעים לחיפה בפעם הראשונה."
+     },
+     {
+      "i.ic1": "group",
+      "i.t1": "לחיפאים שרוצים לחבר בין סיפורים שהם מכירים בנפרד."
+     },
+     {
+      "i.ic1": "group",
+      "i.t1": "לקבוצות שרוצות יום תוכן מלא ולא טעימה קצרה."
+     },
+     {
+      "i.ic1": "group",
+      "i.t1": "למי שנהנים משילוב של תצפיות, רחובות, נסיעה וסיפורים חברתיים."
+     }
+    ],
+    "blk4.list2": [
+     {
+      "i.ic1": "pin",
+      "i.t1": "משך משוער: כ־5 עד 6 שעות."
+     },
+     {
+      "i.ic1": "pin",
+      "i.t1": "מבנה: מסלול רחב שמשלב כמה אזורים בעיר."
+     },
+     {
+      "i.ic1": "pin",
+      "i.t1": "נקודת המפגש, המחיר והמועד נסגרים מול יוסק׳ה."
+     },
+     {
+      "i.ic1": "pin",
+      "i.t1": "את רמת ההליכה והנגישות בודקים לפי הקבוצה והמסלול העדכני."
+     }
+    ],
+    "blk7.list1": [
+     {
+      "i.l1": "/tours/haifa-ahuvati-mekutzar.html",
+      "i.t1": "חיפה אהובתי מקוצר"
+     },
+     {
+      "i.l1": "/tours/haifa-shel-maala.html",
+      "i.t1": "חיפה של מעלה"
+     },
+     {
+      "i.l1": "/tours/haifa-shel-mata.html",
+      "i.t1": "חיפה של מטה"
+     },
+     {
+      "i.l1": "/tours/teima-mehaifa.html",
+      "i.t1": "טעימה מחיפה"
+     },
+     {
+      "i.l1": "/tours/teva-adam-hevra-sviva.html",
+      "i.t1": "טבע, אדם, חברה, סביבה"
+     }
+    ]
+   },
+   "tour": "haifa-ahuvati"
+  },
+  "tour-haifa-ahuvati-mekutzar": {
+   "path": "/tours/haifa-ahuvati-mekutzar.html",
+   "seo": {
+    "title": "חיפה אהובתי מקוצר | יוסק׳ה",
+    "description": "המעבר בין חיפה שלמעלה לחיפה שלמטה, בזמן ממוקד יותר ובלי לוותר על הסיפור שמחבר ביניהן."
+   },
+   "fields": {
+    "blk1.l1": "/tours/",
+    "blk1.t1": "לכל הסיורים",
+    "blk1.t2": "סיור בחיפה עם יוסק׳ה",
+    "blk1.t3": "חיפה אהובתי, בגרסה המקוצרת",
+    "blk1.t4": "המעבר בין חיפה שלמעלה לחיפה שלמטה, בזמן ממוקד יותר ובלי לוותר על הסיפור שמחבר ביניהן.",
+    "blk1.img1": {
+     "src": "/assets/approved/carmelit-960.webp",
+     "alt": "ילדים מציצים אל קרון ברציף תחתי",
+     "srcset": "/assets/approved/carmelit-480.webp 480w, /assets/approved/carmelit-960.webp 960w, /assets/approved/carmelit-1920.webp 1920w",
+     "w": "1920",
+     "h": "1440",
+     "pos": "50% 40%"
+    },
+    "blk2.t1": "לא תמיד יש יום שלם, אבל עדיין אפשר לקבל תמונה רחבה של העיר. הסיור המקוצר עובר בין כמה מהנקודות שמסבירות את חיפה בצורה הטובה ביותר ומחבר בין הנוף של הכרמל, ציר הגנים, הכרמלית והעיר התחתית.",
+    "blk2.t2": "זה אינו מרוץ בין אתרים. בוחרים את התחנות שמחזיקות את הסיפור ומאפשרות להבין איך הגובה, התחבורה, הנמל והחיים בעיר קשורים זה לזה.",
+    "blk3.t1": "מה פוגשים",
+    "blk3.t2": "בדרך",
+    "blk3.t3": "המסלול עשוי לכלול את הגנים הבהאיים, טיילת לואי, נסיעה בכרמלית, כיכר פריז, השוק הטורקי לשעבר ואזור הנמל.",
+    "blk4.t1": "למי הסיור מתאים",
+    "blk4.t2": "מידע שימושי",
+    "blk5.t1": "תמונות מהשטח",
+    "blk5.img1": {
+     "src": "/assets/approved/bahai-bay-960.webp",
+     "alt": "ציר הגנים הבהאיים עד הים, וקבוצה ליד השער",
+     "srcset": "/assets/approved/bahai-bay-480.webp 480w, /assets/approved/bahai-bay-960.webp 960w, /assets/approved/bahai-bay-1920.webp 1134w",
+     "w": "1134",
+     "h": "2015"
+    },
+    "blk5.img2": {
+     "src": "/assets/approved/carmelit-960.webp",
+     "alt": "ילדים מציצים אל קרון ברציף",
+     "srcset": "/assets/approved/carmelit-480.webp 480w, /assets/approved/carmelit-960.webp 960w, /assets/approved/carmelit-1920.webp 1920w",
+     "w": "1920",
+     "h": "1440"
+    },
+    "lead.t1": "רוצים לצאת לסיור המקוצר?",
+    "lead.t2": "ספרו ליוסק׳ה כמה אתם, מתי תרצו להגיע ומה חשוב לדעת על הקבוצה.",
+    "lead.l1": "https://wa.me/{{set.waNumber}}?text=%D7%94%D7%99%D7%99%20%D7%99%D7%95%D7%A1%D7%A7%D7%B3%D7%94%2C%20%D7%A0%D7%A9%D7%9E%D7%97%20%D7%9C%D7%91%D7%93%D7%95%D7%A7%20%D7%9E%D7%95%D7%A2%D7%93%20%D7%95%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%91%D7%95%D7%A8%20%D7%94%D7%A1%D7%99%D7%95%D7%A8%20%D7%B4%D7%97%D7%99%D7%A4%D7%94%20%D7%90%D7%94%D7%95%D7%91%D7%AA%D7%99%20%D7%9E%D7%A7%D7%95%D7%A6%D7%A8%D7%B4.",
+    "lead.t3": "מעדיפים WhatsApp? כתבו ליוסק׳ה",
+    "lead.t4": "הפרטים הגיעו ליוסק׳ה.",
+    "lead.t5": "הוא יחזור אליכם כדי להבין מי מגיע ומה יכול להתאים.",
+    "lead.t6": "לשלוח פנייה נוספת",
+    "blk7.t1": "סיורים נוספים בחיפה"
+   },
+   "lists": {
+    "blk2.list1": [
+     {
+      "i.ic1": "clock",
+      "i.t1": "משך משוער",
+      "i.t2": "כ־3 שעות",
+      "i.a1": "bicon bicon--orange"
+     },
+     {
+      "i.ic1": "pin",
+      "i.t1": "אורך משוער",
+      "i.t2": "כ־2 ק״מ",
+      "i.a1": "bicon bicon--teal"
+     },
+     {
+      "i.ic1": "route",
+      "i.t1": "מבנה",
+      "i.t2": "סיור לא מעגלי",
+      "i.a1": "bicon bicon--teal"
+     }
+    ],
+    "blk4.list1": [
+     {
+      "i.ic1": "group",
+      "i.t1": "לקבוצות עם כשלוש שעות."
+     },
+     {
+      "i.ic1": "group",
+      "i.t1": "למי שמגיעים לחיפה ורוצים פתיחה טובה לעיר."
+     },
+     {
+      "i.ic1": "group",
+      "i.t1": "למי שמעדיפים סיור ממוקד עם כמה סוגים של נוף ומרחב."
+     }
+    ],
+    "blk4.list2": [
+     {
+      "i.ic1": "pin",
+      "i.t1": "משך משוער: כ־3 שעות."
+     },
+     {
+      "i.ic1": "pin",
+      "i.t1": "אורך משוער: כ־2 ק״מ."
+     },
+     {
+      "i.ic1": "pin",
+      "i.t1": "הסיור אינו מעגלי; את דרך החזרה והפרטים סוגרים מראש."
+     },
+     {
+      "i.ic1": "pin",
+      "i.t1": "נגישות ורמת הליכה נבדקות מול יוסק׳ה."
+     }
+    ],
+    "blk7.list1": [
+     {
+      "i.l1": "/tours/haifa-ahuvati.html",
+      "i.t1": "חיפה אהובתי"
+     },
+     {
+      "i.l1": "/tours/haifa-shel-maala.html",
+      "i.t1": "חיפה של מעלה"
+     },
+     {
+      "i.l1": "/tours/haifa-shel-mata.html",
+      "i.t1": "חיפה של מטה"
+     },
+     {
+      "i.l1": "/tours/teima-mehaifa.html",
+      "i.t1": "טעימה מחיפה"
+     },
+     {
+      "i.l1": "/tours/teva-adam-hevra-sviva.html",
+      "i.t1": "טבע, אדם, חברה, סביבה"
+     }
+    ]
+   },
+   "tour": "haifa-ahuvati-mekutzar"
+  },
+  "tour-haifa-shel-maala": {
+   "path": "/tours/haifa-shel-maala.html",
+   "seo": {
+    "title": "חיפה של מעלה | יוסק׳ה",
+    "description": "תצפיות, גנים, מדרגות וכרמלית, עם הסיפורים שמסבירים איך נבנתה העיר על ההר."
+   },
+   "fields": {
+    "blk1.l1": "/tours/",
+    "blk1.t1": "לכל הסיורים",
+    "blk1.t2": "סיור בחיפה עם יוסק׳ה",
+    "blk1.t3": "חיפה של מעלה",
+    "blk1.t4": "תצפיות, גנים, מדרגות וכרמלית, עם הסיפורים שמסבירים איך נבנתה העיר על ההר.",
+    "blk1.img1": {
+     "src": "/assets/approved/bahai-terraces-960.webp",
+     "alt": "הגנים הבהאיים מלמעלה עם כיפת הזהב, העיר והנמל",
+     "srcset": "/assets/approved/bahai-terraces-480.webp 480w, /assets/approved/bahai-terraces-960.webp 960w, /assets/approved/bahai-terraces-1920.webp 1211w",
+     "w": "1211",
+     "h": "1180",
+     "pos": "50% 45%"
+    },
+    "blk2.t1": "בחיפה שלמעלה קל להסתכל על הנוף ולהסתפק בו. בסיור הזה הנוף הוא רק נקודת הפתיחה. דרך הגנים, טיילת לואי, המדרגות והכרמלית מבינים איך הגובה משפיע על תנועה, מגורים, תרבות והקשר בין חלקי העיר.",
+    "blk2.t2": "הסיור משלב את חיפה היפה מהגלויות עם השאלות שמסתתרות מאחוריה: מי גר איפה, איך זזים בעיר כזאת, ומה אפשר ללמוד על חיפה כשמסתכלים מלמעלה ולא נשארים רק בתצפית.",
+    "blk3.t1": "מה פוגשים",
+    "blk3.t2": "בדרך",
+    "blk3.t3": "החלק העליון של הגנים הבהאיים, טיילת לואי, רובע המדרגות, תחנת הכרמלית העליונה, גן האם ועצירות נוספות לפי המסלול.",
+    "blk4.t1": "מידע שימושי",
+    "blk5.t1": "תמונות מהשטח",
+    "blk5.img1": {
+     "src": "/assets/approved/lookout-big-group-960.webp",
+     "alt": "קבוצה גדולה מצטלמת מול הנוף",
+     "srcset": "/assets/approved/lookout-big-group-480.webp 480w, /assets/approved/lookout-big-group-960.webp 960w, /assets/approved/lookout-big-group-1920.webp 1200w",
+     "w": "1200",
+     "h": "1124"
+    },
+    "blk5.img2": {
+     "src": "/assets/approved/telescope-960.webp",
+     "alt": "ילד מביט במשקפת תצפית אל העיר והמפרץ",
+     "srcset": "/assets/approved/telescope-480.webp 480w, /assets/approved/telescope-960.webp 960w, /assets/approved/telescope-1920.webp 1200w",
+     "w": "1200",
+     "h": "1600"
+    },
+    "lead.t1": "רוצים לצאת לחיפה של מעלה?",
+    "lead.t2": "ספרו ליוסק׳ה כמה אתם, מתי תרצו להגיע ומה חשוב לדעת על הקבוצה.",
+    "lead.l1": "https://wa.me/{{set.waNumber}}?text=%D7%94%D7%99%D7%99%20%D7%99%D7%95%D7%A1%D7%A7%D7%B3%D7%94%2C%20%D7%A0%D7%A9%D7%9E%D7%97%20%D7%9C%D7%91%D7%93%D7%95%D7%A7%20%D7%9E%D7%95%D7%A2%D7%93%20%D7%95%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%91%D7%95%D7%A8%20%D7%94%D7%A1%D7%99%D7%95%D7%A8%20%D7%B4%D7%97%D7%99%D7%A4%D7%94%20%D7%A9%D7%9C%20%D7%9E%D7%A2%D7%9C%D7%94%D7%B4.",
+    "lead.t3": "מעדיפים WhatsApp? כתבו ליוסק׳ה",
+    "lead.t4": "הפרטים הגיעו ליוסק׳ה.",
+    "lead.t5": "הוא יחזור אליכם כדי להבין מי מגיע ומה יכול להתאים.",
+    "lead.t6": "לשלוח פנייה נוספת",
+    "blk7.t1": "סיורים נוספים בחיפה"
+   },
+   "lists": {
+    "blk2.list1": [
+     {
+      "i.ic1": "clock",
+      "i.t1": "משך משוער",
+      "i.t2": "כ־2.5 שעות",
+      "i.a1": "bicon bicon--orange"
+     },
+     {
+      "i.ic1": "pin",
+      "i.t1": "אורך משוער",
+      "i.t2": "כ־1.3 ק״מ",
+      "i.a1": "bicon bicon--teal"
+     },
+     {
+      "i.ic1": "route",
+      "i.t1": "מבנה",
+      "i.t2": "סיור לא מעגלי",
+      "i.a1": "bicon bicon--teal"
+     }
+    ],
+    "blk4.list1": [
+     {
+      "i.ic1": "pin",
+      "i.t1": "משך משוער: כ־2.5 שעות."
+     },
+     {
+      "i.ic1": "pin",
+      "i.t1": "אורך משוער: כ־1.3 ק״מ."
+     },
+     {
+      "i.ic1": "pin",
+      "i.t1": "הסיור אינו מעגלי."
+     },
+     {
+      "i.ic1": "pin",
+      "i.t1": "נקודת המפגש, הסיום והנגישות נבדקים לפני הסגירה."
+     }
+    ],
+    "blk7.list1": [
+     {
+      "i.l1": "/tours/haifa-ahuvati.html",
+      "i.t1": "חיפה אהובתי"
+     },
+     {
+      "i.l1": "/tours/haifa-ahuvati-mekutzar.html",
+      "i.t1": "חיפה אהובתי מקוצר"
+     },
+     {
+      "i.l1": "/tours/haifa-shel-mata.html",
+      "i.t1": "חיפה של מטה"
+     },
+     {
+      "i.l1": "/tours/teima-mehaifa.html",
+      "i.t1": "טעימה מחיפה"
+     },
+     {
+      "i.l1": "/tours/teva-adam-hevra-sviva.html",
+      "i.t1": "טבע, אדם, חברה, סביבה"
+     }
+    ]
+   },
+   "tour": "haifa-shel-maala"
+  },
+  "tour-haifa-shel-mata": {
+   "path": "/tours/haifa-shel-mata.html",
+   "seo": {
+    "title": "חיפה של מטה | יוסק׳ה",
+    "description": "העיר התחתית, הנמל והמושבה הגרמנית דרך הסיפורים של עבודה, מסחר, הגירה ושינוי עירוני."
+   },
+   "fields": {
+    "blk1.l1": "/tours/",
+    "blk1.t1": "לכל הסיורים",
+    "blk1.t2": "סיור בחיפה עם יוסק׳ה",
+    "blk1.t3": "חיפה של מטה",
+    "blk1.t4": "העיר התחתית, הנמל והמושבה הגרמנית דרך הסיפורים של עבודה, מסחר, הגירה ושינוי עירוני.",
+    "blk1.img1": {
+     "src": "/assets/approved/clock-tower-960.webp",
+     "alt": "מגדל שעון מאבן מול שמיים כחולים",
+     "srcset": "/assets/approved/clock-tower-480.webp 480w, /assets/approved/clock-tower-960.webp 960w, /assets/approved/clock-tower-1920.webp 1536w",
+     "w": "1536",
+     "h": "1536",
+     "pos": "50% 35%"
+    },
+    "blk2.t1": "חיפה שלמטה מרגישה אחרת. הרחובות קרובים יותר, הנמל נוכח, וההיסטוריה נמצאת בין בנייני משרדים, שווקים, תחנות ומקומות בילוי.",
+    "blk2.t2": "בסיור עוברים בין השכבות של האזור ורואים איך מוקדי עבודה ומסחר השתנו, איך שכונות קיבלו חיים חדשים ומה נשאר מהעיר שהייתה כאן קודם. זהו סיור למי שאוהבים לקרוא עיר דרך הרחוב ולא רק דרך התצפית.",
+    "blk3.t1": "מה פוגשים",
+    "blk3.t2": "בדרך",
+    "blk3.t3": "מגדל המפרש, מגדל השעון, כיכר פריז, תחנת הכרמלית התחתונה, השוק הטורקי לשעבר, מתחם הנמל והמושבה הגרמנית.",
+    "blk4.t1": "מידע שימושי",
+    "blk5.t1": "תמונות מהשטח",
+    "blk5.img1": {
+     "src": "/assets/approved/clock-tower-960.webp",
+     "alt": "מגדל שעון מאבן מול שמיים כחולים",
+     "srcset": "/assets/approved/clock-tower-480.webp 480w, /assets/approved/clock-tower-960.webp 960w, /assets/approved/clock-tower-1920.webp 1536w",
+     "w": "1536",
+     "h": "1536"
+    },
+    "blk5.img2": {
+     "src": "/assets/approved/stone-street-960.webp",
+     "alt": "רחוב עם בנייני אבן ישנים",
+     "srcset": "/assets/approved/stone-street-480.webp 480w, /assets/approved/stone-street-960.webp 960w, /assets/approved/stone-street-1920.webp 1455w",
+     "w": "1455",
+     "h": "1436"
+    },
+    "lead.t1": "רוצים לצאת לחיפה של מטה?",
+    "lead.t2": "ספרו ליוסק׳ה כמה אתם, מתי תרצו להגיע ומה חשוב לדעת על הקבוצה.",
+    "lead.l1": "https://wa.me/{{set.waNumber}}?text=%D7%94%D7%99%D7%99%20%D7%99%D7%95%D7%A1%D7%A7%D7%B3%D7%94%2C%20%D7%A0%D7%A9%D7%9E%D7%97%20%D7%9C%D7%91%D7%93%D7%95%D7%A7%20%D7%9E%D7%95%D7%A2%D7%93%20%D7%95%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%91%D7%95%D7%A8%20%D7%94%D7%A1%D7%99%D7%95%D7%A8%20%D7%B4%D7%97%D7%99%D7%A4%D7%94%20%D7%A9%D7%9C%20%D7%9E%D7%98%D7%94%D7%B4.",
+    "lead.t3": "מעדיפים WhatsApp? כתבו ליוסק׳ה",
+    "lead.t4": "הפרטים הגיעו ליוסק׳ה.",
+    "lead.t5": "הוא יחזור אליכם כדי להבין מי מגיע ומה יכול להתאים.",
+    "lead.t6": "לשלוח פנייה נוספת",
+    "blk7.t1": "סיורים נוספים בחיפה"
+   },
+   "lists": {
+    "blk2.list1": [
+     {
+      "i.ic1": "clock",
+      "i.t1": "משך משוער",
+      "i.t2": "כ־2.5 שעות",
+      "i.a1": "bicon bicon--orange"
+     },
+     {
+      "i.ic1": "pin",
+      "i.t1": "אורך משוער",
+      "i.t2": "כ־2.1 ק״מ",
+      "i.a1": "bicon bicon--teal"
+     },
+     {
+      "i.ic1": "route",
+      "i.t1": "מבנה",
+      "i.t2": "סיור לא מעגלי",
+      "i.a1": "bicon bicon--teal"
+     }
+    ],
+    "blk4.list1": [
+     {
+      "i.ic1": "pin",
+      "i.t1": "משך משוער: כ־2.5 שעות."
+     },
+     {
+      "i.ic1": "pin",
+      "i.t1": "אורך משוער: כ־2.1 ק״מ."
+     },
+     {
+      "i.ic1": "pin",
+      "i.t1": "הסיור אינו מעגלי."
+     },
+     {
+      "i.ic1": "pin",
+      "i.t1": "נקודת המפגש, הסיום והנגישות נבדקים מול יוסק׳ה."
+     }
+    ],
+    "blk7.list1": [
+     {
+      "i.l1": "/tours/haifa-ahuvati.html",
+      "i.t1": "חיפה אהובתי"
+     },
+     {
+      "i.l1": "/tours/haifa-ahuvati-mekutzar.html",
+      "i.t1": "חיפה אהובתי מקוצר"
+     },
+     {
+      "i.l1": "/tours/haifa-shel-maala.html",
+      "i.t1": "חיפה של מעלה"
+     },
+     {
+      "i.l1": "/tours/teima-mehaifa.html",
+      "i.t1": "טעימה מחיפה"
+     },
+     {
+      "i.l1": "/tours/teva-adam-hevra-sviva.html",
+      "i.t1": "טבע, אדם, חברה, סביבה"
+     }
+    ]
+   },
+   "tour": "haifa-shel-mata"
+  },
+  "tour-teima-mehaifa": {
+   "path": "/tours/teima-mehaifa.html",
+   "seo": {
+    "title": "טעימה מחיפה | יוסק׳ה",
+    "description": "סיור טבעוני בעיר התחתית שמחבר בין אוכל, רחובות והסיפורים החברתיים של חיפה."
+   },
+   "fields": {
+    "blk1.l1": "/tours/",
+    "blk1.t1": "לכל הסיורים",
+    "blk1.t2": "סיור בחיפה עם יוסק׳ה",
+    "blk1.t3": "טעימה מחיפה",
+    "blk1.t4": "סיור טבעוני בעיר התחתית שמחבר בין אוכל, רחובות והסיפורים החברתיים של חיפה.",
+    "blk1.img1": {
+     "src": "/assets/approved/arches-group-960.webp",
+     "alt": "קבוצה מתחת לקשתות אבן",
+     "srcset": "/assets/approved/arches-group-480.webp 480w, /assets/approved/arches-group-960.webp 960w, /assets/approved/arches-group-1920.webp 1010w",
+     "w": "1010",
+     "h": "758",
+     "pos": "50% 50%"
+    },
+    "blk2.t1": "אוכל הוא דרך מצוינת לדבר על מקום. הוא מספר מי הגיע לעיר, מה השתנה בה, אילו קהילות נפגשו ואיך רחוב מקבל אופי משלו.",
+    "blk2.t2": "ב״טעימה מחיפה״ עוברים בין טעימות נבחרות לבין מוקדי עניין בעיר התחתית. בדרך מדברים על ההיסטוריה של האזור, על התופעות החברתיות שמאפיינות את חיפה ועל הקשר בין מה שאוכלים לבין המקום שבו אוכלים אותו.",
+    "blk2.t3": "הסיור טבעוני, אבל הוא אינו מיועד רק לטבעונים. מי שאוהבים אוכל טוב וסיפור טוב יסתדרו מצוין.",
+    "blk2.t4": "משך משוער",
+    "blk2.t5": "כ־2 עד 3 שעות",
+    "blk2.t6": "אורך משוער",
+    "blk2.t7": "כ־1.5 ק״מ",
+    "blk3.t1": "מידע שימושי",
+    "blk4.t1": "תמונות מהשטח",
+    "blk4.img1": {
+     "src": "/assets/approved/arches-group-960.webp",
+     "alt": "קבוצה מתחת לקשתות אבן",
+     "srcset": "/assets/approved/arches-group-480.webp 480w, /assets/approved/arches-group-960.webp 960w, /assets/approved/arches-group-1920.webp 1010w",
+     "w": "1010",
+     "h": "758"
+    },
+    "blk4.img2": {
+     "src": "/assets/approved/stone-street-960.webp",
+     "alt": "רחוב עם בנייני אבן ישנים",
+     "srcset": "/assets/approved/stone-street-480.webp 480w, /assets/approved/stone-street-960.webp 960w, /assets/approved/stone-street-1920.webp 1455w",
+     "w": "1455",
+     "h": "1436"
+    },
+    "lead.t1": "רוצים לצאת לטעימה מחיפה?",
+    "lead.t2": "ספרו ליוסק׳ה כמה אתם, מתי תרצו להגיע ואם יש רגישויות או צרכים תזונתיים.",
+    "lead.l1": "https://wa.me/{{set.waNumber}}?text=%D7%94%D7%99%D7%99%20%D7%99%D7%95%D7%A1%D7%A7%D7%B3%D7%94%2C%20%D7%A0%D7%A9%D7%9E%D7%97%20%D7%9C%D7%91%D7%93%D7%95%D7%A7%20%D7%9E%D7%95%D7%A2%D7%93%20%D7%95%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%91%D7%95%D7%A8%20%D7%94%D7%A1%D7%99%D7%95%D7%A8%20%D7%B4%D7%98%D7%A2%D7%99%D7%9E%D7%94%20%D7%9E%D7%97%D7%99%D7%A4%D7%94%D7%B4.",
+    "lead.t3": "מעדיפים WhatsApp? כתבו ליוסק׳ה",
+    "lead.t4": "הפרטים הגיעו ליוסק׳ה.",
+    "lead.t5": "הוא יחזור אליכם כדי להבין מי מגיע ומה יכול להתאים.",
+    "lead.t6": "לשלוח פנייה נוספת",
+    "blk6.t1": "סיורים נוספים בחיפה"
+   },
+   "lists": {
+    "blk3.list1": [
+     {
+      "i.ic1": "pin",
+      "i.t1": "משך משוער: כ־2 עד 3 שעות."
+     },
+     {
+      "i.ic1": "pin",
+      "i.t1": "אורך משוער: כ־1.5 ק״מ."
+     },
+     {
+      "i.ic1": "pin",
+      "i.t1": "הטעימות והעסקים עשויים להשתנות לפי זמינות ומועד."
+     },
+     {
+      "i.ic1": "pin",
+      "i.t1": "אלרגיות, רגישויות וצרכים תזונתיים נבדקים מראש מול יוסק׳ה."
+     }
+    ],
+    "blk6.list1": [
+     {
+      "i.l1": "/tours/haifa-ahuvati.html",
+      "i.t1": "חיפה אהובתי"
+     },
+     {
+      "i.l1": "/tours/haifa-ahuvati-mekutzar.html",
+      "i.t1": "חיפה אהובתי מקוצר"
+     },
+     {
+      "i.l1": "/tours/haifa-shel-maala.html",
+      "i.t1": "חיפה של מעלה"
+     },
+     {
+      "i.l1": "/tours/haifa-shel-mata.html",
+      "i.t1": "חיפה של מטה"
+     },
+     {
+      "i.l1": "/tours/teva-adam-hevra-sviva.html",
+      "i.t1": "טבע, אדם, חברה, סביבה"
+     }
+    ]
+   },
+   "tour": "teima-mehaifa"
+  },
+  "tour-teva-adam-hevra-sviva": {
+   "path": "/tours/teva-adam-hevra-sviva.html",
+   "seo": {
+    "title": "טבע, אדם, חברה, סביבה | יוסק׳ה",
+    "description": "יום תוכן בכרמל שבודק מה קורה כשאנשים, חברה וטבע צריכים לחיות באותו מרחב."
+   },
+   "fields": {
+    "blk1.l1": "/tours/",
+    "blk1.t1": "לכל הסיורים",
+    "blk1.t2": "סיור בחיפה עם יוסק׳ה",
+    "blk1.t3": "טבע, אדם, חברה, סביבה",
+    "blk1.t4": "יום תוכן בכרמל שבודק מה קורה כשאנשים, חברה וטבע צריכים לחיות באותו מרחב.",
+    "blk1.img1": {
+     "src": "/assets/approved/square-group-960.webp",
+     "alt": "קבוצה יושבת בכיכר מרוצפת בצל עצים",
+     "srcset": "/assets/approved/square-group-480.webp 480w, /assets/approved/square-group-960.webp 960w, /assets/approved/square-group-1920.webp 1920w",
+     "w": "1920",
+     "h": "1705",
+     "pos": "50% 45%"
+    },
+    "blk2.t1": "אנחנו אוהבים לדבר על איזון בין האדם לטבע, אבל בשטח האיזון הזה מורכב מהחלטות, אינטרסים, קהילות ותוצאות. היום הזה יוצא מהמושגים הגדולים אל המקומות שבהם אפשר לראות אותם בפועל.",
+    "blk2.t2": "דרך הכרמל, בעלי החיים, מלאכות קדומות, זיכרון האסון והחברה שחיה באזור, נפתחת שיחה על האחריות שלנו למרחב ועל הדרכים שבהן טבע וחברה משפיעים זה על זה.",
+    "blk3.t1": "מה יכול להיכלל ביום",
+    "blk3.t2": "בדרך",
+    "blk3.t3": "היום עשוי לשלב פתיחה בחניון אתאטורק, ביקור בחי־בר כרמל, זמן במוזיאון הכט, עצירה באנדרטת נספי אסון הכרמל ואפשרות לארוחה באזור עין חוד.",
+    "blk3.t4": "התכנית הסופית, זמינות האתרים, ההסעות, האוכל והעלויות נקבעים מול יוסק׳ה לפי הקבוצה והמועד.",
+    "blk4.t1": "למי הסיור מתאים",
+    "blk5.t1": "תמונות מהשטח",
+    "blk5.img1": {
+     "src": "/assets/approved/square-group-960.webp",
+     "alt": "קבוצה יושבת בכיכר מרוצפת בצל עצים",
+     "srcset": "/assets/approved/square-group-480.webp 480w, /assets/approved/square-group-960.webp 960w, /assets/approved/square-group-1920.webp 1920w",
+     "w": "1920",
+     "h": "1705"
+    },
+    "blk5.img2": {
+     "src": "/assets/approved/lookout-group-bay-960.webp",
+     "alt": "קבוצה יושבת על מדרגות התצפית ומקשיבה, המפרץ מתחת",
+     "srcset": "/assets/approved/lookout-group-bay-480.webp 480w, /assets/approved/lookout-group-bay-960.webp 960w, /assets/approved/lookout-group-bay-1920.webp 1920w",
+     "w": "1920",
+     "h": "887"
+    },
+    "lead.t1": "רוצים לדבר על היום הזה?",
+    "lead.t2": "ספרו ליוסק׳ה מי מגיע, מה אתם רוצים להשיג ומה מסגרת הזמן.",
+    "lead.l1": "https://wa.me/{{set.waNumber}}?text=%D7%94%D7%99%D7%99%20%D7%99%D7%95%D7%A1%D7%A7%D7%B3%D7%94%2C%20%D7%A0%D7%A9%D7%9E%D7%97%20%D7%9C%D7%91%D7%93%D7%95%D7%A7%20%D7%9E%D7%95%D7%A2%D7%93%20%D7%95%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%91%D7%95%D7%A8%20%D7%94%D7%A1%D7%99%D7%95%D7%A8%20%D7%B4%D7%98%D7%91%D7%A2%2C%20%D7%90%D7%93%D7%9D%2C%20%D7%97%D7%91%D7%A8%D7%94%2C%20%D7%A1%D7%91%D7%99%D7%91%D7%94%D7%B4.",
+    "lead.t3": "מעדיפים WhatsApp? כתבו ליוסק׳ה",
+    "lead.t4": "הפרטים הגיעו ליוסק׳ה.",
+    "lead.t5": "הוא יחזור אליכם כדי להבין מי מגיע ומה יכול להתאים.",
+    "lead.t6": "לשלוח פנייה נוספת",
+    "blk7.t1": "סיורים נוספים בחיפה"
+   },
+   "lists": {
+    "blk4.list1": [
+     {
+      "i.ic1": "group",
+      "i.t1": "ארגונים ומוסדות שמחפשים תוכן משמעותי."
+     },
+     {
+      "i.ic1": "group",
+      "i.t1": "קבוצות שמתעניינות בסביבה, חברה וקבלת החלטות."
+     },
+     {
+      "i.ic1": "group",
+      "i.t1": "מי שרוצים לשלב נסיעה, ביקורים, שיחה וטבע."
+     }
+    ],
+    "blk7.list1": [
+     {
+      "i.l1": "/tours/haifa-ahuvati.html",
+      "i.t1": "חיפה אהובתי"
+     },
+     {
+      "i.l1": "/tours/haifa-ahuvati-mekutzar.html",
+      "i.t1": "חיפה אהובתי מקוצר"
+     },
+     {
+      "i.l1": "/tours/haifa-shel-maala.html",
+      "i.t1": "חיפה של מעלה"
+     },
+     {
+      "i.l1": "/tours/haifa-shel-mata.html",
+      "i.t1": "חיפה של מטה"
+     },
+     {
+      "i.l1": "/tours/teima-mehaifa.html",
+      "i.t1": "טעימה מחיפה"
+     }
+    ]
+   },
+   "tour": "teva-adam-hevra-sviva"
+  }
+ },
+ "shared": {
+  "fields": {
+   "shared.head.l1": "/",
+   "shared.head.t1": "יוסק׳ה, לדף הבית",
+   "shared.head.l2": "/tours/",
+   "shared.head.t2": "הסיורים",
+   "shared.head.l3": "/families.html",
+   "shared.head.t3": "משפחות",
+   "shared.head.l4": "/orgs.html",
+   "shared.head.t4": "חברות וארגונים",
+   "shared.head.l5": "/about.html",
+   "shared.head.t5": "על יוסק׳ה",
+   "shared.head.l6": "https://www.brazilao.com/organized-tours",
+   "shared.head.t6": "דרום אמריקה",
+   "shared.head.l7": "/contact.html",
+   "shared.head.t7": "יצירת קשר",
+   "shared.head.l8": "/quiz.html",
+   "shared.head.t8": "איזה סיור מתאים לנו?",
+   "shared.head.l9": "https://wa.me/{{set.waNumber}}?text={{set.waTextEnc}}",
+   "shared.head.t9": "וואטסאפ ליוסק׳ה",
+   "shared.head.t10": "להתקשר: {{set.phone}}",
+   "shared.menu.l1": "/tours/",
+   "shared.menu.t1": "הסיורים",
+   "shared.menu.l2": "/families.html",
+   "shared.menu.t2": "משפחות",
+   "shared.menu.l3": "/orgs.html",
+   "shared.menu.t3": "חברות וארגונים",
+   "shared.menu.l4": "/about.html",
+   "shared.menu.t4": "על יוסק׳ה",
+   "shared.menu.l5": "https://www.brazilao.com/organized-tours",
+   "shared.menu.t5": "דרום אמריקה",
+   "shared.menu.l6": "/contact.html",
+   "shared.menu.t6": "יצירת קשר",
+   "shared.menu.l7": "/#upcoming",
+   "shared.menu.t7": "סיורים קרובים",
+   "shared.menu.l8": "/quiz.html",
+   "shared.menu.t8": "איזה סיור מתאים לנו?",
+   "shared.menu.l9": "/gallery.html",
+   "shared.menu.t9": "גלריה",
+   "shared.menu.l10": "https://wa.me/{{set.waNumber}}?text={{set.waTextEnc}}",
+   "shared.menu.t10": "וואטסאפ",
+   "shared.menu.t11": "פייסבוק",
+   "shared.foot.t1": "ניפגש",
+   "shared.foot.t2": "בדרך.",
+   "shared.foot.t3": "באתר",
+   "shared.foot.l1": "/tours/",
+   "shared.foot.t4": "הסיורים בחיפה",
+   "shared.foot.l2": "/orgs.html",
+   "shared.foot.t5": "ארגונים וחברות",
+   "shared.foot.l3": "/families.html",
+   "shared.foot.t6": "משפחות",
+   "shared.foot.l4": "/private-groups.html",
+   "shared.foot.t7": "קבוצות פרטיות",
+   "shared.foot.l5": "/south-america.html",
+   "shared.foot.t8": "דרום אמריקה",
+   "shared.foot.l6": "/about.html",
+   "shared.foot.t9": "אודות יוסק׳ה",
+   "shared.foot.l7": "/gallery.html",
+   "shared.foot.t10": "גלריה",
+   "shared.foot.l8": "/contact.html",
+   "shared.foot.t11": "יצירת קשר",
+   "shared.foot.t12": "מדברים",
+   "shared.foot.l9": "https://wa.me/{{set.waNumber}}?text={{set.waTextEnc}}",
+   "shared.foot.t13": "וואטסאפ",
+   "shared.foot.t14": "פייסבוק",
+   "shared.foot.t15": "מידע",
+   "shared.foot.l10": "/privacy.html",
+   "shared.foot.t16": "מדיניות פרטיות",
+   "shared.foot.l11": "/terms.html",
+   "shared.foot.t17": "תקנון ותנאי שימוש",
+   "shared.foot.l12": "/accessibility.html",
+   "shared.foot.t18": "הצהרת נגישות",
+   "shared.foot.t19": "העדפות עוגיות ומדידה",
+   "shared.foot.t20": "עיצוב ופיתוח על ידי",
+   "shared.foot.l13": "https://rimov-technologies.vercel.app/",
+   "shared.foot.t21": "לאתר של מעצבי ומפתחי האתר, RIMOV Technologies",
+   "shared.foot.img1": {
+    "src": "/assets/brand/rimov-credit-white.webp",
+    "alt": "",
+    "w": "640",
+    "h": "204"
+   },
+   "shared.foot.t22": "צילום מקדש הבאב והטרסות:",
+   "shared.foot.l14": "https://commons.wikimedia.org/wiki/File:Baha%27i_gardens_in_Haifa_39.jpg",
+   "shared.foot.t23": "Guillaume Paumier",
+   "shared.foot.t24": ", ויקישיתוף,",
+   "shared.foot.l15": "https://creativecommons.org/licenses/by/3.0/",
+   "shared.foot.t25": "CC BY 3.0",
+   "shared.foot.t26": "(הסרת השמיים, חיתוך והתאמת גודל). יתר הצילומים מהארכיון של יוסק׳ה קליין."
+  }
+ },
+ "tours": [
+  {
+   "id": "haifa-ahuvati",
+   "slug": "haifa-ahuvati",
+   "name": "חיפה אהובתי",
+   "place": "להבין את חיפה מההר ועד הנמל",
+   "blurb": "זה הסיור למי שלא רוצים לבחור רק שכונה אחת. מתחילים מלמעלה, יורדים דרך הציר שמחבר את הכרמל לעיר התחתית ורואים איך נוף, תחבורה, תעשייה, תרבות ואנשים הפכו לחיפה שאנחנו מכירים היום.",
+   "fit": "מי שמגיעים לחיפה בפעם הראשונה או רוצים לקבל תמונה רחבה ומחוברת של העיר.",
+   "btn": "לפרטי חיפה אהובתי",
+   "stops": [
+    "הגנים הבהאיים",
+    "טיילת לואי",
+    "הכרמלית",
+    "כיכר פריז",
+    "הנמל"
+   ],
+   "duration": "כ־5 עד 6 שעות",
+   "page": true,
+   "dates": [],
+   "card": {
+    "src": "/assets/approved/bahai-bay-960.webp",
+    "srcset": "/assets/approved/bahai-bay-480.webp 480w, /assets/approved/bahai-bay-960.webp 960w, /assets/approved/bahai-bay-1920.webp 1134w",
+    "w": 1134,
+    "h": 2015,
+    "pos": "50% 62%",
+    "alt": ""
+   },
+   "status": "published",
+   "home": true,
+   "featured": true,
+   "order": 0
+  },
+  {
+   "id": "haifa-ahuvati-mekutzar",
+   "slug": "haifa-ahuvati-mekutzar",
+   "name": "חיפה אהובתי מקוצר",
+   "place": "התמונה הרחבה, בזמן קצר יותר",
+   "blurb": "הגרסה המקוצרת שומרת על המעבר בין חיפה שלמעלה לחיפה שלמטה, אבל עושה זאת בקצב ממוקד יותר. פוגשים את הגנים, התצפיות, הכרמלית, כיכר פריז והעיר התחתית ומבינים איך כל החלקים מתחברים, בלי להקדיש לכך יום שלם.",
+   "fit": "קבוצות עם זמן מוגבל או למי שרוצים פתיחה טובה לעיר.",
+   "btn": "לפרטי הסיור המקוצר",
+   "stops": [
+    "הגנים הבהאיים",
+    "טיילת לואי",
+    "הכרמלית",
+    "כיכר פריז",
+    "הנמל"
+   ],
+   "duration": "כ־3 שעות",
+   "page": true,
+   "dates": [],
+   "card": {
+    "src": "/assets/approved/carmelit-960.webp",
+    "srcset": "/assets/approved/carmelit-480.webp 480w, /assets/approved/carmelit-960.webp 960w, /assets/approved/carmelit-1920.webp 1920w",
+    "w": 1920,
+    "h": 1440,
+    "pos": "50% 40%",
+    "alt": ""
+   },
+   "status": "published",
+   "home": true,
+   "featured": true,
+   "order": 1
+  },
+  {
+   "id": "haifa-shel-maala",
+   "slug": "haifa-shel-maala",
+   "name": "חיפה של מעלה",
+   "place": "לראות את העיר מלמעלה, ולהבין מה קורה מתחת",
+   "blurb": "התצפיות הן רק ההתחלה. הסיור מחבר בין הגנים הבהאיים, טיילת לואי, רובע המדרגות, הכרמלית וגן האם, ומראה איך הגובה, התחבורה והמבנה של הכרמל השפיעו על החיים בעיר.",
+   "fit": "מי שאוהבים נוף, קצב נוח וסיפורים שמחברים בין תכנון עירוני, תרבות ואנשים.",
+   "btn": "לפרטי חיפה של מעלה",
+   "stops": [
+    "הגנים הבהאיים",
+    "טיילת לואי",
+    "רובע המדרגות",
+    "תחנה בכרמלית",
+    "גן האם"
+   ],
+   "duration": "כ־2.5 שעות",
+   "page": true,
+   "dates": [],
+   "card": {
+    "src": "/assets/approved/bahai-terraces-960.webp",
+    "srcset": "/assets/approved/bahai-terraces-480.webp 480w, /assets/approved/bahai-terraces-960.webp 960w, /assets/approved/bahai-terraces-1920.webp 1211w",
+    "w": 1211,
+    "h": 1180,
+    "pos": "50% 45%",
+    "alt": ""
+   },
+   "status": "published",
+   "home": true,
+   "featured": true,
+   "order": 2
+  },
+  {
+   "id": "haifa-shel-mata",
+   "slug": "haifa-shel-mata",
+   "name": "חיפה של מטה",
+   "place": "החלק של חיפה שמרגישים דרך הרחוב",
+   "blurb": "כאן העיר קרובה, צפופה ומלאה שכבות. עוברים בין מגדל המפרש, מגדל השעון, כיכר פריז, השוק הטורקי, הנמל והמושבה הגרמנית, ורואים איך מסחר, הגירה, עבודה ובילוי שינו את האזור לאורך השנים.",
+   "fit": "מי שאוהבים רחובות, היסטוריה עירונית וסיפורים על האנשים שעיצבו את המקום.",
+   "btn": "לפרטי חיפה של מטה",
+   "stops": [
+    "בניין המפרש",
+    "מגדל השעון",
+    "כיכר פריז",
+    "השוק הטורקי",
+    "הנמל",
+    "המושבה הגרמנית"
+   ],
+   "duration": "כ־2.5 שעות",
+   "page": true,
+   "dates": [],
+   "card": {
+    "src": "/assets/approved/clock-tower-960.webp",
+    "srcset": "/assets/approved/clock-tower-480.webp 480w, /assets/approved/clock-tower-960.webp 960w, /assets/approved/clock-tower-1920.webp 1536w",
+    "w": 1536,
+    "h": 1536,
+    "pos": "50% 35%",
+    "alt": ""
+   },
+   "status": "published",
+   "home": true,
+   "featured": true,
+   "order": 3
+  },
+  {
+   "id": "teima-mehaifa",
+   "slug": "teima-mehaifa",
+   "name": "טעימה מחיפה",
+   "place": "להבין את העיר גם דרך מה שאוכלים בה",
+   "blurb": "סיור טבעוני בעיר התחתית שמחבר בין טעימות, רחובות וסיפורים מקומיים. האוכל אינו הפסקה מהתוכן, אלא דרך נוספת לדבר על ההיסטוריה, האנשים והתופעות החברתיות שמאפיינות את חיפה.",
+   "fit": null,
+   "btn": "לפרטי טעימה מחיפה",
+   "stops": [],
+   "duration": "כ־2 עד 3 שעות",
+   "page": true,
+   "dates": [],
+   "card": {
+    "src": "/assets/approved/arches-group-960.webp",
+    "srcset": "/assets/approved/arches-group-480.webp 480w, /assets/approved/arches-group-960.webp 960w, /assets/approved/arches-group-1920.webp 1010w",
+    "w": 1010,
+    "h": 758,
+    "pos": "50% 50%",
+    "alt": ""
+   },
+   "status": "published",
+   "home": true,
+   "featured": true,
+   "order": 4
+  },
+  {
+   "id": "teva-adam-hevra-sviva",
+   "slug": "teva-adam-hevra-sviva",
+   "name": "טבע, אדם, חברה, סביבה",
+   "place": "יום שמחבר בין רעיונות גדולים למה שפוגשים בשטח",
+   "blurb": "יום תוכן בכרמל שעוסק באיזונים שבין טבע לאדם ובין חברה לסביבה. דרך אתרים, שיחה, מפגש עם הטבע ודוגמאות מחיי היום יום בודקים איך החלטות אנושיות משפיעות על הסביבה, ואיך הסביבה משנה בחזרה את החברה שחיה בה.",
+   "fit": "קבוצות, מוסדות וארגונים שמחפשים יום עם נושא, דיון ותוכן עמוק יותר.",
+   "btn": "לפרטי היום",
+   "stops": [],
+   "duration": "",
+   "page": true,
+   "dates": [],
+   "card": {
+    "src": "/assets/approved/square-group-960.webp",
+    "srcset": "/assets/approved/square-group-480.webp 480w, /assets/approved/square-group-960.webp 960w, /assets/approved/square-group-1920.webp 1920w",
+    "w": 1920,
+    "h": 1705,
+    "pos": "50% 45%",
+    "alt": ""
+   },
+   "status": "published",
+   "home": true,
+   "featured": true,
+   "order": 5
+  },
+  {
+   "id": "sodot-veremazim",
+   "slug": "sodot-veremazim",
+   "name": "סודות ורמזים בחיפה",
+   "place": "״יש לחיפה חור בלב״, הפסל הצהוב מול המפרץ",
+   "blurb": "סיור הפעלתי למשפחות ולילדים: יוצאים לעיר בעקבות רמזים וחידות, ומגלים בדרך את הסיפורים שלה.",
+   "fit": "",
+   "btn": "לפרטי סודות ורמזים בחיפה",
+   "stops": [],
+   "duration": "",
+   "page": false,
+   "dates": [],
+   "card": {
+    "src": "/assets/approved/heart-wide-960.webp",
+    "srcset": "/assets/approved/heart-wide-480.webp 480w, /assets/approved/heart-wide-960.webp 960w, /assets/approved/heart-wide-1920.webp 1600w",
+    "w": 1600,
+    "h": 894,
+    "pos": "50% 60%",
+    "alt": ""
+   },
+   "status": "hidden",
+   "home": false,
+   "featured": false,
+   "order": 6
+  }
+ ],
+ "settings": {
+  "siteName": "יוסק׳ה קליין",
+  "phone": "054-436-1667",
+  "whatsapp": "972544361667",
+  "waText": "היי יוסק׳ה, הגענו דרך האתר ונשמח לתכנן טיול.",
+  "email": "yoske.kashlah27@gmail.com",
+  "facebook": "https://www.facebook.com/HaifaMyLove/",
+  "instagram": "",
+  "logo": "/assets/brand/logo-horizontal.svg",
+  "logoDark": "/assets/brand/logo-horizontal-on-navy.svg",
+  "siteUrl": "",
+  "indexable": false,
+  "ogImage": "/assets/brand/og-share-1200x630.jpg"
+ },
+ "forms": {},
+ "redirects": [
+  {
+   "from": "/groups.html",
+   "to": "/families.html",
+   "auto": true
+  },
+  {
+   "from": "/tours/sodot-veremazim.html",
+   "to": "/families.html",
+   "auto": true
+  }
+ ]
+}

@@ -1,0 +1,1432 @@
+[
+{
+"id": "b-assets-v4-hero-wide-1440-webp",
+"url": "/assets/v4/hero-wide-1440.webp",
+"name": "hero-wide-1440",
+"w": 1440,
+"h": 956,
+"alt": "מקדש הבאב וטרסות הגנים הבהאיים במורד הכרמל, מבט מלמטה לאורך הציר",
+"pos": "50% 50%",
+"group": "v4"
+},
+{
+"id": "b-assets-yoske-cutout-640-webp",
+"url": "/assets/yoske-cutout-640.webp",
+"name": "yoske-cutout-640",
+"w": 640,
+"h": 646,
+"alt": "יוסק׳ה, מדריך הטיולים, מצביע על הכותרת",
+"pos": "50% 50%",
+"group": "yoske-cutout-640.webp"
+},
+{
+"id": "b-assets-approved-heart-wide-960-webp",
+"url": "/assets/approved/heart-wide-960.webp",
+"name": "heart-wide",
+"w": 960,
+"h": 536,
+"alt": "משפחות עם יוסק׳ה ליד פסל הלב הצהוב",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-cable-car-960-webp",
+"url": "/assets/approved/cable-car-960.webp",
+"name": "cable-car",
+"w": 960,
+"h": 640,
+"alt": "קרונית רכבל מול שמיים כחולים",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-telescope-960-webp",
+"url": "/assets/approved/telescope-960.webp",
+"name": "telescope",
+"w": 960,
+"h": 1280,
+"alt": "ילד מביט במשקפת תצפית אל העיר והמפרץ",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-clock-tower-960-webp",
+"url": "/assets/approved/clock-tower-960.webp",
+"name": "clock-tower",
+"w": 960,
+"h": 960,
+"alt": "מגדל שעון מאבן מול שמיים כחולים",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-carmelit-960-webp",
+"url": "/assets/approved/carmelit-960.webp",
+"name": "carmelit",
+"w": 960,
+"h": 720,
+"alt": "ילדים מציצים אל קרון ברציף",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-stone-street-960-webp",
+"url": "/assets/approved/stone-street-960.webp",
+"name": "stone-street",
+"w": 960,
+"h": 947,
+"alt": "רחוב עם בנייני אבן ישנים",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-heart-family-960-webp",
+"url": "/assets/approved/heart-family-960.webp",
+"name": "heart-family",
+"w": 960,
+"h": 876,
+"alt": "משפחות וילדים מצטלמים בתוך פסל הלב הצהוב, הים ברקע",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-red-sculpture-selfie-960-webp",
+"url": "/assets/approved/red-sculpture-selfie-960.webp",
+"name": "red-sculpture-selfie",
+"w": 960,
+"h": 720,
+"alt": "יוסק׳ה בסלפי, מאחוריו קבוצה ליד פסל לב אדום מול המפרץ",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-kids-guiding-960-webp",
+"url": "/assets/approved/kids-guiding-960.webp",
+"name": "kids-guiding",
+"w": 960,
+"h": 1707,
+"alt": "יוסק׳ה מדריך קבוצת ילדים שמרימים ידיים כדי לענות",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-stairs-group-960-webp",
+"url": "/assets/approved/stairs-group-960.webp",
+"name": "stairs-group",
+"w": 960,
+"h": 960,
+"alt": "קבוצה גדולה עם יוסק׳ה יושבת על מדרגות ברחוב",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-yoske-selfie-group-960-webp",
+"url": "/assets/approved/yoske-selfie-group-960.webp",
+"name": "yoske-selfie-group",
+"w": 960,
+"h": 1071,
+"alt": "יוסק׳ה מצלם סלפי מחייך, הקבוצה יושבת מאחוריו ומנופפת",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-streetart-960-webp",
+"url": "/assets/approved/streetart-960.webp",
+"name": "streetart",
+"w": 960,
+"h": 540,
+"alt": "קבוצת מטיילים עם יוסק׳ה מול ציור קיר צבעוני",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-synagogue-group-960-webp",
+"url": "/assets/approved/synagogue-group-960.webp",
+"name": "synagogue-group",
+"w": 960,
+"h": 788,
+"alt": "קבוצה בתוך בית כנסת עם פרוכת כחולה",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-yoske-guiding-view-960-webp",
+"url": "/assets/approved/yoske-guiding-view-960.webp",
+"name": "yoske-guiding-view",
+"w": 960,
+"h": 960,
+"alt": "יוסק׳ה מדריך במרפסת תצפית מעל מפרץ חיפה",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-love-haifa-group-960-webp",
+"url": "/assets/approved/love-haifa-group-960.webp",
+"name": "love-haifa-group",
+"w": 960,
+"h": 640,
+"alt": "קבוצה מצטלמת ליד האותיות הגדולות I love Haifa",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-street-tour-960-webp",
+"url": "/assets/approved/street-tour-960.webp",
+"name": "street-tour",
+"w": 960,
+"h": 779,
+"alt": "קבוצה עומדת לאורך רחוב צר ומקשיבה",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-lookout-kids-960-webp",
+"url": "/assets/approved/lookout-kids-960.webp",
+"name": "lookout-kids",
+"w": 960,
+"h": 540,
+"alt": "יוסק׳ה מסביר לילדים ולהורים ליד המעקה מול המפרץ",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-lookout-big-group-960-webp",
+"url": "/assets/approved/lookout-big-group-960.webp",
+"name": "lookout-big-group",
+"w": 960,
+"h": 899,
+"alt": "קבוצה גדולה מצטלמת בתצפית מעל המפרץ",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-reviews-r03-480-webp",
+"url": "/assets/reviews/r03-480.webp",
+"name": "r03-480",
+"w": 480,
+"h": 358,
+"alt": "צילום מסך של ביקורת על יוסק׳ה: ליאב הלפרין, המלצה בפייסבוק",
+"pos": "50% 50%",
+"group": "reviews"
+},
+{
+"id": "b-assets-reviews-r05-480-webp",
+"url": "/assets/reviews/r05-480.webp",
+"name": "r05-480",
+"w": 480,
+"h": 347,
+"alt": "צילום מסך של ביקורת על יוסק׳ה: מירב רביב, המלצה בפייסבוק",
+"pos": "50% 50%",
+"group": "reviews"
+},
+{
+"id": "b-assets-reviews-r02-480-webp",
+"url": "/assets/reviews/r02-480.webp",
+"name": "r02-480",
+"w": 480,
+"h": 285,
+"alt": "צילום מסך של ביקורת על יוסק׳ה: קסניה גרלייב, המלצה בפייסבוק",
+"pos": "50% 50%",
+"group": "reviews"
+},
+{
+"id": "b-assets-reviews-r06-480-webp",
+"url": "/assets/reviews/r06-480.webp",
+"name": "r06-480",
+"w": 480,
+"h": 252,
+"alt": "צילום מסך של ביקורת על יוסק׳ה: אפי יוספי, המלצה בפייסבוק",
+"pos": "50% 50%",
+"group": "reviews"
+},
+{
+"id": "b-assets-reviews-r09-480-webp",
+"url": "/assets/reviews/r09-480.webp",
+"name": "r09-480",
+"w": 480,
+"h": 480,
+"alt": "צילום מסך של ביקורת על יוסק׳ה: ורד יאיר, פוסט בפייסבוק",
+"pos": "50% 50%",
+"group": "reviews"
+},
+{
+"id": "b-assets-reviews-r12-480-webp",
+"url": "/assets/reviews/r12-480.webp",
+"name": "r12-480",
+"w": 480,
+"h": 252,
+"alt": "צילום מסך של ביקורת על יוסק׳ה: נטלי אייזנברג, המלצה בפייסבוק",
+"pos": "50% 50%",
+"group": "reviews"
+},
+{
+"id": "b-assets-reviews-r14-480-webp",
+"url": "/assets/reviews/r14-480.webp",
+"name": "r14-480",
+"w": 480,
+"h": 308,
+"alt": "צילום מסך של ביקורת על יוסק׳ה: גל כליל החורש, המלצה בפייסבוק",
+"pos": "50% 50%",
+"group": "reviews"
+},
+{
+"id": "b-assets-reviews-r18-480-webp",
+"url": "/assets/reviews/r18-480.webp",
+"name": "r18-480",
+"w": 480,
+"h": 450,
+"alt": "צילום מסך של ביקורת על יוסק׳ה: טלי פרידלר, פוסט בפייסבוק",
+"pos": "50% 50%",
+"group": "reviews"
+},
+{
+"id": "b-assets-reviews-r07-480-webp",
+"url": "/assets/reviews/r07-480.webp",
+"name": "r07-480",
+"w": 480,
+"h": 503,
+"alt": "צילום מסך של ביקורת על יוסק׳ה: ורד יאיר ורעומה נחום, תגובות בפייסבוק",
+"pos": "50% 50%",
+"group": "reviews"
+},
+{
+"id": "b-assets-reviews-r13-480-webp",
+"url": "/assets/reviews/r13-480.webp",
+"name": "r13-480",
+"w": 480,
+"h": 375,
+"alt": "צילום מסך של ביקורת על יוסק׳ה: חן שכטר, פוסט בפייסבוק",
+"pos": "50% 50%",
+"group": "reviews"
+},
+{
+"id": "b-assets-reviews-r16-480-webp",
+"url": "/assets/reviews/r16-480.webp",
+"name": "r16-480",
+"w": 480,
+"h": 211,
+"alt": "צילום מסך של ביקורת על יוסק׳ה: איציק לינדנר, פייסבוק",
+"pos": "50% 50%",
+"group": "reviews"
+},
+{
+"id": "b-assets-reviews-r22-480-webp",
+"url": "/assets/reviews/r22-480.webp",
+"name": "r22-480",
+"w": 480,
+"h": 317,
+"alt": "צילום מסך של ביקורת על יוסק׳ה: סופי כץ, Visit Haifa, הודעה",
+"pos": "50% 50%",
+"group": "reviews"
+},
+{
+"id": "b-assets-reviews-r01-480-webp",
+"url": "/assets/reviews/r01-480.webp",
+"name": "r01-480",
+"w": 480,
+"h": 168,
+"alt": "צילום מסך של ביקורת על יוסק׳ה: שרון ירדני, פייסבוק",
+"pos": "50% 50%",
+"group": "reviews"
+},
+{
+"id": "b-assets-reviews-r04-480-webp",
+"url": "/assets/reviews/r04-480.webp",
+"name": "r04-480",
+"w": 480,
+"h": 199,
+"alt": "צילום מסך של ביקורת על יוסק׳ה: מאיה נמרי, המלצה בפייסבוק",
+"pos": "50% 50%",
+"group": "reviews"
+},
+{
+"id": "b-assets-reviews-r08-480-webp",
+"url": "/assets/reviews/r08-480.webp",
+"name": "r08-480",
+"w": 480,
+"h": 242,
+"alt": "צילום מסך של ביקורת על יוסק׳ה: סואלי טולוב, פייסבוק",
+"pos": "50% 50%",
+"group": "reviews"
+},
+{
+"id": "b-assets-reviews-r10-480-webp",
+"url": "/assets/reviews/r10-480.webp",
+"name": "r10-480",
+"w": 480,
+"h": 283,
+"alt": "צילום מסך של ביקורת על יוסק׳ה: שוקי רוק, פוסט בפייסבוק",
+"pos": "50% 50%",
+"group": "reviews"
+},
+{
+"id": "b-assets-reviews-r11-480-webp",
+"url": "/assets/reviews/r11-480.webp",
+"name": "r11-480",
+"w": 480,
+"h": 128,
+"alt": "צילום מסך של ביקורת על יוסק׳ה: קובי רינת, פייסבוק",
+"pos": "50% 50%",
+"group": "reviews"
+},
+{
+"id": "b-assets-reviews-r15-480-webp",
+"url": "/assets/reviews/r15-480.webp",
+"name": "r15-480",
+"w": 480,
+"h": 242,
+"alt": "צילום מסך של ביקורת על יוסק׳ה: קובי ומיקה רינת, פוסט בפייסבוק",
+"pos": "50% 50%",
+"group": "reviews"
+},
+{
+"id": "b-assets-reviews-r17-480-webp",
+"url": "/assets/reviews/r17-480.webp",
+"name": "r17-480",
+"w": 480,
+"h": 168,
+"alt": "צילום מסך של ביקורת על יוסק׳ה: חגית לונדנר, פייסבוק",
+"pos": "50% 50%",
+"group": "reviews"
+},
+{
+"id": "b-assets-reviews-r19-480-webp",
+"url": "/assets/reviews/r19-480.webp",
+"name": "r19-480",
+"w": 480,
+"h": 232,
+"alt": "צילום מסך של ביקורת על יוסק׳ה: שירה כמה דר, פוסט בפייסבוק",
+"pos": "50% 50%",
+"group": "reviews"
+},
+{
+"id": "b-assets-reviews-r20-480-webp",
+"url": "/assets/reviews/r20-480.webp",
+"name": "r20-480",
+"w": 480,
+"h": 272,
+"alt": "צילום מסך של ביקורת על יוסק׳ה: קובי הלפגוט, אינסטגרם",
+"pos": "50% 50%",
+"group": "reviews"
+},
+{
+"id": "b-assets-reviews-r21-480-webp",
+"url": "/assets/reviews/r21-480.webp",
+"name": "r21-480",
+"w": 480,
+"h": 136,
+"alt": "צילום מסך של ביקורת על יוסק׳ה: אלישבע רוק, פוסט בפייסבוק",
+"pos": "50% 50%",
+"group": "reviews"
+},
+{
+"id": "b-assets-reviews-r23-480-webp",
+"url": "/assets/reviews/r23-480.webp",
+"name": "r23-480",
+"w": 480,
+"h": 484,
+"alt": "צילום מסך של ביקורת על יוסק׳ה: משתתפי סיור, משוב מסקר",
+"pos": "50% 50%",
+"group": "reviews"
+},
+{
+"id": "b-assets-reviews-r24-480-webp",
+"url": "/assets/reviews/r24-480.webp",
+"name": "r24-480",
+"w": 480,
+"h": 332,
+"alt": "צילום מסך של ביקורת על יוסק׳ה: משתתפי סיור, משוב מסקר",
+"pos": "50% 50%",
+"group": "reviews"
+},
+{
+"id": "b-assets-reviews-r25-480-webp",
+"url": "/assets/reviews/r25-480.webp",
+"name": "r25-480",
+"w": 480,
+"h": 136,
+"alt": "צילום מסך של ביקורת על יוסק׳ה: משתתפי סיור, משוב מסקר",
+"pos": "50% 50%",
+"group": "reviews"
+},
+{
+"id": "b-assets-photos-rio-sm-jpg",
+"url": "/assets/photos/rio-sm.jpg",
+"name": "rio",
+"w": 820,
+"h": 823,
+"alt": "יוסק׳ה פורש ידיים מתחת לפסל ישו הגואל בריו דה ז׳ניירו",
+"pos": "50% 50%",
+"group": "photos"
+},
+{
+"id": "b-assets-photos-andes-trail-sm-jpg",
+"url": "/assets/photos/andes-trail-sm.jpg",
+"name": "andes-trail",
+"w": 820,
+"h": 615,
+"alt": "שביל הררי במסע בדרום אמריקה",
+"pos": "50% 50%",
+"group": "photos"
+},
+{
+"id": "b-assets-photos-ponchos-group-sm-jpg",
+"url": "/assets/photos/ponchos-group-sm.jpg",
+"name": "ponchos-group",
+"w": 820,
+"h": 615,
+"alt": "חברים בפונצ׳ו צבעוניים במסע בדרום אמריקה",
+"pos": "50% 50%",
+"group": "photos"
+},
+{
+"id": "b-assets-photos-andes-alley-sm-jpg",
+"url": "/assets/photos/andes-alley-sm.jpg",
+"name": "andes-alley",
+"w": 820,
+"h": 1458,
+"alt": "סמטה בכפר במסע בדרום אמריקה",
+"pos": "50% 50%",
+"group": "photos"
+},
+{
+"id": "b-assets-approved-lookout-dusk-960-webp",
+"url": "/assets/approved/lookout-dusk-960.webp",
+"name": "lookout-dusk",
+"w": 960,
+"h": 444,
+"alt": "אנשים על מרפסת תצפית מול העיר, הנמל והמפרץ לקראת ערב",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-portrait-warm-960-webp",
+"url": "/assets/approved/portrait-warm-960.webp",
+"name": "portrait-warm",
+"w": 960,
+"h": 1091,
+"alt": "יוסק׳ה קליין בפונצ׳ו כחול ליד קיר פרחים צבעוני",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-rio-960-webp",
+"url": "/assets/approved/rio-960.webp",
+"name": "rio",
+"w": 956,
+"h": 960,
+"alt": "יוסק׳ה פורש ידיים מתחת לפסל ישו הגואל בריו דה ז׳ניירו",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-photos-lookout-dusk-sm-jpg",
+"url": "/assets/photos/lookout-dusk-sm.jpg",
+"name": "lookout-dusk",
+"w": 820,
+"h": 379,
+"alt": "אנשים על מרפסת תצפית מול העיר, הנמל והמפרץ לקראת ערב",
+"pos": "50% 50%",
+"group": "photos"
+},
+{
+"id": "b-assets-photos-yoske-selfie-group-sm-jpg",
+"url": "/assets/photos/yoske-selfie-group-sm.jpg",
+"name": "yoske-selfie-group",
+"w": 820,
+"h": 915,
+"alt": "יוסק׳ה מצלם סלפי מחייך, הקבוצה יושבת מאחוריו ומנופפת",
+"pos": "50% 50%",
+"group": "photos"
+},
+{
+"id": "b-assets-photos-heart-family-sm-jpg",
+"url": "/assets/photos/heart-family-sm.jpg",
+"name": "heart-family",
+"w": 820,
+"h": 748,
+"alt": "משפחות וילדים מצטלמים בתוך פסל הלב הצהוב, הים ברקע",
+"pos": "50% 50%",
+"group": "photos"
+},
+{
+"id": "b-assets-photos-bahai-bay-sm-jpg",
+"url": "/assets/photos/bahai-bay-sm.jpg",
+"name": "bahai-bay",
+"w": 820,
+"h": 1457,
+"alt": "ציר הגנים הבהאיים עד הים, וקבוצה ליד השער",
+"pos": "50% 50%",
+"group": "photos"
+},
+{
+"id": "b-assets-photos-red-sculpture-selfie-sm-jpg",
+"url": "/assets/photos/red-sculpture-selfie-sm.jpg",
+"name": "red-sculpture-selfie",
+"w": 820,
+"h": 615,
+"alt": "יוסק׳ה בסלפי, מאחוריו קבוצה ליד פסל לב אדום מול המפרץ",
+"pos": "50% 50%",
+"group": "photos"
+},
+{
+"id": "b-assets-photos-kids-guiding-sm-jpg",
+"url": "/assets/photos/kids-guiding-sm.jpg",
+"name": "kids-guiding",
+"w": 820,
+"h": 1458,
+"alt": "יוסק׳ה מדריך קבוצת ילדים שמרימים ידיים כדי לענות",
+"pos": "50% 50%",
+"group": "photos"
+},
+{
+"id": "b-assets-photos-haifa-sunset-sm-jpg",
+"url": "/assets/photos/haifa-sunset-sm.jpg",
+"name": "haifa-sunset",
+"w": 820,
+"h": 904,
+"alt": "העיר, המגדלים והמפרץ בשקיעה, מבט מלמעלה",
+"pos": "50% 50%",
+"group": "photos"
+},
+{
+"id": "b-assets-photos-streetart-sm-jpg",
+"url": "/assets/photos/streetart-sm.jpg",
+"name": "streetart",
+"w": 820,
+"h": 461,
+"alt": "קבוצת מטיילים עם יוסק׳ה מול ציור קיר צבעוני",
+"pos": "50% 50%",
+"group": "photos"
+},
+{
+"id": "b-assets-photos-telescope-sm-jpg",
+"url": "/assets/photos/telescope-sm.jpg",
+"name": "telescope",
+"w": 820,
+"h": 1093,
+"alt": "ילד מביט במשקפת תצפית אל העיר והמפרץ",
+"pos": "50% 50%",
+"group": "photos"
+},
+{
+"id": "b-assets-photos-yoske-guiding-view-sm-jpg",
+"url": "/assets/photos/yoske-guiding-view-sm.jpg",
+"name": "yoske-guiding-view",
+"w": 820,
+"h": 820,
+"alt": "יוסק׳ה מדבר אל קבוצה ליד המעקה, העיר והמפרץ מאחוריו",
+"pos": "50% 50%",
+"group": "photos"
+},
+{
+"id": "b-assets-photos-clock-tower-sm-jpg",
+"url": "/assets/photos/clock-tower-sm.jpg",
+"name": "clock-tower",
+"w": 820,
+"h": 820,
+"alt": "מגדל שעון מאבן מול שמיים כחולים",
+"pos": "50% 50%",
+"group": "photos"
+},
+{
+"id": "b-assets-photos-colorful-bus-sm-jpg",
+"url": "/assets/photos/colorful-bus-sm.jpg",
+"name": "colorful-bus",
+"w": 820,
+"h": 729,
+"alt": "יוסק׳ה ליד אוטובוס תיירים צבעוני",
+"pos": "50% 50%",
+"group": "photos"
+},
+{
+"id": "b-assets-photos-lookout-sm-jpg",
+"url": "/assets/photos/lookout-sm.jpg",
+"name": "lookout",
+"w": 820,
+"h": 547,
+"alt": "יוסק׳ה מסביר מול מפרץ חיפה והנמל",
+"pos": "50% 50%",
+"group": "photos"
+},
+{
+"id": "b-assets-photos-mural-wall-sm-jpg",
+"url": "/assets/photos/mural-wall-sm.jpg",
+"name": "mural-wall",
+"w": 820,
+"h": 875,
+"alt": "ציור קיר של אישה ופרחים על קיר אבן",
+"pos": "50% 50%",
+"group": "photos"
+},
+{
+"id": "b-assets-photos-square-group-sm-jpg",
+"url": "/assets/photos/square-group-sm.jpg",
+"name": "square-group",
+"w": 820,
+"h": 728,
+"alt": "קבוצה יושבת בכיכר מרוצפת בצל עצים",
+"pos": "50% 50%",
+"group": "photos"
+},
+{
+"id": "b-assets-photos-bahai-terraces-sm-jpg",
+"url": "/assets/photos/bahai-terraces-sm.jpg",
+"name": "bahai-terraces",
+"w": 820,
+"h": 799,
+"alt": "הגנים הבהאיים מלמעלה עם כיפת הזהב, העיר והנמל",
+"pos": "50% 50%",
+"group": "photos"
+},
+{
+"id": "b-assets-photos-stone-street-sm-jpg",
+"url": "/assets/photos/stone-street-sm.jpg",
+"name": "stone-street",
+"w": 820,
+"h": 809,
+"alt": "רחוב עם בנייני אבן ישנים",
+"pos": "50% 50%",
+"group": "photos"
+},
+{
+"id": "b-assets-photos-carmelit-sm-jpg",
+"url": "/assets/photos/carmelit-sm.jpg",
+"name": "carmelit",
+"w": 820,
+"h": 615,
+"alt": "ילדים מציצים אל קרון ברציף",
+"pos": "50% 50%",
+"group": "photos"
+},
+{
+"id": "b-assets-photos-arch-door-group-sm-jpg",
+"url": "/assets/photos/arch-door-group-sm.jpg",
+"name": "arch-door-group",
+"w": 820,
+"h": 849,
+"alt": "קבוצה מצטלמת בפתח קשת אבן גדולה",
+"pos": "50% 50%",
+"group": "photos"
+},
+{
+"id": "b-assets-photos-heart-wide-sm-jpg",
+"url": "/assets/photos/heart-wide-sm.jpg",
+"name": "heart-wide",
+"w": 820,
+"h": 458,
+"alt": "קבוצה עם יוסק׳ה ליד פסל הלב הצהוב מול המפרץ",
+"pos": "50% 50%",
+"group": "photos"
+},
+{
+"id": "b-assets-photos-holiday-lights-sm-jpg",
+"url": "/assets/photos/holiday-lights-sm.jpg",
+"name": "holiday-lights",
+"w": 820,
+"h": 936,
+"alt": "עץ מואר וקישוטי אור ברחוב בערב",
+"pos": "50% 50%",
+"group": "photos"
+},
+{
+"id": "b-assets-photos-street-tour-sm-jpg",
+"url": "/assets/photos/street-tour-sm.jpg",
+"name": "street-tour",
+"w": 820,
+"h": 665,
+"alt": "קבוצה עומדת לאורך רחוב צר ומקשיבה",
+"pos": "50% 50%",
+"group": "photos"
+},
+{
+"id": "b-assets-photos-synagogue-group-sm-jpg",
+"url": "/assets/photos/synagogue-group-sm.jpg",
+"name": "synagogue-group",
+"w": 820,
+"h": 673,
+"alt": "קבוצה בתוך בית כנסת עם פרוכת כחולה",
+"pos": "50% 50%",
+"group": "photos"
+},
+{
+"id": "b-assets-photos-lookout-big-group-sm-jpg",
+"url": "/assets/photos/lookout-big-group-sm.jpg",
+"name": "lookout-big-group",
+"w": 820,
+"h": 768,
+"alt": "קבוצה גדולה מצטלמת מול הנוף",
+"pos": "50% 50%",
+"group": "photos"
+},
+{
+"id": "b-assets-photos-red-shirt-sm-jpg",
+"url": "/assets/photos/red-shirt-sm.jpg",
+"name": "red-shirt",
+"w": 820,
+"h": 1059,
+"alt": "יוסק׳ה בחולצה אדומה על מדרגות מבנה עמודים",
+"pos": "50% 50%",
+"group": "photos"
+},
+{
+"id": "b-assets-photos-facade-old-sm-jpg",
+"url": "/assets/photos/facade-old-sm.jpg",
+"name": "facade-old",
+"w": 820,
+"h": 820,
+"alt": "חזית ישנה של בניין אבן עם מרפסות ותוספות",
+"pos": "50% 50%",
+"group": "photos"
+},
+{
+"id": "b-assets-photos-lookout-group-bay-sm-jpg",
+"url": "/assets/photos/lookout-group-bay-sm.jpg",
+"name": "lookout-group-bay",
+"w": 820,
+"h": 379,
+"alt": "קבוצה יושבת על מדרגות התצפית ומקשיבה, המפרץ מתחת",
+"pos": "50% 50%",
+"group": "photos"
+},
+{
+"id": "b-assets-photos-clock-tower-sky-sm-jpg",
+"url": "/assets/photos/clock-tower-sky-sm.jpg",
+"name": "clock-tower-sky",
+"w": 820,
+"h": 1148,
+"alt": "מגדל שעון מאבן וחצר, שמיים מעוננים",
+"pos": "50% 50%",
+"group": "photos"
+},
+{
+"id": "b-assets-photos-cable-car-sm-jpg",
+"url": "/assets/photos/cable-car-sm.jpg",
+"name": "cable-car",
+"w": 820,
+"h": 546,
+"alt": "קרונית רכבל על כבל מול שמיים כחולים",
+"pos": "50% 50%",
+"group": "photos"
+},
+{
+"id": "b-assets-photos-stone-courtyard-sm-jpg",
+"url": "/assets/photos/stone-courtyard-sm.jpg",
+"name": "stone-courtyard",
+"w": 820,
+"h": 615,
+"alt": "חצר מרוצפת בין קירות אבן, קבוצה מקשיבה",
+"pos": "50% 50%",
+"group": "photos"
+},
+{
+"id": "b-assets-photos-andes-village-sm-jpg",
+"url": "/assets/photos/andes-village-sm.jpg",
+"name": "andes-village",
+"w": 820,
+"h": 1458,
+"alt": "רחוב מרוצף ובית צבעוני למרגלות הרים, מאחד המסעות בדרום אמריקה",
+"pos": "50% 50%",
+"group": "photos"
+},
+{
+"id": "b-assets-approved-bahai-bay-960-webp",
+"url": "/assets/approved/bahai-bay-960.webp",
+"name": "bahai-bay",
+"w": 960,
+"h": 1706,
+"alt": "ציר הגנים הבהאיים יורד עד העיר והים",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-bahai-terraces-960-webp",
+"url": "/assets/approved/bahai-terraces-960.webp",
+"name": "bahai-terraces",
+"w": 960,
+"h": 935,
+"alt": "הגנים הבהאיים מלמעלה עם כיפת הזהב, העיר והנמל",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-arches-group-960-webp",
+"url": "/assets/approved/arches-group-960.webp",
+"name": "arches-group",
+"w": 960,
+"h": 720,
+"alt": "קבוצה מתחת לקשתות אבן",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-square-group-960-webp",
+"url": "/assets/approved/square-group-960.webp",
+"name": "square-group",
+"w": 960,
+"h": 852,
+"alt": "קבוצה יושבת בכיכר מרוצפת בצל עצים",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-lookout-group-bay-960-webp",
+"url": "/assets/approved/lookout-group-bay-960.webp",
+"name": "lookout-group-bay",
+"w": 960,
+"h": 444,
+"alt": "קבוצה יושבת על מדרגות התצפית ומקשיבה, המפרץ מתחת",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-brand-rimov-credit-white-webp",
+"url": "/assets/brand/rimov-credit-white.webp",
+"name": "rimov-credit-white",
+"w": 640,
+"h": 204,
+"alt": "",
+"pos": "50% 50%",
+"group": "brand"
+},
+{
+"id": "b-assets-approved-andes-alley-960-webp",
+"url": "/assets/approved/andes-alley-960.webp",
+"name": "andes-alley",
+"w": 900,
+"h": 1600,
+"alt": "",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-andes-river-960-webp",
+"url": "/assets/approved/andes-river-960.webp",
+"name": "andes-river",
+"w": 900,
+"h": 1600,
+"alt": "",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-andes-terraces-960-webp",
+"url": "/assets/approved/andes-terraces-960.webp",
+"name": "andes-terraces",
+"w": 960,
+"h": 1280,
+"alt": "",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-andes-trail-960-webp",
+"url": "/assets/approved/andes-trail-960.webp",
+"name": "andes-trail",
+"w": 960,
+"h": 720,
+"alt": "",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-andes-valley-960-webp",
+"url": "/assets/approved/andes-valley-960.webp",
+"name": "andes-valley",
+"w": 960,
+"h": 540,
+"alt": "",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-andes-village-960-webp",
+"url": "/assets/approved/andes-village-960.webp",
+"name": "andes-village",
+"w": 900,
+"h": 1600,
+"alt": "",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-arch-door-group-960-webp",
+"url": "/assets/approved/arch-door-group-960.webp",
+"name": "arch-door-group",
+"w": 960,
+"h": 994,
+"alt": "",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-bay-960-webp",
+"url": "/assets/approved/bay-960.webp",
+"name": "bay",
+"w": 435,
+"h": 580,
+"alt": "",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-clock-tower-sky-960-webp",
+"url": "/assets/approved/clock-tower-sky-960.webp",
+"name": "clock-tower-sky",
+"w": 960,
+"h": 1344,
+"alt": "",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-colorful-bus-960-webp",
+"url": "/assets/approved/colorful-bus-960.webp",
+"name": "colorful-bus",
+"w": 960,
+"h": 853,
+"alt": "",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-colorful-heart-group-960-webp",
+"url": "/assets/approved/colorful-heart-group-960.webp",
+"name": "colorful-heart-group",
+"w": 960,
+"h": 959,
+"alt": "",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-facade-old-960-webp",
+"url": "/assets/approved/facade-old-960.webp",
+"name": "facade-old",
+"w": 960,
+"h": 960,
+"alt": "",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-gardens-960-webp",
+"url": "/assets/approved/gardens-960.webp",
+"name": "gardens",
+"w": 960,
+"h": 718,
+"alt": "",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-group-selfie-960-webp",
+"url": "/assets/approved/group-selfie-960.webp",
+"name": "group-selfie",
+"w": 960,
+"h": 718,
+"alt": "",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-haifa-dusk-wide-960-webp",
+"url": "/assets/approved/haifa-dusk-wide-960.webp",
+"name": "haifa-dusk-wide",
+"w": 960,
+"h": 540,
+"alt": "",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-haifa-panorama-960-webp",
+"url": "/assets/approved/haifa-panorama-960.webp",
+"name": "haifa-panorama",
+"w": 960,
+"h": 599,
+"alt": "",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-haifa-sunset-960-webp",
+"url": "/assets/approved/haifa-sunset-960.webp",
+"name": "haifa-sunset",
+"w": 960,
+"h": 1058,
+"alt": "",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-holiday-lights-960-webp",
+"url": "/assets/approved/holiday-lights-960.webp",
+"name": "holiday-lights",
+"w": 960,
+"h": 1096,
+"alt": "",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-iguazu-960-webp",
+"url": "/assets/approved/iguazu-960.webp",
+"name": "iguazu",
+"w": 960,
+"h": 508,
+"alt": "",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-logo-960-webp",
+"url": "/assets/approved/logo-960.webp",
+"name": "logo",
+"w": 960,
+"h": 960,
+"alt": "",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-lookout-960-webp",
+"url": "/assets/approved/lookout-960.webp",
+"name": "lookout",
+"w": 960,
+"h": 640,
+"alt": "",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-mural-960-webp",
+"url": "/assets/approved/mural-960.webp",
+"name": "mural",
+"w": 365,
+"h": 486,
+"alt": "",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-mural-wall-960-webp",
+"url": "/assets/approved/mural-wall-960.webp",
+"name": "mural-wall",
+"w": 960,
+"h": 1025,
+"alt": "",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-overlook-group-960-webp",
+"url": "/assets/approved/overlook-group-960.webp",
+"name": "overlook-group",
+"w": 960,
+"h": 959,
+"alt": "",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-ponchos-group-960-webp",
+"url": "/assets/approved/ponchos-group-960.webp",
+"name": "ponchos-group",
+"w": 960,
+"h": 720,
+"alt": "",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-port-cranes-960-webp",
+"url": "/assets/approved/port-cranes-960.webp",
+"name": "port-cranes",
+"w": 960,
+"h": 1601,
+"alt": "",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-portrait-seated-960-webp",
+"url": "/assets/approved/portrait-seated-960.webp",
+"name": "portrait-seated",
+"w": 787,
+"h": 1421,
+"alt": "",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-red-shirt-960-webp",
+"url": "/assets/approved/red-shirt-960.webp",
+"name": "red-shirt",
+"w": 960,
+"h": 1240,
+"alt": "",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-silo-wall-960-webp",
+"url": "/assets/approved/silo-wall-960.webp",
+"name": "silo-wall",
+"w": 960,
+"h": 720,
+"alt": "",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-stone-church-960-webp",
+"url": "/assets/approved/stone-church-960.webp",
+"name": "stone-church",
+"w": 960,
+"h": 640,
+"alt": "",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-stone-courtyard-960-webp",
+"url": "/assets/approved/stone-courtyard-960.webp",
+"name": "stone-courtyard",
+"w": 960,
+"h": 720,
+"alt": "",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-yoske-mural-selfie-960-webp",
+"url": "/assets/approved/yoske-mural-selfie-960.webp",
+"name": "yoske-mural-selfie",
+"w": 960,
+"h": 720,
+"alt": "",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-young-group-960-webp",
+"url": "/assets/approved/young-group-960.webp",
+"name": "young-group",
+"w": 960,
+"h": 961,
+"alt": "",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-photos-andes-river-sm-jpg",
+"url": "/assets/photos/andes-river-sm.jpg",
+"name": "andes-river",
+"w": 820,
+"h": 1458,
+"alt": "",
+"pos": "50% 50%",
+"group": "photos"
+},
+{
+"id": "b-assets-photos-andes-terraces-sm-jpg",
+"url": "/assets/photos/andes-terraces-sm.jpg",
+"name": "andes-terraces",
+"w": 820,
+"h": 1093,
+"alt": "",
+"pos": "50% 50%",
+"group": "photos"
+},
+{
+"id": "b-assets-photos-andes-valley-sm-jpg",
+"url": "/assets/photos/andes-valley-sm.jpg",
+"name": "andes-valley",
+"w": 820,
+"h": 462,
+"alt": "",
+"pos": "50% 50%",
+"group": "photos"
+},
+{
+"id": "b-assets-photos-arches-group-sm-jpg",
+"url": "/assets/photos/arches-group-sm.jpg",
+"name": "arches-group",
+"w": 820,
+"h": 615,
+"alt": "",
+"pos": "50% 50%",
+"group": "photos"
+},
+{
+"id": "b-assets-photos-bay-sm-jpg",
+"url": "/assets/photos/bay-sm.jpg",
+"name": "bay",
+"w": 435,
+"h": 580,
+"alt": "",
+"pos": "50% 50%",
+"group": "photos"
+},
+{
+"id": "b-assets-photos-colorful-heart-group-sm-jpg",
+"url": "/assets/photos/colorful-heart-group-sm.jpg",
+"name": "colorful-heart-group",
+"w": 820,
+"h": 819,
+"alt": "",
+"pos": "50% 50%",
+"group": "photos"
+},
+{
+"id": "b-assets-photos-group-selfie-sm-jpg",
+"url": "/assets/photos/group-selfie-sm.jpg",
+"name": "group-selfie",
+"w": 820,
+"h": 613,
+"alt": "",
+"pos": "50% 50%",
+"group": "photos"
+},
+{
+"id": "b-assets-photos-haifa-dusk-wide-sm-jpg",
+"url": "/assets/photos/haifa-dusk-wide-sm.jpg",
+"name": "haifa-dusk-wide",
+"w": 820,
+"h": 461,
+"alt": "",
+"pos": "50% 50%",
+"group": "photos"
+},
+{
+"id": "b-assets-photos-logo-sm-jpg",
+"url": "/assets/photos/logo-sm.jpg",
+"name": "logo",
+"w": 820,
+"h": 820,
+"alt": "",
+"pos": "50% 50%",
+"group": "photos"
+},
+{
+"id": "b-assets-photos-lookout-kids-sm-jpg",
+"url": "/assets/photos/lookout-kids-sm.jpg",
+"name": "lookout-kids",
+"w": 820,
+"h": 461,
+"alt": "",
+"pos": "50% 50%",
+"group": "photos"
+},
+{
+"id": "b-assets-photos-love-haifa-group-sm-jpg",
+"url": "/assets/photos/love-haifa-group-sm.jpg",
+"name": "love-haifa-group",
+"w": 820,
+"h": 547,
+"alt": "",
+"pos": "50% 50%",
+"group": "photos"
+},
+{
+"id": "b-assets-photos-mural-sm-jpg",
+"url": "/assets/photos/mural-sm.jpg",
+"name": "mural",
+"w": 365,
+"h": 486,
+"alt": "",
+"pos": "50% 50%",
+"group": "photos"
+},
+{
+"id": "b-assets-photos-overlook-group-sm-jpg",
+"url": "/assets/photos/overlook-group-sm.jpg",
+"name": "overlook-group",
+"w": 820,
+"h": 820,
+"alt": "",
+"pos": "50% 50%",
+"group": "photos"
+},
+{
+"id": "b-assets-photos-port-cranes-sm-jpg",
+"url": "/assets/photos/port-cranes-sm.jpg",
+"name": "port-cranes",
+"w": 820,
+"h": 1368,
+"alt": "",
+"pos": "50% 50%",
+"group": "photos"
+},
+{
+"id": "b-assets-photos-portrait-seated-sm-jpg",
+"url": "/assets/photos/portrait-seated-sm.jpg",
+"name": "portrait-seated",
+"w": 787,
+"h": 1421,
+"alt": "",
+"pos": "50% 50%",
+"group": "photos"
+},
+{
+"id": "b-assets-photos-portrait-warm-sm-jpg",
+"url": "/assets/photos/portrait-warm-sm.jpg",
+"name": "portrait-warm",
+"w": 820,
+"h": 932,
+"alt": "",
+"pos": "50% 50%",
+"group": "photos"
+},
+{
+"id": "b-assets-photos-silo-wall-sm-jpg",
+"url": "/assets/photos/silo-wall-sm.jpg",
+"name": "silo-wall",
+"w": 820,
+"h": 615,
+"alt": "",
+"pos": "50% 50%",
+"group": "photos"
+},
+{
+"id": "b-assets-photos-stairs-group-sm-jpg",
+"url": "/assets/photos/stairs-group-sm.jpg",
+"name": "stairs-group",
+"w": 820,
+"h": 820,
+"alt": "",
+"pos": "50% 50%",
+"group": "photos"
+},
+{
+"id": "b-assets-photos-stone-church-sm-jpg",
+"url": "/assets/photos/stone-church-sm.jpg",
+"name": "stone-church",
+"w": 820,
+"h": 546,
+"alt": "",
+"pos": "50% 50%",
+"group": "photos"
+},
+{
+"id": "b-assets-photos-yoske-mural-selfie-sm-jpg",
+"url": "/assets/photos/yoske-mural-selfie-sm.jpg",
+"name": "yoske-mural-selfie",
+"w": 820,
+"h": 615,
+"alt": "",
+"pos": "50% 50%",
+"group": "photos"
+},
+{
+"id": "b-assets-photos-young-group-sm-jpg",
+"url": "/assets/photos/young-group-sm.jpg",
+"name": "young-group",
+"w": 820,
+"h": 820,
+"alt": "",
+"pos": "50% 50%",
+"group": "photos"
+}
+]

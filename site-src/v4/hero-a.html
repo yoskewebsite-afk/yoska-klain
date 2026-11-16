@@ -1,0 +1,30 @@
+    <!-- ============ 1+2. HERO + ANCHORED SCENE
+         Reference: the headline stays while the palace rises over it. Here the Shrine of the Báb and the terraces
+         (sky cut away) rise over the headline, the scene anchors, the intro rises in front of it, then the page scrolls on. ============ -->
+    <section class="hero" id="top" data-hero-variant="a" aria-labelledby="hero-title" data-hero>
+      <div class="hero__stage" data-hero-stage>
+        <div class="hero__sky" aria-hidden="true"></div>
+        <div class="hero__head" data-hero-head>
+          <h1 class="hero__title" id="hero-title"><span class="hero__l1">חיפה כמו</span> <span class="hero__l2">שעוד לא הכרתם.</span></h1>
+          <p class="hero__sub">טיולים עם יוסק׳ה, דרך האנשים, <span class="br">הסיפורים והתרבות שמרכיבים את המקום.</span></p>
+        </div>
+
+
+      </div>
+      <div class="hero__scene" data-hero-scene>
+          <picture class="hero__photo">
+            <source media="(max-width: 699px), (max-width: 999px) and (orientation: portrait)" srcset="/assets/v4/hero-tall-640.webp 640w, /assets/v4/hero-tall-960.webp 960w, /assets/v4/hero-tall-1280.webp 1280w" sizes="100vw" width="1280" height="1763">
+            <img src="/assets/v4/hero-wide-1440.webp" srcset="/assets/v4/hero-wide-960.webp 960w, /assets/v4/hero-wide-1440.webp 1440w, /assets/v4/hero-wide-2160.webp 2160w" sizes="100vw" width="2160" height="1434" alt="מקדש הבאב וטרסות הגנים הבהאיים במורד הכרמל, מבט מלמטה לאורך הציר" fetchpriority="high">
+          </picture>
+          <!-- Yoske on the photo; the copy of the photo in front of him shows only the trees below his waist -->
+          <img class="hero__yoske" data-hero-yoske src="/assets/yoske-cutout-640.webp" srcset="/assets/yoske-cutout-640.webp 640w, /assets/yoske-cutout-900.webp 900w, /assets/yoske-cutout.webp 1252w" sizes="(max-width: 699px) 42vw, 30vw" width="900" height="908" alt="יוסק׳ה, מדריך הטיולים, מצביע על הכותרת" fetchpriority="high">
+          <div class="hero__fore" aria-hidden="true" data-hero-fore>
+  <picture>
+            <source media="(max-width: 699px), (max-width: 999px) and (orientation: portrait)" srcset="/assets/v4/hero-tall-640.webp 640w, /assets/v4/hero-tall-960.webp 960w, /assets/v4/hero-tall-1280.webp 1280w" sizes="100vw" width="1280" height="1763">
+            <img src="/assets/v4/hero-wide-1440.webp" srcset="/assets/v4/hero-wide-960.webp 960w, /assets/v4/hero-wide-1440.webp 1440w, /assets/v4/hero-wide-2160.webp 2160w" sizes="100vw" width="2160" height="1434" alt="">
+          </picture>
+          </div>
+          <a class="btn btn--ink hero__cta" href="/quiz.html" data-hero-cta data-track="quiz_entry" data-track-from="hero">בואו נמצא את הסיור שלכם<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+    </section>
+

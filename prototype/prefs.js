@@ -91,20 +91,62 @@
     paint();
   }
 
-  /* ---------- cookie preferences (opened from the footer) ---------- */
+  /* ---------- cookie & measurement preferences (15.11.2026) ----------
+     Without a measurement provider (body[data-ga4] empty) nothing is collected: the panel only explains that.
+     With one, the visitor chooses (equal buttons, nothing preselected), the choice is kept under "yoske-consent",
+     and analytics.js loads the provider only after "measurement" is on. The footer button reopens this panel. */
+  var CK = 'yoske-consent', ga = document.body.getAttribute('data-ga4') || '';
+  function getConsent() { try { var c = JSON.parse(localStorage.getItem(CK) || 'null'); return c && c.v === 1 ? c : null; } catch (e) { return null; } }
+  function setConsent(m) {
+    var c = { v: 1, m: m ? 1 : 0, at: new Date().toISOString().slice(0, 10) };
+    try { localStorage.setItem(CK, JSON.stringify(c)); } catch (e) { }
+    window.__yoskeConsent = c;
+    document.dispatchEvent(new CustomEvent('yoske:consent', { detail: c }));
+  }
+  window.__yoskeConsent = getConsent();
   var cookieLinks = document.querySelectorAll('[data-cookie-open]');
-  if (cookieLinks.length) {
-    var cd = dialog('cookie-panel', 'העדפות עוגיות', null), cb = el('div', { class: 'pdlg__body' });
+  var cd = dialog('cookie-panel', 'העדפות עוגיות ומדידה', null), cb = el('div', { class: 'pdlg__body' });
+  cd.appendChild(cb);
+  function paintCookies() {
+    var c = getConsent(), on = !!(c && c.m);
+    if (!ga) {
+      cb.innerHTML =
+        '<p>כרגע האתר משתמש רק במה שחיוני לתפקוד שלו, ואין כלי מדידה פעיל.</p>' +
+        '<ul class="pdlg__list">' +
+        '<li><strong>חיוני, פעיל תמיד:</strong> אין עוגיות. העדפות הנגישות שבחרתם נשמרות רק בדפדפן שלכם (localStorage).</li>' +
+        '<li><strong>פניות:</strong> כשאתם שולחים טופס, הפרטים נשמרים במערכת הפניות של יוסק׳ה כדי לחזור אליכם, ולא בשום כלי מדידה.</li>' +
+        '<li><strong>מדידה ושיווק:</strong> לא פעילים. אם יתווסף כלי כזה, הוא ייטען רק אחרי שתאשרו כאן.</li></ul>' +
+        '<div class="pdlg__foot"><a class="pdlg__link" href="/privacy.html#cookies">מדיניות פרטיות</a></div>';
+      return;
+    }
     cb.innerHTML =
-      '<p>האתר משתמש רק בדברים חיוניים לתפקוד שלו, ולכן אין כאן מה לאשר או לדחות.</p>' +
+      '<p>אתם בוחרים מה פועל באתר. אפשר לשנות את הבחירה בכל רגע מהכפתור בתחתית העמוד.</p>' +
       '<ul class="pdlg__list">' +
-      '<li><strong>חיוני, פעיל:</strong> אין עוגיות. אם תבחרו באפשרויות נגישות, העדפותיכם נשמרות רק בדפדפן שלכם (localStorage) כדי שיישארו בין עמודים. הן לא נשלחות לשום מקום, ואפשר למחוק אותן ב״איפוס הכול״.</li>' +
-      '<li><strong>מדידה ושיווק:</strong> לא בשימוש. אין אנליטיקס, פיקסלים או פרסום. אם יתווסף שירות כזה, הוא ייטען רק אחרי אישור שלכם.</li></ul>' +
-      '<div class="pdlg__foot"><a class="pdlg__link" href="/privacy.html#cookies">מדיניות פרטיות</a></div>';
-    cd.appendChild(cb);
-    Array.prototype.forEach.call(cookieLinks, function (a) {
-      a.addEventListener('click', function (e) { e.preventDefault(); cd.__op = a; show(cd, a); });
+      '<li><strong>חיוני, פעיל תמיד:</strong> העדפות הנגישות והבחירה הזו נשמרות בדפדפן שלכם בלבד.</li>' +
+      '<li><strong>מדידה (Google Analytics):</strong> כניסות לדפים ולחיצות על כפתורים, בלי שם, טלפון או תוכן של פנייה. פועל רק אם תאשרו.</li></ul>' +
+      '<button type="button" class="prow" role="switch" aria-checked="' + on + '" data-consent-toggle><span class="prow__l">מדידה</span><span class="prow__s">' + (on ? 'פעיל' : 'כבוי') + '</span></button>' +
+      '<div class="pdlg__foot"><button type="button" class="btn btn--line btn--sm" data-consent="0">רק חיוני</button><button type="button" class="btn btn--line btn--sm" data-consent="1">אישור מדידה</button><a class="pdlg__link" href="/privacy.html#cookies">מדיניות פרטיות</a></div>';
+    cb.querySelector('[data-consent-toggle]').addEventListener('click', function () { setConsent(!on); paintCookies(); });
+    Array.prototype.forEach.call(cb.querySelectorAll('[data-consent]'), function (b) {
+      b.addEventListener('click', function () { setConsent(b.getAttribute('data-consent') === '1'); cd.close(); });
     });
-    cd.addEventListener('close', function () { if (cd.__op) cd.__op.focus(); });
+  }
+  Array.prototype.forEach.call(cookieLinks, function (a) {
+    a.addEventListener('click', function (e) { e.preventDefault(); paintCookies(); cd.__op = a; show(cd, a); });
+  });
+  cd.addEventListener('close', function () { if (cd.__op) cd.__op.focus(); var bn = document.querySelector('.cbanner'); if (bn && getConsent()) bn.remove(); });
+  // first visit with a provider configured: a small, non-blocking banner with two equal choices
+  if (ga && !getConsent()) {
+    var bn = el('div', { class: 'cbanner', role: 'region', 'aria-label': 'עוגיות ומדידה' });
+    bn.innerHTML = '<p>נשמח למדוד כניסות ולחיצות כדי לשפר את האתר, בלי פרטים מזהים. זה יפעל רק אם תאשרו.</p>' +
+      '<div class="btnrow"><button type="button" class="btn btn--line btn--sm" data-c="0">רק חיוני</button><button type="button" class="btn btn--line btn--sm" data-c="1">אישור מדידה</button><button type="button" class="linkbtn" data-c="more">פרטים</button></div>';
+    document.body.appendChild(bn);
+    Array.prototype.forEach.call(bn.querySelectorAll('[data-c]'), function (b) {
+      b.addEventListener('click', function () {
+        var v = b.getAttribute('data-c');
+        if (v === 'more') { paintCookies(); show(cd, b); return; }
+        setConsent(v === '1'); bn.remove();
+      });
+    });
   }
 })();

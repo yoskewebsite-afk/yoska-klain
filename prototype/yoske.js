@@ -78,27 +78,6 @@
     track.addEventListener('scroll', update, { passive: true }); addEventListener('resize', update); update();
   });
 
-  /* ---------------- contact: prepares a WhatsApp draft, never sends ---------------- */
-  const form = $('[data-contact]');
-  if (form) {
-    const ready = $('[data-ready]', form), preview = $('[data-preview]', form), openWa = $('[data-open-wa]', form);
-    const f = { name: $('#c-name'), phone: $('#c-phone'), msg: $('#c-msg') };
-    const phoneOk = v => /^(\+?972|0)\d{8,9}$/.test(v.replace(/[^\d+]/g, ''));
-    const setErr = (el, bad) => { el.setAttribute('aria-invalid', String(bad)); $('#' + el.id + '-err').hidden = !bad; };
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      const name = f.name.value.trim(), phone = f.phone.value.trim(), msg = f.msg.value.trim();
-      const badName = !name, badPhone = !phoneOk(phone);
-      setErr(f.name, badName); setErr(f.phone, badPhone);
-      if (badName) return f.name.focus();
-      if (badPhone) return f.phone.focus();
-      const text = `היי יוסק׳ה, הגעתי דרך האתר.\nשם: ${name}\nטלפון: ${phone}` + (msg ? `\n${msg}` : '');
-      preview.textContent = text; openWa.href = wa(text); ready.hidden = false; ready.focus();
-    });
-    ['name', 'phone'].forEach(k => f[k].addEventListener('input', () => { if (f[k].getAttribute('aria-invalid') === 'true') setErr(f[k], k === 'name' ? !f[k].value.trim() : !phoneOk(f[k].value)); }));
-    $('[data-edit]', form).addEventListener('click', () => { ready.hidden = true; f.msg.focus(); });
-  }
-
   /* ---------------- page rail, tab bar, back-to-top ---------------- */
   const side = $('[data-siderail]'), tabs = $('[data-tabbar]'), totop = $('[data-totop]'), hero = $('[data-hero]');
   const links = $$('[data-rail-link]');
@@ -185,6 +164,68 @@
     b.addEventListener('click', () => { const o = q.classList.toggle('is-open'); b.setAttribute('aria-expanded', o); b.textContent = o ? 'פחות' : 'קראו עוד'; });
     q.after(b);
   });
+
+  /* 15.11.2026: sections that animate when they arrive (lines draw, values fill, the balance levels): .is-in once */
+  if (!still()) {
+    const io2 = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-in'); io2.unobserve(e.target); } }), { rootMargin: '0px 0px -18% 0px' });
+    $$('.uq, .groups, .doodle, .about--full, [data-pop], .uq__card, .ab2, .tc2').forEach(el => io2.observe(el));
+    // floating objects: drift and turn with the scroll; the cable car and the paper plane travel across their section
+    const objs = $$('[data-float]');
+    if (objs.length) {
+      let tk = false;
+      const run = () => { tk = false; const vh = innerHeight, vw = document.documentElement.clientWidth;
+        objs.forEach(el => { const sec = el.parentElement, r = sec.getBoundingClientRect(); if (r.bottom < -200 || r.top > vh + 200) return;
+          const c = r.top + r.height / 2 - vh / 2, d = el.dataset;
+          if (d.travel) {
+            const p = Math.min(1, Math.max(0, (vh - r.top) / (vh + r.height)));
+            if (d.travel === 'cable') {
+              const x = -p * (vw + 220) + 40, y = p * Math.min(100, vw * .066);
+              el.style.transform = 'translate(' + x.toFixed(0) + 'px,' + y.toFixed(0) + 'px)';
+            }
+            if (d.travel === 'camera') {
+              const x = -p * (vw + 260) + 90, y = 6 + 14 * Math.sin(p * Math.PI * 3);
+              el.style.transform = 'translate(' + x.toFixed(0) + 'px,' + y.toFixed(0) + 'px) rotate(' + (8 * Math.sin(p * Math.PI * 2)).toFixed(1) + 'deg)';
+            }
+            if (d.travel === 'plane') {
+              const x = -p * (vw + 260) + 90, y = 330 - p * 320 - 40 * Math.sin(p * Math.PI);
+              el.style.transform = 'translate(' + x.toFixed(0) + 'px,' + y.toFixed(0) + 'px) rotate(' + (5 + 9 * p).toFixed(1) + 'deg)';
+              const tr = sec.querySelector('.trailline'); if (tr) tr.style.clipPath = 'inset(0 0 0 ' + (100 - p * 100).toFixed(1) + '%)';
+            }
+            return;
+          }
+          el.style.transform = 'translate(' + (c * +d.x).toFixed(1) + 'px,' + (c * +d.y).toFixed(1) + 'px) rotate(' + (c * +d.r).toFixed(1) + 'deg)';
+        }); };
+      addEventListener('scroll', () => { if (!tk) { tk = true; requestAnimationFrame(run); } }, { passive: true }); addEventListener('resize', run); run();
+    }
+
+    // counters: count up once, when they arrive
+    const io3 = new IntersectionObserver(es => es.forEach(e => {
+      if (!e.isIntersecting) return; io3.unobserve(e.target);
+      const el = e.target, to = +el.dataset.count, from = +(el.dataset.from || 0), suf = el.dataset.suffix || '', t0 = performance.now(), dur = 1400;
+      const step = t => { const k = Math.min(1, (t - t0) / dur), v = Math.round(from + (to - from) * (1 - Math.pow(1 - k, 3))); el.textContent = v + suf; if (k < 1) requestAnimationFrame(step); };
+      requestAnimationFrame(step);
+    }), { rootMargin: '0px 0px -15% 0px' });
+    $$('[data-count]').forEach(el => io3.observe(el));
+    // parallax: photos with data-parallax drift at their own speed while their section is on screen
+    const par = $$('[data-parallax]');
+    if (par.length) {
+      let tick = false;
+      const move = () => { tick = false; par.forEach(el => { const r = el.parentElement.getBoundingClientRect(); if (r.bottom < -100 || r.top > innerHeight + 100) return;
+        const c = (r.top + r.height / 2 - innerHeight / 2); el.style.translate = '0 ' + (c * +el.dataset.parallax).toFixed(1) + 'px'; }); };
+      addEventListener('scroll', () => { if (!tick) { tick = true; requestAnimationFrame(move); } }, { passive: true }); move();
+    }
+  }
+
+  /* 15.11.2026: the rest of the review shots, one click away (the wall itself opens with the strongest twelve) */
+  const moreBtn = $('[data-more-reviews]');
+  if (moreBtn) moreBtn.addEventListener('click', () => {
+    const box = document.getElementById(moreBtn.getAttribute('aria-controls')), open = box.hidden;
+    box.hidden = !open; moreBtn.setAttribute('aria-expanded', String(open));
+    moreBtn.textContent = open ? 'להסתיר את הביקורות הנוספות' : moreBtn.dataset.label || moreBtn.textContent;
+    if (open) { moreBtn.dataset.label = moreBtn.dataset.label || ''; const first = box.querySelector('a'); if (first) first.focus(); }
+    if (window.ScrollTrigger) ScrollTrigger.refresh();
+  });
+  if (moreBtn) moreBtn.dataset.label = moreBtn.textContent;
 
   /* review shots open full size in a dialog (the wall shows them small) */
   const shots = $$('[data-shot]');
@@ -322,6 +363,8 @@
       // animateGridOnScroll
       const tl = gsap.timeline({ scrollTrigger: { trigger: sgs, start: 'top 25%', end: 'bottom bottom', scrub: true } });
       tl.add(gridReveal()).add(gridZoom(), '-=0.6').add(() => toggleContent(tl.scrollTrigger.direction === 1), '-=0.32');
+      // 15.11.2026 (partner, mobile): hold the finished scene a moment before the page scrolls on, so the words are read whole
+      tl.to({}, { duration: innerWidth < 700 ? .55 : .25 });
       window.__sgs = p => { const s = tl.scrollTrigger; scrollTo(0, s.start + (s.end - s.start) * p); };
     }
 

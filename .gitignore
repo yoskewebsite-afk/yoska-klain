@@ -10,3 +10,10 @@ references/
 tools/node_modules
 media/commons-originals/
 media/review-shots-originals/
+
+.data/
+.data-*/
+backups/
+.env
+.env.*
+.dev.log
