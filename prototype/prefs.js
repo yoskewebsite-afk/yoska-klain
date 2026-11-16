@@ -1,4 +1,4 @@
-/* Shared preferences UI: floating accessibility panel + cookie explanation (essential-only site, so no first-visit banner).
+/* Shared preferences UI: floating accessibility panel + cookie / measurement choice (first-visit banner + footer panel).
    No external vendor. Saved choices live in localStorage under "yoske-a11y" (see the privacy page).
    Saved classes are applied before first paint by the tiny head script of every page; this file only wires the controls. */
 (function () {
@@ -107,24 +107,18 @@
   var cookieLinks = document.querySelectorAll('[data-cookie-open]');
   var cd = dialog('cookie-panel', 'העדפות עוגיות ומדידה', null), cb = el('div', { class: 'pdlg__body' });
   cd.appendChild(cb);
+  /* 16.11.2026: the site's own anonymous measurement (site.js, no cookies) is always available, so the visitor is always
+     asked: a first-visit banner with two equal choices, and this panel from the footer at any time. */
   function paintCookies() {
     var c = getConsent(), on = !!(c && c.m);
-    if (!ga) {
-      cb.innerHTML =
-        '<p>כרגע האתר משתמש רק במה שחיוני לתפקוד שלו, ואין כלי מדידה פעיל.</p>' +
-        '<ul class="pdlg__list">' +
-        '<li><strong>חיוני, פעיל תמיד:</strong> אין עוגיות. העדפות הנגישות שבחרתם נשמרות רק בדפדפן שלכם (localStorage).</li>' +
-        '<li><strong>פניות:</strong> כשאתם שולחים טופס, הפרטים נשמרים במערכת הפניות של יוסק׳ה כדי לחזור אליכם, ולא בשום כלי מדידה.</li>' +
-        '<li><strong>מדידה ושיווק:</strong> לא פעילים. אם יתווסף כלי כזה, הוא ייטען רק אחרי שתאשרו כאן.</li></ul>' +
-        '<div class="pdlg__foot"><a class="pdlg__link" href="/privacy.html#cookies">מדיניות פרטיות</a></div>';
-      return;
-    }
     cb.innerHTML =
-      '<p>אתם בוחרים מה פועל באתר. אפשר לשנות את הבחירה בכל רגע מהכפתור בתחתית העמוד.</p>' +
+      '<p>אתם בוחרים מה פועל באתר. אפשר לשנות את הבחירה בכל רגע מהכפתור ״העדפות עוגיות ומדידה״ בתחתית העמוד.</p>' +
       '<ul class="pdlg__list">' +
-      '<li><strong>חיוני, פעיל תמיד:</strong> העדפות הנגישות והבחירה הזו נשמרות בדפדפן שלכם בלבד.</li>' +
-      '<li><strong>מדידה (Google Analytics):</strong> כניסות לדפים ולחיצות על כפתורים, בלי שם, טלפון או תוכן של פנייה. פועל רק אם תאשרו.</li></ul>' +
-      '<button type="button" class="prow" role="switch" aria-checked="' + on + '" data-consent-toggle><span class="prow__l">מדידה</span><span class="prow__s">' + (on ? 'פעיל' : 'כבוי') + '</span></button>' +
+      '<li><strong>חיוני, פעיל תמיד:</strong> האתר לא יוצר עוגיות. העדפות הנגישות והבחירה הזו נשמרות בדפדפן שלכם בלבד.</li>' +
+      '<li><strong>מדידה אנונימית:</strong> ספירת כניסות לדפים ולחיצות על טלפון, וואטסאפ ומייל, ומאיזה סוג אתר הגעתם (למשל גוגל). בלי עוגיות, ובלי שם, טלפון, תוכן פנייה או כתובת IP. פועלת רק אם תאשרו.</li>' +
+      (ga ? '<li><strong>Google Analytics:</strong> אותה מדידה נשלחת גם לגוגל, בלי פרטים מזהים. פועל רק אם תאשרו.</li>' : '') +
+      '<li><strong>פניות:</strong> פרטים שאתם שולחים בטופס נשמרים רק במערכת הפניות של יוסק׳ה, כדי לחזור אליכם.</li></ul>' +
+      '<button type="button" class="prow" role="switch" aria-checked="' + on + '" data-consent-toggle><span class="prow__l">מדידה אנונימית</span><span class="prow__s">' + (on ? 'פעיל' : 'כבוי') + '</span></button>' +
       '<div class="pdlg__foot"><button type="button" class="btn btn--line btn--sm" data-consent="0">רק חיוני</button><button type="button" class="btn btn--line btn--sm" data-consent="1">אישור מדידה</button><a class="pdlg__link" href="/privacy.html#cookies">מדיניות פרטיות</a></div>';
     cb.querySelector('[data-consent-toggle]').addEventListener('click', function () { setConsent(!on); paintCookies(); });
     Array.prototype.forEach.call(cb.querySelectorAll('[data-consent]'), function (b) {
@@ -136,9 +130,9 @@
   });
   cd.addEventListener('close', function () { if (cd.__op) cd.__op.focus(); var bn = document.querySelector('.cbanner'); if (bn && getConsent()) bn.remove(); });
   // first visit with a provider configured: a small, non-blocking banner with two equal choices
-  if (ga && !getConsent()) {
+  if (!getConsent()) {
     var bn = el('div', { class: 'cbanner', role: 'region', 'aria-label': 'עוגיות ומדידה' });
-    bn.innerHTML = '<p>נשמח למדוד כניסות ולחיצות כדי לשפר את האתר, בלי פרטים מזהים. זה יפעל רק אם תאשרו.</p>' +
+    bn.innerHTML = '<p class="cbanner__t"><strong>עוגיות ומדידה.</strong> האתר לא משתמש בעוגיות. נשמח לספור כניסות ולחיצות באופן אנונימי כדי לשפר אותו, בלי שם, טלפון או פרטים מזהים. זה יפעל רק אם תאשרו.</p>' +
       '<div class="btnrow"><button type="button" class="btn btn--line btn--sm" data-c="0">רק חיוני</button><button type="button" class="btn btn--line btn--sm" data-c="1">אישור מדידה</button><button type="button" class="linkbtn" data-c="more">פרטים</button></div>';
     document.body.appendChild(bn);
     Array.prototype.forEach.call(bn.querySelectorAll('[data-c]'), function (b) {

@@ -406,7 +406,9 @@
     /* reviews wall (screenshots): thrown in fast in waves (right, left, below), a wide arc in depth (near ones big, far
        ones small and tilted), they settle into the wall, the wall pans up inside the pinned stage until its last row,
        release. Card transforms end at zero and the pan is a plain translate, so nothing jumps at the release. */
-    const rw = $('[data-rwall]');
+    if (innerWidth < 700) document.querySelectorAll('[data-rwall-grid]').forEach(g => { const t = document.createElement('p'); t.className = 'rwall__swipe'; t.setAttribute('aria-hidden', 'true'); t.textContent = 'החליקו לעוד ביקורות'; g.after(t); });
+    // phones (16.11.2026): no pinned 3D wall; the shots become a readable swipe row (CSS), one review per screen
+    const rw = innerWidth >= 700 ? $('[data-rwall]') : null;
     if (rw) {
       root.classList.add('rwall-on');
       const stage = $('[data-rwall-stage]', rw), grid = $('[data-rwall-grid]', rw), cards = $$('.rshot', rw), n = cards.length;
@@ -476,7 +478,8 @@
     }
 
     /* the trail: the paths draw in, the photos pop onto them and travel with the scroll, the words rise */
-    if (trail) {
+    // phones: the closing card stays a single static screen instead of a 2-screen pinned scene
+    if (trail && innerWidth >= 700) {
       root.classList.add('motion-on');
       const tt = gsap.timeline({ scrollTrigger: { trigger: '[data-trail]', start: 'top top', end: 'bottom bottom', scrub: true, invalidateOnRefresh: true,
         onUpdate: s => trail.place(s.progress), onRefresh: s => trail.place(s.progress) } });

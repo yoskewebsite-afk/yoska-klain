@@ -1780,3 +1780,54 @@ h1, h2, h3, .duo-title__bold, .duo-title__light, .h-card, .acard__title, .acard-
   /* hero: the button sits on the open side of the photo, Yoske points at it from the other side */
   .hero__cta { left: var(--gut); translate: none; }
 }
+
+/* ================= phones, reviews → end of the home page (16.11.2026) =================
+   The 3D review wall was 2,100px of unreadable thumbnails on a phone: here it is a swipe row of readable screenshots,
+   one per screen with the next one peeking. South America: the round photo is centred and whole, the arch cards scroll.
+   FAQ / contact lose the floating decorations; the closing card is one calm screen. */
+@media (max-width: 699px) {
+  .rwall { padding: var(--s8) 0 var(--s5); }
+  .rwall__title { font-size: 2.25rem; }
+  .rwall__grid, .rwall__extra { display: flex; align-items: flex-start; gap: 14px; columns: auto; width: 100%; margin: var(--s6) 0 0;
+    overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scroll-padding-inline: var(--gut); padding: 4px var(--gut) 18px;
+    scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+  .rwall__grid::-webkit-scrollbar, .rwall__extra::-webkit-scrollbar { display: none; }
+  .rwall__grid .rshot, .rwall__extra .rshot { flex: 0 0 min(80vw, 330px); margin: 0; scroll-snap-align: start; }
+  .rshot__a { border-bottom-width: 4px; box-shadow: 0 2px 4px rgba(42, 58, 92, .08), 0 12px 24px -12px rgba(42, 58, 92, .3); }
+  .rshot img { max-height: 62svh; object-fit: contain; object-position: top; background: var(--white); }
+  .rwall__swipe { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 2px; color: var(--muted); font-size: .875rem; }
+  .rwall__swipe::before { content: ''; width: 28px; height: 2px; background: currentColor; opacity: .5; }
+  .rwall__swipe::after { content: ''; width: 28px; height: 2px; background: currentColor; opacity: .5; }
+  .rwall__more { padding-block: var(--s4) var(--s7); gap: var(--s4); }
+  .rwall-more .wrap, .rwall__more { padding-inline: 0; }
+
+  .abroad { padding: var(--s8) 0; }
+  .abroad__lens { width: min(76vw, 320px); margin: 0 auto var(--s6); left: auto; outline-offset: 8px; }
+  .abroad .duo-title { max-width: none; }
+  .abroad__name { font-size: 1.875rem; }
+  .abroad__cards { margin-top: var(--s6); }
+
+  .faq > svg, .contact > svg, .faq .doodle, .contact .doodle { display: none; }
+  .faq { padding-block: var(--s8) var(--s6); }
+  .contact { padding-block: var(--s6) var(--s8); }
+  .contact__card { padding: var(--s6) var(--s5); }
+
+  .trail__stage { min-height: 0; padding: 72px 0; }
+  .trail__stage::before { inset: 40px 14px; border-radius: 22px; }
+  .trail__paths { inset: 52px 14px; width: calc(100% - 28px); height: calc(100% - 104px); }
+  .trail__copy { padding-block: var(--s6); }
+  .trail__paths path { opacity: .22; }
+}
+
+/* cookie / measurement banner (16.11.2026): shown on the first visit to everyone; two equal choices, never blocks the page */
+.cbanner { inset-inline: 24px auto; bottom: calc(24px + env(safe-area-inset-bottom)); width: min(460px, calc(100vw - 32px)); gap: 14px; }
+.cbanner__t { color: var(--text); font-size: .9375rem; line-height: 1.55; }
+.cbanner__t strong { color: var(--navy); }
+.cbanner .btnrow { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.cbanner .btn { flex: 1 1 0; justify-content: center; }
+.cbanner .linkbtn { flex: 1 1 100%; justify-content: center; }
+@media (max-width: 699px) {
+  .cbanner { inset-inline: 12px; bottom: calc(12px + env(safe-area-inset-bottom)); width: auto; padding: 16px; }
+  .cbanner .linkbtn { min-height: 44px; }
+}
+body:has(.cbanner) .fab { visibility: hidden; }
