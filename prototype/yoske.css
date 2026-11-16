@@ -1831,3 +1831,46 @@ h1, h2, h3, .duo-title__bold, .duo-title__light, .h-card, .acard__title, .acard-
   .cbanner .linkbtn { min-height: 44px; }
 }
 body:has(.cbanner) .fab { visibility: hidden; }
+
+/* ================= hero 16.11.2026: white sky, headline, Yoske right, the gardens rising from below =================
+   Three layers (head / garden / Yoske) move separately; sizes and the dome anchor are measured in yoske.js (hero26). The
+   button sits on the garden layer at the dome's tip (27.34% from the image top, 49.8% across), so they always move together. */
+.hero26 { --gap-cta: 28px; --gap-dome: 12px; position: relative; isolation: isolate; height: var(--h26-h, 100svh); min-height: 600px; overflow: clip; background: var(--white); }
+.hero26__head { position: absolute; z-index: 1; inset-inline: 0; top: var(--h26-top, 128px); padding-inline: var(--gut); text-align: center; }
+.hero26 .hero__title { color: var(--navy); line-height: .9; }
+.hero26 .hero__l1 { display: block; font-size: clamp(1.75rem, 1rem + 1.5vw, 2.625rem); color: var(--navy); }
+.hero26 .hero__l2 { display: block; margin-top: .02em; font-size: clamp(4.5rem, min(8.4vw, 14svh), 10rem); color: var(--orange); letter-spacing: 0; white-space: nowrap; }
+.hero26 .hero__sub { max-width: 58ch; margin: clamp(12px, 1.4vw, 18px) auto 0; color: var(--navy); font-size: clamp(1.0625rem, .9rem + .4vw, 1.3125rem); line-height: 1.5; }
+.hero26__garden { position: absolute; z-index: 2; left: var(--g-x, 0px); top: var(--g-y, 40%); width: var(--g-w, 100%); }
+.hero26__gimg { display: block; width: 100%; height: auto; }
+.hero26__cta { position: absolute; left: 49.8%; top: 27.34%; translate: -50% calc(-100% - var(--gap-dome)); white-space: nowrap; }
+.hero26__ywrap { position: absolute; z-index: 3; left: var(--y-x, 70%); top: var(--y-y, 80px); width: var(--y-w, 32vw); pointer-events: none; }
+.hero26__yoske { display: block; width: 100%; height: auto;
+  -webkit-mask-image: linear-gradient(to bottom, #000 62%, rgba(0, 0, 0, .55) 80%, transparent 97%); mask-image: linear-gradient(to bottom, #000 62%, rgba(0, 0, 0, .55) 80%, transparent 97%); }
+.hero26::after { content: ''; position: absolute; z-index: 4; inset-inline: 0; bottom: 0; height: 56px; background: linear-gradient(to bottom, rgba(255, 255, 255, 0), var(--white)); pointer-events: none; }
+.hero26__in { will-change: auto; }
+/* entrance: one scene settling, the words first */
+.motion .hero26.is-pre .hero26__in { opacity: 0; }
+.motion .hero26.is-in [data-h26-head] .hero26__in { animation: h26-up .62s cubic-bezier(.22, 1, .36, 1) .04s both; }
+.motion .hero26.is-in [data-h26-garden] .hero26__in { animation: h26-rise 1.05s cubic-bezier(.22, 1, .36, 1) both; }
+.motion .hero26.is-in [data-h26-yoske] .hero26__in { animation: h26-in .9s cubic-bezier(.22, 1, .36, 1) .12s both; }
+@keyframes h26-up { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+@keyframes h26-rise { from { opacity: 0; transform: translateY(70px); } to { opacity: 1; transform: none; } }
+@keyframes h26-in { from { opacity: 0; transform: translate(-36px, 14px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .hero26 .hero26__in { animation: none !important; opacity: 1 !important; } }
+@media (max-width: 699px) {
+  .hero26 { --gap-cta: 20px; --gap-dome: 10px; min-height: 0; }
+  .hero26::after { height: 36px; }
+  .hero26 .hero__l1 { font-size: 1.625rem; }
+  .hero26 .hero__l2 { font-size: min(18.5vw, 5.5rem); }
+  .hero26 .hero__sub { max-width: 31ch; font-size: 1rem; }
+}
+
+/* header (desktop): logo right, the menu centred, phone / WhatsApp / "which tour" pinned to the left edge as one group */
+@media (min-width: 1000px) {
+  .top { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); width: 100%; padding-inline: 28px; gap: 24px; }
+  .top__logo { justify-self: start; }
+  .top__pill { justify-self: center; }
+  .top__icons { justify-self: end; align-items: center; }
+  .top__end { display: contents; }
+}

@@ -19,7 +19,7 @@
   <link rel="preload" href="/fonts/heebo-hebrew-300-900.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/karantina-hebrew-700.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" as="image" href="/assets/v4/hero-wide-1440.webp" media="(min-width: 700px)" fetchpriority="high">
-  <link rel="stylesheet" href="/yoske.css?v=e93b26dcb8">
+  <link rel="stylesheet" href="/yoske.css?v=8bbf7c6ec9">
 {{{head.extra}}}</head>
 <body class="home" data-ga4="">
   <a class="skip" href="#main">דילוג לתוכן</a>
@@ -45,31 +45,18 @@
     <!-- ============ 1+2. HERO + ANCHORED SCENE
          Reference: the headline stays while the palace rises over it. Here the Shrine of the Báb and the terraces
          (sky cut away) rise over the headline, the scene anchors, the intro rises in front of it, then the page scrolls on. ============ -->
-    <!--cms:s top--><section class="hero" id="top" data-hero-variant="a" aria-labelledby="hero-title" data-hero>
-      <div class="hero__stage" data-hero-stage>
-        <div class="hero__sky" aria-hidden="true"></div>
-        <div class="hero__head" data-hero-head>
-          <h1 class="hero__title" id="hero-title"><span class="hero__l1">{{top.t1}}</span> <span class="hero__l2">{{top.t2}}</span></h1>
-          <p class="hero__sub">{{top.t3}}</p>
-        </div>
-
-
-      </div>
-      <div class="hero__scene" data-hero-scene>
-          <picture class="hero__photo">
-            <source media="(max-width: 699px), (max-width: 999px) and (orientation: portrait)" srcset="{{top.img1.s0}}" sizes="100vw" width="1280" height="1763">
-            <img src="{{top.img1.src}}" srcset="{{top.img1.srcset}}" sizes="100vw" width="{{top.img1.w}}" height="{{top.img1.h}}" alt="{{top.img1.alt}}" fetchpriority="high">
-          </picture>
-          <!-- Yoske on the photo; the copy of the photo in front of him shows only the trees below his waist -->
-          <img class="hero__yoske" data-hero-yoske src="{{top.img2.src}}" srcset="{{top.img2.srcset}}" sizes="(max-width: 699px) 42vw, 30vw" width="{{top.img2.w}}" height="{{top.img2.h}}" alt="{{top.img2.alt}}" fetchpriority="high">
-          <div class="hero__fore" aria-hidden="true" data-hero-fore>
-  <picture>
-            <source media="(max-width: 699px), (max-width: 999px) and (orientation: portrait)" srcset="/assets/v4/hero-tall-640.webp 640w, /assets/v4/hero-tall-960.webp 960w, /assets/v4/hero-tall-1280.webp 1280w" sizes="100vw" width="1280" height="1763">
-            <img src="/assets/v4/hero-wide-1440.webp" srcset="/assets/v4/hero-wide-960.webp 960w, /assets/v4/hero-wide-1440.webp 1440w, /assets/v4/hero-wide-2160.webp 2160w" sizes="100vw" width="2160" height="1434" alt="">
-          </picture>
-          </div>
-          <a class="btn btn--ink hero__cta" data-hero-cta data-x="1" href="{{top.l1}}"{{ext:top.l1}} data-track="hero_upcoming_tours_click" data-track-from="hero">{{top.t4}}<svg aria-hidden="true"><use href="#i-out"/></svg><span class="visually-hidden"> (קישור חיצוני, נפתח בלשונית חדשה)</span></a>
-      </div>
+    <!--cms:s top--><section class="hero26" id="top" aria-labelledby="hero-title" data-hero data-hero26>
+      <!-- 16.11.2026 hero: white sky, the headline, Yoske on the right pointing at it, the Baha'i gardens rising from below.
+           Layers move separately (yoske.js "hero26"); the button rides on the garden layer, anchored over the dome. -->
+      <div class="hero26__head" data-h26-head><div class="hero26__in">
+        <h1 class="hero__title" id="hero-title"><span class="hero__l1">{{top.t1}}</span> <span class="hero__l2">{{top.t2}}</span></h1>
+        <p class="hero__sub">{{top.t3}}</p>
+      </div></div>
+      <div class="hero26__garden" data-h26-garden><div class="hero26__in">
+        <img class="hero26__gimg" src="/assets/hero26/garden-2400.webp" srcset="/assets/hero26/garden-1600.webp 1600w, /assets/hero26/garden-2400.webp 2400w, /assets/hero26/garden-3600.webp 3600w" sizes="(max-width: 699px) 260vw, 140vw" width="3060" height="1434" alt="{{top.img1.alt}}" fetchpriority="high" decoding="async">
+        <a class="btn btn--ink hero__cta hero26__cta" data-hero-cta data-x="1" href="{{top.l1}}"{{ext:top.l1}} data-track="hero_upcoming_tours_click" data-track-from="hero">{{top.t4}}<svg aria-hidden="true"><use href="#i-out"/></svg><span class="visually-hidden"> (קישור חיצוני, נפתח בלשונית חדשה)</span></a>
+      </div></div>
+      <div class="hero26__ywrap" data-h26-yoske><div class="hero26__in"><img class="hero26__yoske" src="{{top.img2.src}}" srcset="{{top.img2.srcset}}" sizes="(max-width: 699px) 46vw, 40vw" width="{{top.img2.w}}" height="{{top.img2.h}}" alt="{{top.img2.alt}}" fetchpriority="high"></div></div>
     </section><!--/cms:s top-->
 
 
@@ -391,7 +378,7 @@
   <script src="/vendor/lenis.min.js" defer></script>
   <script src="/vendor/gsap.min.js" defer></script>
   <script src="/vendor/ScrollTrigger.min.js" defer></script>
-  <script src="/yoske.js?v=b3cf71f56e" defer></script>
+  <script src="/yoske.js?v=17495e6a1f" defer></script>
   <script src="/prefs.js?v=c81a171d4f" defer></script>
   <script src="/analytics.js?v=7008b080ee" defer></script>
   <script src="/forms.js?v=5f35b0a4d0" defer></script>

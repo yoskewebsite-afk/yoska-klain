@@ -19,7 +19,9 @@
   <link rel="preload" href="/fonts/heebo-hebrew-300-900.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/karantina-hebrew-700.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" as="image" href="/assets/v4/hero-wide-1440.webp" media="(min-width: 700px)" fetchpriority="high">
-  <link rel="stylesheet" href="/yoske.css?v=e93b26dcb8">
+  <link rel="stylesheet" href="/yoske.css?v=8bbf7c6ec9">
+
+  <script type="application/json" id="site-config">{"page":"index","tour":"","v":1}</script>
 </head>
 <body class="home" data-ga4="">
   <a class="skip" href="#main">דילוג לתוכן</a>
@@ -45,46 +47,27 @@
     <!-- ============ 1+2. HERO + ANCHORED SCENE
          Reference: the headline stays while the palace rises over it. Here the Shrine of the Báb and the terraces
          (sky cut away) rise over the headline, the scene anchors, the intro rises in front of it, then the page scrolls on. ============ -->
-    <section class="hero" id="top" data-hero-variant="a" aria-labelledby="hero-title" data-hero>
-      <div class="hero__stage" data-hero-stage>
-        <div class="hero__sky" aria-hidden="true"></div>
-        <div class="hero__head" data-hero-head>
-          <h1 class="hero__title" id="hero-title"><span class="hero__l1">תפסיקו לשבור את הראש</span> <span class="hero__l2">על הטיול הבא</span></h1>
-          <p class="hero__sub">סיורים בחיפה וימי גיבוש לארגונים, לצוותים, למשפחות ולקבוצות. עם תוכן מעניין, תכנון מסודר ויוסק׳ה אחד שיודע להחזיק את היום.</p>
-        </div>
-
-
-      </div>
-      <div class="hero__scene" data-hero-scene>
-          <picture class="hero__photo">
-            <source media="(max-width: 699px), (max-width: 999px) and (orientation: portrait)" srcset="/assets/v4/hero-tall-640.webp 640w, /assets/v4/hero-tall-960.webp 960w, /assets/v4/hero-tall-1280.webp 1280w" sizes="100vw" width="1280" height="1763">
-            <img src="/assets/v4/hero-wide-1440.webp" srcset="/assets/v4/hero-wide-960.webp 960w, /assets/v4/hero-wide-1440.webp 1440w, /assets/v4/hero-wide-2160.webp 2160w" sizes="100vw" width="2160" height="1434" alt="מקדש הבאב וטרסות הגנים הבהאיים במורד הכרמל, מבט מלמטה לאורך הציר" fetchpriority="high">
-          </picture>
-          <!-- Yoske on the photo; the copy of the photo in front of him shows only the trees below his waist -->
-          <img class="hero__yoske" data-hero-yoske src="/assets/yoske-cutout-640.webp" srcset="/assets/yoske-cutout-640.webp 640w, /assets/yoske-cutout-900.webp 900w, /assets/yoske-cutout.webp 1252w" sizes="(max-width: 699px) 42vw, 30vw" width="900" height="908" alt="יוסק׳ה, מדריך הטיולים, מצביע על הכותרת" fetchpriority="high">
-          <div class="hero__fore" aria-hidden="true" data-hero-fore>
-  <picture>
-            <source media="(max-width: 699px), (max-width: 999px) and (orientation: portrait)" srcset="/assets/v4/hero-tall-640.webp 640w, /assets/v4/hero-tall-960.webp 960w, /assets/v4/hero-tall-1280.webp 1280w" sizes="100vw" width="1280" height="1763">
-            <img src="/assets/v4/hero-wide-1440.webp" srcset="/assets/v4/hero-wide-960.webp 960w, /assets/v4/hero-wide-1440.webp 1440w, /assets/v4/hero-wide-2160.webp 2160w" sizes="100vw" width="2160" height="1434" alt="">
-          </picture>
-          </div>
-          <a class="btn btn--ink hero__cta" data-hero-cta data-x="1" href="https://paypage.takbull.co.il/3BEQx" target="_blank" rel="noopener" data-track="hero_upcoming_tours_click" data-track-from="hero">לסיורים הקרובים<svg aria-hidden="true"><use href="#i-out"/></svg><span class="visually-hidden"> (קישור חיצוני, נפתח בלשונית חדשה)</span></a>
-      </div>
+        <section class="hero26" id="top" aria-labelledby="hero-title" data-hero data-hero26>
+      <!-- 16.11.2026 hero: white sky, the headline, Yoske on the right pointing at it, the Baha'i gardens rising from below.
+           Layers move separately (yoske.js "hero26"); the button rides on the garden layer, anchored over the dome. -->
+      <div class="hero26__head" data-h26-head><div class="hero26__in">
+        <h1 class="hero__title" id="hero-title"><span class="hero__l1">תפסיקו לשבור את הראש</span> <span class="hero__l2">על הטיול הבא</span></h1>
+        <p class="hero__sub">סיורים בחיפה וימי גיבוש לארגונים, לצוותים, למשפחות ולקבוצות. עם תוכן מעניין, תכנון מסודר ויוסק׳ה אחד שיודע להחזיק את היום.</p>
+      </div></div>
+      <div class="hero26__garden" data-h26-garden><div class="hero26__in">
+        <img class="hero26__gimg" src="/assets/hero26/garden-2400.webp" srcset="/assets/hero26/garden-1600.webp 1600w, /assets/hero26/garden-2400.webp 2400w, /assets/hero26/garden-3600.webp 3600w" sizes="(max-width: 699px) 260vw, 140vw" width="3060" height="1434" alt="מקדש הבאב וטרסות הגנים הבהאיים במורד הכרמל, מבט מלמטה לאורך הציר" fetchpriority="high" decoding="async">
+        <a class="btn btn--ink hero__cta hero26__cta" data-hero-cta data-x="1" href="https://paypage.takbull.co.il/3BEQx" target="_blank" rel="noopener" data-track="hero_upcoming_tours_click" data-track-from="hero">לסיורים הקרובים<svg aria-hidden="true"><use href="#i-out"/></svg><span class="visually-hidden"> (קישור חיצוני, נפתח בלשונית חדשה)</span></a>
+      </div></div>
+      <div class="hero26__ywrap" data-h26-yoske><div class="hero26__in"><img class="hero26__yoske" src="/assets/yoske-cutout-640.webp" srcset="/assets/yoske-cutout-640.webp 640w, /assets/yoske-cutout-900.webp 900w, /assets/yoske-cutout.webp 1252w" sizes="(max-width: 699px) 46vw, 40vw" width="900" height="908" alt="יוסק׳ה, מדריך הטיולים, מצביע על הכותרת" fetchpriority="high"></div></div>
     </section>
 
-
-    <!-- ============ UNIQUENESS — 15.11.2026: the live site's centred block (the client's screenshot), now the loudest part
-         of the page: values that fill with colour, the definition of the sociology-anthropology lens, the balance between
-         happiness and enrichment, the "wow" promise, and a moving band with every word of Yoske's uniqueness list. ============ -->
     <section class="uq" id="unique" aria-labelledby="unique-title" data-uq>
       <svg class="doodle doodle--a doodle--teal" viewBox="0 0 600 200" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path data-draw d="M5 120C80 40 160 180 250 110S420 30 595 90"/></svg>
       <svg class="doodle doodle--b doodle--sun" viewBox="0 0 600 200" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path data-draw d="M5 60C120 150 220 10 330 90S500 170 595 40"/></svg>
       <div class="wrap uq__in">
         <h2 class="duo-title duo-title--center" id="unique-title"><span class="duo-title__light">מכירים מקום דרך האנשים שלו,</span> <span class="duo-title__bold">דרך החברה <span class="hl hl--teal">והתרבות.</span></span></h2>
         <p class="uq__lede">אני מפיק ומדריך טיולים מבעד לעדשה <mark class="mk mk--teal">סוציולוגית ואנתרופולוגית</mark>. כל טיול נבנה מחדש סביב הקבוצה: תחומי העניין, הקצב והאנשים שבה.</p>
-        <ul class="values uq__values" aria-label="הערכים שלי בטיול">
-          <li>חופש</li><li>שמחה</li><li>העשרה</li><li>חברה</li><li>תרבות</li>
-        </ul>
+        <ul class="values uq__values" aria-label="הערכים שלי בטיול"><li>חופש</li><li>שמחה</li><li>העשרה</li><li>חברה</li><li>תרבות</li></ul>
         <div class="uq__grid">
           <article class="uq__card uq__card--lens">
             <svg class="bicon" aria-hidden="true"><use href="#b-group"/></svg>
@@ -112,8 +95,6 @@
       </div>
     </section>
 
-    <!-- ============ ABOUT — 15.11.2026, redesigned from scratch: a colourful collage of Yoske's own photos that moves at
-         different speeds, a short personal story, a drawn timeline (studies, Rio 2016, Haifa today) and counters. ============ -->
     <section class="ab2" id="about" aria-labelledby="about-title" data-ab2>
       <svg class="doodle doodle--g doodle--orange" viewBox="0 0 600 200" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path data-draw d="M5 150C90 100 170 160 260 120S430 60 595 130"/></svg>
       <div class="wrap ab2__in">
@@ -134,8 +115,6 @@
       </div>
     </section>
 
-
-    <!-- ============ 3. CHOOSE — the reference's map section: chips over a map, a big arc on the side with the selection. ============ -->
     <section class="map" id="map" aria-labelledby="map-title" data-map>
       <svg class="doodle doodle--d doodle--orange" viewBox="0 0 600 200" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path data-draw d="M5 60C120 150 220 10 330 90S500 170 595 40"/></svg>
 
@@ -143,18 +122,15 @@
       <div class="wrap map__in">
         <div class="map__head">
           <h2 class="duo-title" id="map-title"><span class="duo-title__light">איזו חיפה בא לכם לגלות?</span> <span class="duo-title__bold" data-type>בחרו סיור, והמסלול יופיע במפה</span></h2>
-          <div class="chips" role="tablist" aria-label="הסיורים במפה" data-map-chips>
-            <button class="chip" type="button" role="tab" id="mt-haifa-ahuvati" aria-selected="true" aria-controls="mp-haifa-ahuvati" tabindex="0" data-stops="bahai louis carmelit paris port">חיפה אהובתי</button>
+          <div class="chips" role="tablist" aria-label="הסיורים במפה" data-map-chips>            <button class="chip" type="button" role="tab" id="mt-haifa-ahuvati" aria-selected="true" aria-controls="mp-haifa-ahuvati" tabindex="0" data-stops="bahai louis carmelit paris port">חיפה אהובתי</button>
             <button class="chip" type="button" role="tab" id="mt-haifa-ahuvati-mekutzar" aria-selected="false" aria-controls="mp-haifa-ahuvati-mekutzar" tabindex="-1" data-stops="bahai louis carmelit paris port">חיפה אהובתי מקוצר</button>
             <button class="chip" type="button" role="tab" id="mt-haifa-shel-maala" aria-selected="false" aria-controls="mp-haifa-shel-maala" tabindex="-1" data-stops="bahai louis stairs carmelit ganhaem">חיפה של מעלה</button>
             <button class="chip" type="button" role="tab" id="mt-haifa-shel-mata" aria-selected="false" aria-controls="mp-haifa-shel-mata" tabindex="-1" data-stops="sail clock paris market port german">חיפה של מטה</button>
             <button class="chip" type="button" role="tab" id="mt-teima-mehaifa" aria-selected="false" aria-controls="mp-teima-mehaifa" tabindex="-1" data-stops="">טעימה מחיפה</button>
-            <button class="chip" type="button" role="tab" id="mt-teva-adam-hevra-sviva" aria-selected="false" aria-controls="mp-teva-adam-hevra-sviva" tabindex="-1" data-stops="">טבע, אדם, חברה, סביבה</button>
-          </div>
+            <button class="chip" type="button" role="tab" id="mt-teva-adam-hevra-sviva" aria-selected="false" aria-controls="mp-teva-adam-hevra-sviva" tabindex="-1" data-stops="">טבע, אדם, חברה, סביבה</button></div>
         </div>
         <div class="map__body">
-          <div class="map__panel" aria-live="polite" data-map-panel>
-            <div class="mpanel" role="tabpanel" id="mp-haifa-ahuvati" aria-labelledby="mt-haifa-ahuvati">
+          <div class="map__panel" aria-live="polite" data-map-panel>            <div class="mpanel" role="tabpanel" id="mp-haifa-ahuvati" aria-labelledby="mt-haifa-ahuvati">
               <p class="mpanel__place">להבין את חיפה מההר ועד הנמל</p>
               <h3 class="mpanel__name">חיפה אהובתי</h3>
               <p class="mpanel__stops"><b>בין התחנות:</b> הגנים הבהאיים, טיילת לואי, הכרמלית, כיכר פריז, הנמל ועוד.</p>
@@ -195,8 +171,7 @@
               <p class="mpanel__stops">המסלול נקבע לפי הקבוצה והגילים, ולכן אין לו תחנות קבועות במפה.</p>
               <ul class="mpanel__facts"></ul>
               <div class="btnrow"><a class="btn btn--ink btn--sm" href="/tours/teva-adam-hevra-sviva.html">לפרטי הסיור<svg aria-hidden="true"><use href="#i-arrow"/></svg></a><a class="textlink" href="https://wa.me/972544361667?text=%D7%94%D7%99%D7%99%20%D7%99%D7%95%D7%A1%D7%A7%D7%B3%D7%94%2C%20%D7%A0%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%94%D7%A1%D7%99%D7%95%D7%A8%20%D7%B4%D7%98%D7%91%D7%A2%2C%20%D7%90%D7%93%D7%9D%2C%20%D7%97%D7%91%D7%A8%D7%94%2C%20%D7%A1%D7%91%D7%99%D7%91%D7%94%D7%B4." target="_blank" rel="noopener">לבדוק מועד<span class="visually-hidden"> לטבע, אדם, חברה, סביבה</span></a></div>
-            </div>
-          </div>
+            </div></div>
           <figure class="map__fig">
             <div class="map__scroll" data-map-scroll tabindex="0" role="region" aria-label="המפה, אפשר לגלול לצדדים"><svg class="hmap" viewBox="0 0 900 600" role="img" aria-labelledby="hmap-t" data-hmap>
               <title id="hmap-t">מפה סכמטית של חיפה: הים בצפון, העיר התחתית לאורך הנמל, הגנים הבהאיים במורד הכרמל וטיילת לואי בראשו</title>
@@ -216,8 +191,6 @@
       </div>
     </section>
 
-    <!-- ============ TOURS — 15.11.2026: straight photo cards (no arch), thin navy outline, navy base.
-         Details open on hover, keyboard focus or the «פרטים» button (touch). ============ -->
     <section class="tours" id="tours" aria-labelledby="tours-title">
       <div class="obj obj--camera" aria-hidden="true" data-float data-y="0" data-r="0" data-x="0" data-travel="camera"><div class="obj__bob"><img src="/assets/objects/camera-pentax.webp" width="854" height="670" alt="" loading="lazy" decoding="async"></div></div>
       <svg class="doodle doodle--e doodle--leaf" viewBox="0 0 600 200" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path data-draw d="M5 120C80 40 160 180 250 110S420 30 595 90"/></svg>
@@ -234,8 +207,7 @@
       </div>
       <div class="rail" data-rail>
         <button class="rail__btn rail__btn--prev" type="button" aria-label="הכרטיס הקודם" data-rail-prev><svg aria-hidden="true"><use href="#i-chev"/></svg></button>
-        <ul class="rail__track" data-rail-track>
-          <li class="acard" data-card>
+        <ul class="rail__track" data-rail-track>          <li class="acard" data-card>
             <div class="acard__media"><img src="/assets/approved/bahai-bay-960.webp" srcset="/assets/approved/bahai-bay-480.webp 480w, /assets/approved/bahai-bay-960.webp 960w, /assets/approved/bahai-bay-1920.webp 1134w" sizes="(min-width: 900px) 25vw, 78vw" width="1134" height="2015" alt="" loading="lazy" decoding="async" fetchpriority="low" style="object-position:50% 62%"><h3 class="acard__title"><a href="/tours/haifa-ahuvati.html">חיפה אהובתי</a></h3></div>
             <button class="acard__toggle" type="button" aria-expanded="false" aria-controls="td-haifa-ahuvati" data-card-toggle>פרטים<span class="visually-hidden"> על חיפה אהובתי</span><svg aria-hidden="true"><use href="#i-plus"/></svg></button>
             <div class="acard__details" id="td-haifa-ahuvati" data-card-details><p class="acard__place">להבין את חיפה מההר ועד הנמל</p><p>זה הסיור למי שלא רוצים לבחור רק שכונה אחת. מתחילים מלמעלה, יורדים דרך הציר שמחבר את הכרמל לעיר התחתית ורואים איך נוף, תחבורה, תעשייה, תרבות ואנשים הפכו לחיפה שאנחנו מכירים היום.</p><p class="acard__meta">כ־5 עד 6 שעות · בתיאום מראש</p><div class="btnrow"><a class="btn btn--ink btn--sm" href="/tours/haifa-ahuvati.html">לפרטי הסיור<span class="visually-hidden"> חיפה אהובתי</span></a><a class="textlink" href="https://wa.me/972544361667?text=%D7%94%D7%99%D7%99%20%D7%99%D7%95%D7%A1%D7%A7%D7%B3%D7%94%2C%20%D7%A0%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%94%D7%A1%D7%99%D7%95%D7%A8%20%D7%B4%D7%97%D7%99%D7%A4%D7%94%20%D7%90%D7%94%D7%95%D7%91%D7%AA%D7%99%D7%B4." target="_blank" rel="noopener">לתאם<span class="visually-hidden"> את חיפה אהובתי</span></a></div></div>
@@ -264,8 +236,7 @@
             <div class="acard__media"><img src="/assets/approved/square-group-960.webp" srcset="/assets/approved/square-group-480.webp 480w, /assets/approved/square-group-960.webp 960w, /assets/approved/square-group-1920.webp 1920w" sizes="(min-width: 900px) 25vw, 78vw" width="1920" height="1705" alt="" loading="lazy" decoding="async" fetchpriority="low" style="object-position:50% 45%"><h3 class="acard__title"><a href="/tours/teva-adam-hevra-sviva.html">טבע, אדם, חברה, סביבה</a></h3></div>
             <button class="acard__toggle" type="button" aria-expanded="false" aria-controls="td-teva-adam-hevra-sviva" data-card-toggle>פרטים<span class="visually-hidden"> על טבע, אדם, חברה, סביבה</span><svg aria-hidden="true"><use href="#i-plus"/></svg></button>
             <div class="acard__details" id="td-teva-adam-hevra-sviva" data-card-details><p class="acard__place">יום שמחבר בין רעיונות גדולים למה שפוגשים בשטח</p><p>יום תוכן בכרמל שעוסק באיזונים שבין טבע לאדם ובין חברה לסביבה. דרך אתרים, שיחה, מפגש עם הטבע ודוגמאות מחיי היום יום בודקים איך החלטות אנושיות משפיעות על הסביבה, ואיך הסביבה משנה בחזרה את החברה שחיה בה.</p><p class="acard__meta">לכל הקבוצות · בתיאום מראש</p><div class="btnrow"><a class="btn btn--ink btn--sm" href="/tours/teva-adam-hevra-sviva.html">לפרטי הסיור<span class="visually-hidden"> טבע, אדם, חברה, סביבה</span></a><a class="textlink" href="https://wa.me/972544361667?text=%D7%94%D7%99%D7%99%20%D7%99%D7%95%D7%A1%D7%A7%D7%B3%D7%94%2C%20%D7%A0%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%94%D7%A1%D7%99%D7%95%D7%A8%20%D7%B4%D7%98%D7%91%D7%A2%2C%20%D7%90%D7%93%D7%9D%2C%20%D7%97%D7%91%D7%A8%D7%94%2C%20%D7%A1%D7%91%D7%99%D7%91%D7%94%D7%B4." target="_blank" rel="noopener">לתאם<span class="visually-hidden"> את טבע, אדם, חברה, סביבה</span></a></div></div>
-          </li>
-        </ul>
+          </li></ul>
         <button class="rail__btn rail__btn--next" type="button" aria-label="הכרטיס הבא" data-rail-next><svg aria-hidden="true"><use href="#i-chev"/></svg></button>
       </div>
       <div class="wrap">
@@ -273,7 +244,6 @@
       </div>
     </section>
 
-    <!-- ============ UPCOMING — dates published from the admin (/admin/ -> /api/dates). ============ -->
     <section class="upsec" id="upcoming" aria-labelledby="up-title">
       <svg class="bicon deco deco--b" aria-hidden="true" focusable="false"><use href="#b-calendar"/></svg>
       <div class="wrap">
@@ -285,7 +255,6 @@
       </div>
     </section>
 
-    <!-- ============ 6. GROUPS — the reference's coloured panel with the drawn curves, the heading on the light side, the cards across both. ============ -->
     <section class="groups" id="groups" aria-labelledby="groups-title">
       <svg class="cable" viewBox="0 0 1440 300" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M-20 18L1460 112"/></svg>
       <div class="obj obj--cabin" aria-hidden="true" data-float data-y="0" data-r="0" data-x="0" data-travel="cable"><div class="obj__bob"><img src="/assets/objects/cable-car-cabin.webp" width="313" height="434" alt="" loading="lazy" decoding="async"></div></div>
@@ -298,24 +267,19 @@
           <p>קבוצה מהעבודה, משפחה, חברים או אירוע שאתם רוצים לציין בדרך קצת אחרת. לכל אחד יש סיבה אחרת לצאת, ולכן גם היום עצמו לא צריך להיראות אותו דבר.</p>
           <ol class="steps" data-steps><li><b>מספרים מי מגיע</b><span>קבוצה, משפחה או צוות, כמה אנשים, מה מציינים, מה מעניין אתכם וכמה זמן יש.</span></li><li><b>בוחרים את הכיוון</b><span>יוסק׳ה מציע סיור קיים או מבנה מתאים ומדייק את הפרטים יחד אתכם.</span></li><li><b>סוגרים ויוצאים</b><span>מאשרים מועד, מבנה ופרטים מעשיים. ביום עצמו נפגשים ויוצאים לדרך.</span></li></ol>
         </div>
-        <ul class="groups__cards">
-          <li class="acard acard--open" data-reveal>
+        <ul class="groups__cards"><li class="acard acard--open" data-reveal>
             <div class="acard__media"><img src="/assets/approved/heart-family-960.webp" srcset="/assets/approved/heart-family-480.webp 480w, /assets/approved/heart-family-960.webp 960w, /assets/approved/heart-family-1920.webp 1920w" sizes="(min-width: 900px) 24vw, 80vw" width="1920" height="1752" alt="משפחות וילדים מצטלמים בתוך פסל הלב הצהוב, הים ברקע" loading="lazy" decoding="async"></div>
             <div class="acard__body"><h3>משפחות</h3><p>פעילות משפחתית שגם הילדים באמת משתתפים בה: חידות, משימות ורמזים שמכניסים אותם לתוך הסיפור.</p><a class="btn btn--line btn--sm" href="/families.html" data-track="families_contact_click">לפעילויות למשפחות</a></div>
-          </li>
-          <li class="acard acard--open" data-reveal>
+          </li><li class="acard acard--open" data-reveal>
             <div class="acard__media"><img src="/assets/approved/red-sculpture-selfie-960.webp" srcset="/assets/approved/red-sculpture-selfie-480.webp 480w, /assets/approved/red-sculpture-selfie-960.webp 960w, /assets/approved/red-sculpture-selfie-1920.webp 1824w" sizes="(min-width: 900px) 24vw, 80vw" width="1824" height="1368" alt="יוסק׳ה בסלפי, מאחוריו קבוצה ליד פסל לב אדום מול המפרץ" loading="lazy" decoding="async"></div>
             <div class="acard__body"><h3>ארגונים וצוותים</h3><p>יום גיבוש שגם התוכן בו מחזיק את הקבוצה: סיור, תוכן ואפשרויות נוספות ליום אחד שיש לו קצב והיגיון.</p><a class="btn btn--line btn--sm" href="/orgs.html" data-track="orgs_contact_click">לתכנון יום לצוות</a></div>
-          </li>
-          <li class="acard acard--open" data-reveal>
+          </li><li class="acard acard--open" data-reveal>
             <div class="acard__media"><img src="/assets/approved/kids-guiding-960.webp" srcset="/assets/approved/kids-guiding-480.webp 480w, /assets/approved/kids-guiding-960.webp 960w, /assets/approved/kids-guiding-1920.webp 1080w" sizes="(min-width: 900px) 24vw, 80vw" width="1080" height="1920" alt="יוסק׳ה מדריך קבוצת ילדים שמרימים ידיים כדי לענות" loading="lazy" decoding="async"></div>
             <div class="acard__body"><h3>קבוצות פרטיות</h3><p>יש קבוצה. עכשיו צריך להפוך אותה ליום מוצלח. אפשר לבחור סיור קיים או לדבר עם יוסק׳ה על יום שמתאים לכם.</p><a class="btn btn--line btn--sm" href="/private-groups.html" data-track="private-groups_contact_click">לתכנון טיול פרטי</a></div>
-          </li>
-        </ul>
+          </li></ul>
       </div>
     </section>
 
-    <!-- ============ 7. MOMENTS — arched frames that drift with the scroll ============ -->
     <section class="moments sgs" id="moments" aria-labelledby="moments-title" data-sgs>
       <!-- 11.11.2026: "Sticky Grid Scroll" by Theo Plawinski for Codrops (MIT, notice in /vendor/sticky-grid-scroll/LICENSE),
            ported 1:1 (grid, ratios, timing, easing, sticky length) with Yoske's own tour photos. -->
@@ -326,72 +290,29 @@
           <a class="btn btn--line sgs__btn" href="/gallery.html">לגלריה המלאה</a>
         </div>
         <div class="sgs__gallery">
-          <ul class="sgs__grid" aria-label="תמונות מהסיורים">
-            <li class="sgs__item"><img src="/assets/approved/stairs-group-960.webp" srcset="/assets/approved/stairs-group-480.webp 480w, /assets/approved/stairs-group-960.webp 960w, /assets/approved/stairs-group-1920.webp 1440w" sizes="(min-width: 700px) 32vw, 40vw" width="1440" height="1440" alt="קבוצה גדולה עם יוסק׳ה יושבת על מדרגות ברחוב" loading="lazy" decoding="async" fetchpriority="low" style="object-position:50% 45%"></li>
-            <li class="sgs__item"><img src="/assets/approved/yoske-selfie-group-960.webp" srcset="/assets/approved/yoske-selfie-group-480.webp 480w, /assets/approved/yoske-selfie-group-960.webp 960w, /assets/approved/yoske-selfie-group-1920.webp 1835w" sizes="(min-width: 700px) 32vw, 40vw" width="1835" height="2048" alt="יוסק׳ה מצלם סלפי מחייך, הקבוצה יושבת מאחוריו ומנופפת" loading="lazy" decoding="async" fetchpriority="low" style="object-position:50% 72%"></li>
-            <li class="sgs__item"><img src="/assets/approved/streetart-960.webp" srcset="/assets/approved/streetart-480.webp 480w, /assets/approved/streetart-960.webp 960w, /assets/approved/streetart-1920.webp 1600w" sizes="(min-width: 700px) 32vw, 40vw" width="1600" height="900" alt="קבוצת מטיילים עם יוסק׳ה מול ציור קיר צבעוני" loading="lazy" decoding="async" fetchpriority="low" style="object-position:46% 50%"></li>
-            <li class="sgs__item"><img src="/assets/approved/synagogue-group-960.webp" srcset="/assets/approved/synagogue-group-480.webp 480w, /assets/approved/synagogue-group-960.webp 960w, /assets/approved/synagogue-group-1920.webp 1920w" sizes="(min-width: 700px) 32vw, 40vw" width="1920" height="1576" alt="קבוצה בתוך בית כנסת עם פרוכת כחולה" loading="lazy" decoding="async" fetchpriority="low" style="object-position:50% 60%"></li>
-            <li class="sgs__item"><img src="/assets/approved/yoske-guiding-view-960.webp" srcset="/assets/approved/yoske-guiding-view-480.webp 480w, /assets/approved/yoske-guiding-view-960.webp 960w, /assets/approved/yoske-guiding-view-1920.webp 1200w" sizes="(min-width: 700px) 32vw, 40vw" width="1200" height="1200" alt="יוסק׳ה מדריך במרפסת תצפית מעל מפרץ חיפה" loading="lazy" decoding="async" fetchpriority="low" style="object-position:48% 70%"></li>
-            <li class="sgs__item"><img src="/assets/approved/love-haifa-group-960.webp" srcset="/assets/approved/love-haifa-group-480.webp 480w, /assets/approved/love-haifa-group-960.webp 960w" sizes="(min-width: 700px) 32vw, 40vw" width="960" height="640" alt="קבוצה מצטלמת ליד האותיות הגדולות I love Haifa" loading="lazy" decoding="async" fetchpriority="low" style="object-position:42% 60%"></li>
-            <li class="sgs__item"><img src="/assets/approved/street-tour-960.webp" srcset="/assets/approved/street-tour-480.webp 480w, /assets/approved/street-tour-960.webp 960w, /assets/approved/street-tour-1920.webp 1920w" sizes="(min-width: 700px) 32vw, 40vw" width="1920" height="1558" alt="קבוצה עומדת לאורך רחוב צר ומקשיבה" loading="lazy" decoding="async" fetchpriority="low" style="object-position:50% 55%"></li>
-            <li class="sgs__item"><img src="/assets/approved/red-sculpture-selfie-960.webp" srcset="/assets/approved/red-sculpture-selfie-480.webp 480w, /assets/approved/red-sculpture-selfie-960.webp 960w, /assets/approved/red-sculpture-selfie-1920.webp 1824w" sizes="(min-width: 700px) 32vw, 40vw" width="1824" height="1368" alt="יוסק׳ה בסלפי מול הקבוצה והפסל האדום בתצפית" loading="lazy" decoding="async" fetchpriority="low" style="object-position:22% 60%"></li>
-            <li class="sgs__item"><img src="/assets/approved/lookout-kids-960.webp" srcset="/assets/approved/lookout-kids-480.webp 480w, /assets/approved/lookout-kids-960.webp 960w" sizes="(min-width: 700px) 32vw, 40vw" width="960" height="540" alt="יוסק׳ה מסביר לילדים ולהורים ליד המעקה מול המפרץ" loading="lazy" decoding="async" fetchpriority="low" style="object-position:56% 50%"></li>
-            <li class="sgs__item"><img src="/assets/approved/heart-family-960.webp" srcset="/assets/approved/heart-family-480.webp 480w, /assets/approved/heart-family-960.webp 960w, /assets/approved/heart-family-1920.webp 1920w" sizes="(min-width: 700px) 32vw, 40vw" width="1920" height="1752" alt="משפחה מצטלמת בתוך פסל הלב הצהוב בתצפית" loading="lazy" decoding="async" fetchpriority="low" style="object-position:50% 55%"></li>
-            <li class="sgs__item"><img src="/assets/approved/kids-guiding-960.webp" srcset="/assets/approved/kids-guiding-480.webp 480w, /assets/approved/kids-guiding-960.webp 960w, /assets/approved/kids-guiding-1920.webp 1080w" sizes="(min-width: 700px) 32vw, 40vw" width="1080" height="1920" alt="יוסק׳ה מדריך קבוצת ילדים שמצביעים למעלה" loading="lazy" decoding="async" fetchpriority="low" style="object-position:62% 36%"></li>
-            <li class="sgs__item"><img src="/assets/approved/lookout-big-group-960.webp" srcset="/assets/approved/lookout-big-group-480.webp 480w, /assets/approved/lookout-big-group-960.webp 960w, /assets/approved/lookout-big-group-1920.webp 1200w" sizes="(min-width: 700px) 32vw, 40vw" width="1200" height="1124" alt="קבוצה גדולה מצטלמת בתצפית מעל המפרץ" loading="lazy" decoding="async" fetchpriority="low" style="object-position:50% 60%"></li>
-          </ul>
+          <ul class="sgs__grid" aria-label="תמונות מהסיורים"><li class="sgs__item"><img src="/assets/approved/stairs-group-960.webp" srcset="/assets/approved/stairs-group-480.webp 480w, /assets/approved/stairs-group-960.webp 960w, /assets/approved/stairs-group-1920.webp 1440w" sizes="(min-width: 700px) 32vw, 40vw" width="1440" height="1440" alt="קבוצה גדולה עם יוסק׳ה יושבת על מדרגות ברחוב" loading="lazy" decoding="async" fetchpriority="low" style="object-position:50% 45%"></li><li class="sgs__item"><img src="/assets/approved/yoske-selfie-group-960.webp" srcset="/assets/approved/yoske-selfie-group-480.webp 480w, /assets/approved/yoske-selfie-group-960.webp 960w, /assets/approved/yoske-selfie-group-1920.webp 1835w" sizes="(min-width: 700px) 32vw, 40vw" width="1835" height="2048" alt="יוסק׳ה מצלם סלפי מחייך, הקבוצה יושבת מאחוריו ומנופפת" loading="lazy" decoding="async" fetchpriority="low" style="object-position:50% 72%"></li><li class="sgs__item"><img src="/assets/approved/streetart-960.webp" srcset="/assets/approved/streetart-480.webp 480w, /assets/approved/streetart-960.webp 960w, /assets/approved/streetart-1920.webp 1600w" sizes="(min-width: 700px) 32vw, 40vw" width="1600" height="900" alt="קבוצת מטיילים עם יוסק׳ה מול ציור קיר צבעוני" loading="lazy" decoding="async" fetchpriority="low" style="object-position:46% 50%"></li><li class="sgs__item"><img src="/assets/approved/synagogue-group-960.webp" srcset="/assets/approved/synagogue-group-480.webp 480w, /assets/approved/synagogue-group-960.webp 960w, /assets/approved/synagogue-group-1920.webp 1920w" sizes="(min-width: 700px) 32vw, 40vw" width="1920" height="1576" alt="קבוצה בתוך בית כנסת עם פרוכת כחולה" loading="lazy" decoding="async" fetchpriority="low" style="object-position:50% 60%"></li><li class="sgs__item"><img src="/assets/approved/yoske-guiding-view-960.webp" srcset="/assets/approved/yoske-guiding-view-480.webp 480w, /assets/approved/yoske-guiding-view-960.webp 960w, /assets/approved/yoske-guiding-view-1920.webp 1200w" sizes="(min-width: 700px) 32vw, 40vw" width="1200" height="1200" alt="יוסק׳ה מדריך במרפסת תצפית מעל מפרץ חיפה" loading="lazy" decoding="async" fetchpriority="low" style="object-position:48% 70%"></li><li class="sgs__item"><img src="/assets/approved/love-haifa-group-960.webp" srcset="/assets/approved/love-haifa-group-480.webp 480w, /assets/approved/love-haifa-group-960.webp 960w" sizes="(min-width: 700px) 32vw, 40vw" width="960" height="640" alt="קבוצה מצטלמת ליד האותיות הגדולות I love Haifa" loading="lazy" decoding="async" fetchpriority="low" style="object-position:42% 60%"></li><li class="sgs__item"><img src="/assets/approved/street-tour-960.webp" srcset="/assets/approved/street-tour-480.webp 480w, /assets/approved/street-tour-960.webp 960w, /assets/approved/street-tour-1920.webp 1920w" sizes="(min-width: 700px) 32vw, 40vw" width="1920" height="1558" alt="קבוצה עומדת לאורך רחוב צר ומקשיבה" loading="lazy" decoding="async" fetchpriority="low" style="object-position:50% 55%"></li><li class="sgs__item"><img src="/assets/approved/red-sculpture-selfie-960.webp" srcset="/assets/approved/red-sculpture-selfie-480.webp 480w, /assets/approved/red-sculpture-selfie-960.webp 960w, /assets/approved/red-sculpture-selfie-1920.webp 1824w" sizes="(min-width: 700px) 32vw, 40vw" width="1824" height="1368" alt="יוסק׳ה בסלפי מול הקבוצה והפסל האדום בתצפית" loading="lazy" decoding="async" fetchpriority="low" style="object-position:22% 60%"></li><li class="sgs__item"><img src="/assets/approved/lookout-kids-960.webp" srcset="/assets/approved/lookout-kids-480.webp 480w, /assets/approved/lookout-kids-960.webp 960w" sizes="(min-width: 700px) 32vw, 40vw" width="960" height="540" alt="יוסק׳ה מסביר לילדים ולהורים ליד המעקה מול המפרץ" loading="lazy" decoding="async" fetchpriority="low" style="object-position:56% 50%"></li><li class="sgs__item"><img src="/assets/approved/heart-family-960.webp" srcset="/assets/approved/heart-family-480.webp 480w, /assets/approved/heart-family-960.webp 960w, /assets/approved/heart-family-1920.webp 1920w" sizes="(min-width: 700px) 32vw, 40vw" width="1920" height="1752" alt="משפחה מצטלמת בתוך פסל הלב הצהוב בתצפית" loading="lazy" decoding="async" fetchpriority="low" style="object-position:50% 55%"></li><li class="sgs__item"><img src="/assets/approved/kids-guiding-960.webp" srcset="/assets/approved/kids-guiding-480.webp 480w, /assets/approved/kids-guiding-960.webp 960w, /assets/approved/kids-guiding-1920.webp 1080w" sizes="(min-width: 700px) 32vw, 40vw" width="1080" height="1920" alt="יוסק׳ה מדריך קבוצת ילדים שמצביעים למעלה" loading="lazy" decoding="async" fetchpriority="low" style="object-position:62% 36%"></li><li class="sgs__item"><img src="/assets/approved/lookout-big-group-960.webp" srcset="/assets/approved/lookout-big-group-480.webp 480w, /assets/approved/lookout-big-group-960.webp 960w, /assets/approved/lookout-big-group-1920.webp 1200w" sizes="(min-width: 700px) 32vw, 40vw" width="1200" height="1124" alt="קבוצה גדולה מצטלמת בתצפית מעל המפרץ" loading="lazy" decoding="async" fetchpriority="low" style="object-position:50% 60%"></li></ul>
         </div>
       </div>
     </section>
 
-    <!-- ============ 8. REVIEWS — 11.11.2026: a wall built while scrolling. The cards are thrown in, land on a wide arc
-         in depth, then straighten into their place in the grid (live HTML; the grid is the no-motion version too).
-         The cards are the review screenshots the user supplied (tools/build_review_shots.py). ============ -->
     <section class="rwall" id="reviews" aria-labelledby="reviews-title" data-rwall>
       <div class="rwall__stage" data-rwall-stage>
         <div class="rwall__head">
           <h2 class="rwall__title" id="reviews-title">מה החברים לדרך <span class="hl hl--sun">מספרים</span></h2>
           <p class="rwall__src">מטיילים, משפחות וצוותים כבר כתבו. חבל שרק יוסק׳ה יראה.</p>
         </div>
-        <ul class="rwall__grid" data-rwall-grid aria-label="ביקורות של מטיילים, צילומי מסך. כל אחת נפתחת בגודל מלא">
-          <li class="rshot" data-lead-shot><a class="rshot__a" href="/assets/reviews/r03.webp" data-shot aria-label="להגדלה: ביקורת של ליאב הלפרין"><img src="/assets/reviews/r03-480.webp" srcset="/assets/reviews/r03-480.webp 480w, /assets/reviews/r03.webp 1076w" sizes="(min-width: 700px) 330px, 46vw" width="480" height="358" alt="צילום מסך של ביקורת על יוסק׳ה: ליאב הלפרין, המלצה בפייסבוק" loading="lazy" decoding="async"></a></li>
-          <li class="rshot" data-lead-shot><a class="rshot__a" href="/assets/reviews/r05.webp" data-shot aria-label="להגדלה: ביקורת של מירב רביב"><img src="/assets/reviews/r05-480.webp" srcset="/assets/reviews/r05-480.webp 480w, /assets/reviews/r05.webp 1080w" sizes="(min-width: 700px) 330px, 46vw" width="480" height="347" alt="צילום מסך של ביקורת על יוסק׳ה: מירב רביב, המלצה בפייסבוק" loading="lazy" decoding="async"></a></li>
-          <li class="rshot" data-lead-shot><a class="rshot__a" href="/assets/reviews/r02.webp" data-shot aria-label="להגדלה: ביקורת של קסניה גרלייב"><img src="/assets/reviews/r02-480.webp" srcset="/assets/reviews/r02-480.webp 480w, /assets/reviews/r02.webp 1080w" sizes="(min-width: 700px) 330px, 46vw" width="480" height="285" alt="צילום מסך של ביקורת על יוסק׳ה: קסניה גרלייב, המלצה בפייסבוק" loading="lazy" decoding="async"></a></li>
-          <li class="rshot" data-lead-shot><a class="rshot__a" href="/assets/reviews/r06.webp" data-shot aria-label="להגדלה: ביקורת של אפי יוספי"><img src="/assets/reviews/r06-480.webp" srcset="/assets/reviews/r06-480.webp 480w, /assets/reviews/r06.webp 1080w" sizes="(min-width: 700px) 330px, 46vw" width="480" height="252" alt="צילום מסך של ביקורת על יוסק׳ה: אפי יוספי, המלצה בפייסבוק" loading="lazy" decoding="async"></a></li>
-          <li class="rshot" data-lead-shot><a class="rshot__a" href="/assets/reviews/r09.webp" data-shot aria-label="להגדלה: ביקורת של ורד יאיר"><img src="/assets/reviews/r09-480.webp" srcset="/assets/reviews/r09-480.webp 480w, /assets/reviews/r09.webp 1080w" sizes="(min-width: 700px) 330px, 46vw" width="480" height="480" alt="צילום מסך של ביקורת על יוסק׳ה: ורד יאיר, פוסט בפייסבוק" loading="lazy" decoding="async"></a></li>
-          <li class="rshot" data-lead-shot><a class="rshot__a" href="/assets/reviews/r12.webp" data-shot aria-label="להגדלה: ביקורת של נטלי אייזנברג"><img src="/assets/reviews/r12-480.webp" srcset="/assets/reviews/r12-480.webp 480w, /assets/reviews/r12.webp 1080w" sizes="(min-width: 700px) 330px, 46vw" width="480" height="252" alt="צילום מסך של ביקורת על יוסק׳ה: נטלי אייזנברג, המלצה בפייסבוק" loading="lazy" decoding="async"></a></li>
-          <li class="rshot" data-lead-shot><a class="rshot__a" href="/assets/reviews/r14.webp" data-shot aria-label="להגדלה: ביקורת של גל כליל החורש"><img src="/assets/reviews/r14-480.webp" srcset="/assets/reviews/r14-480.webp 480w, /assets/reviews/r14.webp 1080w" sizes="(min-width: 700px) 330px, 46vw" width="480" height="308" alt="צילום מסך של ביקורת על יוסק׳ה: גל כליל החורש, המלצה בפייסבוק" loading="lazy" decoding="async"></a></li>
-          <li class="rshot" data-lead-shot><a class="rshot__a" href="/assets/reviews/r18.webp" data-shot aria-label="להגדלה: ביקורת של טלי פרידלר"><img src="/assets/reviews/r18-480.webp" srcset="/assets/reviews/r18-480.webp 480w, /assets/reviews/r18.webp 1080w" sizes="(min-width: 700px) 330px, 46vw" width="480" height="450" alt="צילום מסך של ביקורת על יוסק׳ה: טלי פרידלר, פוסט בפייסבוק" loading="lazy" decoding="async"></a></li>
-          <li class="rshot" data-lead-shot><a class="rshot__a" href="/assets/reviews/r07.webp" data-shot aria-label="להגדלה: ביקורת של ורד יאיר ורעומה נחום"><img src="/assets/reviews/r07-480.webp" srcset="/assets/reviews/r07-480.webp 480w, /assets/reviews/r07.webp 1080w" sizes="(min-width: 700px) 330px, 46vw" width="480" height="503" alt="צילום מסך של ביקורת על יוסק׳ה: ורד יאיר ורעומה נחום, תגובות בפייסבוק" loading="lazy" decoding="async"></a></li>
-          <li class="rshot" data-lead-shot><a class="rshot__a" href="/assets/reviews/r13.webp" data-shot aria-label="להגדלה: ביקורת של חן שכטר"><img src="/assets/reviews/r13-480.webp" srcset="/assets/reviews/r13-480.webp 480w, /assets/reviews/r13.webp 1080w" sizes="(min-width: 700px) 330px, 46vw" width="480" height="375" alt="צילום מסך של ביקורת על יוסק׳ה: חן שכטר, פוסט בפייסבוק" loading="lazy" decoding="async"></a></li>
-          <li class="rshot" data-lead-shot><a class="rshot__a" href="/assets/reviews/r16.webp" data-shot aria-label="להגדלה: ביקורת של איציק לינדנר"><img src="/assets/reviews/r16-480.webp" srcset="/assets/reviews/r16-480.webp 480w, /assets/reviews/r16.webp 1028w" sizes="(min-width: 700px) 330px, 46vw" width="480" height="211" alt="צילום מסך של ביקורת על יוסק׳ה: איציק לינדנר, פייסבוק" loading="lazy" decoding="async"></a></li>
-          <li class="rshot" data-lead-shot><a class="rshot__a" href="/assets/reviews/r22.webp" data-shot aria-label="להגדלה: ביקורת של סופי כץ, Visit Haifa"><img src="/assets/reviews/r22-480.webp" srcset="/assets/reviews/r22-480.webp 480w, /assets/reviews/r22.webp 1080w" sizes="(min-width: 700px) 330px, 46vw" width="480" height="317" alt="צילום מסך של ביקורת על יוסק׳ה: סופי כץ, Visit Haifa, הודעה" loading="lazy" decoding="async"></a></li>
-        </ul>
+        <ul class="rwall__grid" data-rwall-grid aria-label="ביקורות של מטיילים, צילומי מסך. כל אחת נפתחת בגודל מלא"><li class="rshot" data-lead-shot><a class="rshot__a" href="/assets/reviews/r03.webp" data-shot aria-label="להגדלה: ביקורת של ליאב הלפרין"><img src="/assets/reviews/r03-480.webp" srcset="/assets/reviews/r03-480.webp 480w, /assets/reviews/r03.webp 1076w" sizes="(min-width: 700px) 330px, 46vw" width="480" height="358" alt="צילום מסך של ביקורת על יוסק׳ה: ליאב הלפרין, המלצה בפייסבוק" loading="lazy" decoding="async"></a></li><li class="rshot" data-lead-shot><a class="rshot__a" href="/assets/reviews/r05.webp" data-shot aria-label="להגדלה: ביקורת של מירב רביב"><img src="/assets/reviews/r05-480.webp" srcset="/assets/reviews/r05-480.webp 480w, /assets/reviews/r05.webp 1080w" sizes="(min-width: 700px) 330px, 46vw" width="480" height="347" alt="צילום מסך של ביקורת על יוסק׳ה: מירב רביב, המלצה בפייסבוק" loading="lazy" decoding="async"></a></li><li class="rshot" data-lead-shot><a class="rshot__a" href="/assets/reviews/r02.webp" data-shot aria-label="להגדלה: ביקורת של קסניה גרלייב"><img src="/assets/reviews/r02-480.webp" srcset="/assets/reviews/r02-480.webp 480w, /assets/reviews/r02.webp 1080w" sizes="(min-width: 700px) 330px, 46vw" width="480" height="285" alt="צילום מסך של ביקורת על יוסק׳ה: קסניה גרלייב, המלצה בפייסבוק" loading="lazy" decoding="async"></a></li><li class="rshot" data-lead-shot><a class="rshot__a" href="/assets/reviews/r06.webp" data-shot aria-label="להגדלה: ביקורת של אפי יוספי"><img src="/assets/reviews/r06-480.webp" srcset="/assets/reviews/r06-480.webp 480w, /assets/reviews/r06.webp 1080w" sizes="(min-width: 700px) 330px, 46vw" width="480" height="252" alt="צילום מסך של ביקורת על יוסק׳ה: אפי יוספי, המלצה בפייסבוק" loading="lazy" decoding="async"></a></li><li class="rshot" data-lead-shot><a class="rshot__a" href="/assets/reviews/r09.webp" data-shot aria-label="להגדלה: ביקורת של ורד יאיר"><img src="/assets/reviews/r09-480.webp" srcset="/assets/reviews/r09-480.webp 480w, /assets/reviews/r09.webp 1080w" sizes="(min-width: 700px) 330px, 46vw" width="480" height="480" alt="צילום מסך של ביקורת על יוסק׳ה: ורד יאיר, פוסט בפייסבוק" loading="lazy" decoding="async"></a></li><li class="rshot" data-lead-shot><a class="rshot__a" href="/assets/reviews/r12.webp" data-shot aria-label="להגדלה: ביקורת של נטלי אייזנברג"><img src="/assets/reviews/r12-480.webp" srcset="/assets/reviews/r12-480.webp 480w, /assets/reviews/r12.webp 1080w" sizes="(min-width: 700px) 330px, 46vw" width="480" height="252" alt="צילום מסך של ביקורת על יוסק׳ה: נטלי אייזנברג, המלצה בפייסבוק" loading="lazy" decoding="async"></a></li><li class="rshot" data-lead-shot><a class="rshot__a" href="/assets/reviews/r14.webp" data-shot aria-label="להגדלה: ביקורת של גל כליל החורש"><img src="/assets/reviews/r14-480.webp" srcset="/assets/reviews/r14-480.webp 480w, /assets/reviews/r14.webp 1080w" sizes="(min-width: 700px) 330px, 46vw" width="480" height="308" alt="צילום מסך של ביקורת על יוסק׳ה: גל כליל החורש, המלצה בפייסבוק" loading="lazy" decoding="async"></a></li><li class="rshot" data-lead-shot><a class="rshot__a" href="/assets/reviews/r18.webp" data-shot aria-label="להגדלה: ביקורת של טלי פרידלר"><img src="/assets/reviews/r18-480.webp" srcset="/assets/reviews/r18-480.webp 480w, /assets/reviews/r18.webp 1080w" sizes="(min-width: 700px) 330px, 46vw" width="480" height="450" alt="צילום מסך של ביקורת על יוסק׳ה: טלי פרידלר, פוסט בפייסבוק" loading="lazy" decoding="async"></a></li><li class="rshot" data-lead-shot><a class="rshot__a" href="/assets/reviews/r07.webp" data-shot aria-label="להגדלה: ביקורת של ורד יאיר ורעומה נחום"><img src="/assets/reviews/r07-480.webp" srcset="/assets/reviews/r07-480.webp 480w, /assets/reviews/r07.webp 1080w" sizes="(min-width: 700px) 330px, 46vw" width="480" height="503" alt="צילום מסך של ביקורת על יוסק׳ה: ורד יאיר ורעומה נחום, תגובות בפייסבוק" loading="lazy" decoding="async"></a></li><li class="rshot" data-lead-shot><a class="rshot__a" href="/assets/reviews/r13.webp" data-shot aria-label="להגדלה: ביקורת של חן שכטר"><img src="/assets/reviews/r13-480.webp" srcset="/assets/reviews/r13-480.webp 480w, /assets/reviews/r13.webp 1080w" sizes="(min-width: 700px) 330px, 46vw" width="480" height="375" alt="צילום מסך של ביקורת על יוסק׳ה: חן שכטר, פוסט בפייסבוק" loading="lazy" decoding="async"></a></li><li class="rshot" data-lead-shot><a class="rshot__a" href="/assets/reviews/r16.webp" data-shot aria-label="להגדלה: ביקורת של איציק לינדנר"><img src="/assets/reviews/r16-480.webp" srcset="/assets/reviews/r16-480.webp 480w, /assets/reviews/r16.webp 1028w" sizes="(min-width: 700px) 330px, 46vw" width="480" height="211" alt="צילום מסך של ביקורת על יוסק׳ה: איציק לינדנר, פייסבוק" loading="lazy" decoding="async"></a></li><li class="rshot" data-lead-shot><a class="rshot__a" href="/assets/reviews/r22.webp" data-shot aria-label="להגדלה: ביקורת של סופי כץ, Visit Haifa"><img src="/assets/reviews/r22-480.webp" srcset="/assets/reviews/r22-480.webp 480w, /assets/reviews/r22.webp 1080w" sizes="(min-width: 700px) 330px, 46vw" width="480" height="317" alt="צילום מסך של ביקורת על יוסק׳ה: סופי כץ, Visit Haifa, הודעה" loading="lazy" decoding="async"></a></li></ul>
       </div>
     </section>
+
     <section class="rwall-more" aria-label="ביקורות נוספות">
       <!-- 15.11.2026: the wall opens with the strongest shots (cropped to the review itself); the rest stay one click away -->
       <div class="wrap rwall__more">
         <button type="button" class="btn btn--line" aria-expanded="false" aria-controls="reviews-more" data-more-reviews>לעוד 13 ביקורות</button>
-        <ul class="rwall__extra" id="reviews-more" hidden aria-label="ביקורות נוספות, צילומי מסך">
-          <li class="rshot"><a class="rshot__a" href="/assets/reviews/r01.webp" data-shot aria-label="להגדלה: ביקורת של שרון ירדני"><img src="/assets/reviews/r01-480.webp" srcset="/assets/reviews/r01-480.webp 480w, /assets/reviews/r01.webp 1080w" sizes="(min-width: 700px) 330px, 46vw" width="480" height="168" alt="צילום מסך של ביקורת על יוסק׳ה: שרון ירדני, פייסבוק" loading="lazy" decoding="async"></a></li>
-          <li class="rshot"><a class="rshot__a" href="/assets/reviews/r04.webp" data-shot aria-label="להגדלה: ביקורת של מאיה נמרי"><img src="/assets/reviews/r04-480.webp" srcset="/assets/reviews/r04-480.webp 480w, /assets/reviews/r04.webp 1080w" sizes="(min-width: 700px) 330px, 46vw" width="480" height="199" alt="צילום מסך של ביקורת על יוסק׳ה: מאיה נמרי, המלצה בפייסבוק" loading="lazy" decoding="async"></a></li>
-          <li class="rshot"><a class="rshot__a" href="/assets/reviews/r08.webp" data-shot aria-label="להגדלה: ביקורת של סואלי טולוב"><img src="/assets/reviews/r08-480.webp" srcset="/assets/reviews/r08-480.webp 480w, /assets/reviews/r08.webp 1080w" sizes="(min-width: 700px) 330px, 46vw" width="480" height="242" alt="צילום מסך של ביקורת על יוסק׳ה: סואלי טולוב, פייסבוק" loading="lazy" decoding="async"></a></li>
-          <li class="rshot"><a class="rshot__a" href="/assets/reviews/r10.webp" data-shot aria-label="להגדלה: ביקורת של שוקי רוק"><img src="/assets/reviews/r10-480.webp" srcset="/assets/reviews/r10-480.webp 480w, /assets/reviews/r10.webp 1080w" sizes="(min-width: 700px) 330px, 46vw" width="480" height="283" alt="צילום מסך של ביקורת על יוסק׳ה: שוקי רוק, פוסט בפייסבוק" loading="lazy" decoding="async"></a></li>
-          <li class="rshot"><a class="rshot__a" href="/assets/reviews/r11.webp" data-shot aria-label="להגדלה: ביקורת של קובי רינת"><img src="/assets/reviews/r11-480.webp" srcset="/assets/reviews/r11-480.webp 480w, /assets/reviews/r11.webp 1080w" sizes="(min-width: 700px) 330px, 46vw" width="480" height="128" alt="צילום מסך של ביקורת על יוסק׳ה: קובי רינת, פייסבוק" loading="lazy" decoding="async"></a></li>
-          <li class="rshot"><a class="rshot__a" href="/assets/reviews/r15.webp" data-shot aria-label="להגדלה: ביקורת של קובי ומיקה רינת"><img src="/assets/reviews/r15-480.webp" srcset="/assets/reviews/r15-480.webp 480w, /assets/reviews/r15.webp 1080w" sizes="(min-width: 700px) 330px, 46vw" width="480" height="242" alt="צילום מסך של ביקורת על יוסק׳ה: קובי ומיקה רינת, פוסט בפייסבוק" loading="lazy" decoding="async"></a></li>
-          <li class="rshot"><a class="rshot__a" href="/assets/reviews/r17.webp" data-shot aria-label="להגדלה: ביקורת של חגית לונדנר"><img src="/assets/reviews/r17-480.webp" srcset="/assets/reviews/r17-480.webp 480w, /assets/reviews/r17.webp 1022w" sizes="(min-width: 700px) 330px, 46vw" width="480" height="168" alt="צילום מסך של ביקורת על יוסק׳ה: חגית לונדנר, פייסבוק" loading="lazy" decoding="async"></a></li>
-          <li class="rshot"><a class="rshot__a" href="/assets/reviews/r19.webp" data-shot aria-label="להגדלה: ביקורת של שירה כמה דר"><img src="/assets/reviews/r19-480.webp" srcset="/assets/reviews/r19-480.webp 480w, /assets/reviews/r19.webp 1080w" sizes="(min-width: 700px) 330px, 46vw" width="480" height="232" alt="צילום מסך של ביקורת על יוסק׳ה: שירה כמה דר, פוסט בפייסבוק" loading="lazy" decoding="async"></a></li>
-          <li class="rshot"><a class="rshot__a" href="/assets/reviews/r20.webp" data-shot aria-label="להגדלה: ביקורת של קובי הלפגוט"><img src="/assets/reviews/r20-480.webp" srcset="/assets/reviews/r20-480.webp 480w, /assets/reviews/r20.webp 1080w" sizes="(min-width: 700px) 330px, 46vw" width="480" height="272" alt="צילום מסך של ביקורת על יוסק׳ה: קובי הלפגוט, אינסטגרם" loading="lazy" decoding="async"></a></li>
-          <li class="rshot"><a class="rshot__a" href="/assets/reviews/r21.webp" data-shot aria-label="להגדלה: ביקורת של אלישבע רוק"><img src="/assets/reviews/r21-480.webp" srcset="/assets/reviews/r21-480.webp 480w, /assets/reviews/r21.webp 623w" sizes="(min-width: 700px) 330px, 46vw" width="480" height="136" alt="צילום מסך של ביקורת על יוסק׳ה: אלישבע רוק, פוסט בפייסבוק" loading="lazy" decoding="async"></a></li>
-          <li class="rshot"><a class="rshot__a" href="/assets/reviews/r23.webp" data-shot aria-label="להגדלה: ביקורת של משתתפי סיור"><img src="/assets/reviews/r23-480.webp" srcset="/assets/reviews/r23-480.webp 480w, /assets/reviews/r23.webp 540w" sizes="(min-width: 700px) 330px, 46vw" width="480" height="484" alt="צילום מסך של ביקורת על יוסק׳ה: משתתפי סיור, משוב מסקר" loading="lazy" decoding="async"></a></li>
-          <li class="rshot"><a class="rshot__a" href="/assets/reviews/r24.webp" data-shot aria-label="להגדלה: ביקורת של משתתפי סיור"><img src="/assets/reviews/r24-480.webp" srcset="/assets/reviews/r24-480.webp 480w, /assets/reviews/r24.webp 540w" sizes="(min-width: 700px) 330px, 46vw" width="480" height="332" alt="צילום מסך של ביקורת על יוסק׳ה: משתתפי סיור, משוב מסקר" loading="lazy" decoding="async"></a></li>
-          <li class="rshot"><a class="rshot__a" href="/assets/reviews/r25.webp" data-shot aria-label="להגדלה: ביקורת של משתתפי סיור"><img src="/assets/reviews/r25-480.webp" srcset="/assets/reviews/r25-480.webp 480w, /assets/reviews/r25.webp 536w" sizes="(min-width: 700px) 330px, 46vw" width="480" height="136" alt="צילום מסך של ביקורת על יוסק׳ה: משתתפי סיור, משוב מסקר" loading="lazy" decoding="async"></a></li>
-        </ul>
+        <ul class="rwall__extra" id="reviews-more" hidden aria-label="ביקורות נוספות, צילומי מסך"><li class="rshot"><a class="rshot__a" href="/assets/reviews/r01.webp" data-shot aria-label="להגדלה: ביקורת של שרון ירדני"><img src="/assets/reviews/r01-480.webp" srcset="/assets/reviews/r01-480.webp 480w, /assets/reviews/r01.webp 1080w" sizes="(min-width: 700px) 330px, 46vw" width="480" height="168" alt="צילום מסך של ביקורת על יוסק׳ה: שרון ירדני, פייסבוק" loading="lazy" decoding="async"></a></li><li class="rshot"><a class="rshot__a" href="/assets/reviews/r04.webp" data-shot aria-label="להגדלה: ביקורת של מאיה נמרי"><img src="/assets/reviews/r04-480.webp" srcset="/assets/reviews/r04-480.webp 480w, /assets/reviews/r04.webp 1080w" sizes="(min-width: 700px) 330px, 46vw" width="480" height="199" alt="צילום מסך של ביקורת על יוסק׳ה: מאיה נמרי, המלצה בפייסבוק" loading="lazy" decoding="async"></a></li><li class="rshot"><a class="rshot__a" href="/assets/reviews/r08.webp" data-shot aria-label="להגדלה: ביקורת של סואלי טולוב"><img src="/assets/reviews/r08-480.webp" srcset="/assets/reviews/r08-480.webp 480w, /assets/reviews/r08.webp 1080w" sizes="(min-width: 700px) 330px, 46vw" width="480" height="242" alt="צילום מסך של ביקורת על יוסק׳ה: סואלי טולוב, פייסבוק" loading="lazy" decoding="async"></a></li><li class="rshot"><a class="rshot__a" href="/assets/reviews/r10.webp" data-shot aria-label="להגדלה: ביקורת של שוקי רוק"><img src="/assets/reviews/r10-480.webp" srcset="/assets/reviews/r10-480.webp 480w, /assets/reviews/r10.webp 1080w" sizes="(min-width: 700px) 330px, 46vw" width="480" height="283" alt="צילום מסך של ביקורת על יוסק׳ה: שוקי רוק, פוסט בפייסבוק" loading="lazy" decoding="async"></a></li><li class="rshot"><a class="rshot__a" href="/assets/reviews/r11.webp" data-shot aria-label="להגדלה: ביקורת של קובי רינת"><img src="/assets/reviews/r11-480.webp" srcset="/assets/reviews/r11-480.webp 480w, /assets/reviews/r11.webp 1080w" sizes="(min-width: 700px) 330px, 46vw" width="480" height="128" alt="צילום מסך של ביקורת על יוסק׳ה: קובי רינת, פייסבוק" loading="lazy" decoding="async"></a></li><li class="rshot"><a class="rshot__a" href="/assets/reviews/r15.webp" data-shot aria-label="להגדלה: ביקורת של קובי ומיקה רינת"><img src="/assets/reviews/r15-480.webp" srcset="/assets/reviews/r15-480.webp 480w, /assets/reviews/r15.webp 1080w" sizes="(min-width: 700px) 330px, 46vw" width="480" height="242" alt="צילום מסך של ביקורת על יוסק׳ה: קובי ומיקה רינת, פוסט בפייסבוק" loading="lazy" decoding="async"></a></li><li class="rshot"><a class="rshot__a" href="/assets/reviews/r17.webp" data-shot aria-label="להגדלה: ביקורת של חגית לונדנר"><img src="/assets/reviews/r17-480.webp" srcset="/assets/reviews/r17-480.webp 480w, /assets/reviews/r17.webp 1022w" sizes="(min-width: 700px) 330px, 46vw" width="480" height="168" alt="צילום מסך של ביקורת על יוסק׳ה: חגית לונדנר, פייסבוק" loading="lazy" decoding="async"></a></li><li class="rshot"><a class="rshot__a" href="/assets/reviews/r19.webp" data-shot aria-label="להגדלה: ביקורת של שירה כמה דר"><img src="/assets/reviews/r19-480.webp" srcset="/assets/reviews/r19-480.webp 480w, /assets/reviews/r19.webp 1080w" sizes="(min-width: 700px) 330px, 46vw" width="480" height="232" alt="צילום מסך של ביקורת על יוסק׳ה: שירה כמה דר, פוסט בפייסבוק" loading="lazy" decoding="async"></a></li><li class="rshot"><a class="rshot__a" href="/assets/reviews/r20.webp" data-shot aria-label="להגדלה: ביקורת של קובי הלפגוט"><img src="/assets/reviews/r20-480.webp" srcset="/assets/reviews/r20-480.webp 480w, /assets/reviews/r20.webp 1080w" sizes="(min-width: 700px) 330px, 46vw" width="480" height="272" alt="צילום מסך של ביקורת על יוסק׳ה: קובי הלפגוט, אינסטגרם" loading="lazy" decoding="async"></a></li><li class="rshot"><a class="rshot__a" href="/assets/reviews/r21.webp" data-shot aria-label="להגדלה: ביקורת של אלישבע רוק"><img src="/assets/reviews/r21-480.webp" srcset="/assets/reviews/r21-480.webp 480w, /assets/reviews/r21.webp 623w" sizes="(min-width: 700px) 330px, 46vw" width="480" height="136" alt="צילום מסך של ביקורת על יוסק׳ה: אלישבע רוק, פוסט בפייסבוק" loading="lazy" decoding="async"></a></li><li class="rshot"><a class="rshot__a" href="/assets/reviews/r23.webp" data-shot aria-label="להגדלה: ביקורת של משתתפי סיור"><img src="/assets/reviews/r23-480.webp" srcset="/assets/reviews/r23-480.webp 480w, /assets/reviews/r23.webp 540w" sizes="(min-width: 700px) 330px, 46vw" width="480" height="484" alt="צילום מסך של ביקורת על יוסק׳ה: משתתפי סיור, משוב מסקר" loading="lazy" decoding="async"></a></li><li class="rshot"><a class="rshot__a" href="/assets/reviews/r24.webp" data-shot aria-label="להגדלה: ביקורת של משתתפי סיור"><img src="/assets/reviews/r24-480.webp" srcset="/assets/reviews/r24-480.webp 480w, /assets/reviews/r24.webp 540w" sizes="(min-width: 700px) 330px, 46vw" width="480" height="332" alt="צילום מסך של ביקורת על יוסק׳ה: משתתפי סיור, משוב מסקר" loading="lazy" decoding="async"></a></li><li class="rshot"><a class="rshot__a" href="/assets/reviews/r25.webp" data-shot aria-label="להגדלה: ביקורת של משתתפי סיור"><img src="/assets/reviews/r25-480.webp" srcset="/assets/reviews/r25-480.webp 480w, /assets/reviews/r25.webp 536w" sizes="(min-width: 700px) 330px, 46vw" width="480" height="136" alt="צילום מסך של ביקורת על יוסק׳ה: משתתפי סיור, משוב מסקר" loading="lazy" decoding="async"></a></li></ul>
       </div>
     </section>
 
-    <!-- ============ 10. ABROAD — kept short, so the homepage stays about Haifa ============ -->
     <section class="abroad" id="abroad" aria-labelledby="abroad-title">
       <svg class="trailline" viewBox="0 0 1440 400" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path data-trail d="M1460 340C1180 320 1020 160 760 170S360 60 -20 30"/></svg>
       <div class="obj obj--plane" aria-hidden="true" data-float data-y="0" data-r="0" data-x="0" data-travel="plane"><div class="obj__bob"><img src="/assets/objects/plane-787.webp" width="1217" height="333" alt="" loading="lazy" decoding="async"></div></div>
@@ -402,12 +323,7 @@
       <div class="wrap abroad__in">
         <h2 class="duo-title" id="abroad-title"><span class="duo-title__light">חיפה במרכז, ולא רק היא.</span> <span class="duo-title__bold">יוסק׳ה בדרום אמריקה</span></h2>
         <div class="abroad__feature">
-          <ul class="abroad__facts">
-            <li><svg class="bicon bicon--orange" aria-hidden="true"><use href="#b-clock"/></svg>מדריך לעיתים במסעות ברזילאו</li>
-            <li><svg class="bicon bicon--orange" aria-hidden="true"><use href="#b-globe"/></svg>ברזיל · ארגנטינה · צ׳ילה · פרו · אקוודור</li>
-            <li><svg class="bicon bicon--orange" aria-hidden="true"><use href="#b-group"/></svg>קבוצות מטיילים מישראל</li>
-            <li><svg class="bicon bicon--orange" aria-hidden="true"><use href="#b-route"/></svg>מסעות מאורגנים של ברזילאו</li>
-          </ul>
+          <ul class="abroad__facts"><li><svg class="bicon bicon--orange" aria-hidden="true"><use href="#b-clock"/></svg>מדריך לעיתים במסעות ברזילאו</li><li><svg class="bicon bicon--orange" aria-hidden="true"><use href="#b-globe"/></svg>ברזיל · ארגנטינה · צ׳ילה · פרו · אקוודור</li><li><svg class="bicon bicon--orange" aria-hidden="true"><use href="#b-group"/></svg>קבוצות מטיילים מישראל</li><li><svg class="bicon bicon--orange" aria-hidden="true"><use href="#b-route"/></svg>מסעות מאורגנים של ברזילאו</li></ul>
           <div class="abroad__copy">
             <h3 class="abroad__name">מסעות עם ברזילאו</h3>
             <p>לעיתים יוסק׳ה מדריך קבוצות ישראליות במסעות המאורגנים של ברזילאו בדרום אמריקה, ומביא גם לשם את אותה סקרנות לאנשים, לתרבות ולסיפורים שמאחורי הנוף. ההרשמה, המסלולים והתפעול נעשים דרך ברזילאו.</p>
@@ -415,16 +331,10 @@
           </div>
           <a class="btn btn--line abroad__more" href="/south-america.html" data-track="sa_page_click">למסעות בדרום אמריקה<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
         </div>
-        <ul class="abroad__cards" aria-label="רגעים מהמסעות">
-          <li class="tcard" data-reveal><a href="https://www.brazilao.com/organized-tours" target="_blank" rel="noopener"><img src="/assets/photos/rio-sm.jpg" srcset="/assets/photos/rio-xs.jpg 480w, /assets/photos/rio-sm.jpg 820w" sizes="(min-width: 900px) 24vw, 70vw" alt="יוסק׳ה פורש ידיים מתחת לפסל ישו הגואל בריו דה ז׳ניירו" loading="lazy" decoding="async"><span class="tcard__title">ריו דה ז׳ניירו</span></a></li>
-          <li class="tcard" data-reveal><a href="https://www.brazilao.com/organized-tours" target="_blank" rel="noopener"><img src="/assets/photos/andes-trail-sm.jpg" srcset="/assets/photos/andes-trail-xs.jpg 480w, /assets/photos/andes-trail-sm.jpg 820w, /assets/photos/andes-trail.jpg 1600w" sizes="(min-width: 900px) 24vw, 70vw" alt="שביל הררי במסע בדרום אמריקה" loading="lazy" decoding="async" style="object-position: 50% 60%"><span class="tcard__title">שביל בהרים</span></a></li>
-          <li class="tcard" data-reveal><a href="https://www.brazilao.com/organized-tours" target="_blank" rel="noopener"><img src="/assets/photos/ponchos-group-sm.jpg" srcset="/assets/photos/ponchos-group-xs.jpg 480w, /assets/photos/ponchos-group-sm.jpg 820w, /assets/photos/ponchos-group.jpg 1920w" sizes="(min-width: 900px) 24vw, 70vw" alt="חברים בפונצ׳ו צבעוניים במסע בדרום אמריקה" loading="lazy" decoding="async"><span class="tcard__title">חברים לדרך</span></a></li>
-          <li class="tcard" data-reveal><a href="https://www.brazilao.com/organized-tours" target="_blank" rel="noopener"><img src="/assets/photos/andes-alley-sm.jpg" srcset="/assets/photos/andes-alley-xs.jpg 480w, /assets/photos/andes-alley-sm.jpg 820w, /assets/photos/andes-alley.jpg 900w" sizes="(min-width: 900px) 24vw, 70vw" alt="סמטה בכפר במסע בדרום אמריקה" loading="lazy" decoding="async"><span class="tcard__title">סמטאות בדרך</span></a></li>
-        </ul>
+        <ul class="abroad__cards" aria-label="רגעים מהמסעות"><li class="tcard" data-reveal><a href="https://www.brazilao.com/organized-tours" target="_blank" rel="noopener"><img src="/assets/photos/rio-sm.jpg" srcset="/assets/photos/rio-xs.jpg 480w, /assets/photos/rio-sm.jpg 820w" sizes="(min-width: 900px) 24vw, 70vw" alt="יוסק׳ה פורש ידיים מתחת לפסל ישו הגואל בריו דה ז׳ניירו" loading="lazy" decoding="async"><span class="tcard__title">ריו דה ז׳ניירו</span></a></li><li class="tcard" data-reveal><a href="https://www.brazilao.com/organized-tours" target="_blank" rel="noopener"><img src="/assets/photos/andes-trail-sm.jpg" srcset="/assets/photos/andes-trail-xs.jpg 480w, /assets/photos/andes-trail-sm.jpg 820w, /assets/photos/andes-trail.jpg 1600w" sizes="(min-width: 900px) 24vw, 70vw" alt="שביל הררי במסע בדרום אמריקה" loading="lazy" decoding="async" style="object-position: 50% 60%"><span class="tcard__title">שביל בהרים</span></a></li><li class="tcard" data-reveal><a href="https://www.brazilao.com/organized-tours" target="_blank" rel="noopener"><img src="/assets/photos/ponchos-group-sm.jpg" srcset="/assets/photos/ponchos-group-xs.jpg 480w, /assets/photos/ponchos-group-sm.jpg 820w, /assets/photos/ponchos-group.jpg 1920w" sizes="(min-width: 900px) 24vw, 70vw" alt="חברים בפונצ׳ו צבעוניים במסע בדרום אמריקה" loading="lazy" decoding="async"><span class="tcard__title">חברים לדרך</span></a></li><li class="tcard" data-reveal><a href="https://www.brazilao.com/organized-tours" target="_blank" rel="noopener"><img src="/assets/photos/andes-alley-sm.jpg" srcset="/assets/photos/andes-alley-xs.jpg 480w, /assets/photos/andes-alley-sm.jpg 820w, /assets/photos/andes-alley.jpg 900w" sizes="(min-width: 900px) 24vw, 70vw" alt="סמטה בכפר במסע בדרום אמריקה" loading="lazy" decoding="async"><span class="tcard__title">סמטאות בדרך</span></a></li></ul>
       </div>
     </section>
 
-    <!-- ============ FAQ — 15.11.2026: questions that help choose and book (answers describe how Yoske actually works). ============ -->
     <section class="faq" id="faq" aria-labelledby="faq-title">
       <svg class="doodle doodle--f doodle--teal" viewBox="0 0 600 200" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path data-draw d="M5 150C90 100 170 160 260 120S430 60 595 130"/></svg>
 
@@ -438,7 +348,6 @@
       </div>
     </section>
 
-    <!-- ============ CONTACT — 15.11.2026: a real lead form (saved in the CRM through /api/leads), WhatsApp stays a separate channel. ============ -->
     <section class="contact" id="contact" aria-labelledby="contact-title">
       <svg class="bicon deco deco--i" aria-hidden="true" focusable="false"><use href="#b-mobile"/></svg>
       <div class="wrap">
@@ -474,8 +383,7 @@
         </div>
       </div>
     </section>
-    <!-- ============ 12. THE TRAIL (11.11.2026, brought back from the 18.10 version at the user's request): the photos
-         travel along two dashed paths over the bay of Haifa, with the line "ברגל ובגובה העיניים". ============ -->
+
     <section class="trail" id="trail" aria-labelledby="trail-title" data-trail>
       <div class="trail__stage" data-trail-stage>
         <div class="trail__bg" aria-hidden="true"><picture><source media="(max-width: 699px)" srcset="/assets/story/haifa-bay-clean-portrait-529.webp"><img src="/assets/story/haifa-bay-clean-1024.webp" srcset="/assets/story/haifa-bay-clean-640.webp 640w, /assets/story/haifa-bay-clean-1024.webp 1024w, /assets/story/haifa-bay-clean-1672.webp 1672w" sizes="100vw" width="1672" height="941" alt="" loading="lazy" decoding="async"></picture></div>
@@ -497,6 +405,7 @@
         </div>
       </div>
     </section>
+
 
   </main>
   <footer class="foot">
@@ -534,9 +443,10 @@
   <script src="/vendor/lenis.min.js" defer></script>
   <script src="/vendor/gsap.min.js" defer></script>
   <script src="/vendor/ScrollTrigger.min.js" defer></script>
-  <script src="/yoske.js?v=b3cf71f56e" defer></script>
+  <script src="/yoske.js?v=17495e6a1f" defer></script>
   <script src="/prefs.js?v=c81a171d4f" defer></script>
   <script src="/analytics.js?v=7008b080ee" defer></script>
   <script src="/forms.js?v=5f35b0a4d0" defer></script>
+  <script src="/site.js" defer data-cms></script>
 </body>
 </html>

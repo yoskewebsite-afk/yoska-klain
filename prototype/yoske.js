@@ -190,6 +190,82 @@
   };
   heroPlace();
 
+  /* hero 16.11.2026: three layers measured here.
+     - the headline block sits under the header; the button goes under it (gap) and the dome's tip under the button
+     - the garden photo is sized so the Shrine, from the dome to the entrance gate, ends at the bottom of the first screen
+       (never narrower than the screen); on phones it is scaled so the Shrine fits beside Yoske and the hero ends at the gate
+     - Yoske: his raised hand reaches the first word of the big line (desktop) / stands right of the button (phones) */
+  const h26 = $('[data-hero26]');
+  if (h26) {
+    const G = { w: 3060, h: 1434, ax: .498, tip: .2734, door: .905, gate: .9623 };
+    const Y = { w: 1252, h: 1263, hx: .06, hy: .14 };
+    const head = $('[data-h26-head]', h26), gl = $('[data-h26-garden]', h26), yw = $('[data-h26-yoske]', h26), cta = $('.hero26__cta', h26), l2 = $('.hero__l2', h26);
+    const motionOK = !still();
+    if (motionOK) h26.classList.add('is-pre');
+    const place = () => {
+      const vw = document.documentElement.clientWidth, vh = Math.min(Math.max(innerHeight, 600), 1200), phone = vw < 700;
+      const topBar = $('[data-top]'); const barH = topBar ? topBar.offsetHeight : 80;
+      const cs = getComputedStyle(h26), gapCta = parseFloat(cs.getPropertyValue('--gap-cta')) || 24, gapDome = parseFloat(cs.getPropertyValue('--gap-dome')) || 12;
+      const headH = head.offsetHeight, ctaH = cta.offsetHeight, R = G.w / G.h;
+      let headTop = barH + (phone ? 10 : 30), tipY, gw, gh, ax, secH;
+      const tipPref = headTop + headH + gapCta + ctaH + gapDome;
+      if (!phone) {
+        // the Shrine from the dome's tip to its entrance fills the space under the button and ends at the bottom of the screen
+        secH = vh;
+        gh = (secH - 10 - tipPref) / (G.door - G.tip);
+        gw = Math.max(vw, gh * R); gh = gw / R;
+        tipY = secH - 10 - (G.door - G.tip) * gh;
+        if (tipY < tipPref) headTop = Math.max(barH + 6, headTop - (tipPref - tipY));
+        ax = vw / 2;
+      } else {
+        // phones: the Shrine (about 27% of the photo's width) takes ~60% of the screen, left of centre; Yoske on the right
+        tipY = tipPref;
+        gw = Math.min(vw * .6 / .27, (vh * 1.05 - tipY) / (G.door - G.tip) * R);
+        gh = gw / R; ax = vw * .4;
+        secH = Math.round(tipY + (G.door - G.tip) * gh + 18);
+      }
+      h26.style.setProperty('--h26-top', Math.round(headTop) + 'px');
+      h26.style.setProperty('--h26-h', Math.round(secH) + 'px');
+      h26.style.setProperty('--g-w', Math.round(gw) + 'px');
+      h26.style.setProperty('--g-x', Math.round(ax - G.ax * gw) + 'px');
+      h26.style.setProperty('--g-y', Math.round(tipY - G.tip * gh) + 'px');
+      // the button is centred on the dome by CSS (left 49.8%); on phones keep it on the screen
+      // Yoske
+      let yWidth, yx, yy;
+      if (!phone && l2) {
+        const rg = document.createRange(), tn = [...l2.childNodes].find(n => n.nodeType === 3 && n.textContent.trim());
+        let target = null;
+        if (tn) { const k = tn.textContent.search(/\S/); rg.setStart(tn, k); rg.setEnd(tn, k + 1); target = rg.getBoundingClientRect(); }
+        const hr = h26.getBoundingClientRect();
+        yWidth = Math.min(Math.max(vh * .5, 340), vw * .34, 600);
+        const handX = target ? target.left + target.width * .35 - hr.left : vw * .66, handY = target ? target.top + target.height * .2 - hr.top : headTop + 60;
+        yx = handX - Y.hx * yWidth; yy = handY - Y.hy * yWidth * Y.h / Y.w;
+        yx = Math.min(yx, vw - yWidth * .97);
+        yy = Math.max(yy, barH - 10);
+      } else {
+        yWidth = Math.min(vw * .38, 180);
+        yx = vw - yWidth * .96;
+        yy = headTop + headH - yWidth * .1;
+      }
+      h26.style.setProperty('--y-w', Math.round(yWidth) + 'px');
+      h26.style.setProperty('--y-x', Math.round(yx) + 'px');
+      h26.style.setProperty('--y-y', Math.round(yy) + 'px');
+    };
+    place(); addEventListener('resize', place);
+    const go = () => { place(); if (motionOK) { h26.classList.remove('is-pre'); h26.classList.add('is-in'); } };
+    const gimg = $('.hero26__gimg', h26);
+    Promise.race([Promise.all([document.fonts ? document.fonts.ready : 0, gimg && gimg.decode ? gimg.decode().catch(() => 0) : 0]), new Promise(r => setTimeout(r, 900))]).then(go);
+    // first scroll: the layers part a little (depth); the button rides on the garden layer, so it never leaves the dome
+    if (motionOK && window.gsap && window.ScrollTrigger) {
+      gsap.registerPlugin(window.ScrollTrigger);
+      const tl = gsap.timeline({ scrollTrigger: { trigger: h26, start: 'top top', end: 'bottom top', scrub: .4 } });
+      tl.to(head, { y: () => h26.offsetHeight * .22, opacity: .25, ease: 'none' }, 0)
+        .to(gl, { y: () => -h26.offsetHeight * .06, ease: 'none' }, 0)
+        .to(yw, { y: () => h26.offsetHeight * .05, ease: 'none' }, 0);
+      addEventListener('resize', () => ScrollTrigger.refresh());
+    }
+  }
+
   /* long reviews: a few lines and "read more" (live text stays in the page) */
   $$('.rcard blockquote').forEach(q => {
     if (q.textContent.length < 240) return;
@@ -406,6 +482,10 @@
     /* reviews wall (screenshots): thrown in fast in waves (right, left, below), a wide arc in depth (near ones big, far
        ones small and tilted), they settle into the wall, the wall pans up inside the pinned stage until its last row,
        release. Card transforms end at zero and the pan is a plain translate, so nothing jumps at the release. */
+    // 16.11.2026 (user): the wall is the full arc again, as on 11.11: every screenshot flies in. The admin keeps two lists
+    // (wall + "more"), the page joins them here and drops the "more" button.
+    { const g = document.querySelector('[data-rwall-grid]'), more = document.getElementById('reviews-more');
+      if (g && more) { more.querySelectorAll(':scope > li').forEach(li => g.append(li)); const sec = more.closest('.rwall-more'); if (sec) sec.remove(); } }
     if (innerWidth < 700) document.querySelectorAll('[data-rwall-grid]').forEach(g => { const t = document.createElement('p'); t.className = 'rwall__swipe'; t.setAttribute('aria-hidden', 'true'); t.textContent = 'החליקו לעוד ביקורות'; g.after(t); });
     // phones (16.11.2026): no pinned 3D wall; the shots become a readable swipe row (CSS), one review per screen
     const rw = innerWidth >= 700 ? $('[data-rwall]') : null;
