@@ -1928,28 +1928,10 @@ body:has(.cbanner) .fab { visibility: hidden; }
 /* 17.11.2026: the same soft corners on the inner pages' boxes */
 .frame, .frame--wide, .cmp__scroll, .quizband, ul.facts, .fopt, .steps4 li, .quiz__card, .sale__buy, .sale__facts { border-radius: var(--r-box) !important; overflow: hidden; }
 .chip2, .qopt { border-radius: 999px !important; }
-/* 17.11.2026 map tours on phones: "previous / 2 of 6 / next" strip, a dot per tour, swipeable tour card */
-.mstep { display: none; }
+/* 17.11.2026 map tours on phones: one row that scrolls under the finger, soft edges show there is more, the card takes a swipe */
 @media (max-width: 999px) {
-  .chips { -webkit-mask-image: linear-gradient(to left, transparent 0, #000 var(--gut), #000 calc(100% - 48px), transparent); mask-image: linear-gradient(to left, transparent 0, #000 var(--gut), #000 calc(100% - 48px), transparent); scroll-snap-type: x proximity; padding-bottom: 10px; }
+  .chips { -webkit-mask-image: linear-gradient(to left, transparent 0, #000 var(--gut), #000 calc(100% - 56px), transparent); mask-image: linear-gradient(to left, transparent 0, #000 var(--gut), #000 calc(100% - 56px), transparent);
+    scroll-snap-type: x proximity; overscroll-behavior-x: contain; justify-self: stretch; min-width: 0; max-width: none; }
   .chip { scroll-snap-align: center; }
-  .mstep { display: grid; grid-template-columns: 48px 1fr 48px; align-items: center; gap: var(--s3); width: 100%; }
-  .mstep__b { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--navy); background: var(--white); color: var(--navy);
-    cursor: pointer; transition: transform var(--t-fast) var(--ease-out), background var(--t-fast); -webkit-tap-highlight-color: transparent; }
-  .mstep__b svg { width: 18px; height: 18px; }
-  .mstep__b--prev svg { transform: scaleX(-1); }
-  .mstep__b--next { background: var(--navy); color: var(--white); box-shadow: var(--sh-btn); }
-  .mstep__b:active { transform: scale(.92); }
-  .mstep__mid { display: grid; justify-items: center; gap: 8px; }
-  .mstep__n { margin: 0; font-size: var(--fs-small); font-weight: 700; color: var(--navy); font-variant-numeric: tabular-nums; }
-  .mstep__dots { display: flex; gap: 6px; }
-  .mstep__dots i { width: 7px; height: 7px; border-radius: 999px; background: color-mix(in srgb, var(--navy) 22%, transparent); transition: width var(--t-fast) var(--ease-out), background var(--t-fast); }
-  .mstep__dots i.on { width: 22px; background: var(--orange); }
   .map__panel.is-swipe { touch-action: pan-y; }
-}
-@media (prefers-reduced-motion: reduce) { .mstep__b, .mstep__dots i { transition: none; } }
-.mstep__hint { display: none; }
-@media (max-width: 999px) {
-  .mstep__hint { display: block; margin: var(--s3) 0 0; text-align: center; font-size: var(--fs-small); color: var(--muted); }
-  .mstep__b svg { width: 22px; height: 22px; }
 }

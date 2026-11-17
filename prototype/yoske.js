@@ -64,7 +64,7 @@
   if (chipsBox) {
     const chips = $$('.chip', chipsBox), svg = $('[data-hmap]');
     const pins = $$('.pin', svg);
-    let cur = 0, stepper = null;
+    let cur = 0;
     const select = (chip, focus, dir = 0) => {
       cur = chips.indexOf(chip);
       chips.forEach(c => { const on = c === chip; c.setAttribute('aria-selected', String(on)); c.tabIndex = on ? 0 : -1; $('#' + c.getAttribute('aria-controls')).hidden = !on; });
@@ -77,7 +77,6 @@
         const br = chipsBox.getBoundingClientRect(), cr = chip.getBoundingClientRect();
         chipsBox.scrollTo({ left: chipsBox.scrollLeft + (cr.left + cr.width / 2) - (br.left + br.width / 2), behavior: still() ? 'auto' : 'smooth' });
       }
-      if (stepper) stepper.sync();
       const pan = $('#' + chip.getAttribute('aria-controls'));
       if (dir && pan && !still()) pan.animate([{ transform: 'translateX(' + dir * 36 + 'px)', opacity: 0 }, { transform: 'none', opacity: 1 }], { duration: 320, easing: 'cubic-bezier(.2,.8,.2,1)' });
       if (window.gsap && !still()) gsap.fromTo($$('.pin.is-on .pin__tag', svg), { y: 8, opacity: 0 }, { y: 0, opacity: 1, duration: .38, stagger: .05, ease: 'power2.out', overwrite: true });
@@ -94,26 +93,21 @@
     });
     select(chips[0]);
 
-    // 17.11.2026 (phones): every tour one swipe away. A "previous / 2 of 6 / next" strip with a dot per tour,
-    // and the tour card answers a horizontal swipe, so nobody has to hunt for chips that are off screen.
+    // 17.11.2026 (phones): the tours stay one row that scrolls under the finger. The first time the row comes into view
+    // it slides a little and back, so it is clear more tours are waiting to the side. The tour card also takes a swipe.
     const go = (d) => select(chips[(cur + d + chips.length) % chips.length], false, d > 0 ? -1 : 1);
     if (chips.length > 1) {
-      const btn = (cls, label, d) => { const b = document.createElement('button'); b.type = 'button'; b.className = 'mstep__b ' + cls; b.setAttribute('aria-label', label);
-        b.innerHTML = '<svg aria-hidden="true"><use href="#i-chev"/></svg>'; b.addEventListener('click', () => go(d)); return b; };
-      const el = document.createElement('div'); el.className = 'mstep';
-      const prev = btn('mstep__b--prev', 'הסיור הקודם', -1), next = btn('mstep__b--next', 'הסיור הבא', 1);
-      const mid = document.createElement('div'); mid.className = 'mstep__mid';
-      const count = document.createElement('p'); count.className = 'mstep__n';
-      const dots = document.createElement('div'); dots.className = 'mstep__dots'; dots.setAttribute('aria-hidden', 'true');
-      chips.forEach(() => dots.appendChild(document.createElement('i')));
-      mid.append(count, dots); el.append(prev, mid, next);
-      chipsBox.after(el);
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver((en) => {
+          if (!en[0].isIntersecting) return;
+          io.disconnect();
+          if (still() || chipsBox.scrollWidth <= chipsBox.clientWidth + 2) return;
+          const x = chipsBox.scrollLeft;
+          setTimeout(() => { chipsBox.scrollTo({ left: x - 90, behavior: 'smooth' }); setTimeout(() => chipsBox.scrollTo({ left: x, behavior: 'smooth' }), 650); }, 350);
+        }, { threshold: .9 });
+        io.observe(chipsBox);
+      }
       const panel = $('[data-map-panel]');
-      const hint = document.createElement('p'); hint.className = 'mstep__hint'; hint.setAttribute('aria-hidden', 'true');
-      if (panel) panel.after(hint);
-      stepper = { sync: () => { count.textContent = (cur + 1) + ' מתוך ' + chips.length; hint.textContent = (cur + 1) + ' מתוך ' + chips.length + ' · החליקו את הכרטיס לסיור הבא';
-        [...dots.children].forEach((d, i) => d.classList.toggle('on', i === cur)); } };
-      stepper.sync();
       if (panel) {
         let x0 = null, y0 = 0;
         panel.addEventListener('touchstart', e => { const t = e.touches[0]; x0 = t.clientX; y0 = t.clientY; }, { passive: true });
