@@ -64,12 +64,22 @@
   if (chipsBox) {
     const chips = $$('.chip', chipsBox), svg = $('[data-hmap]');
     const pins = $$('.pin', svg);
-    const select = (chip, focus) => {
+    let cur = 0, stepper = null;
+    const select = (chip, focus, dir = 0) => {
+      cur = chips.indexOf(chip);
       chips.forEach(c => { const on = c === chip; c.setAttribute('aria-selected', String(on)); c.tabIndex = on ? 0 : -1; $('#' + c.getAttribute('aria-controls')).hidden = !on; });
       const stops = chip.dataset.stops.split(' ').filter(Boolean);
       pins.forEach(p => p.classList.toggle('is-on', stops.includes(p.dataset.place)));
       svg.classList.toggle('has-route', stops.length > 0);
       if (focus) chip.focus();
+      // 17.11.2026: the chip row follows the chosen tour, so the next ones are always in view (RTL scrollLeft is negative)
+      if (chipsBox.scrollWidth > chipsBox.clientWidth + 2) {
+        const br = chipsBox.getBoundingClientRect(), cr = chip.getBoundingClientRect();
+        chipsBox.scrollTo({ left: chipsBox.scrollLeft + (cr.left + cr.width / 2) - (br.left + br.width / 2), behavior: still() ? 'auto' : 'smooth' });
+      }
+      if (stepper) stepper.sync();
+      const pan = $('#' + chip.getAttribute('aria-controls'));
+      if (dir && pan && !still()) pan.animate([{ transform: 'translateX(' + dir * 36 + 'px)', opacity: 0 }, { transform: 'none', opacity: 1 }], { duration: 320, easing: 'cubic-bezier(.2,.8,.2,1)' });
       if (window.gsap && !still()) gsap.fromTo($$('.pin.is-on .pin__tag', svg), { y: 8, opacity: 0 }, { y: 0, opacity: 1, duration: .38, stagger: .05, ease: 'power2.out', overwrite: true });
     };
     chips.forEach((c, i) => {
@@ -83,6 +93,38 @@
       });
     });
     select(chips[0]);
+
+    // 17.11.2026 (phones): every tour one swipe away. A "previous / 2 of 6 / next" strip with a dot per tour,
+    // and the tour card answers a horizontal swipe, so nobody has to hunt for chips that are off screen.
+    const go = (d) => select(chips[(cur + d + chips.length) % chips.length], false, d > 0 ? -1 : 1);
+    if (chips.length > 1) {
+      const btn = (cls, label, d) => { const b = document.createElement('button'); b.type = 'button'; b.className = 'mstep__b ' + cls; b.setAttribute('aria-label', label);
+        b.innerHTML = '<svg aria-hidden="true"><use href="#i-chev"/></svg>'; b.addEventListener('click', () => go(d)); return b; };
+      const el = document.createElement('div'); el.className = 'mstep';
+      const prev = btn('mstep__b--prev', 'הסיור הקודם', -1), next = btn('mstep__b--next', 'הסיור הבא', 1);
+      const mid = document.createElement('div'); mid.className = 'mstep__mid';
+      const count = document.createElement('p'); count.className = 'mstep__n';
+      const dots = document.createElement('div'); dots.className = 'mstep__dots'; dots.setAttribute('aria-hidden', 'true');
+      chips.forEach(() => dots.appendChild(document.createElement('i')));
+      mid.append(count, dots); el.append(prev, mid, next);
+      chipsBox.after(el);
+      const panel = $('[data-map-panel]');
+      const hint = document.createElement('p'); hint.className = 'mstep__hint'; hint.setAttribute('aria-hidden', 'true');
+      if (panel) panel.after(hint);
+      stepper = { sync: () => { count.textContent = (cur + 1) + ' מתוך ' + chips.length; hint.textContent = (cur + 1) + ' מתוך ' + chips.length + ' · החליקו את הכרטיס לסיור הבא';
+        [...dots.children].forEach((d, i) => d.classList.toggle('on', i === cur)); } };
+      stepper.sync();
+      if (panel) {
+        let x0 = null, y0 = 0;
+        panel.addEventListener('touchstart', e => { const t = e.touches[0]; x0 = t.clientX; y0 = t.clientY; }, { passive: true });
+        panel.addEventListener('touchend', e => {
+          if (x0 === null) return;
+          const t = e.changedTouches[0], dx = t.clientX - x0, dy = t.clientY - y0; x0 = null;
+          if (Math.abs(dx) > 48 && Math.abs(dx) > Math.abs(dy) * 1.4) go(dx > 0 ? 1 : -1);   // RTL: the next tour comes in from the left
+        }, { passive: true });
+        panel.classList.add('is-swipe');
+      }
+    }
     const sc = $('[data-map-scroll]');
     if (sc) requestAnimationFrame(() => { sc.scrollLeft = -(sc.scrollWidth - sc.clientWidth) / 2; });
   }
