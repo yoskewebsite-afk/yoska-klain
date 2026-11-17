@@ -165,10 +165,12 @@
       const sh = rg.getBoundingClientRect(), sr = scene.getBoundingClientRect(), iw = document.documentElement.clientWidth, ih = innerHeight;
       const narrow = innerWidth < 700, ratio = 908 / 900, hx = sh.left + sh.width * .55;
       const shTop = sh.top + scrollY, scTop = sr.top + scrollY;
-      const w = narrow ? Math.min(iw * .44, 190) : Math.max(240, Math.min((iw + 70 - hx) / .94, ih * .62 / ratio, 520)), h = w * ratio;
+      const w = narrow ? Math.min(iw * .56, 250) : Math.max(260, Math.min((iw + 60 - sh.right) / .9, ih * .74 / ratio, 620)), h = w * ratio;  // 17.11.2026: bigger
       const shiftX = narrow ? 0 : iw * .03;
       // his fingertips reach the top of the ש (never above it)
-      let y = shTop - scTop + sh.height * .18 - h * .058;
+      // 17.11.2026: he is bigger now, so the hand points at the letter from its side (mid-height) instead of from above,
+      // and his arm never crosses the headline
+      let y = narrow ? shTop - scTop + sh.height * .18 - h * .058 : shTop - scTop + sh.height * .42 - h * .14;
       const imgH = $('img', scene).getBoundingClientRect().height;
       // wide screens: his waist (the end of the cut-out) must stand in the trees: the photo is solid from ~21% of its
       // height on the right, the trees under the stone house from ~30%
@@ -178,7 +180,7 @@
       else { const sb = $('.hero__sub'); y = Math.max(imgH * .3 - h, sb ? sb.getBoundingClientRect().bottom + scrollY - scTop + 10 : -1e9); }
       yoske.style.setProperty('--yw', Math.round(w) + 'px');
       // phones: the ש can sit at the very edge, keep him (most of him) on screen
-      const x = narrow ? iw - sr.left - w * .9 : hx - shiftX - sr.left - w * .06;
+      const x = narrow ? iw - sr.left - w * .9 : sh.right + 14 - sr.left - w * .03;
       yoske.style.setProperty('--yx', Math.round(x) + 'px');
       yoske.style.setProperty('--yy', Math.round(y) + 'px');
       yoske.classList.remove('is-fade');
@@ -214,8 +216,13 @@
           if (d.travel) {
             const p = Math.min(1, Math.max(0, (vh - r.top) / (vh + r.height)));
             if (d.travel === 'cable') {
-              const x = -p * (vw + 220) + 40, y = p * Math.min(100, vw * .066);
-              el.style.transform = 'translate(' + x.toFixed(0) + 'px,' + y.toFixed(0) + 'px)';
+              // 17.11.2026: the grip of the cabin (64.5% / 5% of the picture) rides exactly on the drawn cable
+              const cab = sec.querySelector('.cable'), m = cab && cab.getScreenCTM();
+              if (m) {
+                const a = new DOMPoint(-20, 18).matrixTransform(m), b = new DOMPoint(1460, 112).matrixTransform(m);
+                const X = b.x + 60 - p * (b.x - a.x + 120 + el.offsetWidth), Y = a.y + (b.y - a.y) * (X - a.x) / (b.x - a.x);
+                el.style.transform = 'translate(' + (X - r.left - el.offsetWidth * .645).toFixed(1) + 'px,' + (Y - r.top - el.offsetHeight * .05).toFixed(1) + 'px)';
+              }
             }
             if (d.travel === 'camera') {
               const x = -p * (vw + 260) + 90, y = 6 + 14 * Math.sin(p * Math.PI * 3);
@@ -231,6 +238,20 @@
           el.style.transform = 'translate(' + (c * +d.x).toFixed(1) + 'px,' + (c * +d.y).toFixed(1) + 'px) rotate(' + (c * +d.r).toFixed(1) + 'deg)';
         }); };
       addEventListener('scroll', () => { if (!tk) { tk = true; requestAnimationFrame(run); } }, { passive: true }); addEventListener('resize', run); run();
+    }
+
+    // 17.11.2026 (partner): the about benefits are drawn by the scroll: the line grows, each dot/benefit lights when reached
+    const times = $$('[data-time]');
+    if (times.length) {
+      root.classList.add('scrolled-time');
+      let tq = false;
+      const tdraw = () => { tq = false; const vh = innerHeight;
+        times.forEach(ol => { const r = ol.getBoundingClientRect(), items = $$('li', ol);
+          const p = Math.min(1, Math.max(0, (vh * .82 - r.top) / (r.height + vh * .32)));
+          ol.style.setProperty('--p', p.toFixed(3));
+          items.forEach((li, i) => li.classList.toggle('on', p >= (items.length > 1 ? i / (items.length - 1) : 0) * .92 + .04));
+        }); };
+      addEventListener('scroll', () => { if (!tq) { tq = true; requestAnimationFrame(tdraw); } }, { passive: true }); addEventListener('resize', tdraw); tdraw();
     }
 
     // counters: count up once, when they arrive
@@ -408,7 +429,7 @@
        release. Card transforms end at zero and the pan is a plain translate, so nothing jumps at the release. */
     if (innerWidth < 700) document.querySelectorAll('[data-rwall-grid]').forEach(g => { const t = document.createElement('p'); t.className = 'rwall__swipe'; t.setAttribute('aria-hidden', 'true'); t.textContent = 'החליקו לעוד ביקורות'; g.after(t); });
     // phones (16.11.2026): no pinned 3D wall; the shots become a readable swipe row (CSS), one review per screen
-    const rw = innerWidth >= 700 ? $('[data-rwall]') : null;
+    const rw = $('[data-rwall]');  // 17.11.2026: phones get the animated wall again (partner)
     if (rw) {
       root.classList.add('rwall-on');
       const stage = $('[data-rwall-stage]', rw), grid = $('[data-rwall-grid]', rw), cards = $$('.rshot', rw), n = cards.length;

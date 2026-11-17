@@ -1,8 +1,7 @@
 /* Service worker of the admin app: shows push notifications (new lead) and opens the right lead when tapped.
-   It does not cache anything, so the admin always shows live data. */
+   It does not cache anything and has no fetch handler (an empty one only delays every request), so the admin always shows live data. */
 self.addEventListener('install', () => self.skipWaiting());
 self.addEventListener('activate', (e) => e.waitUntil(self.clients.claim()));
-self.addEventListener('fetch', () => { /* network only */ });
 self.addEventListener('push', (e) => {
   let d = {};
   try { d = e.data ? e.data.json() : {}; } catch (err) { d = { body: e.data && e.data.text() }; }

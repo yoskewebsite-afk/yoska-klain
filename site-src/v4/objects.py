@@ -46,7 +46,7 @@ BACKPACK = f'''<svg viewBox="0 0 180 210"><g {G0}>
 PLANE = f'''<svg viewBox="0 0 220 140"><g {G0}>
   <path d="M8 70L212 10 130 128 104 86Z" fill="{W}"/><path d="M104 86L212 10 92 120Z" fill="{T}"/><path d="M104 86l-12 34 30-22" fill="{N}"/></g></svg>'''
 
-CABIN = ('<img src="/assets/objects/cable-car-cabin.webp" width="313" height="434" alt="" loading="lazy" decoding="async">')
+CABIN = ('<img src="/assets/objects/cable-car-cabin-v2.webp" width="313" height="434" alt="" loading="lazy" decoding="async">')
 
 
 def obj(cls, art, y=-.08, r=0, x=0, travel=''):

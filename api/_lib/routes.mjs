@@ -97,10 +97,13 @@ export async function handle(req, res, path) {
     if (path === '/api/admin/me') return ok(res, { user: { email: sess.email, name: sess.name }, csrf: sess.csrf });
     if (path === '/api/admin/bundle') {
       const A = assets();
-      const draft = await draftSnap();
+      // one round trip for both documents (was five sequential reads)
+      const [d, published] = await Promise.all([store.get('content', 'draft'), store.get('content', 'published')]);
+      const draft = d || published || null;
       return ok(res, {
+        me: { user: { email: sess.email, name: sess.name }, csrf: sess.csrf },
         schema: A.schema, defaults: { pages: A.defaults.pages, shared: A.defaults.shared, tours: A.defaults.tours, settings: A.defaults.settings },
-        draft, published: await content.getPublished(store), status: await content.status(store), settings: mergedSettings(draft), tours: effectiveTours(draft), report: content.reportFor(draft), store: store.kind,
+        draft, published, status: await content.status(store, [d, published]), settings: mergedSettings(draft), tours: effectiveTours(draft), report: content.reportFor(draft), store: store.kind,
       });
     }
     if (path === '/api/admin/draft' && m === 'PATCH') {
@@ -150,7 +153,8 @@ export async function handle(req, res, path) {
     // ------------------------------------------------ stats and forms
     if (path === '/api/admin/stats') {
       const today = new Date().toISOString().slice(0, 10), from = q.from || new Date(Date.now() - 29 * 86400e3).toISOString().slice(0, 10);
-      return ok(res, await analytics.stats(store, { from, to: q.to || today, bucket: q.bucket === 'week' ? 'week' : 'day' }, await draftSnap()));
+      // the draft is passed as a promise, so it is read alongside the stats queries instead of before them
+      return ok(res, await analytics.stats(store, { from, to: q.to || today, bucket: q.bucket === 'week' ? 'week' : 'day' }, draftSnap()));
     }
     if (path === '/api/admin/forms/stats') {
       const rows = (await store.list('leads', { limit: 20000 })).map((r) => r.data);
@@ -171,7 +175,7 @@ export async function handle(req, res, path) {
     }
 
     // ------------------------------------------------ integrations, backups, audit
-    if (path === '/api/admin/integrations') return ok(res, { integrations: integrations(store, await draftSnap()), lastBackup: (await backup.listStored(store))[0] || null });
+    if (path === '/api/admin/integrations') { const [d, bk] = await Promise.all([draftSnap(), backup.listStored(store)]); return ok(res, { integrations: integrations(store, d), lastBackup: bk[0] || null }); }
     if (path === '/api/admin/backups' && m === 'GET') return ok(res, { backups: await backup.listStored(store), keep: backup.KEEP });
     if (path === '/api/admin/backups' && m === 'POST') { const meta = await backup.createStored(store, who); await auth.audit(store, who, 'backup', { id: meta.id }); return ok(res, { backup: meta }); }
     mm = /^\/api\/admin\/backups\/([\w-]+)\/download$/.exec(path);

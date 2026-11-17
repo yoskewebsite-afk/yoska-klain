@@ -1831,3 +1831,100 @@ h1, h2, h3, .duo-title__bold, .duo-title__light, .h-card, .acard__title, .acard-
   .cbanner .linkbtn { min-height: 44px; }
 }
 body:has(.cbanner) .fab { visibility: hidden; }
+
+/* ================= 17.11.2026 round (partner feedback) =================
+   - Shapes: "everything a rounded half-moon, buttons rounded": photo cards get a half-moon top, boxes soft corners,
+     buttons / chips / fields become pills, round controls are circles. One switch: the tokens below.
+   - Hero: Yoske bigger and blended into the photo; the key words of the subline marked.
+   - About: the three benefits fill in with the scroll (line, dots, words).
+   - Services: a real photo of Haifa instead of the flat teal panel.
+   - Cable car: the cabin hangs from the drawn cable by its own grip (the cable piece of the photo is cut away).
+   - Phones: the reviews wall animates again (the swipe row is only the no-motion fallback). */
+:root { --r-btn: 999px; --r-card: 26px; --r-arch: 999px; --r-moon: 999px 999px 26px 26px; --r-box: 26px; }
+
+/* pills and circles */
+.btn, .chip, .top__pill, .top__pill a, .stops li, .skip, .pdlg__reset, .cbanner .btn { border-radius: 999px !important; }
+.roundbtn, .rail__btn, .totop, .a11y-fab, .fab, .pstep, .pdlg__x, .shotbox__x, .faq summary i, .acard__toggle, .top .a11y-fab { border-radius: 50% !important; }
+.acard__toggle { border-radius: 999px !important; }
+.field input, .field select { border-radius: 999px !important; padding-inline: 22px; }
+.field textarea { border-radius: 22px !important; padding-inline: 18px; }
+:focus-visible { border-radius: 12px; }
+
+/* half-moon photo cards */
+.acard, .groups .acard, .tcard a, .gitem--tall:nth-child(4n+1), .archframe, .about--full .archframe { border-radius: var(--r-moon) !important; overflow: hidden; }
+.acard__details { border-radius: 0 0 26px 26px; }
+.bigarch { border-radius: 50% 50% 26px 26px / 34% 34% 26px 26px !important; }
+@media (min-width: 700px) { .bigarch { border-radius: 50% 50% 26px 26px / 46% 46% 26px 26px !important; } }
+.ab2__main { border-radius: var(--r-moon); }
+.tc2 { border-radius: var(--r-moon); overflow: hidden; }
+
+/* soft boxes */
+.uq__card, .upcoming2, .contact__card, .map__panel, .facts li, .bookcard, .ctaband, .gitem, .qcard, .pdlg, .prow, .shotbox, .cbanner, .form__ready { border-radius: var(--r-box) !important; }
+.rshot__a, .rshot img { border-radius: 18px !important; }
+.sgs__item { border-radius: 22px; }
+.upcoming2 { border-inline-start-width: 1px; border-bottom: 8px solid var(--sun); }
+
+/* hero: the key words, and Yoske set into the photo (same warm light, softer cut edge, a longer fade into the trees) */
+.hero__key { color: var(--navy); font-weight: 800; padding: 0 .1em; background: linear-gradient(transparent 56%, rgba(242, 182, 50, .55) 56%) no-repeat;
+  -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.hero__yoske { filter: saturate(1.06) contrast(1.04) brightness(1.03) sepia(.06) drop-shadow(0 0 1px rgba(255, 246, 225, .9)) drop-shadow(0 22px 28px rgba(30, 52, 40, .28)); }
+.hero__fore { -webkit-mask-image: linear-gradient(to bottom, transparent var(--fy, 200%), #000 calc(var(--fy, 200%) + 120px));
+  mask-image: linear-gradient(to bottom, transparent var(--fy, 200%), #000 calc(var(--fy, 200%) + 120px)); }
+.hero__yoske.is-fade { -webkit-mask-image: linear-gradient(to bottom, #000 72%, transparent 98%); mask-image: linear-gradient(to bottom, #000 72%, transparent 98%); }
+
+/* about: the benefits are drawn by the scroll (yoske.js sets --p 0…1 on the list and .on on each reached item) */
+.ab2__copy .ab2__p { max-width: 52ch; color: var(--text); font-size: 1.0625rem; line-height: 1.6; }
+.ab2__copy b { color: var(--navy); font-weight: 800; }
+.ab2__time { --p: 1; }
+.ab2__time::before { background: rgba(42, 58, 92, .18); transform: none !important; transition: none !important; }
+.ab2__time::after { content: ''; position: absolute; top: 9px; inset-inline: 10px 10px; height: 3px; background: var(--navy); transform-origin: right; transform: scaleX(var(--p)); }
+.ab2__time li { opacity: 1 !important; transform: none !important; transition: none !important; }
+.scrolled-time .ab2__time li { opacity: .28 !important; transform: translateY(14px) !important; transition: opacity .45s var(--ease-out), transform .55s var(--ease-out) !important; }
+.scrolled-time .ab2__time li.on { opacity: 1 !important; transform: none !important; }
+.ab2__dot { transition: transform .45s var(--ease-out), background-color .3s; }
+.scrolled-time .ab2__time li:not(.on) .ab2__dot { transform: scale(.55); background: var(--white); }
+.scrolled-time .ab2__time li.on .ab2__dot { animation: dotpop .5s var(--ease-out); }
+@keyframes dotpop { 0% { transform: scale(.55); } 60% { transform: scale(1.25); } 100% { transform: scale(1); } }
+@media (max-width: 899px) {
+  .ab2__time::after { top: 6px; bottom: 6px; inset-inline: auto; inset-inline-start: 10px; width: 3px; height: auto; transform-origin: top; transform: scaleY(var(--p)); }
+}
+
+/* services: the photo panel */
+.groups__panel--photo { background: var(--navy); border-radius: 48px 0 0 48px; }
+.groups__panel--photo picture, .groups__panel--photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.groups__panel--photo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to left, rgba(42, 58, 92, 0) 40%, rgba(42, 58, 92, .25)); }
+
+/* cable car: placed by yoske.js so the grip sits on the cable (left/top are the section's corner) */
+.obj--cabin[data-travel] { right: auto; left: 0; top: 0; }
+.motion .obj--cabin .obj__bob { transform-origin: 64.5% 5%; animation: swing2 5s ease-in-out infinite; }
+@keyframes swing2 { 0%, 100% { transform: rotate(-2.2deg); } 50% { transform: rotate(2.2deg); } }
+.obj--cabin img { filter: drop-shadow(0 14px 16px rgba(20, 30, 50, .22)); }
+.cable { overflow: visible; }
+
+/* logos strip (spec 8.2), shown only once approved logos exist */
+.logos { padding: var(--s7) 0 var(--s6); text-align: center; overflow: hidden; }
+.logos__title { color: var(--navy); font-size: clamp(1.25rem, 1rem + .8vw, 1.75rem); font-weight: 800; }
+.logos__view { margin-top: var(--s5); overflow-x: auto; scrollbar-width: none; -webkit-mask-image: linear-gradient(to left, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(to left, transparent, #000 8%, #000 92%, transparent); }
+.logos__view::-webkit-scrollbar { display: none; }
+.logos__track { display: flex; align-items: center; gap: clamp(36px, 5vw, 72px); width: max-content; padding-inline: var(--gut); }
+.logos__track img { display: block; height: clamp(38px, 4vw, 56px); width: auto; filter: grayscale(1); opacity: .75; transition: filter .3s, opacity .3s; }
+.logos__track li:hover img { filter: none; opacity: 1; }
+@media (min-width: 700px) and (prefers-reduced-motion: no-preference) {
+  .logos__view { overflow: hidden; }
+  .logos__track { animation: logos 40s linear infinite; }
+  .logos__view:hover .logos__track, .logos__view:focus-within .logos__track { animation-play-state: paused; }
+}
+@keyframes logos { to { transform: translateX(50%); } }
+
+/* phones: with motion the reviews are the animated wall again (as on desktop), in two columns */
+@media (max-width: 699px) {
+  .rwall-on .rwall { padding: 0; }
+  .rwall-on .rwall__grid { display: block; columns: 2; column-gap: 10px; overflow: visible; width: calc(100% - 24px); margin: var(--s5) auto 0; padding: 0; scroll-snap-type: none; }
+  .rwall-on .rwall__grid .rshot { margin: 0 0 10px; }
+  .rwall-on .rshot img { max-height: none; }
+  .rwall-on .rwall__swipe { display: none; }
+  .rwall-on .rwall__title { font-size: 2rem; }
+}
+/* 17.11.2026: the same soft corners on the inner pages' boxes */
+.frame, .frame--wide, .cmp__scroll, .quizband, ul.facts, .fopt, .steps4 li, .quiz__card, .sale__buy, .sale__facts { border-radius: var(--r-box) !important; overflow: hidden; }
+.chip2, .qopt { border-radius: 999px !important; }

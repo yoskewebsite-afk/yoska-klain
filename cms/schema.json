@@ -41,7 +41,12 @@
         {
          "key": "top.t3",
          "kind": "text",
-         "long": true
+         "long": false
+        },
+        {
+         "key": "top.t4",
+         "kind": "text",
+         "long": false
         }
        ]
       },
@@ -83,7 +88,7 @@
          "label": "קישור"
         },
         {
-         "key": "top.t4",
+         "key": "top.t5",
          "kind": "text",
          "long": false
         }
@@ -378,7 +383,17 @@
         {
          "key": "about.t5",
          "kind": "text",
-         "long": true
+         "long": false
+        },
+        {
+         "key": "about.t6",
+         "kind": "text",
+         "long": false
+        },
+        {
+         "key": "about.t7",
+         "kind": "text",
+         "long": false
         }
        ]
       },
@@ -389,9 +404,39 @@
        "kind": "text",
        "fields": [
         {
-         "key": "about.t6",
+         "key": "about.t8",
          "kind": "text",
-         "long": true
+         "long": false
+        },
+        {
+         "key": "about.t9",
+         "kind": "text",
+         "long": false
+        },
+        {
+         "key": "about.t10",
+         "kind": "text",
+         "long": false
+        },
+        {
+         "key": "about.t11",
+         "kind": "text",
+         "long": false
+        },
+        {
+         "key": "about.t12",
+         "kind": "text",
+         "long": false
+        },
+        {
+         "key": "about.t13",
+         "kind": "text",
+         "long": false
+        },
+        {
+         "key": "about.t14",
+         "kind": "text",
+         "long": false
         }
        ]
       },
@@ -402,27 +447,34 @@
        "kind": "text",
        "fields": [
         {
-         "key": "about.t7",
+         "key": "about.t15",
          "kind": "text",
-         "long": true
+         "long": false
+        },
+        {
+         "key": "about.t16",
+         "kind": "text",
+         "long": false
+        },
+        {
+         "key": "about.t17",
+         "kind": "text",
+         "long": false
+        },
+        {
+         "key": "about.t18",
+         "kind": "text",
+         "long": false
+        },
+        {
+         "key": "about.t19",
+         "kind": "text",
+         "long": false
         }
        ]
       },
       {
        "id": "g6",
-       "label": "פסקה",
-       "num": 5,
-       "kind": "text",
-       "fields": [
-        {
-         "key": "about.t8",
-         "kind": "text",
-         "long": true
-        }
-       ]
-      },
-      {
-       "id": "g7",
        "label": "כפתור / קישור",
        "num": 1,
        "kind": "link",
@@ -433,14 +485,14 @@
          "label": "קישור"
         },
         {
-         "key": "about.t9",
+         "key": "about.t20",
          "kind": "text",
          "long": false
         }
        ]
       },
       {
-       "id": "g8",
+       "id": "g7",
        "label": "כפתור / קישור",
        "num": 2,
        "kind": "link",
@@ -451,7 +503,7 @@
          "label": "קישור"
         },
         {
-         "key": "about.t10",
+         "key": "about.t21",
          "kind": "text",
          "long": false
         }
@@ -1482,129 +1534,6 @@
      "deps": [
       "ניווט הצד והתפריט התחתון בדף"
      ]
-    },
-    {
-     "id": "trail",
-     "label": "ברגל ובגובה העיניים",
-     "title": "יוסק׳ה קליין: סיורים בחיפה, ברגל ובגובה העיניים.",
-     "locked": false,
-     "scripted": true,
-     "groups": [
-      {
-       "id": "g1",
-       "label": "תמונה",
-       "num": 1,
-       "kind": "image",
-       "fields": [
-        {
-         "key": "trail.img1",
-         "kind": "image",
-         "locked": false
-        }
-       ]
-      },
-      {
-       "id": "g2",
-       "label": "תמונה",
-       "num": 2,
-       "kind": "image",
-       "fields": [
-        {
-         "key": "trail.img2",
-         "kind": "image",
-         "locked": false
-        }
-       ]
-      },
-      {
-       "id": "g3",
-       "label": "תמונה",
-       "num": 3,
-       "kind": "image",
-       "fields": [
-        {
-         "key": "trail.img3",
-         "kind": "image",
-         "locked": false
-        }
-       ]
-      },
-      {
-       "id": "g4",
-       "label": "תמונה",
-       "num": 4,
-       "kind": "image",
-       "fields": [
-        {
-         "key": "trail.img4",
-         "kind": "image",
-         "locked": false
-        }
-       ]
-      },
-      {
-       "id": "g5",
-       "label": "תמונה",
-       "num": 5,
-       "kind": "image",
-       "fields": [
-        {
-         "key": "trail.img5",
-         "kind": "image",
-         "locked": false
-        }
-       ]
-      },
-      {
-       "id": "g6",
-       "label": "תמונה",
-       "num": 6,
-       "kind": "image",
-       "fields": [
-        {
-         "key": "trail.img6",
-         "kind": "image",
-         "locked": false
-        }
-       ]
-      },
-      {
-       "id": "g7",
-       "label": "כותרת",
-       "num": 1,
-       "kind": "text",
-       "fields": [
-        {
-         "key": "trail.t1",
-         "kind": "text",
-         "long": false
-        },
-        {
-         "key": "trail.t2",
-         "kind": "text",
-         "long": false
-        }
-       ]
-      },
-      {
-       "id": "g8",
-       "label": "פסקה",
-       "num": 1,
-       "kind": "text",
-       "fields": [
-        {
-         "key": "trail.t3",
-         "kind": "text",
-         "long": true
-        }
-       ]
-      }
-     ],
-     "lists": [],
-     "regions": [],
-     "deps": [
-      "ניווט הצד והתפריט התחתון בדף"
-     ]
     }
    ],
    "order": [
@@ -1620,8 +1549,7 @@
     "blk10",
     "abroad",
     "faq",
-    "contact",
-    "trail"
+    "contact"
    ]
   },
   "tours": {

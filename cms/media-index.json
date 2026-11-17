@@ -20,66 +20,6 @@
 "group": "yoske-cutout-640.webp"
 },
 {
-"id": "b-assets-approved-heart-wide-960-webp",
-"url": "/assets/approved/heart-wide-960.webp",
-"name": "heart-wide",
-"w": 960,
-"h": 536,
-"alt": "משפחות עם יוסק׳ה ליד פסל הלב הצהוב",
-"pos": "50% 50%",
-"group": "approved"
-},
-{
-"id": "b-assets-approved-cable-car-960-webp",
-"url": "/assets/approved/cable-car-960.webp",
-"name": "cable-car",
-"w": 960,
-"h": 640,
-"alt": "קרונית רכבל מול שמיים כחולים",
-"pos": "50% 50%",
-"group": "approved"
-},
-{
-"id": "b-assets-approved-telescope-960-webp",
-"url": "/assets/approved/telescope-960.webp",
-"name": "telescope",
-"w": 960,
-"h": 1280,
-"alt": "ילד מביט במשקפת תצפית אל העיר והמפרץ",
-"pos": "50% 50%",
-"group": "approved"
-},
-{
-"id": "b-assets-approved-clock-tower-960-webp",
-"url": "/assets/approved/clock-tower-960.webp",
-"name": "clock-tower",
-"w": 960,
-"h": 960,
-"alt": "מגדל שעון מאבן מול שמיים כחולים",
-"pos": "50% 50%",
-"group": "approved"
-},
-{
-"id": "b-assets-approved-carmelit-960-webp",
-"url": "/assets/approved/carmelit-960.webp",
-"name": "carmelit",
-"w": 960,
-"h": 720,
-"alt": "ילדים מציצים אל קרון ברציף",
-"pos": "50% 50%",
-"group": "approved"
-},
-{
-"id": "b-assets-approved-stone-street-960-webp",
-"url": "/assets/approved/stone-street-960.webp",
-"name": "stone-street",
-"w": 960,
-"h": 947,
-"alt": "רחוב עם בנייני אבן ישנים",
-"pos": "50% 50%",
-"group": "approved"
-},
-{
 "id": "b-assets-approved-heart-family-960-webp",
 "url": "/assets/approved/heart-family-960.webp",
 "name": "heart-family",
@@ -280,21 +220,21 @@
 "group": "reviews"
 },
 {
-"id": "b-assets-reviews-r07-480-webp",
-"url": "/assets/reviews/r07-480.webp",
-"name": "r07-480",
+"id": "b-assets-reviews-r07t-480-webp",
+"url": "/assets/reviews/r07t-480.webp",
+"name": "r07t-480",
 "w": 480,
-"h": 503,
-"alt": "צילום מסך של ביקורת על יוסק׳ה: ורד יאיר ורעומה נחום, תגובות בפייסבוק",
+"h": 165,
+"alt": "צילום מסך של ביקורת על יוסק׳ה: רעומה נחום, תגובות בפייסבוק",
 "pos": "50% 50%",
 "group": "reviews"
 },
 {
-"id": "b-assets-reviews-r13-480-webp",
-"url": "/assets/reviews/r13-480.webp",
-"name": "r13-480",
+"id": "b-assets-reviews-r13t-480-webp",
+"url": "/assets/reviews/r13t-480.webp",
+"name": "r13t-480",
 "w": 480,
-"h": 375,
+"h": 338,
 "alt": "צילום מסך של ביקורת על יוסק׳ה: חן שכטר, פוסט בפייסבוק",
 "pos": "50% 50%",
 "group": "reviews"
@@ -310,11 +250,11 @@
 "group": "reviews"
 },
 {
-"id": "b-assets-reviews-r22-480-webp",
-"url": "/assets/reviews/r22-480.webp",
-"name": "r22-480",
+"id": "b-assets-reviews-r22t-480-webp",
+"url": "/assets/reviews/r22t-480.webp",
+"name": "r22t-480",
 "w": 480,
-"h": 317,
+"h": 261,
 "alt": "צילום מסך של ביקורת על יוסק׳ה: סופי כץ, Visit Haifa, הודעה",
 "pos": "50% 50%",
 "group": "reviews"
@@ -400,11 +340,11 @@
 "group": "reviews"
 },
 {
-"id": "b-assets-reviews-r20-480-webp",
-"url": "/assets/reviews/r20-480.webp",
-"name": "r20-480",
+"id": "b-assets-reviews-r20t-480-webp",
+"url": "/assets/reviews/r20t-480.webp",
+"name": "r20t-480",
 "w": 480,
-"h": 272,
+"h": 146,
 "alt": "צילום מסך של ביקורת על יוסק׳ה: קובי הלפגוט, אינסטגרם",
 "pos": "50% 50%",
 "group": "reviews"
@@ -420,11 +360,11 @@
 "group": "reviews"
 },
 {
-"id": "b-assets-reviews-r23-480-webp",
-"url": "/assets/reviews/r23-480.webp",
-"name": "r23-480",
+"id": "b-assets-reviews-r23t-480-webp",
+"url": "/assets/reviews/r23t-480.webp",
+"name": "r23t-480",
 "w": 480,
-"h": 484,
+"h": 263,
 "alt": "צילום מסך של ביקורת על יוסק׳ה: משתתפי סיור, משוב מסקר",
 "pos": "50% 50%",
 "group": "reviews"
@@ -840,12 +780,52 @@
 "group": "approved"
 },
 {
+"id": "b-assets-approved-carmelit-960-webp",
+"url": "/assets/approved/carmelit-960.webp",
+"name": "carmelit",
+"w": 960,
+"h": 720,
+"alt": "ילדים מציצים אל קרון ברציף תחתי",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
 "id": "b-assets-approved-bahai-terraces-960-webp",
 "url": "/assets/approved/bahai-terraces-960.webp",
 "name": "bahai-terraces",
 "w": 960,
 "h": 935,
 "alt": "הגנים הבהאיים מלמעלה עם כיפת הזהב, העיר והנמל",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-telescope-960-webp",
+"url": "/assets/approved/telescope-960.webp",
+"name": "telescope",
+"w": 960,
+"h": 1280,
+"alt": "ילד מביט במשקפת תצפית אל העיר והמפרץ",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-clock-tower-960-webp",
+"url": "/assets/approved/clock-tower-960.webp",
+"name": "clock-tower",
+"w": 960,
+"h": 960,
+"alt": "מגדל שעון מאבן מול שמיים כחולים",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-stone-street-960-webp",
+"url": "/assets/approved/stone-street-960.webp",
+"name": "stone-street",
+"w": 960,
+"h": 947,
+"alt": "רחוב עם בנייני אבן ישנים",
 "pos": "50% 50%",
 "group": "approved"
 },
@@ -876,6 +856,16 @@
 "w": 960,
 "h": 444,
 "alt": "קבוצה יושבת על מדרגות התצפית ומקשיבה, המפרץ מתחת",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-heart-wide-960-webp",
+"url": "/assets/approved/heart-wide-960.webp",
+"name": "heart-wide",
+"w": 960,
+"h": 536,
+"alt": "",
 "pos": "50% 50%",
 "group": "approved"
 },
@@ -965,6 +955,16 @@
 "name": "bay",
 "w": 435,
 "h": 580,
+"alt": "",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-cable-car-960-webp",
+"url": "/assets/approved/cable-car-960.webp",
+"name": "cable-car",
+"w": 960,
+"h": 640,
 "alt": "",
 "pos": "50% 50%",
 "group": "approved"

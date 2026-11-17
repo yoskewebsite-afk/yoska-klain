@@ -10,6 +10,7 @@ const emit = () => S.listeners.forEach((f) => f());
 
 export async function load() {
   const b = await api('GET', '/api/admin/bundle');
+  if (b.me) S.me = b.me;
   Object.assign(S, { schema: b.schema, defaults: b.defaults, draft: b.draft || { v: 1, pages: {}, shared: { f: {} } }, published: b.published, status: b.status, settings: b.settings, tours: b.tours, form: b.form, report: b.report, store: b.store });
   S.draft.pages ||= {}; S.draft.shared ||= { f: {} };
   S.unsaved = false; S.touched = { pages: new Set(), shared: false, tours: false, settings: false, forms: false };

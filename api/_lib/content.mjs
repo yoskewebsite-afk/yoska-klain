@@ -15,8 +15,8 @@ const PATHRE = /^\/[a-z0-9\-_/]*(\.html)?$/;
 // ---------------------------------------------------------------- reading
 export async function getPublished(store) { return store ? ((await store.get('content', 'published')) || null) : null; }
 export async function getDraft(store) { return (await store.get('content', 'draft')) || (await store.get('content', 'published')) || null; }
-export async function status(store) {
-  const [d, p] = await Promise.all([store.get('content', 'draft'), store.get('content', 'published')]);
+export async function status(store, pre) {
+  const [d, p] = pre || await Promise.all([store.get('content', 'draft'), store.get('content', 'published')]);
   const dirty = !!d && JSON.stringify(strip(d)) !== JSON.stringify(strip(p || {}));
   return { hasDraft: !!d, dirty, publishedAt: p?.savedAt || null, publishedBy: p?.savedBy || null, draftAt: d?.savedAt || null };
 }

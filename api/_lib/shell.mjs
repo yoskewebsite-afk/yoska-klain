@@ -32,6 +32,10 @@ export function appShell() {
   return `${head('ניהול האתר | יוסק׳ה')}
 <body>
 <div id="app" class="boot" aria-busy="true"><p class="boot__t">טוענים את מערכת הניהול…</p></div>
+<link rel="modulepreload" href="/admin-app/ui.js">
+<link rel="modulepreload" href="/admin-app/state.js">
+<link rel="modulepreload" href="/admin-app/notify.js">
+<link rel="modulepreload" href="/admin-app/v-dashboard.js">
 <script type="module" src="/admin-app/app.js"></script>
 </body>
 </html>`;

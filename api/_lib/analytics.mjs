@@ -41,6 +41,7 @@ export async function stats(store, { from, to, bucket = 'day' }, snap) {
   const fromIso = new Date(from + 'T00:00:00+02:00').toISOString();
   const toIso = new Date(new Date(to + 'T23:59:59+02:00').getTime()).toISOString();
   const [events, leadRows] = await Promise.all([store.list('events', { since: fromIso, until: toIso, limit: 100000 }), store.list('leads', { limit: 20000 })]);
+  snap = await snap;   // may arrive as a promise that was started in parallel
   const ev = events.map((r) => ({ ...r.data, at: r.data.at || r.created_at }));
   const leads = leadRows.map((r) => r.data).filter((l) => !l.spam);
   const inRange = leads.filter((l) => l.createdAt >= fromIso && l.createdAt <= toIso);

@@ -153,8 +153,10 @@ function buildShell() {
 
 async function boot() {
   try {
-    const j = await api('GET', '/api/admin/me'); me = j.user; setCsrf(j.csrf);
+    // the bundle carries the signed-in user too (one request instead of two in a row); the first view's code loads meanwhile
+    VIEWS[parse().view]?.().catch(() => {});
     await load();
+    const j = S.me || await api('GET', '/api/admin/me'); me = j.user; setCsrf(j.csrf);
   } catch (e) { if (e.status === 401) return (location.href = '/admin'); root.replaceChildren(h('div', { class: 'boot' }, h('div', { class: 'notice notice--danger' }, h('strong', { text: 'מערכת הניהול לא נטענה' }), h('p', { text: e.message })))); return; }
   buildShell();
   document.addEventListener('admin:expired', () => { dialog({ title: 'ההתחברות פגה', body: h('p', { text: 'מטעמי אבטחה צריך להתחבר מחדש. השינויים שלא נשמרו עדיין פתוחים בדף הזה: אחרי הכניסה אפשר לחזור אליהם בלשונית אחרת, או לשמור קודם.' }), actions: [{ label: 'כניסה מחדש', cls: 'btn--primary', value: 1, focus: true }] }).then(() => window.open('/admin', '_blank')); });

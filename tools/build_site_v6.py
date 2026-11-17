@@ -82,7 +82,7 @@ def swap_home(body):
     body = sub(body, r'<p>כולם יוצאים מהסיור עם חוויה בלתי נשכחת.*?</p>', '<p>יוסק׳ה מחבר בין ידע, שיחה ותכנון מסודר, וקורא את הקבוצה לאורך כל היום.</p>', must=False)
     # about
     body = sub(body, r'<h2 class="duo-title" id="about-title">.*?</h2>', '<h2 class="duo-title" id="about-title"><span class="duo-title__light">נעים להכיר,</span> <span class="duo-title__bold">יוסק׳ה <span class="hl">קליין</span></span></h2>')
-    paras = f'<p class="ab2__lead">{C.ABOUT_HOME[0]}</p>' + ''.join(f'<p class="ab2__p">{p}</p>' for p in C.ABOUT_HOME[1:])
+    paras = f'<p class="ab2__lead">{ABOUT_SHORT[0]}</p>' + ''.join(f'<p class="ab2__p">{p}</p>' for p in ABOUT_SHORT[1:])
     body = sub(body, r'<p class="ab2__lead">.*?</p>', paras)
     dots = ['teal', 'sun', 'orange']
     ben = ''.join(f'<li><span class="ab2__dot ab2__dot--{dots[i]}"></span><b>{h}</b><span>{p}</span></li>' for i, (_, h, p) in enumerate(C.BENEFITS))
@@ -122,7 +122,51 @@ def swap_home(body):
                         '<span class="duo-title__light">רוצים שיוסק׳ה יחזור אליכם</span> <span class="duo-title__bold">עם כיוון <span class="hl">מתאים?</span></span>')
     body = sub(body, r'<p>השאירו שם וטלפון, ויוסק׳ה יחזור אליכם\..*?</p>', '<p>ספרו בקצרה מי מגיע ומה אתם מחפשים. יוסק׳ה יחזור אליכם, ישאל את מה שצריך ויעזור להבין איזה סיור או יום יכול להתאים.</p>')
     body = body.replace('<span>וואטסאפ</span>', '<span>מעדיפים WhatsApp? כתבו ליוסק׳ה</span>')
+    # 17.11.2026 (partner): no closing section before the footer
+    body = sub(body, r'\n\s*<!-- =+[^>]*?trail[^>]*?-->\s*(?=<section class="trail")', '\n', must=False)
+    body = sub(body, r'\s*<section class="trail".*?</section>', '')
+    # services: a real photo of Haifa instead of the flat teal panel
+    body = sub(body, r'<div class="groups__panel" aria-hidden="true" data-panel>.*?</div>',
+               f'<div class="groups__panel groups__panel--photo" aria-hidden="true" data-panel>{v.photo("haifa-sunset", "", "(min-width: 900px) 40vw, 100vw", "low", "50% 60%")}</div>')
+    # logos strip right after the hero (spec 8.2), only with approved logos
+    body = body.replace('<section class="uq" id="unique"', logos_strip() + '\n    <section class="uq" id="unique"', 1)
     return body
+
+
+# ------------------------------------------------------------------ 17.11.2026 round (partner feedback)
+HERO_SUB = '<b class="hero__key">סיורים בחיפה וימי גיבוש</b> עם תוכן מעניין, ויוסק׳ה אחד שיודע להחזיק את היום.'
+
+# the home about, cut to its core (same facts as C.ABOUT_HOME, the key words marked so it reads at a glance)
+ABOUT_SHORT = [
+    'אני יוסק׳ה, ואני <mark class="mk mk--sun">אוהב אנשים כמעט כמו שאני אוהב לטייל</mark>. למזלי, מצאתי עבודה שמחברת בין השניים.',
+    'אני מדריך ומפיק <b>סיורים בחיפה</b>, ולעיתים גם קבוצות במסעות <b>בדרום אמריקה</b>. אני מגיע לכל מקום <mark class="mk mk--teal">דרך האנשים, התרבות והסיפורים</mark> שמאחורי מה שרואים ברחוב.',
+    'הרקע שלי ב<b>סוציולוגיה ובאנתרופולוגיה</b> נכנס לסיור <mark class="mk mk--orange">כשיחה, לא כהרצאה</mark>. אני מחזיק את הקצב וקורא את הקבוצה, כדי שכל אחד ירגיש חלק מהיום.',
+]
+
+# Approved client logos for the strip «כבר יצאנו לדרך עם» (spec 8.2): (file in prototype/assets/clients/, organisation name).
+# Only logos with publication approval go here. While the list is empty the strip is not rendered (no placeholders).
+CLIENT_LOGOS = []
+
+
+def logos_strip():
+    if not CLIENT_LOGOS:
+        return ''
+    items = ''.join(f'<li><img src="/assets/clients/{f}" alt="{html_escape(n)}" loading="lazy" decoding="async"></li>' for f, n in CLIENT_LOGOS)
+    dup = ''.join(f'<li aria-hidden="true"><img src="/assets/clients/{f}" alt="" loading="lazy" decoding="async"></li>' for f, _ in CLIENT_LOGOS)
+    return (f'''    <section class="logos" id="logos" aria-labelledby="logos-title">
+      <h2 class="logos__title" id="logos-title">כבר יצאנו לדרך עם</h2>
+      <div class="logos__view" tabindex="0" data-logos><ul class="logos__track">{items}{dup}</ul></div>
+    </section>''')
+
+
+def html_escape(s):
+    from html import escape
+    return escape(s, quote=True)
+
+
+def hero6():
+    h = v5.hero()
+    return sub(h, r'<p class="hero__sub">.*?</p>', f'<p class="hero__sub">{HERO_SUB}</p>')
 
 
 def render(src, form_id='c', lead_kind='general'):
@@ -132,7 +176,7 @@ def render(src, form_id='c', lead_kind='general'):
             body = _keep['render'](src, form_id, lead_kind)
         finally:
             v.lead_form = _keep['lead_form']
-        body = body.replace('%%HERO%%', v5.hero())
+        body = body.replace('%%HERO%%', hero6())
         return swap_home(body)
     body = _keep['render'](src, form_id, lead_kind)
     return swap_faq(body) if src == 'contact.html' else body
@@ -147,6 +191,7 @@ def home():
 
 
 if __name__ == '__main__':
+    v.RAIL[:] = [r for r in v.RAIL if r[0] != 'trail']   # the closing trail section is gone (17.11.2026)
     v.tour_cards = tour_cards
     v.upcoming_box = upcoming_box
     v.render = render

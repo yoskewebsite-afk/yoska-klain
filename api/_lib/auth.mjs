@@ -50,19 +50,34 @@ export async function login(store, req, res) {
   send(res, 200, { ok: true, user: { email, name: user.name }, csrf }, { 'Set-Cookie': cookieHeader(COOKIE, token, { maxAge: SESSION_HOURS * 3600 }) });
 }
 
+// Every admin request checks the session. The two lookups (session + user) are kept for a few seconds in this warm
+// instance, so a screen that fires several API calls pays for them once. Logout clears it; expiry is still checked each time.
+const SESS_TTL = 20_000;
+const SESS_CACHE = new Map();
+export const forgetSession = (key) => SESS_CACHE.delete(key);
+
 export async function session(store, req) {
   const t = cookies(req)[COOKIE];
   if (!t || !store) return null;
-  const s = await store.get('sessions', sha256(t));
+  const key = sha256(t);
+  let hit = SESS_CACHE.get(key);
+  if (!hit || Date.now() - hit.at > SESS_TTL) {
+    const s = await store.get('sessions', key);
+    const user = s ? await store.get('users', s.email) : null;
+    hit = { at: Date.now(), s, user };
+    if (SESS_CACHE.size > 200) SESS_CACHE.clear();
+    if (s && user) SESS_CACHE.set(key, hit); else SESS_CACHE.delete(key);
+  }
+  const { s, user } = hit;
   if (!s) return null;
-  if (s.exp < Date.now()) { await store.del('sessions', sha256(t)); return { expired: true }; }
-  const user = await store.get('users', s.email);
+  if (s.exp < Date.now()) { SESS_CACHE.delete(key); await store.del('sessions', key); return { expired: true }; }
   if (!user) return null;
   return { email: s.email, name: user.name, role: user.role, csrf: s.csrf, token: t };
 }
 
 export async function logout(store, req, res) {
   const t = cookies(req)[COOKIE];
+  if (t) forgetSession(sha256(t));
   if (t && store) await store.del('sessions', sha256(t));
   send(res, 200, { ok: true }, { 'Set-Cookie': cookieHeader(COOKIE, '', { maxAge: 0 }) });
 }
