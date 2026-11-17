@@ -125,9 +125,7 @@ def swap_home(body):
     # 17.11.2026 (partner): no closing section before the footer
     body = sub(body, r'\n\s*<!-- =+[^>]*?trail[^>]*?-->\s*(?=<section class="trail")', '\n', must=False)
     body = sub(body, r'\s*<section class="trail".*?</section>', '')
-    # services: a real photo of Haifa instead of the flat teal panel
-    body = sub(body, r'<div class="groups__panel" aria-hidden="true" data-panel>.*?</div>',
-               f'<div class="groups__panel groups__panel--photo" aria-hidden="true" data-panel>{v.photo("haifa-sunset", "", "(min-width: 900px) 40vw, 100vw", "low", "50% 60%")}</div>')
+    # services: the teal panel with the waves stays (owner, 17.11.2026: no photo there)
     # logos strip right after the hero (spec 8.2), only with approved logos
     body = body.replace('<section class="uq" id="unique"', logos_strip() + '\n    <section class="uq" id="unique"', 1)
     return body
