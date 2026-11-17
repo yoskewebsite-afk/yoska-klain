@@ -1941,3 +1941,14 @@ body:has(.cbanner) .fab { visibility: hidden; }
 @media (max-width: 899px) {
   .groups__cut { grid-column: auto; grid-row: auto; width: min(84vw, 420px); margin-block: calc(-1 * var(--s4)) calc(-1 * var(--s5)); }
 }
+/* 17.11.2026 hero on wide screens: the photo rises so the whole shrine is on the first screen (yoske.js adds .is-lift).
+   The headline then sits above the photo on a white haze (the sky moves to the section) and fades as the page scrolls. */
+.hero.is-lift { background: linear-gradient(to bottom, var(--sky-1) 0, var(--sky-1) 30svh, var(--sky-2) 45svh, var(--white) 100svh) no-repeat; }
+.hero.is-lift .hero__stage { z-index: 3; pointer-events: none; }
+.hero.is-lift .hero__sky { display: none; }
+.hero.is-lift .hero__scene::before { content: ''; position: absolute; z-index: 1; inset-inline: 0; top: 0; height: calc(var(--fog, 300px) + 30px); pointer-events: none;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, .96) 0, rgba(255, 255, 255, .86) calc(var(--fog, 300px) - 130px), rgba(255, 255, 255, .4) calc(var(--fog, 300px) - 40px), rgba(255, 255, 255, 0) 100%); }
+.hero.is-lift .hero__scene::after { height: 4%; }
+.hero.is-lift .hero__cta { z-index: 5; }
+.hero.is-lift .hero__sub { text-shadow: 0 0 3px #fff, 0 0 10px #fff, 0 0 22px rgba(255, 255, 255, .95); font-weight: 500; }
+.hero.is-lift .hero__l1 { text-shadow: 0 0 10px rgba(255, 255, 255, .9); }

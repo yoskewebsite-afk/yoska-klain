@@ -186,10 +186,25 @@
       const r = tall ? 1280 / 1763 : 2160 / 1434, sky = tall ? .05 : .15;
       const h = document.documentElement.clientWidth / r;
       const hb = head.offsetTop + head.offsetHeight;
-      const top = Math.round(hb + (tall ? 14 : 18) - sky * h);
+      let top = Math.round(hb + (tall ? 14 : 18) - sky * h), cta = Math.round(sky * h + (tall ? 18 : 30));
+      // 17.11.2026 (owner): on wide screens the whole Bahai shrine is seen on the first screen. The photo rises until its
+      // foot reaches the bottom of the screen; the headline then sits over it on a soft white haze and fades on scroll.
+      const want = Math.round(innerHeight - h * .975), lift = !tall && want < top;
+      hero.classList.toggle('is-lift', lift);
+      if (lift) {
+        top = want;
+        const sb = $('.hero__sub'), subB = sb ? sb.offsetTop + head.offsetTop + sb.offsetHeight : hb;
+        cta = Math.round(subB - top + 16);
+        scene.style.setProperty('--fog', Math.round(subB - top + 20) + 'px');
+      }
       scene.parentElement.style.setProperty('--scene-top', top + 'px');
-      scene.style.setProperty('--cta-top', Math.round(sky * h + (tall ? 18 : 30)) + 'px');
+      scene.style.setProperty('--cta-top', cta + 'px');
     };
+    const hero = stage.closest('.hero');
+    let fq = false;
+    const fadeHead = () => { fq = false; if (!hero.classList.contains('is-lift')) { head.style.opacity = ''; return; }
+      head.style.opacity = Math.max(0, 1 - scrollY / (innerHeight * .2)).toFixed(3); };
+    addEventListener('scroll', () => { if (!fq) { fq = true; requestAnimationFrame(fadeHead); } }, { passive: true });
     // Yoske: the middle of his raised hand (6% / 14% of the cut-out) sits just above the first letter (ש) of the second line
     const yoske = $('[data-hero-yoske]'), l2 = $('.hero__l2'), fore = $('[data-hero-fore]');
     const placeYoske = () => {
@@ -222,7 +237,7 @@
       yoske.classList.remove('is-fade');
       if (fore) fore.style.setProperty('--fy', Math.round(y + h - (narrow ? 45 : 95)) + 'px');
     };
-    const both = () => { place(); placeYoske(); };
+    const both = () => { place(); placeYoske(); fadeHead(); };
     both(); addEventListener('resize', both);
     document.fonts && document.fonts.ready.then(both);
   };
