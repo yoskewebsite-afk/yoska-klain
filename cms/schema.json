@@ -832,6 +832,19 @@
          "long": true
         }
        ]
+      },
+      {
+       "id": "g3",
+       "label": "תמונה",
+       "num": 1,
+       "kind": "image",
+       "fields": [
+        {
+         "key": "groups.img1",
+         "kind": "image",
+         "locked": false
+        }
+       ]
       }
      ],
      "lists": [

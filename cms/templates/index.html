@@ -19,7 +19,7 @@
   <link rel="preload" href="/fonts/heebo-hebrew-300-900.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/karantina-hebrew-700.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" as="image" href="/assets/v4/hero-wide-1440.webp" media="(min-width: 700px)" fetchpriority="high">
-  <link rel="stylesheet" href="/yoske.css?v=ddef637a40">
+  <link rel="stylesheet" href="/yoske.css?v=698f9d1b3d">
 {{{head.extra}}}</head>
 <body class="home" data-ga4="">
   <a class="skip" href="#main">דילוג לתוכן</a>
@@ -216,6 +216,7 @@
           <p>{{groups.t4}}</p>
           <ol class="steps" data-steps><!--cms:list groups.list1--><li><b>{{i.t1}}</b><span>{{i.t2}}</span></li><!--/cms:list--></ol>
         </div>
+        <img class="groups__cut" src="{{groups.img1.src}}" srcset="{{groups.img1.srcset}}" sizes="(max-width: 999px) 80vw, 32vw" width="{{groups.img1.w}}" height="{{groups.img1.h}}" alt="{{groups.img1.alt}}" loading="lazy" decoding="async"{{sty:groups.img1}}>
         <ul class="groups__cards"><!--cms:list groups.list2--><li class="{{i.cls}}" data-reveal>
             <div class="acard__media"><img src="{{i.img1.src}}" srcset="{{i.img1.srcset}}" sizes="(min-width: 900px) 24vw, 80vw" width="{{i.img1.w}}" height="{{i.img1.h}}" alt="{{i.img1.alt}}" loading="lazy" decoding="async"{{sty:i.img1}}></div>
             <div class="acard__body"><h3>{{i.t1}}</h3><p>{{i.t2}}</p><a class="btn btn--line btn--sm" href="{{i.l1}}" data-track="{{i.a1}}"{{ext:i.l1}}>{{i.t3}}</a></div>

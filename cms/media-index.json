@@ -20,12 +20,22 @@
 "group": "yoske-cutout-640.webp"
 },
 {
-"id": "b-assets-approved-heart-family-960-webp",
-"url": "/assets/approved/heart-family-960.webp",
-"name": "heart-family",
+"id": "b-assets-objects-heart-family-cutout-960-webp",
+"url": "/assets/objects/heart-family-cutout-960.webp",
+"name": "heart-family-cutout",
 "w": 960,
-"h": 876,
-"alt": "משפחות וילדים מצטלמים בתוך פסל הלב הצהוב, הים ברקע",
+"h": 989,
+"alt": "משפחה עם ילדים מצטלמת בתוך פסל הלב הצהוב ״יש לחיפה חור בלב״",
+"pos": "50% 50%",
+"group": "objects"
+},
+{
+"id": "b-assets-approved-overlook-group-960-webp",
+"url": "/assets/approved/overlook-group-960.webp",
+"name": "overlook-group",
+"w": 960,
+"h": 959,
+"alt": "קבוצה מצטלמת על דק התצפית מעל המפרץ",
 "pos": "50% 50%",
 "group": "approved"
 },
@@ -126,6 +136,16 @@
 "w": 960,
 "h": 540,
 "alt": "יוסק׳ה מסביר לילדים ולהורים ליד המעקה מול המפרץ",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-heart-family-960-webp",
+"url": "/assets/approved/heart-family-960.webp",
+"name": "heart-family",
+"w": 960,
+"h": 876,
+"alt": "משפחה מצטלמת בתוך פסל הלב הצהוב בתצפית",
 "pos": "50% 50%",
 "group": "approved"
 },
@@ -1115,16 +1135,6 @@
 "name": "mural-wall",
 "w": 960,
 "h": 1025,
-"alt": "",
-"pos": "50% 50%",
-"group": "approved"
-},
-{
-"id": "b-assets-approved-overlook-group-960-webp",
-"url": "/assets/approved/overlook-group-960.webp",
-"name": "overlook-group",
-"w": 960,
-"h": 959,
 "alt": "",
 "pos": "50% 50%",
 "group": "approved"

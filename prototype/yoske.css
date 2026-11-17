@@ -1935,3 +1935,9 @@ body:has(.cbanner) .fab { visibility: hidden; }
   .chip { scroll-snap-align: center; }
   .map__panel.is-swipe { touch-action: pan-y; }
 }
+/* 17.11.2026 groups: a cut-out of a family in the yellow heart sculpture stands on the teal panel, a little out of its frame */
+.groups__cut { position: relative; z-index: 1; grid-column: 2; grid-row: 1; justify-self: center; align-self: center; width: min(100%, 470px); height: auto;
+  transform: rotate(-2.5deg); filter: drop-shadow(0 26px 30px rgba(20, 52, 64, .32)) drop-shadow(0 2px 2px rgba(20, 52, 64, .25)); }
+@media (max-width: 899px) {
+  .groups__cut { grid-column: auto; grid-row: auto; width: min(84vw, 420px); margin-block: calc(-1 * var(--s4)) calc(-1 * var(--s5)); }
+}

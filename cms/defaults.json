@@ -101,6 +101,13 @@
     "groups.t2": "כל קבוצה והדרך",
     "groups.t3": "שלה",
     "groups.t4": "קבוצה מהעבודה, משפחה, חברים או אירוע שאתם רוצים לציין בדרך קצת אחרת. לכל אחד יש סיבה אחרת לצאת, ולכן גם היום עצמו לא צריך להיראות אותו דבר.",
+    "groups.img1": {
+     "src": "/assets/objects/heart-family-cutout-960.webp",
+     "alt": "משפחה עם ילדים מצטלמת בתוך פסל הלב הצהוב ״יש לחיפה חור בלב״",
+     "srcset": "/assets/objects/heart-family-cutout-640.webp 640w, /assets/objects/heart-family-cutout-960.webp 960w, /assets/objects/heart-family-cutout-1251.webp 1251w",
+     "w": "1251",
+     "h": "1289"
+    },
     "moments.t1": "ככה זה נראה בשטח",
     "moments.t2": "אנשים, קבוצות ויוסק׳ה בהדרכה, מהסיורים בחיפה.",
     "moments.l1": "/gallery.html",
@@ -183,11 +190,12 @@
     "groups.list2": [
      {
       "i.img1": {
-       "src": "/assets/approved/heart-family-960.webp",
-       "alt": "משפחות וילדים מצטלמים בתוך פסל הלב הצהוב, הים ברקע",
-       "srcset": "/assets/approved/heart-family-480.webp 480w, /assets/approved/heart-family-960.webp 960w, /assets/approved/heart-family-1920.webp 1920w",
-       "w": "1920",
-       "h": "1752"
+       "src": "/assets/approved/overlook-group-960.webp",
+       "alt": "קבוצה מצטלמת על דק התצפית מעל המפרץ",
+       "srcset": "/assets/approved/overlook-group-480.webp 480w, /assets/approved/overlook-group-960.webp 960w, /assets/approved/overlook-group-1920.webp 1802w",
+       "w": "1802",
+       "h": "1801",
+       "pos": "50% 55%"
       },
       "i.t1": "משפחות",
       "i.t2": "פעילות משפחתית שגם הילדים באמת משתתפים בה: חידות, משימות ורמזים שמכניסים אותם לתוך הסיפור.",

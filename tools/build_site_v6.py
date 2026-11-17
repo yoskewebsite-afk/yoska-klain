@@ -125,7 +125,11 @@ def swap_home(body):
     # 17.11.2026 (partner): no closing section before the footer
     body = sub(body, r'\n\s*<!-- =+[^>]*?trail[^>]*?-->\s*(?=<section class="trail")', '\n', must=False)
     body = sub(body, r'\s*<section class="trail".*?</section>', '')
-    # services: the teal panel with the waves stays (owner, 17.11.2026: no photo there)
+    # services: the teal panel with the waves stays, and a cut-out of a family in the yellow heart sculpture stands on it,
+    # a little out of its frame like the other floating objects (owner + partner, 17.11.2026)
+    body = body.replace('<ul class="groups__cards">', '<img class="groups__cut" src="/assets/objects/heart-family-cutout-960.webp" '
+                        'srcset="/assets/objects/heart-family-cutout-640.webp 640w, /assets/objects/heart-family-cutout-960.webp 960w, /assets/objects/heart-family-cutout-1251.webp 1251w" '
+                        'sizes="(max-width: 999px) 80vw, 32vw" width="1251" height="1289" alt="משפחה עם ילדים מצטלמת בתוך פסל הלב הצהוב ״יש לחיפה חור בלב״" loading="lazy" decoding="async">\n        <ul class="groups__cards">', 1)
     # logos strip right after the hero (spec 8.2), only with approved logos
     body = body.replace('<section class="uq" id="unique"', logos_strip() + '\n    <section class="uq" id="unique"', 1)
     return body
