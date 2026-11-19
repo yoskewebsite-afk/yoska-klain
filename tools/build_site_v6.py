@@ -126,9 +126,24 @@ def swap_home(body):
     body = sub(body, r'\n\s*<!-- =+[^>]*?trail[^>]*?-->\s*(?=<section class="trail")', '\n', must=False)
     body = sub(body, r'\s*<section class="trail".*?</section>', '')
     # services: the teal panel with the waves stays (owner, 17.11.2026: no photo there)
-    # logos strip right after the hero (spec 8.2), only with approved logos
-    body = body.replace('<section class="uq" id="unique"', logos_strip() + '\n    <section class="uq" id="unique"', 1)
+    # 19.11.2026 (partner): the areas map goes; the upcoming tours become an added section the owner runs from the admin
+    # (cms defaults: custom block "trips" with anchor #upcoming); the client logos too (custom block "logos", shown once
+    # logos are uploaded); the uniqueness block («איזון נכון: אושר + העשרה») moves down, it cannot open the page
+    body = cut_section(body, 'map')
+    body = cut_section(body, 'upsec')
+    uq = re.search(r'\n\s*<!-- =+ UNIQUENESS.*?</section>', body, re.S)
+    body = body[:uq.start()] + body[uq.end():]
+    at = re.search(r'\n\s*<!-- =+ 10\. ABROAD', body)
+    body = body[:at.start()] + uq.group(0) + '\n' + body[at.start():]
     return body
+
+
+def cut_section(body, cls):
+    m = re.search(r'\n\s*<!-- =+(?:(?!-->).)*-->\s*<section class="%s".*?</section>' % re.escape(cls), body, re.S)
+    if not m:
+        print('WARNING: section not found:', cls)
+        return body
+    return body[:m.start()] + body[m.end():]
 
 
 # ------------------------------------------------------------------ 17.11.2026 round (partner feedback)
@@ -190,6 +205,10 @@ def home():
 
 if __name__ == '__main__':
     v.RAIL[:] = [r for r in v.RAIL if r[0] != 'trail']   # the closing trail section is gone (17.11.2026)
+    # 19.11.2026: no map; the uniqueness block sits after the reviews; the rail follows the page order
+    rail = {r[0]: r for r in v.RAIL}
+    v.RAIL[:] = [rail[k] for k in ('top', 'about', 'tours', 'upcoming', 'groups', 'moments', 'reviews', 'unique', 'abroad', 'faq', 'contact')]
+    v.TABBAR[:] = ['about', 'tours', 'upcoming', 'groups', 'contact']
     v.tour_cards = tour_cards
     v.upcoming_box = upcoming_box
     v.render = render

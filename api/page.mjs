@@ -60,17 +60,18 @@ export default async function handler(req, res) {
       const snap = await publishedSnapshot(store);
       const s = mergedSettings(snap);
       const open = s.indexable && s.siteUrl;
-      if (w === 'robots') return send(res, 200, open ? `User-agent: *\nAllow: /\nDisallow: /admin\nDisallow: /api/\nDisallow: /__preview\nSitemap: ${String(s.siteUrl).replace(/\/+$/, '')}/sitemap.xml\n` : 'User-agent: *\nDisallow: /\n', { 'Content-Type': 'text/plain; charset=utf-8', 'Cache-Control': 'public, s-maxage=60' });
+      if (w === 'robots') return send(res, 200, open ? `User-agent: *\nAllow: /\nDisallow: /api/\nDisallow: /__preview\nSitemap: ${String(s.siteUrl).replace(/\/+$/, '')}/sitemap.xml\n` : 'User-agent: *\nDisallow: /\n', { 'Content-Type': 'text/plain; charset=utf-8', 'Cache-Control': 'public, s-maxage=60' });
       if (!open) return send(res, 404, 'Not found', { 'Content-Type': 'text/plain' });
       return send(res, 200, sitemap(snap), { 'Content-Type': 'application/xml; charset=utf-8', 'Cache-Control': 'public, s-maxage=300' });
     }
     if (w === 'admin') {
-      const h = { ...HTML, 'Content-Security-Policy': ADMIN_CSP, 'X-Frame-Options': 'DENY', 'Cache-Control': 'no-store' };
+      const h = { ...HTML, 'Content-Security-Policy': ADMIN_CSP, 'X-Frame-Options': 'DENY', 'Cache-Control': 'no-store', 'X-Robots-Tag': 'noindex, nofollow' };
       if (!store) return send(res, 200, loginShell('nostore'), h);
       const s = await session(store, req);
       if (s && !s.expired) return send(res, 200, appShell(), h);
       const first = !(await userCount(store)) && !!process.env.ADMIN_SETUP_TOKEN;
-      return send(res, s?.expired ? 401 : 200, loginShell(first ? 'setup' : 'login'), h);
+      const code = !first && (await store.list('users', { limit: 20 })).some((r) => r.data?.code);
+      return send(res, s?.expired ? 401 : 200, loginShell(first ? 'setup' : 'login', { code }), h);
     }
     if (w === 'preview') {
       const s = store ? await session(store, req) : null;

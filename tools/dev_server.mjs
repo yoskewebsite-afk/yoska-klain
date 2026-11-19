@@ -20,7 +20,7 @@ function route(pathname) {
   if ((m = /^\/media\/(.+)$/.exec(pathname))) return { fn: 'page', w: 'media', u: '/media/' + m[1] };
   if (pathname === '/robots.txt') return { fn: 'page', w: 'robots' };
   if (pathname === '/sitemap.xml') return { fn: 'page', w: 'sitemap' };
-  if (/^\/admin(\/.*)?$/.test(pathname)) return { fn: 'page', w: 'admin' };
+  if (/^\/yoske-nihul-7k4q(\/.*)?$/.test(pathname)) return { fn: 'page', w: 'admin' };
   if ((m = /^\/__preview(\/.*)?$/.exec(pathname))) return { fn: 'page', w: 'preview', u: m[1] || '/' };
   if (/^\/(assets|fonts|vendor|admin-app)\//.test(pathname)) return null;
   if (/^\/[^.]*$/.test(pathname) || /\.html$/.test(pathname)) return { fn: 'page', w: 'page', u: pathname };
@@ -46,7 +46,7 @@ http.createServer(async (req, res) => {
     if (!st || st.isDirectory()) { res.statusCode = 404; res.setHeader('Content-Type', 'text/html; charset=utf-8'); return res.end(await fs.readFile(path.join(STATIC, '404.html'))); }
     res.setHeader('Content-Type', MIME[path.extname(f)] || 'application/octet-stream');
     res.setHeader('Cache-Control', 'no-cache');
-    if (pathname === '/admin-app/sw.js') res.setHeader('Service-Worker-Allowed', '/admin');
+    if (pathname === '/admin-app/sw.js') res.setHeader('Service-Worker-Allowed', '/yoske-nihul-7k4q');
     createReadStream(f).pipe(res);
   } catch (e) {
     console.error(e);

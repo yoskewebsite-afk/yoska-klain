@@ -66,7 +66,7 @@ export function blockEditor({ pid, cid, onChange }) {
         h('button', { class: 'btn btn--sm btn--icon btn--ghost', type: 'button', 'aria-label': `שכפול ${I.label} ${i + 1}`, disabled: b.items.length >= I.max, onclick: () => { b.items.splice(i + 1, 0, { ...clone(it), id: rid() }); commit(); paintItems(); } }, icon('copy')),
         h('button', { class: 'btn btn--sm btn--icon btn--ghost', type: 'button', 'aria-label': `הסרת ${I.label} ${i + 1}`, onclick: () => { b.items.splice(i, 1); commit(); paintItems(); } }, icon('trash'))),
         ...I.f.map((k) => F[k].kind === 'image' ? imageField(() => it[k], (v) => { it[k] = v; commit(); })
-          : F[k].kind === 'link' ? h('div', { class: 'fld' }, h('label', { text: 'קישור (לא חובה)' }), linkField(() => it[k], (v) => { it[k] = v; commit(); }, true))
+          : F[k].kind === 'link' ? h('div', { class: 'fld' }, h('label', { text: k === 'reg' ? F[k].label : 'קישור (לא חובה)' }), linkField(() => it[k], (v) => { it[k] = v; commit(); }, true))
             : textField(F[k], () => it[k], (v) => { it[k] = v; commit(); })))));
       if (!b.items.length) wrap.append(h('p', { class: 'count', text: b.type === 'gallery' ? 'עדיין אין תמונות. ״הוספת תמונה״ פותח את ספריית המדיה.' : 'הרשימה ריקה.' }));
     };

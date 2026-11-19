@@ -10,7 +10,7 @@
   "crons": [{ "path": "/api/cron/backup", "schedule": "30 2 * * *" }],
   "routes": [
     {
-      "src": "^/(?!__preview|admin)(.*)$",
+      "src": "^/(?!__preview|admin|yoske-nihul-7k4q)(.*)$",
       "headers": {
         "X-Content-Type-Options": "nosniff",
         "X-Frame-Options": "DENY",
@@ -21,13 +21,13 @@
     },
     { "src": "^/(assets|fonts|vendor)/(.*)$", "headers": { "Cache-Control": "public, max-age=31536000, immutable" }, "continue": true },
     { "src": "^/[\\w\\-]+\\.(?:css|js)$", "has": [{ "type": "query", "key": "v" }], "headers": { "Cache-Control": "public, max-age=31536000, immutable" }, "continue": true },
-    { "src": "^/admin-app/sw\\.js$", "headers": { "Service-Worker-Allowed": "/admin", "Cache-Control": "no-cache" }, "continue": true },
+    { "src": "^/admin-app/sw\\.js$", "headers": { "Service-Worker-Allowed": "/yoske-nihul-7k4q", "Cache-Control": "no-cache" }, "continue": true },
     { "src": "^/admin-app/(.*)$", "headers": { "Cache-Control": "no-cache" }, "continue": true },
     { "src": "^/api/(?!page$)(.*)$", "dest": "/api/index?__p=/api/$1" },
     { "src": "^/media/(.+)$", "dest": "/api/page?w=media&u=/media/$1" },
     { "src": "^/robots\\.txt$", "dest": "/api/page?w=robots" },
     { "src": "^/sitemap\\.xml$", "dest": "/api/page?w=sitemap" },
-    { "src": "^/admin(?:/.*)?$", "dest": "/api/page?w=admin" },
+    { "src": "^/yoske-nihul-7k4q(?:/.*)?$", "dest": "/api/page?w=admin" },
     { "src": "^/__preview(/.*)?$", "dest": "/api/page?w=preview&u=$1" },
     { "src": "^/(?!api/|assets/|fonts/|vendor/|admin-app/)((?:[^.]*)|(?:.+\\.html))$", "dest": "/api/page?w=page&u=/$1" },
     { "handle": "filesystem" },

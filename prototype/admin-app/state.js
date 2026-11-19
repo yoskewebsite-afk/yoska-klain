@@ -47,12 +47,20 @@ export async function saveDraft() {
 export const pageDef = (pid) => S.schema.pages[pid];
 export function pageState(pid) { const p = (S.draft.pages[pid] ||= {}); p.seo ||= {}; p.sec ||= {}; return p; }
 export function secState(pid, sid) { const p = pageState(pid); return (p.sec[sid] ||= { hidden: false, removed: false, f: {}, l: {} }); }
-export const order = (pid) => { const ids = [...pageDef(pid).sections.map((s) => s.id), ...Object.keys(S.draft.pages[pid]?.custom || {})]; const o = (S.draft.pages[pid]?.order || ids).filter((i) => ids.includes(i)); ids.forEach((i) => !o.includes(i) && o.push(i)); return o; };
-export function setOrder(pid, o) { pageState(pid).order = o; touch('pages', pid); }
+// the page's added sections: the saved ones, or (until the owner touches them) the built-in ones from the defaults
+const customView = (pid) => S.draft.pages[pid]?.custom ?? S.defaults.pages[pid]?.custom ?? {};
+export const order = (pid) => {
+  const ids = [...pageDef(pid).sections.map((s) => s.id), ...Object.keys(customView(pid))];
+  const base = (S.defaults.pages[pid]?.order || ids).filter((i) => ids.includes(i)); ids.forEach((i) => !base.includes(i) && base.push(i));
+  const o = (S.draft.pages[pid]?.order || base).filter((i) => ids.includes(i));
+  base.forEach((i, k) => { if (o.includes(i)) return; const prev = base.slice(0, k).reverse().find((x) => o.includes(x)); o.splice(prev ? o.indexOf(prev) + 1 : 0, 0, i); });
+  return o;
+};
+export function setOrder(pid, o) { customOf(pid); pageState(pid).order = o; touch('pages', pid); }
 
 // ---- sections the owner adds (custom blocks)
-export const customOf = (pid) => (pageState(pid).custom ||= {});
-export const isCustom = (pid, id) => !!S.draft.pages[pid]?.custom?.[id];
+export const customOf = (pid) => (pageState(pid).custom ||= clone(S.defaults.pages[pid]?.custom || {}));
+export const isCustom = (pid, id) => !!customView(pid)[id];
 const newCid = () => 'c-' + Math.random().toString(36).slice(2, 9).replace(/[^a-z0-9]/g, 'x').padEnd(6, '0');
 export function addBlock(pid, type, afterId) {
   const T = S.blocks.types[type];
@@ -74,12 +82,12 @@ export function dupBlock(pid, cid) {
   return cid2;
 }
 export function removeBlock(pid, cid) {
-  const p = pageState(pid);
-  delete p.custom?.[cid]; delete p.sec?.[cid];
+  const p = pageState(pid); customOf(pid);
+  delete p.custom[cid]; delete p.sec?.[cid];
   p.order = order(pid).filter((i) => i !== cid);
   touch('pages', pid);
 }
-export const blockOf = (pid, cid) => S.draft.pages[pid]?.custom?.[cid];
+export const blockOf = (pid, cid) => customOf(pid)[cid];
 export function blockTitle(b) {
   const T = S.blocks.types[b.type];
   const t = [b.c?.t1, b.c?.t2].filter(Boolean).join(' ').replace(/\*/g, '') || b.c?.quote || '';

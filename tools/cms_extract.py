@@ -646,6 +646,22 @@ def main():
                 if not same:
                     diff = [k for k, v in sc.values.items() if defaults['shared']['fields'].get(k) != v][:3]
                     print(f'  ! shared {name} differs on {pid}: {diff}', file=sys.stderr)
+    # 19.11.2026: sections the home page starts with as "added sections" (the owner edits, hides, moves or deletes them in the
+    # admin like any section he added himself): the upcoming tours (items empty until he adds a tour) and the client logos
+    # (not shown until logos are uploaded). Nothing invented: the texts and links are the ones the upcoming section had.
+    defaults['pages']['index']['custom'] = {
+        'c-logos01': {'type': 'logos', 'c': {'t1': 'כבר יצאנו', 't2': 'לדרך *עם*'}, 'd': {'bg': 'white', 'pad': 's', 'align': 'center', 'accent': 'orange'}, 'items': []},
+        'c-trips01': {'type': 'trips', 'c': {
+            't1': 'רוצים להצטרף לסיור בלי לארגן קבוצה משלכם?', 't2': 'הסיורים *הקרובים*',
+            'body': 'כאן מופיעים הסיורים הפתוחים להרשמה. בעמוד ההרשמה מחכים כל המועדים, הפרטים ואפשרות להזמין מקום ולשלם.',
+            'link': {'label': 'למועדים, הרשמה ותשלום', 'href': B.TAKBULL}, 'link2': {'label': 'לא בטוחים? לשאלון ההתאמה', 'href': '/quiz.html'}},
+            'd': {'bg': 'sunsoft', 'pad': 'm', 'align': 'start', 'width': 'wide', 'accent': 'sun', 'shape': 'moon', 'cols': '3', 'btn': 'sun', 'reveal': 'rise', 'anchor': 'upcoming'}, 'items': []},
+    }
+    ids = schema['pages']['index']['order']
+    order = list(ids)
+    order.insert(order.index('top') + 1, 'c-logos01')
+    order.insert(order.index('tours') + 1, 'c-trips01')
+    defaults['pages']['index']['order'] = order
     defaults['tours'] = tours_defaults()
     defaults['settings'] = {
         'siteName': 'יוסק׳ה קליין', 'phone': B.PHONE_HUMAN, 'whatsapp': B.PHONE_INTL, 'waText': 'היי יוסק׳ה, הגענו דרך האתר ונשמח לתכנן טיול.',

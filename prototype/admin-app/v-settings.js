@@ -1,5 +1,5 @@
 // הגדרות אתר: contact details, logo, menu, cookie notice, opening the site to search engines, and a SEO overview of every page.
-import { h, icon, toast, pickMedia, clone } from './ui.js';
+import { h, icon, toast, pickMedia, clone, api } from './ui.js';
 import { S, setSetting, touch, saveDraft, onChange, seoOf, pathOf } from './state.js';
 import { publishFlow } from './app.js';
 
@@ -20,10 +20,42 @@ export async function render(root) {
   const seoRows = Object.keys(S.schema.pages).filter((p) => !['tour'].includes(p)).map((p) => { const seo = seoOf(p); const bad = !seo.title || !seo.description || seo.description.length > 170 || seo.title.length > 65;
     return h('a', { class: 'rowlink', href: `#/pages/${p}?tab=seo` }, h('div', { class: 'rowlink__t' }, h('b', { text: S.schema.pages[p].label }), h('span', { text: seo.title || '(חסרה כותרת)' })), h('span', { class: 'ltr count', text: pathOf(p) }), bad ? h('span', { class: 'tag tag--warn', text: 'לבדוק' }) : h('span', { class: 'tag tag--new', text: 'תקין' })); });
 
+  // 19.11.2026: personal sign-in code (instead of mail + password)
+  const codeCard = () => {
+    const box = h('section', { class: 'glass card codebox', id: 'code' });
+    const paint = () => {
+      const on = !!S.me?.hasCode;
+      const a = h('input', { type: 'password', inputmode: 'numeric', pattern: '[0-9]*', maxlength: '12', autocomplete: 'new-password', dir: 'ltr', 'aria-label': 'קוד חדש' });
+      const b = h('input', { type: 'password', inputmode: 'numeric', pattern: '[0-9]*', maxlength: '12', autocomplete: 'new-password', dir: 'ltr', 'aria-label': 'הקוד שוב' });
+      const err = h('p', { class: 'fld__err', role: 'alert', hidden: true });
+      const fail = (m) => { err.textContent = m; err.hidden = false; };
+      const saveCode = h('button', { class: 'btn btn--primary', type: 'button', onclick: async () => {
+        err.hidden = true;
+        if (!/^\d{6,12}$/.test(a.value)) return fail('הקוד צריך להיות 6 עד 12 ספרות.');
+        if (a.value !== b.value) return fail('שני הקודים לא זהים.');
+        saveCode.setAttribute('aria-busy', 'true');
+        try { await api('POST', '/api/admin/code', { code: a.value }); S.me = { ...(S.me || {}), hasCode: true }; toast('הקוד נשמר. מעכשיו אפשר להיכנס איתו.'); paint(); }
+        catch (e) { fail(e.message); } finally { saveCode.removeAttribute('aria-busy'); }
+      } }, icon('save'), on ? 'החלפת הקוד' : 'שמירת הקוד');
+      const offBtn = on ? h('button', { class: 'btn btn--ghost', type: 'button', onclick: async () => {
+        try { await api('POST', '/api/admin/code', { code: null }); S.me = { ...(S.me || {}), hasCode: false }; toast('הכניסה עם קוד כובתה.'); paint(); } catch (e) { fail(e.message); }
+      } }, 'כיבוי הכניסה עם קוד') : null;
+      box.replaceChildren(h('h2', { class: 'card__h', text: 'כניסה עם קוד אישי' }),
+        h('div', { class: on ? 'notice notice--ok' : 'notice' }, h('strong', { text: on ? 'הכניסה עם קוד פעילה.' : 'אפשר להיכנס למערכת עם קוד של ספרות, במקום מייל וסיסמה.' }),
+          h('p', { text: 'בחרו קוד של 6 עד 12 ספרות שרק אתם יודעים (לא תאריך לידה ולא רצף). המייל והסיסמה ממשיכים לעבוד גם הם. אחרי כמה ניסיונות שגויים הכניסה עם קוד ננעלת לזמן מה.' })),
+        h('div', { class: 'codebox__row' }, fld(on ? 'קוד חדש' : 'קוד', a), fld('הקוד שוב', b)), err,
+        h('div', { style: 'display:flex;gap:10px;flex-wrap:wrap' }, saveCode, offBtn));
+    };
+    paint();
+    return box;
+  };
+
+  if (location.hash.includes('code')) setTimeout(() => document.getElementById('code')?.scrollIntoView({ block: 'start' }), 50);
   root.append(h('div', { class: 'pagehead' }, h('h1', { text: 'הגדרות אתר' })),
     h('div', { class: 'savebar glass shellglass' }, status, h('span', { class: 'savebar__sp' }), save, h('button', { class: 'btn btn--primary', type: 'button', onclick: async () => { await publishFlow(); paintSt(); } }, icon('send'), 'פרסום לאתר')),
     h('div', { class: 'grid grid--2', style: 'align-items:start' },
       h('div', { style: 'display:grid;gap:20px' },
+        codeCard(),
         h('section', { class: 'glass card', style: 'display:grid;gap:14px' }, h('h2', { class: 'card__h', text: 'העסק ויצירת קשר' }),
           fld('שם העסק', text('siteName')), h('div', { class: 'grid grid--2' }, fld('טלפון (להצגה ולחיוג)', text('phone', { dir: true, type: 'tel' })), fld('מספר וואטסאפ', text('whatsapp', { dir: true }), 'בפורמט בינלאומי, למשל 972501234567.')),
           fld('הודעת הפתיחה בוואטסאפ', text('waText', { area: true }), 'הטקסט שמוכן מראש כשגולש לוחץ על וואטסאפ.'), fld('מייל', text('email', { dir: true, type: 'email' })),

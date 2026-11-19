@@ -120,7 +120,7 @@ function moreSheet() {
   const close = () => { scrim.remove(); wrap.remove(); };
   scrim.addEventListener('click', close); wrap.addEventListener('keydown', (e) => e.key === 'Escape' && close()); box.querySelector('a').focus();
 }
-async function logout() { try { await api('POST', '/api/admin/logout', {}); } catch { /* leaving anyway */ } location.href = '/admin'; }
+async function logout() { try { await api('POST', '/api/admin/logout', {}); } catch { /* leaving anyway */ } location.href = '/yoske-nihul-7k4q'; }
 
 function renderTop() {
   const dirty = S.unsaved || S.status?.dirty;
@@ -157,9 +157,26 @@ async function boot() {
     VIEWS[parse().view]?.().catch(() => {});
     await load();
     const j = S.me || await api('GET', '/api/admin/me'); me = j.user; setCsrf(j.csrf);
-  } catch (e) { if (e.status === 401) return (location.href = '/admin'); root.replaceChildren(h('div', { class: 'boot' }, h('div', { class: 'notice notice--danger' }, h('strong', { text: 'מערכת הניהול לא נטענה' }), h('p', { text: e.message })))); return; }
+  } catch (e) { if (e.status === 401) return (location.href = '/yoske-nihul-7k4q'); root.replaceChildren(h('div', { class: 'boot' }, h('div', { class: 'notice notice--danger' }, h('strong', { text: 'מערכת הניהול לא נטענה' }), h('p', { text: e.message })))); return; }
   buildShell();
-  document.addEventListener('admin:expired', () => { dialog({ title: 'ההתחברות פגה', body: h('p', { text: 'מטעמי אבטחה צריך להתחבר מחדש. השינויים שלא נשמרו עדיין פתוחים בדף הזה: אחרי הכניסה אפשר לחזור אליהם בלשונית אחרת, או לשמור קודם.' }), actions: [{ label: 'כניסה מחדש', cls: 'btn--primary', value: 1, focus: true }] }).then(() => window.open('/admin', '_blank')); });
+  document.addEventListener('admin:expired', () => { dialog({ title: 'ההתחברות פגה', body: h('p', { text: 'מטעמי אבטחה צריך להתחבר מחדש. השינויים שלא נשמרו עדיין פתוחים בדף הזה: אחרי הכניסה אפשר לחזור אליהם בלשונית אחרת, או לשמור קודם.' }), actions: [{ label: 'כניסה מחדש', cls: 'btn--primary', value: 1, focus: true }] }).then(() => window.open('/yoske-nihul-7k4q', '_blank')); });
   prevHash = location.hash; route(); initNotify();
+  codeNudge();
+}
+
+// 19.11.2026: now and then (every few days, never twice in one day) remind that a personal code can replace mail + password,
+// until a code is set or the owner says not to remind again
+function codeNudge() {
+  if (S.me?.hasCode) return;
+  let st = {};
+  try { st = JSON.parse(localStorage.getItem('yoske-code-nudge') || '{}'); } catch { /* private mode */ }
+  if (st.never || (st.at && Date.now() - st.at < 3 * 864e5)) return;
+  const keep = (o) => { try { localStorage.setItem('yoske-code-nudge', JSON.stringify(o)); } catch { /* ignore */ } };
+  setTimeout(() => {
+    keep({ at: Date.now() });
+    dialog({ title: 'אפשר להיכנס גם עם קוד', body: h('p', { text: 'במקום להקליד מייל וסיסמה בכל פעם, אפשר להגדיר קוד אישי של 6 עד 12 ספרות ולהיכנס איתו. ההגדרה נמצאת ב״הגדרות אתר״ ולוקחת חצי דקה.' }),
+      actions: [{ label: 'לא להזכיר שוב', value: 'never' }, { label: 'אחר כך', value: 'later' }, { label: 'להגדרת קוד', cls: 'btn--primary', value: 'go', focus: true }] })
+      .then((v) => { if (v === 'never') keep({ at: Date.now(), never: true }); if (v === 'go') location.hash = '#/settings?code'; });
+  }, 2500);
 }
 boot();

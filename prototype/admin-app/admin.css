@@ -567,3 +567,15 @@ input, select, textarea { min-width: 0; max-width: 100%; }
 .seg[role="radiogroup"] { flex-wrap: wrap; }
 @media (prefers-reduced-motion: reduce) { .bt { transition: none; } .bt:hover { transform: none; } }
 .ed__panel .fld > .seg { justify-self: start; max-width: 100%; }
+
+/* 19.11.2026: sign-in with a personal code */
+.auth__seg { justify-self: start; }
+.auth__seg .seg__b { min-height: 44px; padding: 0 18px; }
+.auth__seg .seg__b[aria-selected="true"] { background: var(--selected); color: var(--selected-text); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--action) 45%, transparent); }
+.auth__form [hidden] { display: none !important; }
+.auth__code { font-size: 22px !important; letter-spacing: .35em; text-align: center; }
+.codebox { display: grid; gap: 12px; }
+.codebox__row { display: flex; flex-wrap: wrap; gap: 10px; align-items: end; }
+.codebox__row .fld { flex: 1 1 180px; margin: 0; }
+.codebox__row input { letter-spacing: .3em; font-size: 18px; }
+.codebox { scroll-margin-top: 150px; }

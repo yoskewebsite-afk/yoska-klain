@@ -95,14 +95,20 @@ export async function handle(req, res, path) {
     const who = sess.email;
     const draftSnap = async () => content.getDraft(store);
 
+    if (path === '/api/admin/code' && m === 'POST') {   // sign-in code: set (6-12 digits) or turn off (code: null)
+      const b = await readJson(req);
+      try { await auth.setCode(store, sess.email, b.code === null ? null : String(b.code ?? '').trim()); } catch (e) { return fail(res, e.status || 400, e.message); }
+      return ok(res, { hasCode: b.code !== null });
+    }
     if (path === '/api/admin/me') return ok(res, { user: { email: sess.email, name: sess.name }, csrf: sess.csrf });
     if (path === '/api/admin/bundle') {
       const A = assets();
       // one round trip for both documents (was five sequential reads)
       const [d, published] = await Promise.all([store.get('content', 'draft'), store.get('content', 'published')]);
       const draft = d || published || null;
+      const meRec = await store.get('users', sess.email);
       return ok(res, {
-        me: { user: { email: sess.email, name: sess.name }, csrf: sess.csrf },
+        me: { user: { email: sess.email, name: sess.name }, csrf: sess.csrf, hasCode: !!meRec?.code },
         schema: A.schema, blocks: blockSpec(), defaults: { pages: A.defaults.pages, shared: A.defaults.shared, tours: A.defaults.tours, settings: A.defaults.settings },
         draft, published, status: await content.status(store, [d, published]), settings: mergedSettings(draft), tours: effectiveTours(draft), report: content.reportFor(draft), store: store.kind,
       });

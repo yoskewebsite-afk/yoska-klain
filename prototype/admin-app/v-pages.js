@@ -19,7 +19,7 @@ export async function render(root, params) {
 // ------------------------------------------------------------ page list
 function renderIndex(root) {
   const mk = (pid) => {
-    const p = S.schema.pages[pid], seo = seoOf(pid), added = Object.keys(S.draft.pages[pid]?.custom || {}).length, secs = p.sections.length + added;
+    const p = S.schema.pages[pid], seo = seoOf(pid), added = order(pid).length - p.sections.length, secs = p.sections.length + added;
     const hidden = p.sections.filter((s) => S.draft.pages[pid]?.sec?.[s.id]?.hidden).length;
     return h('a', { class: 'rowlink glass', style: 'padding:14px 18px;border-radius:16px;margin-bottom:10px;min-height:68px', href: '#/pages/' + pid },
       h('div', { class: 'rowlink__t' }, h('b', { text: p.label }), h('span', { class: 'ltr', text: pathOf(pid) + (seo.noindex ? ' · לא לאינדוקס' : '') })),

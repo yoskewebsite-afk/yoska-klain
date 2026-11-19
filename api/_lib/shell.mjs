@@ -42,7 +42,7 @@ export function appShell() {
 }
 
 /** mode: login | setup | nostore */
-export function loginShell(mode = 'login') {
+export function loginShell(mode = 'login', { code = false } = {}) {
   return `${head('כניסה לניהול | יוסק׳ה')}
 <body class="auth" data-mode="${mode}">
 <main class="auth__wrap">
@@ -55,8 +55,10 @@ export function loginShell(mode = 'login') {
       : `<form id="f" class="auth__form" novalidate>
       ${mode === 'setup' ? `<div class="fld"><label for="token">קוד הקמה</label><input id="token" name="token" type="password" autocomplete="off" dir="ltr" required></div>
       <div class="fld"><label for="name">שם</label><input id="name" name="name" autocomplete="name" required></div>` : ''}
-      <div class="fld"><label for="email">מייל</label><input id="email" name="email" type="email" autocomplete="username" dir="ltr" required></div>
-      <div class="fld"><label for="password">סיסמה${mode === 'setup' ? ' (10 תווים לפחות)' : ''}</label><input id="password" name="password" type="password" autocomplete="${mode === 'setup' ? 'new-password' : 'current-password'}" dir="ltr" required></div>
+      ${mode === 'login' && code ? `<div class="seg auth__seg" role="tablist" aria-label="דרך הכניסה"><button class="seg__b" type="button" role="tab" aria-selected="true" data-way="code">עם קוד</button><button class="seg__b" type="button" role="tab" aria-selected="false" data-way="pw">מייל וסיסמה</button></div>
+      <div class="fld" data-for="code"><label for="code">הקוד האישי</label><input id="code" name="code" type="password" inputmode="numeric" pattern="[0-9]*" autocomplete="one-time-code" maxlength="12" dir="ltr" class="auth__code"></div>` : ''}
+      <div class="fld"${mode === 'login' && code ? ' data-for="pw" hidden' : ''}><label for="email">מייל</label><input id="email" name="email" type="email" autocomplete="username" dir="ltr" required></div>
+      <div class="fld"${mode === 'login' && code ? ' data-for="pw" hidden' : ''}><label for="password">סיסמה${mode === 'setup' ? ' (10 תווים לפחות)' : ''}</label><input id="password" name="password" type="password" autocomplete="${mode === 'setup' ? 'new-password' : 'current-password'}" dir="ltr" required></div>
       <p class="fld__err" id="err" role="alert" hidden></p>
       <button class="btn btn--primary" type="submit" id="go">${mode === 'setup' ? 'יצירת מנהל' : 'כניסה'}</button>
     </form>`}

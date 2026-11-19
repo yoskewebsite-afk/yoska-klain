@@ -60,7 +60,7 @@ export async function notify(store, lead, form, snap) {
   const at = new Date().toISOString();
   const text = `פנייה חדשה מהאתר: ${lead.name} ${lead.phone}${lead.tourName ? ` | סיור: ${lead.tourName}` : ''}${lead.message ? ` | ${lead.message}` : ''}`.slice(0, 600);
   const results = [];
-  try { const pr = await pushAll(store, { title: 'פנייה חדשה מהאתר', body: `${lead.name || lead.phone}${lead.tourName ? ' · ' + lead.tourName : ''}`, url: `/admin#/leads/${lead.id}`, tag: 'lead-' + lead.id }); if (pr.sent) results.push('push'); } catch { /* optional */ }
+  try { const pr = await pushAll(store, { title: 'פנייה חדשה מהאתר', body: `${lead.name || lead.phone}${lead.tourName ? ' · ' + lead.tourName : ''}`, url: `/yoske-nihul-7k4q#/leads/${lead.id}`, tag: 'lead-' + lead.id }); if (pr.sent) results.push('push'); } catch { /* optional */ }
   const ctl = (ms) => { const c = new AbortController(); setTimeout(() => c.abort(), ms); return c.signal; };
   if (process.env.NOTIFY_WEBHOOK_URL) {
     try {

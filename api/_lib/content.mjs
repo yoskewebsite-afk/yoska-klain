@@ -5,7 +5,7 @@ import { newId } from './store.mjs';
 import { audit } from './auth.mjs';
 
 const MAX_REVISIONS = 60;
-const RESERVED = ['/api', '/admin', '/admin-app', '/assets', '/fonts', '/vendor', '/media', '/__preview'];
+const RESERVED = ['/api', '/admin', '/yoske-nihul-7k4q', '/admin-app', '/assets', '/fonts', '/vendor', '/media', '/__preview'];
 const cleanText = (s, max = 6000) => String(s ?? '').replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g, '').replace(/\{\{|\}\}/g, '').slice(0, max);
 const isUrl = (u) => /^(\/(?!\/)|#|https?:\/\/|tel:|mailto:)/i.test(u) || u === '';
 const cleanUrl = (u) => { const s = cleanText(u, 2000).trim(); if (!isUrl(s)) throw bad(`כתובת לא מורשית: ${s.slice(0, 60)}`); return s; };
@@ -57,16 +57,18 @@ function cleanPage(pid, p, schema) {
     if (ent.length > MAX_BLOCKS) throw bad(`אפשר להוסיף עד ${MAX_BLOCKS} סקשנים לעמוד.`);
     out.custom = Object.fromEntries(ent.map(([cid, b]) => [cid, cleanBlock(b)]));
   }
-  const ids = [...sch.sections.map((s) => s.id), ...Object.keys(out.custom || {})];
+  // until the owner touches them, the page's built-in added sections (defaults.custom) count as its sections
+  const custom = out.custom ?? assets().defaults.pages[pid]?.custom ?? {};
+  const ids = [...sch.sections.map((s) => s.id), ...Object.keys(custom)];
   if (Array.isArray(p.order)) {
     const order = p.order.filter((i) => ids.includes(i));
     for (const s of sch.sections) if (!order.includes(s.id)) order.push(s.id);
-    for (const cid of Object.keys(out.custom || {})) if (!order.includes(cid)) order.push(cid);
+    for (const cid of Object.keys(custom)) if (!order.includes(cid)) order.push(cid);
     for (const s of sch.sections.filter((x) => x.locked)) if (order.indexOf(s.id) !== ids.indexOf(s.id)) throw bad(`הסקשן "${s.label}" נעול במקומו.`);
     out.order = order;
   }
   for (const [sid, st] of Object.entries(p.sec || {})) {
-    if (out.custom?.[sid]) { out.sec[sid] = { hidden: !!st.hidden, removed: false, f: {}, l: {} }; continue; }
+    if (custom[sid]) { out.sec[sid] = { hidden: !!st.hidden, removed: false, f: {}, l: {} }; continue; }
     const ss = sch.sections.find((s) => s.id === sid);
     if (!ss) continue;
     if (ss.locked && (st.hidden || st.removed)) throw bad(`הסקשן "${ss.label}" לא ניתן להסתרה או להסרה.`);

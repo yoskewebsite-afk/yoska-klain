@@ -33,7 +33,7 @@ try {
   t('anonymous cannot export CSV', (await call('GET', '/api/admin/leads.csv', null, { auth: false })).s === 401);
   t('anonymous cannot publish', (await call('POST', '/api/admin/publish', {}, { auth: false })).s === 401);
   t('anonymous cannot preview the draft', (await call('GET', '/__preview/', null, { auth: false })).s === 401);
-  t('admin shell for anonymous is only a sign-in page', /כניסה/.test((await call('GET', '/admin', null, { auth: false })).text) && !/app\.js/.test((await call('GET', '/admin', null, { auth: false })).text));
+  t('admin shell for anonymous is only a sign-in page', /כניסה/.test((await call('GET', '/yoske-nihul-7k4q', null, { auth: false })).text) && !/app\.js/.test((await call('GET', '/yoske-nihul-7k4q', null, { auth: false })).text));
 
   console.log('— first admin');
   t('setup with a wrong token is refused', (await call('POST', '/api/admin/setup', { token: 'x', email: 'a@b.co', password: 'longenough1' }, { auth: false })).s === 403);
@@ -45,7 +45,7 @@ try {
   t('login works and sets an HttpOnly session cookie', r.s === 200 && /HttpOnly/i.test(r.h.get('set-cookie')) && /SameSite=Strict/i.test(r.h.get('set-cookie')));
   csrf = r.j.csrf;
   t('mutation without CSRF header is refused', (await call('POST', '/api/admin/publish', {}, { headers: { 'x-csrf-token': 'wrong' } })).s === 403);
-  t('admin shell for a signed-in admin is the app', /app\.js/.test((await call('GET', '/admin')).text));
+  t('admin shell for a signed-in admin is the app', /app\.js/.test((await call('GET', '/yoske-nihul-7k4q')).text));
 
   console.log('— public site without content in the database');
   r = await call('GET', '/', null, { auth: false });
@@ -90,7 +90,7 @@ try {
 
   console.log('— draft, preview, publish');
   r = await call('GET', '/api/admin/bundle');
-  t('bundle carries schema, defaults and tours', r.j.ok && r.j.schema.pages.index.sections.length >= 12 && r.j.tours.length === 7 && Object.keys(r.j.schema.pages).length === 21);
+  t('bundle carries schema, defaults and tours', r.j.ok && r.j.schema.pages.index.sections.length >= 11 && r.j.tours.length === 7 && Object.keys(r.j.schema.pages).length === 21);
   const idx = r.j.schema.pages.index;
   const heroKey = idx.sections[0].groups[0].fields[0].key;
   const faqKey = idx.sections.find((x) => x.id === 'faq').lists[0].key;
@@ -116,13 +116,34 @@ try {
   await call('POST', '/api/admin/publish', { note: 'הסתרת מסעות' });
   r = await call('GET', '/', null, { auth: false });
   t('hidden section is gone from the page and its rail link is removed', !/id="abroad"/.test(r.text) && !/data-rail-link="abroad"/.test(r.text));
-  r = await call('PATCH', '/api/admin/draft', { pages: { index: { order: ['map', 'top'] } } });
+  r = await call('PATCH', '/api/admin/draft', { pages: { index: { order: ['tours', 'top'] } } });
   t('hero cannot be moved', r.s === 400);
+
+  console.log('— 19.11.2026: secret admin path, built-in sections, sign-in code');
+  {
+    t('old /admin path is not the admin', !/כניסה|app\.js/.test((await call('GET', '/admin', null, { auth: false })).text));
+    const home = (await call('GET', '/', null, { auth: false })).text;
+    t('home: no map, upcoming tours is a built-in section, uniqueness after the reviews', !/id="map"/.test(home) && /cb--trips[^>]*id="upcoming"/.test(home) && home.indexOf('id="unique"') > home.indexOf('id="reviews"'));
+    t('home: the logos section stays hidden while it has no logos', !/cb--logos/.test(home));
+    let c = await call('POST', '/api/admin/code', { code: '123' });
+    t('a too short code is refused', c.s === 400);
+    c = await call('POST', '/api/admin/code', { code: '111111' });
+    t('an easy code is refused', c.s === 400);
+    c = await call('POST', '/api/admin/code', { code: '730194' });
+    t('a good code is saved', c.s === 200 && (await call('GET', '/api/admin/bundle')).j.me.hasCode === true);
+    t('sign-in page offers the code once one is set', /data-way="code"/.test((await call('GET', '/yoske-nihul-7k4q', null, { auth: false })).text));
+    c = await call('POST', '/api/admin/login', { code: '000000' }, { auth: false });
+    t('a wrong code does not sign in', c.s === 401);
+    c = await call('POST', '/api/admin/login', { code: '730194' }, { auth: false });
+    t('the right code signs in', c.s === 200 && c.j.ok); if (c.j?.csrf) csrf = c.j.csrf;
+    c = await call('POST', '/api/admin/code', { code: null });
+    t('the code can be turned off', c.s === 200 && (await call('GET', '/api/admin/bundle')).j.me.hasCode === false);
+  }
 
   console.log('— sections added from the admin');
   {
     const bnd = (await call('GET', '/api/admin/bundle')).j;
-    t('bundle carries the section library', Object.keys(bnd.blocks.types).length === 9);
+    t('bundle carries the section library', Object.keys(bnd.blocks.types).length === 11);
     const custom = { 'c-abc123': { type: 'split', c: { t1: 'קטע', t2: 'חדש *לגמרי*', body: '<b>x</b>', link: { label: 'וואטסאפ', href: 'wa' } }, d: { bg: 'navy', side: 'end', shape: 'evil' } },
       'c-evil99': { type: 'text', c: { t2: '{{set.email}}<script>', link: { label: 'x', href: 'javascript:alert(1)' } } } };
     let r2 = await call('PATCH', '/api/admin/draft', { pages: { about: { custom, order: ['c-abc123'] } } });

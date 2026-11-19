@@ -2074,3 +2074,48 @@ body:has(.cbanner) .fab { visibility: hidden; }
   .cb-cols--3 .cb-facts { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .cb-cols--4 .cb-facts { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
+
+/* ===================================================================== 19.11.2026: upcoming tours, client logos, logo-colour stripes */
+/* upcoming tours (added section "trips"): the owner's open tours, each with its date, a register/pay button and WhatsApp */
+.cb-trips { display: grid; gap: var(--s5); grid-template-columns: minmax(0, 1fr); margin-top: var(--s6); list-style: none; padding: 0; }
+.cb-trip { display: grid; grid-template-rows: auto 1fr; overflow: hidden; background: var(--white); color: var(--text); border: var(--edge); border-bottom: 8px solid var(--navy); border-radius: var(--r-moon); box-shadow: var(--sh-soft); }
+.cb-trip__media { aspect-ratio: 4 / 3; border: 0; border-bottom: 1px solid var(--navy); border-radius: 0; box-shadow: none; }
+.cb-trip__body { display: flex; flex-direction: column; align-items: flex-start; gap: var(--s3); padding: var(--s5) var(--s5) var(--s6); }
+.cb-trip__when { display: inline-flex; align-items: center; gap: .45em; padding: .3em .85em; border-radius: var(--r-btn); background: var(--sun-wash, #FDF3DC); color: var(--sun-ink, #8A5A00); font-weight: 700; font-size: .95rem; }
+.cb-trip__when svg { width: 1.25em; height: 1.25em; fill: none; stroke: currentColor; stroke-width: 2.6; }
+.cb-trip__t { font: 800 var(--fs-card)/1.2 var(--font); color: var(--navy); text-wrap: balance; }
+.cb-trip__acts { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s3) var(--s5); margin-top: auto; padding-top: var(--s2); }
+.cb-trip__wa { display: inline-flex; align-items: center; gap: .4em; min-height: 44px; }
+.cb-trip__wa svg { width: 1.2em; height: 1.2em; fill: none; stroke: currentColor; stroke-width: 2; }
+.cb-trips__acts { margin-top: var(--s6); }
+@media (min-width: 640px) { .cb-trips { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1000px) { .cb-cols--3 .cb-trips { grid-template-columns: repeat(3, minmax(0, 1fr)); } .cb-cols--4 .cb-trips { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+
+/* client logos (added section "logos"): a slow strip, greyscale until hovered; a plain scrolling row without motion */
+.cb--logos .cb__head { margin-bottom: var(--s5); }
+.cb--logos .cb__title { font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2.25rem); }
+.cb-logos { overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); border-radius: var(--r-box); }
+.cb-logos:focus-visible { outline: 3px solid var(--teal); outline-offset: 4px; }
+.cb-logos__track { display: flex; align-items: center; gap: clamp(2rem, 5vw, 4.5rem); width: max-content; list-style: none; margin: 0; padding: var(--s3) 0; animation: cb-logos calc(var(--n, 6) * 3.2s) linear infinite; }
+.cb-logos__track img { display: block; height: clamp(40px, 5vw, 64px); width: auto; max-width: 180px; object-fit: contain; filter: grayscale(1); opacity: .75; transition: filter .25s ease-out, opacity .25s ease-out; }
+.cb-logos__track li:hover img { filter: none; opacity: 1; }
+.cb-logos:hover .cb-logos__track, .cb-logos:focus-within .cb-logos__track { animation-play-state: paused; }
+@keyframes cb-logos { to { transform: translateX(50%); } }
+@media (prefers-reduced-motion: reduce) {
+  .cb-logos { overflow-x: auto; mask-image: none; }
+  .cb-logos__track { animation: none; }
+  .cb-logos__track li[aria-hidden="true"] { display: none; }
+}
+html.a11y-still .cb-logos__track { animation: none; }
+
+/* logo-colour stripes: four thin parallel lines in the logo's colours run between the home sections and draw themselves
+   with the scroll, so the page reads as one route. Decorative only; static (fully drawn) without motion */
+.stripes { position: relative; z-index: 2; height: clamp(56px, 8vw, 110px); margin-block: calc(clamp(56px, 8vw, 110px) / -2); pointer-events: none; }
+.stripes svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.stripes path { fill: none; stroke-width: 5; stroke-linecap: round; vector-effect: non-scaling-stroke; stroke-dasharray: 1; stroke-dashoffset: calc(1 - var(--p, 1)); }
+.stripes path:nth-child(1) { stroke: var(--orange); }
+.stripes path:nth-child(2) { stroke: var(--sun); }
+.stripes path:nth-child(3) { stroke: var(--teal); }
+.stripes path:nth-child(4) { stroke: var(--leaf); }
+.stripes--flip svg { transform: scaleX(-1); }
+@media (max-width: 699px) { .stripes path { stroke-width: 3.5; } }

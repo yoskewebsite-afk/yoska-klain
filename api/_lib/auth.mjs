@@ -34,14 +34,51 @@ export async function createUser(store, { email, name, password, role = 'admin' 
   return id;
 }
 
+// 19.11.2026: sign-in with a personal code instead of mail + password. The code is 6 to 12 digits, set by the signed-in
+// admin in Settings, stored only as an scrypt hash. Guessing is capped twice: 5 tries per address per 15 minutes, and
+// 30 tries per hour for the whole site (so a million combinations cannot be walked even from many addresses).
+export const codeProblem = (c) => (!/^\d{6,12}$/.test(String(c || '')) ? 'הקוד צריך להיות 6 עד 12 ספרות.' : null);
+export async function setCode(store, email, code) {
+  const user = await store.get('users', email);
+  if (!user) throw Object.assign(new Error('המשתמש לא נמצא.'), { status: 404 });
+  if (code === null) { delete user.code; }
+  else {
+    const bad = codeProblem(code);
+    if (bad) throw Object.assign(new Error(bad), { status: 400 });
+    if (/^(\d)\1+$/.test(code) || '0123456789012'.includes(code) || '9876543210987'.includes(code)) throw Object.assign(new Error('הקוד קל מדי לניחוש (ספרות זהות או רצף). בחרו קוד אחר.'), { status: 400 });
+    user.code = await hashPassword(code);
+  }
+  await store.put('users', email, user);
+  await audit(store, email, code === null ? 'code-off' : 'code-set', {});
+}
+async function userByCode(store, code) {
+  const users = (await store.list('users', { limit: 20 })).map((r) => r.data || {});
+  let hit = null;
+  for (const u of users) if (u.code && !hit && await verifyPassword(code, u.code)) hit = u;
+  if (!users.some((u) => u.code)) await scrypt('x', 'y', 64, { N, r: 8, p: 1 });
+  return hit;
+}
+
 export async function login(store, req, res) {
   const body = await readJson(req);
-  const email = String(body.email || '').trim().toLowerCase();
-  const rl = await rateLimit(store, `login:${ipHash(req)}:${email}`, 6, 15 * 60);
-  if (!rl.ok) return fail(res, 429, 'יותר מדי ניסיונות התחברות. נסו שוב בעוד כרבע שעה.');
-  const user = email ? await store.get('users', email) : null;
-  const ok = user ? await verifyPassword(String(body.password || ''), user.pw) : (await scrypt('x', 'y', 64, { N, r: 8, p: 1 }), false);   // same cost either way
-  if (!ok) return fail(res, 401, 'המייל או הסיסמה לא נכונים.');
+  let email = String(body.email || '').trim().toLowerCase();
+  let user = null, ok = false;
+  if (body.code !== undefined) {
+    const code = String(body.code || '').trim();
+    const rl = await rateLimit(store, `login-code:${ipHash(req)}`, 5, 15 * 60);
+    const rg = await rateLimit(store, 'login-code:all', 30, 60 * 60);
+    if (!rl.ok || !rg.ok) return fail(res, 429, 'יותר מדי ניסיונות עם קוד. נסו שוב מאוחר יותר, או היכנסו עם מייל וסיסמה.');
+    user = codeProblem(code) ? null : await userByCode(store, code);
+    ok = !!user;
+    if (!ok) return fail(res, 401, 'הקוד לא נכון.');
+    email = user.email;
+  } else {
+    const rl = await rateLimit(store, `login:${ipHash(req)}:${email}`, 6, 15 * 60);
+    if (!rl.ok) return fail(res, 429, 'יותר מדי ניסיונות התחברות. נסו שוב בעוד כרבע שעה.');
+    user = email ? await store.get('users', email) : null;
+    ok = user ? await verifyPassword(String(body.password || ''), user.pw) : (await scrypt('x', 'y', 64, { N, r: 8, p: 1 }), false);   // same cost either way
+    if (!ok) return fail(res, 401, 'המייל או הסיסמה לא נכונים.');
+  }
   const token = randomBytes(32).toString('hex');
   const csrf = randomBytes(16).toString('hex');
   const exp = Date.now() + SESSION_HOURS * 3600e3;

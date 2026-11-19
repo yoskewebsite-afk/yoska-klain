@@ -22,14 +22,14 @@ async function poll() {
     for (const l of r.leads.reverse()) {
       const text = [l.name || 'פנייה חדשה', l.tourName].filter(Boolean).join(' · ');
       sideNote({ title: 'פנייה חדשה מהאתר', text, actions: [{ label: 'פתיחה', primary: true, onclick: () => { location.hash = '#/leads/' + l.id; } }] });
-      if (document.hidden && 'Notification' in window && Notification.permission === 'granted' && reg) reg.showNotification('פנייה חדשה מהאתר', { body: text, icon: '/admin-app/icon-192.png', dir: 'rtl', lang: 'he', tag: 'lead-' + l.id, data: { url: '/admin#/leads/' + l.id } });
+      if (document.hidden && 'Notification' in window && Notification.permission === 'granted' && reg) reg.showNotification('פנייה חדשה מהאתר', { body: text, icon: '/admin-app/icon-192.png', dir: 'rtl', lang: 'he', tag: 'lead-' + l.id, data: { url: '/yoske-nihul-7k4q#/leads/' + l.id } });
     }
     if (r.leads.length) refreshBadge();
   } catch { /* offline or signed out: the next tick tries again */ }
 }
 
 export async function initNotify() {
-  if ('serviceWorker' in navigator) { try { reg = await navigator.serviceWorker.register('/admin-app/sw.js', { scope: '/admin' }); } catch { reg = null; } }
+  if ('serviceWorker' in navigator) { try { reg = await navigator.serviceWorker.register('/admin-app/sw.js', { scope: '/yoske-nihul-7k4q' }); } catch { reg = null; } }
   window.addEventListener('beforeinstallprompt', (e) => { e.preventDefault(); deferred = e; });
   setInterval(poll, 25000);
   document.addEventListener('visibilitychange', () => { if (!document.hidden) poll(); });

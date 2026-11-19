@@ -78,6 +78,21 @@ export const TYPES = {
     sample: { t1: 'יוסק׳ה', t2: 'במספרים' },
     sampleItems: [{ num: '10+', label: 'שנים של הדרכה' }, { num: '6', label: 'מסלולים בחיפה' }, { num: '1', label: 'יוסק׳ה אחד' }],
   },
+  // 19.11.2026 (owner + partner): upcoming tours the owner changes all the time, and the client logos strip
+  trips: {
+    label: 'סיורים קרובים', desc: 'הסיורים הפתוחים להרשמה: תמונה, מועד, כמה מילים, קישור להרשמה ולתשלום וכפתור לוואטסאפ. בלי סיורים ברשימה מוצגים רק הכותרת והכפתורים.',
+    c: [...HEAD, 'link', 'link2'], items: { label: 'סיור', max: 12, f: ['img', 'title', 'when', 'text', 'reg'] },
+    d: { bg: 'sunsoft', pad: 'm', align: 'start', width: 'wide', accent: 'sun', shape: 'moon', cols: '3', btn: 'sun', reveal: 'rise' },
+    sample: { t1: 'רוצים להצטרף לסיור בלי לארגן קבוצה משלכם?', t2: 'הסיורים *הקרובים*' },
+    sampleItems: [],
+  },
+  logos: {
+    label: 'לוגואים של לקוחות', desc: 'רצועת לוגואים שזזה לאט, ״כבר יצאנו לדרך עם״. כל עוד אין לוגואים ברשימה, הסקשן לא מוצג באתר.',
+    c: ['t1', 't2'], items: { label: 'לוגו', max: 40, f: ['img', 'org'] },
+    d: { bg: 'white', pad: 's', align: 'center', accent: 'orange' },
+    sample: { t1: 'כבר יצאנו', t2: 'לדרך *עם*' },
+    sampleItems: [],
+  },
 };
 
 export const FIELD = {
@@ -91,6 +106,8 @@ export const FIELD = {
   title: { kind: 'text', label: 'כותרת', max: 100 }, text: { kind: 'long', label: 'טקסט', max: 600 },
   q: { kind: 'text', label: 'שאלה', max: 200 }, a: { kind: 'long', label: 'תשובה', max: 1500 },
   cap: { kind: 'text', label: 'כיתוב (לא חובה)', max: 140 },
+  when: { kind: 'text', label: 'מתי (תאריך ושעה)', max: 80 }, reg: { kind: 'link', label: 'כפתור הרשמה ותשלום' },
+  org: { kind: 'text', label: 'שם הארגון (לקורא מסך)', max: 100 },
   num: { kind: 'text', label: 'המספר', max: 12 }, label: { kind: 'text', label: 'מה הוא אומר', max: 80 },
 };
 
@@ -194,6 +211,21 @@ export function renderBlock(cid, b) {
     case 'facts':
       inner = `<div class="wrap cb__in">${head(c, d, hid)}<dl class="cb-facts">${items.filter((it) => it.num).map((it) => `<div class="cb-fact"${rv}><dt class="cb-fact__n">${marked(it.num.replace(/^\*|\*$/g, ''), d.accent)}</dt><dd>${esc(it.label || '')}</dd></div>`).join('')}</dl></div>`;
       break;
+    case 'trips': {
+      const live = items.filter((it) => it.title);
+      const waOf = (it) => `https://wa.me/{{set.waNumber}}?text=${encodeURIComponent(`היי יוסק׳ה, אשמח לפרטים על ${it.title}${it.when ? ` (${it.when})` : ''}`)}`;
+      const card = (it) => `<li class="cb-trip"${rv}>${it.img?.src ? `<div class="cb-trip__media cb-media">${img(it.img, '(min-width: 1000px) 30vw, (min-width: 600px) 46vw, 92vw')}</div>` : ''}<div class="cb-trip__body">${it.when ? `<p class="cb-trip__when"><svg aria-hidden="true"><use href="#b-calendar"/></svg>${esc(it.when)}</p>` : ''}<h3 class="cb-trip__t">${esc(it.title)}</h3>${it.text ? paras(it.text) : ''}<div class="cb-trip__acts">${it.reg?.href ? `<a class="btn btn--sun btn--sm" href="${hrefOf(it.reg.href)}"${ext(it.reg.href)} data-track="upcoming_trip_register">${esc(it.reg.label || 'להרשמה ותשלום')}<span class="visually-hidden">: ${esc(it.title)}${/^https?:/i.test(it.reg.href) ? ' (נפתח בלשונית חדשה)' : ''}</span></a>` : ''}<a class="textlink cb-trip__wa" href="${waOf(it)}" target="_blank" rel="noopener" data-track="upcoming_trip_whatsapp"><svg aria-hidden="true"><use href="#i-chat"/></svg>לשאול בוואטסאפ<span class="visually-hidden"> על ${esc(it.title)} (נפתח בלשונית חדשה)</span></a></div></div></li>`;
+      const acts = c.link?.label || c.link2?.label ? `<div class="btnrow cb__acts cb-trips__acts">${btn(c.link, d.btn, false)}${c.link2?.label && c.link2.href ? `<a class="btn btn--line" href="${hrefOf(c.link2.href)}"${ext(c.link2.href)}>${esc(c.link2.label)}</a>` : ''}</div>` : '';
+      inner = `<div class="wrap cb__in">${head(c, d, hid)}${live.length ? `<ul class="cb-trips" role="list">${live.map(card).join('')}</ul>` : ''}${acts}</div>`;
+      break;
+    }
+    case 'logos': {
+      const live = items.filter((it) => it.img?.src);
+      if (!live.length) return '';   // nothing to show until the owner uploads approved logos
+      const li = (it, dup) => `<li${dup ? ' aria-hidden="true"' : ''}><img src="${esc(it.img.src)}"${it.img.w ? ` width="${esc(it.img.w)}" height="${esc(it.img.h)}"` : ''} alt="${dup ? '' : esc(it.org || it.img.alt || '')}" loading="lazy" decoding="async"></li>`;
+      inner = `<div class="wrap cb__in">${head(c, d, hid, { body: false })}<div class="cb-logos" tabindex="0" aria-label="לוגואים של ארגונים שיצאו עם יוסק׳ה"><ul class="cb-logos__track" style="--n:${live.length}">${live.map((it) => li(it)).join('')}${live.map((it) => li(it, true)).join('')}</ul></div></div>`;
+      break;
+    }
     default: return '';
   }
   return `${open}${inner}</section>`;

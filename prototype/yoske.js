@@ -557,3 +557,43 @@
   if (document.readyState === 'complete' || window.gsap) motion();
   else addEventListener('DOMContentLoaded', motion, { once: true });
 })();
+
+/* 19.11.2026: logo-colour stripes between the home sections. Four parallel lines (orange, sun, teal, leaf) cross the seam
+   between two sections and draw themselves as that seam scrolls through the screen, so the page reads as one route.
+   Decorative (aria-hidden), injected only on the home page; without motion they are simply drawn. */
+(() => {
+  if (!document.body.classList.contains('home')) return;
+  const seams = ['tours', 'moments', 'unique', 'faq'];   // not before #groups: the cable-car line crosses that seam
+  const still = () => matchMedia('(prefers-reduced-motion: reduce)').matches || document.documentElement.classList.contains('a11y-still');
+  const W = 1200, H = 100;
+  const line = (k) => { const o = (k - 1.5) * 9; return `M-20 ${70 + o} C ${W * .22} ${92 + o}, ${W * .38} ${18 + o}, ${W * .6} ${38 + o} S ${W * .9} ${66 + o}, ${W + 20} ${24 + o}`; };
+  const svg = `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" focusable="false">${[0, 1, 2, 3].map((k) => `<path pathLength="1" d="${line(k)}"/>`).join('')}</svg>`;
+  const bands = [];
+  seams.forEach((id, i) => {
+    const sec = document.getElementById(id);
+    if (!sec || !sec.parentNode) return;
+    const d = document.createElement('div');
+    d.className = 'stripes' + (i % 2 ? ' stripes--flip' : '');
+    d.setAttribute('aria-hidden', 'true');
+    d.innerHTML = svg;
+    sec.parentNode.insertBefore(d, sec);
+    bands.push(d);
+  });
+  if (!bands.length || still()) return;
+  let raf = 0;
+  const paint = () => {
+    raf = 0;
+    const vh = innerHeight;
+    for (const b of bands) {
+      const r = b.getBoundingClientRect();
+      // 0 when the seam enters at the bottom of the screen, 1 once it reaches 35% from the top
+      const p = Math.min(1, Math.max(0, (vh - r.top) / (vh * .65)));
+      b.style.setProperty('--p', p.toFixed(3));
+    }
+  };
+  const ask = () => { if (!raf) raf = requestAnimationFrame(paint); };
+  bands.forEach((b) => b.style.setProperty('--p', '0'));
+  addEventListener('scroll', ask, { passive: true });
+  addEventListener('resize', ask);
+  paint();
+})();
