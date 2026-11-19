@@ -1,4 +1,5 @@
 // The whole HTTP API behind /api/*. Public routes: lead, event, health. Everything under /api/admin needs a signed-in admin.
+import { spec as blockSpec } from './blocks.mjs';
 import { getStore, buckets } from './store.mjs';
 import { send, fail, readJson, urlOf } from './http.mjs';
 import * as auth from './auth.mjs';
@@ -102,7 +103,7 @@ export async function handle(req, res, path) {
       const draft = d || published || null;
       return ok(res, {
         me: { user: { email: sess.email, name: sess.name }, csrf: sess.csrf },
-        schema: A.schema, defaults: { pages: A.defaults.pages, shared: A.defaults.shared, tours: A.defaults.tours, settings: A.defaults.settings },
+        schema: A.schema, blocks: blockSpec(), defaults: { pages: A.defaults.pages, shared: A.defaults.shared, tours: A.defaults.tours, settings: A.defaults.settings },
         draft, published, status: await content.status(store, [d, published]), settings: mergedSettings(draft), tours: effectiveTours(draft), report: content.reportFor(draft), store: store.kind,
       });
     }

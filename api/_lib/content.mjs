@@ -1,4 +1,5 @@
 // Content snapshots: draft, published, revisions. Validation and sanitising happen here, on the server, for every write.
+import { cleanBlock, ID_RE, MAX_BLOCKS } from './blocks.mjs';
 import { assets, mergedSettings, effectiveTours, pagePath, defaultPath, hasPage, sectionState, tourOfPage } from './render.mjs';
 import { newId } from './store.mjs';
 import { audit } from './auth.mjs';
@@ -50,14 +51,22 @@ function cleanPage(pid, p, schema) {
     if (RESERVED.some((r) => pth === r || pth.startsWith(r + '/'))) throw bad('הכתובת שמורה למערכת.');
     out.seo.path = pth;
   }
-  const ids = sch.sections.map((s) => s.id);
+  // sections the owner added (custom blocks): validated one by one, then they join the order like any other section
+  if (p.custom && typeof p.custom === 'object') {
+    const ent = Object.entries(p.custom).filter(([cid]) => ID_RE.test(cid));
+    if (ent.length > MAX_BLOCKS) throw bad(`אפשר להוסיף עד ${MAX_BLOCKS} סקשנים לעמוד.`);
+    out.custom = Object.fromEntries(ent.map(([cid, b]) => [cid, cleanBlock(b)]));
+  }
+  const ids = [...sch.sections.map((s) => s.id), ...Object.keys(out.custom || {})];
   if (Array.isArray(p.order)) {
     const order = p.order.filter((i) => ids.includes(i));
     for (const s of sch.sections) if (!order.includes(s.id)) order.push(s.id);
+    for (const cid of Object.keys(out.custom || {})) if (!order.includes(cid)) order.push(cid);
     for (const s of sch.sections.filter((x) => x.locked)) if (order.indexOf(s.id) !== ids.indexOf(s.id)) throw bad(`הסקשן "${s.label}" נעול במקומו.`);
     out.order = order;
   }
   for (const [sid, st] of Object.entries(p.sec || {})) {
+    if (out.custom?.[sid]) { out.sec[sid] = { hidden: !!st.hidden, removed: false, f: {}, l: {} }; continue; }
     const ss = sch.sections.find((s) => s.id === sid);
     if (!ss) continue;
     if (ss.locked && (st.hidden || st.removed)) throw bad(`הסקשן "${ss.label}" לא ניתן להסתרה או להסרה.`);

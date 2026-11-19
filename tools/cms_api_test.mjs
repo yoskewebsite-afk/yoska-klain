@@ -119,7 +119,27 @@ try {
   r = await call('PATCH', '/api/admin/draft', { pages: { index: { order: ['map', 'top'] } } });
   t('hero cannot be moved', r.s === 400);
 
-  console.log('— tours');
+  console.log('— sections added from the admin');
+  {
+    const bnd = (await call('GET', '/api/admin/bundle')).j;
+    t('bundle carries the section library', Object.keys(bnd.blocks.types).length === 9);
+    const custom = { 'c-abc123': { type: 'split', c: { t1: 'קטע', t2: 'חדש *לגמרי*', body: '<b>x</b>', link: { label: 'וואטסאפ', href: 'wa' } }, d: { bg: 'navy', side: 'end', shape: 'evil' } },
+      'c-evil99': { type: 'text', c: { t2: '{{set.email}}<script>', link: { label: 'x', href: 'javascript:alert(1)' } } } };
+    let r2 = await call('PATCH', '/api/admin/draft', { pages: { about: { custom, order: ['c-abc123'] } } });
+    t('a page accepts added sections', r2.j.ok);
+    r2 = await call('PATCH', '/api/admin/draft', { pages: { about: { custom: { 'c-bad123': { type: 'nope' } } } } });
+    t('an unknown section type is refused', r2.s === 400);
+    await call('PATCH', '/api/admin/draft', { pages: { about: { custom, order: ['c-abc123'], sec: { 'c-evil99': { hidden: false } } } } });
+    const pv = (await call('GET', '/__preview/about.html')).text;
+    t('added section renders first, in the chosen design', /<section class="cb cb--split cb-bg--navy[^"]*cb-shape--moon[^"]*cb-side--end/.test(pv) && pv.indexOf('data-cb="c-abc123"') < pv.indexOf('<!--') + 1e9 && pv.indexOf('data-cb="c-abc123"') < pv.indexOf('data-cb="c-evil99"'));
+    t('added sections are escaped and links are safe', pv.includes('&lt;script&gt;') && !/javascript:|<b>x<\/b>/.test(pv) && /wa\.me\/\d+/.test(pv) && /hl hl--orange">לגמרי/.test(pv));
+    t('the public site does not show it before publishing', !(await call('GET', '/about.html', null, { auth: false })).text.includes('data-cb='));
+    await call('PATCH', '/api/admin/draft', { pages: { about: { custom, order: ['c-abc123'], sec: { 'c-abc123': { hidden: true } } } } });
+    t('a hidden added section is not rendered', !(await call('GET', '/__preview/about.html')).text.includes('data-cb="c-abc123"'));
+    await call('PATCH', '/api/admin/draft', { pages: { about: {} } });
+  }
+
+
   r = await call('GET', '/api/admin/bundle');
   let tours = r.j.tours;
   const nt = { ...tours[0], id: 'new-tour', slug: 'new-tour', name: 'סיור בדיקה חדש', place: 'מקום בדיקה', blurb: 'תיאור קצר של סיור בדיקה.', fit: '', btn: 'לשאול על הסיור', page: false, status: 'published', home: true, featured: false, order: 99, stops: ['הנמל'], card: tours[0].card };

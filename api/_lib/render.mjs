@@ -1,4 +1,5 @@
 // Renders public pages from the extracted templates (cms/templates) plus the published (or draft) content snapshot.
+import { renderBlock } from './blocks.mjs';
 // Pure functions, no I/O except the one-time read of the bundled templates. Works with an empty snapshot: the defaults
 // reproduce the site exactly as it was built, so the public site never depends on the database being reachable.
 import { readFileSync } from 'node:fs';
@@ -168,7 +169,7 @@ export function sectionState(snap, pid) {
   const A = assets();
   const sch = A.schema.pages[pid];
   const pg = snap?.pages?.[pid];
-  const ids = sch.sections.map((s) => s.id);
+  const ids = [...sch.sections.map((s) => s.id), ...Object.keys(pg?.custom || {})];
   let order = (pg?.order || ids).filter((i) => ids.includes(i));
   for (const i of ids) if (!order.includes(i)) order.push(i);
   const hidden = new Set(ids.filter((i) => pg?.sec?.[i]?.hidden || pg?.sec?.[i]?.removed));
@@ -213,6 +214,7 @@ export function renderPage({ snap, pid, draft = false, origin = '' }) {
     const blocks = {};
     let first = -1, last = 0;
     tpl.replace(SECTION_RE, (m, id, body, off) => { blocks[id] = body; if (first < 0) first = off; last = off + m.length; return m; });
+    for (const [cid, b] of Object.entries(pg?.custom || {})) blocks[cid] = renderBlock(cid, b);   // sections the owner added in the admin
     if (first < 0) { out = renderRegions(tpl); } else {
       const mid = st.order.filter((i) => !st.hidden.has(i)).map((i) => '    ' + renderRegions(renderLists(blocks[i], i))).join('\n\n');
       out = tpl.slice(0, first) + mid + '\n' + tpl.slice(last);

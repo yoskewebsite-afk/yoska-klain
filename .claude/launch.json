@@ -42,6 +42,18 @@
         "4210"
       ],
       "port": 4210
+    },
+    {
+      "name": "yoske-sections",
+      "runtimeExecutable": "env",
+      "runtimeArgs": [
+        "CMS_STORE=file",
+        "CMS_DATA_DIR=.data-sb",
+        "node",
+        "tools/dev_server.mjs",
+        "4220"
+      ],
+      "port": 4220
     }
   ]
 }

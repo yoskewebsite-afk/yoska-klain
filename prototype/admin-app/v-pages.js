@@ -1,6 +1,7 @@
 // דפים וסקשנים: pick a page, pick a section, edit the fields that section really renders, preview, save a draft, publish.
 import { h, icon, api, toast, drawer, dialog, confirmDialog, pickMedia, clone, rid, $ } from './ui.js';
-import { S, pageDef, order, setOrder, pageState, secState, val, setVal, items, setItems, seoOf, setSeo, pathOf, saveDraft, touch, onChange } from './state.js';
+import { S, pageDef, order, setOrder, pageState, secState, val, setVal, items, setItems, seoOf, setSeo, pathOf, saveDraft, touch, onChange, isCustom, blockOf, blockTitle, addBlock, dupBlock, removeBlock } from './state.js';
+import { openLibrary, blockEditor, confirmRemove } from './v-blocks.js';
 import { go, publishFlow, historyFlow, unsavedDialog } from './app.js';
 
 const ICONS = ['gate', 'pin', 'route', 'person', 'group', 'camera', 'heart', 'question', 'globe', 'phone', 'clock', 'sun'];
@@ -18,11 +19,11 @@ export async function render(root, params) {
 // ------------------------------------------------------------ page list
 function renderIndex(root) {
   const mk = (pid) => {
-    const p = S.schema.pages[pid], seo = seoOf(pid), secs = p.sections.length;
+    const p = S.schema.pages[pid], seo = seoOf(pid), added = Object.keys(S.draft.pages[pid]?.custom || {}).length, secs = p.sections.length + added;
     const hidden = p.sections.filter((s) => S.draft.pages[pid]?.sec?.[s.id]?.hidden).length;
     return h('a', { class: 'rowlink glass', style: 'padding:14px 18px;border-radius:16px;margin-bottom:10px;min-height:68px', href: '#/pages/' + pid },
       h('div', { class: 'rowlink__t' }, h('b', { text: p.label }), h('span', { class: 'ltr', text: pathOf(pid) + (seo.noindex ? ' · לא לאינדוקס' : '') })),
-      h('span', { class: 'count', text: `${secs} בלוקים${hidden ? ` · ${hidden} מוסתרים` : ''}` }), icon('left'));
+      h('span', { class: 'count', text: `${secs} סקשנים${added ? ` · ${added} נוספו` : ''}${hidden ? ` · ${hidden} מוסתרים` : ''}` }), icon('left'));
   };
   const ids = Object.keys(S.schema.pages), plain = ids.filter((p) => !p.startsWith('tour-')), tourPages = ids.filter((p) => p.startsWith('tour-'));
   const rows = plain.map(mk), trows = tourPages.map(mk);
@@ -40,7 +41,7 @@ async function renderEditor(root, pid, sid0, q = {}) {
   let tab = q.tab === 'seo' && !shared ? 'seo' : 'sections';
   let sid = sid0 || null;
   const secs = def.sections;
-  const getSec = (id) => secs.find((s) => s.id === id);
+  const getSec = (id) => { const s = secs.find((x) => x.id === id); if (s || shared || !isCustom(pid, id)) return s; const t = blockTitle(blockOf(pid, id)); return { id, custom: true, label: t.title || t.type, typeLabel: t.type, groups: [], lists: [], regions: [], deps: [], locked: false }; };
 
   const status = h('span', { class: 'savebar__st', role: 'status' }, h('i'), h('span'));
   const saveBtn = h('button', { class: 'btn', type: 'button', onclick: doSave }, icon('save'), 'שמור טיוטה');
@@ -72,7 +73,7 @@ async function renderEditor(root, pid, sid0, q = {}) {
       const s = getSec(id), st = S.draft.pages[pid]?.sec?.[id] || {}, hid = !!(st.hidden || st.removed);
       const el = h('div', { class: 'sec' + (hid ? ' is-hidden' : ''), draggable: s.locked || shared ? null : 'true', 'aria-current': String(id === sid) },
         s.locked || shared ? h('span', { class: 'mv', title: s.locked ? 'נעול במקומו' : '' }, s.locked ? icon('lock') : null) : h('span', { class: 'mv grip', 'aria-hidden': 'true' }, icon('grip')),
-        h('button', { class: 'sec__main', type: 'button', onclick: () => { sid = id; tab = 'sections'; paintList(); paintPanel(); history.replaceState(null, '', `#/pages/${pid}/${id}`); } }, h('span', { text: s.label }), hid ? h('span', { class: 'tag tag--mute', text: st.removed ? 'הוסר' : 'מוסתר' }) : null),
+        h('button', { class: 'sec__main', type: 'button', onclick: () => { sid = id; tab = 'sections'; paintList(); paintPanel(); history.replaceState(null, '', `#/pages/${pid}/${id}`); } }, h('span', { class: 'sec__lbl' }, s.custom ? h('small', { class: 'sec__type', text: s.typeLabel }) : null, h('span', { text: s.label })), s.custom ? h('span', { class: 'tag tag--new', text: 'נוסף' }) : null, hid ? h('span', { class: 'tag tag--mute', text: st.removed ? 'הוסר' : 'מוסתר' }) : null),
         shared || s.locked ? null : h('button', { class: 'mv', type: 'button', 'aria-label': 'העלאה', disabled: idx <= (secs.find((x) => x.locked) ? 1 : 0) || idx === 0, onclick: () => move(idx, -1) }, icon('up')),
         shared || s.locked ? null : h('button', { class: 'mv', type: 'button', 'aria-label': 'הורדה', disabled: idx === ord.length - 1, onclick: () => move(idx, 1) }, icon('down')));
       if (!s.locked && !shared) {
@@ -81,7 +82,14 @@ async function renderEditor(root, pid, sid0, q = {}) {
         el.addEventListener('drop', (e) => { e.preventDefault(); const from = e.dataTransfer.getData('text/plain'); const o = order(pid); const a = o.indexOf(from), b = o.indexOf(id); if (a < 0 || b < 0 || a === b) return; o.splice(b, 0, o.splice(a, 1)[0]); if (lockedFirst(o)) { setOrder(pid, o); paintList(); } });
       }
       return el;
-    }));
+    }), shared ? null : h('button', { class: 'btn addsec', type: 'button', onclick: () => addFlow(sid) }, icon('plus'), sid ? 'הוספת סקשן אחרי הנבחר' : 'הוספת סקשן'));
+  }
+  async function addFlow(after) {
+    const type = await openLibrary();
+    if (!type) return;
+    sid = addBlock(pid, type, after && order(pid).includes(after) ? after : null); tab = 'sections';
+    paintList(); paintPanel(); history.replaceState(null, '', `#/pages/${pid}/${sid}`);
+    toast(`הסקשן ״${S.blocks.types[type].label}״ נוסף. אפשר לגרור אותו למקום אחר.`);
   }
   const lockedFirst = (o) => secs.every((s, i) => !s.locked || o.indexOf(s.id) === i) || (toast('הסקשן הנעול חייב להישאר במקומו.', 'err'), false);
   function move(idx, d) { const o = order(pid); const j = idx + d; if (j < 0 || j >= o.length) return; [o[idx], o[j]] = [o[j], o[idx]]; if (lockedFirst(o)) { setOrder(pid, o); paintList(); } }
@@ -103,9 +111,17 @@ async function renderEditor(root, pid, sid0, q = {}) {
       const dis = s.locked;
       children.push(h('div', { style: 'display:flex;gap:10px;flex-wrap:wrap;align-items:center' },
         h('label', { class: 'switch', title: dis ? 'סקשן הפתיחה נעול' : '' }, h('input', { type: 'checkbox', checked: !st.hidden, disabled: dis, onchange: (e) => toggleHidden(s, !e.target.checked, e.target) }), h('span', { class: 'switch__t' }), h('span', { text: st.hidden ? 'מוסתר באתר' : 'מוצג באתר' })),
-        h('button', { class: 'btn btn--sm', type: 'button', onclick: () => openPreview(s.id) }, icon('eye'), 'הצגה בתצוגה מקדימה'),
+        h('button', { class: 'btn btn--sm', type: 'button', onclick: () => openPreview(s.custom ? blockOf(pid, s.id).d?.anchor || s.id : s.id) }, icon('eye'), 'הצגה בתצוגה מקדימה'),
         s.locked ? h('span', { class: 'tag tag--mute' }, 'נעול: הסקשן תלוי ברצף הגלילה ובגזרת יוסק׳ה') : s.scripted ? h('span', { class: 'tag tag--mute', text: 'כולל אנימציית גלילה' }) : null));
       if (s.deps?.length) children.push(h('div', { class: 'notice' }, h('strong', { text: 'תלויות בסקשן הזה' }), h('ul', { class: 'deps', style: 'margin:0;padding:0' }, s.deps.map((d) => h('li', { text: d + '. הסתרה מסירה אותם אוטומטית מהניווט.' })))));
+    }
+    if (s.custom) {
+      children.push(h('div', { style: 'display:flex;gap:8px;flex-wrap:wrap' },
+        h('button', { class: 'btn btn--sm', type: 'button', onclick: () => { sid = dupBlock(pid, s.id); paintList(); paintPanel(); toast('הסקשן שוכפל.'); } }, icon('copy'), 'שכפול'),
+        h('button', { class: 'btn btn--sm btn--danger', type: 'button', onclick: async () => { if (await confirmRemove(s.label)) { removeBlock(pid, s.id); sid = null; paintList(); paintPanel(); history.replaceState(null, '', `#/pages/${pid}`); toast('הסקשן נמחק מהטיוטה.'); } } }, icon('trash'), 'מחיקה')),
+        blockEditor({ pid, cid: s.id, onChange: () => { const t = blockTitle(blockOf(pid, s.id)); const cur = list.querySelector('.sec[aria-current="true"] .sec__lbl > span'); if (cur) cur.textContent = t.title || t.type; } }));
+      panel.replaceChildren(...children);
+      return;
     }
     if (s.regions?.length) children.push(h('div', { class: 'notice' }, h('strong', { text: 'חלקים שמנוהלים במקום אחר' }), h('p', { text: regionNote(s.regions) }), h('a', { class: 'btn btn--sm', style: 'justify-self:start', href: s.regions.includes('form-contact') ? '#/forms' : '#/tours' }, s.regions.includes('form-contact') ? 'למסך הטפסים' : 'למסך הטיולים')));
     for (const g of s.groups) children.push(group(g, s));

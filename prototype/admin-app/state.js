@@ -11,7 +11,7 @@ const emit = () => S.listeners.forEach((f) => f());
 export async function load() {
   const b = await api('GET', '/api/admin/bundle');
   if (b.me) S.me = b.me;
-  Object.assign(S, { schema: b.schema, defaults: b.defaults, draft: b.draft || { v: 1, pages: {}, shared: { f: {} } }, published: b.published, status: b.status, settings: b.settings, tours: b.tours, form: b.form, report: b.report, store: b.store });
+  Object.assign(S, { blocks: b.blocks, schema: b.schema, defaults: b.defaults, draft: b.draft || { v: 1, pages: {}, shared: { f: {} } }, published: b.published, status: b.status, settings: b.settings, tours: b.tours, form: b.form, report: b.report, store: b.store });
   S.draft.pages ||= {}; S.draft.shared ||= { f: {} };
   S.unsaved = false; S.touched = { pages: new Set(), shared: false, tours: false, settings: false, forms: false };
   emit();
@@ -47,8 +47,44 @@ export async function saveDraft() {
 export const pageDef = (pid) => S.schema.pages[pid];
 export function pageState(pid) { const p = (S.draft.pages[pid] ||= {}); p.seo ||= {}; p.sec ||= {}; return p; }
 export function secState(pid, sid) { const p = pageState(pid); return (p.sec[sid] ||= { hidden: false, removed: false, f: {}, l: {} }); }
-export const order = (pid) => { const ids = pageDef(pid).sections.map((s) => s.id); const o = (S.draft.pages[pid]?.order || ids).filter((i) => ids.includes(i)); ids.forEach((i) => !o.includes(i) && o.push(i)); return o; };
+export const order = (pid) => { const ids = [...pageDef(pid).sections.map((s) => s.id), ...Object.keys(S.draft.pages[pid]?.custom || {})]; const o = (S.draft.pages[pid]?.order || ids).filter((i) => ids.includes(i)); ids.forEach((i) => !o.includes(i) && o.push(i)); return o; };
 export function setOrder(pid, o) { pageState(pid).order = o; touch('pages', pid); }
+
+// ---- sections the owner adds (custom blocks)
+export const customOf = (pid) => (pageState(pid).custom ||= {});
+export const isCustom = (pid, id) => !!S.draft.pages[pid]?.custom?.[id];
+const newCid = () => 'c-' + Math.random().toString(36).slice(2, 9).replace(/[^a-z0-9]/g, 'x').padEnd(6, '0');
+export function addBlock(pid, type, afterId) {
+  const T = S.blocks.types[type];
+  const cid = newCid();
+  const b = { type, c: clone(T.sample || {}), d: clone(T.d) };
+  if (T.items) b.items = (T.sampleItems || []).map((x) => ({ id: rid(), ...clone(x) }));
+  const o = order(pid);
+  customOf(pid)[cid] = b;
+  const at = afterId ? o.indexOf(afterId) : -1;
+  o.splice(at < 0 ? o.length : at + 1, 0, cid);
+  setOrder(pid, o);
+  return cid;
+}
+export function dupBlock(pid, cid) {
+  const cid2 = newCid(), b = clone(customOf(pid)[cid]);
+  if (b.items) b.items = b.items.map((it) => ({ ...it, id: rid() }));
+  if (b.d?.anchor) delete b.d.anchor;
+  const o = order(pid); customOf(pid)[cid2] = b; o.splice(o.indexOf(cid) + 1, 0, cid2); setOrder(pid, o);
+  return cid2;
+}
+export function removeBlock(pid, cid) {
+  const p = pageState(pid);
+  delete p.custom?.[cid]; delete p.sec?.[cid];
+  p.order = order(pid).filter((i) => i !== cid);
+  touch('pages', pid);
+}
+export const blockOf = (pid, cid) => S.draft.pages[pid]?.custom?.[cid];
+export function blockTitle(b) {
+  const T = S.blocks.types[b.type];
+  const t = [b.c?.t1, b.c?.t2].filter(Boolean).join(' ').replace(/\*/g, '') || b.c?.quote || '';
+  return { type: T?.label || b.type, title: t.length > 42 ? t.slice(0, 40) + '…' : t };
+}
 
 export function val(pid, key) {
   if (key.startsWith('shared.')) return S.draft.shared?.f?.[key] ?? S.defaults.shared.fields[key];
