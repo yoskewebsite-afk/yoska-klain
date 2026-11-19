@@ -19,7 +19,7 @@
   <link rel="preload" href="/fonts/heebo-hebrew-300-900.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/karantina-hebrew-700.woff2" as="font" type="font/woff2" crossorigin>
   
-  <link rel="stylesheet" href="/yoske.css?v=dd9c5c0972">
+  <link rel="stylesheet" href="/yoske.css?v=817adc11e8">
 {{{head.extra}}}</head>
 <body class="page" data-ga4="">
   <a class="skip" href="#main">דילוג לתוכן</a>
@@ -44,15 +44,17 @@
       <div class="wrap">
         
         <h1 class="duo-title "><span class="duo-title__light">{{blk1.t1}}</span> <span class="duo-title__bold">{{blk1.t2}} <span class="hl">{{blk1.t3}}</span></span></h1>
+      
+        <div class="phead__acts"><a class="btn btn--sun" href="{{blk1.l1}}" data-lead-kind="family" data-track="family_contact_click">{{blk1.t4}}</a></div>
       </div>
       <figure class="wrap phead__photo"><div class="frame frame--wide"><img src="{{blk1.img1.src}}" srcset="{{blk1.img1.srcset}}" sizes="(min-width: 1280px) 1180px, 92vw" width="{{blk1.img1.w}}" height="{{blk1.img1.h}}" alt="{{blk1.img1.alt}}" fetchpriority="high" style="object-position:{{blk1.img1.pos}}"></div></figure>
-    </section><!--/cms:s blk1--><!--cms:s blk2--><div class="wrap"><a class="btn btn--sun" href="{{blk2.l1}}" data-lead-kind="family" data-track="family_contact_click">{{blk2.t1}}</a></div><!--/cms:s blk2-->    <!--cms:s blk3--><section class="wrap prose ">
-      <h2 class="duo-title "><span class="duo-title__light"></span> <span class="duo-title__bold">{{blk3.t1}} <span class="hl hl--teal">{{blk3.t2}}</span></span></h2>
-      <div class="prose__body"><p>{{blk3.t3}}</p></div>
-    </section><!--/cms:s blk3--><!--cms:s blk4--><section class="wrap" aria-labelledby="f4"><h2 class="duo-title" id="f4"><span class="duo-title__light">{{blk4.t1}}</span> <span class="duo-title__bold">{{blk4.t2}}</span></h2><ol class="opts"><!--cms:list blk4.list1--><li class="{{i.cls}}"><span class="fopt__n">{{i.t1}}</span><h3>{{i.t2}}</h3><p>{{i.t3}}</p></li><!--/cms:list--></ol></section><!--/cms:s blk4-->    <!--cms:s blk5--><section class="wrap prose ">
-      <h2 class="duo-title "><span class="duo-title__light">{{blk5.t1}}</span> <span class="duo-title__bold">{{blk5.t2}}</span></h2>
-      <div class="prose__body"><p>{{blk5.t3}}</p></div>
-    </section><!--/cms:s blk5-->    <!--cms:s pf--><section class="faq" id="pf" aria-labelledby="pf-t">
+    </section><!--/cms:s blk1-->    <!--cms:s blk2--><section class="wrap prose ">
+      <h2 class="duo-title "><span class="duo-title__light"></span> <span class="duo-title__bold">{{blk2.t1}} <span class="hl hl--teal">{{blk2.t2}}</span></span></h2>
+      <div class="prose__body"><p>{{blk2.t3}}</p></div>
+    </section><!--/cms:s blk2--><!--cms:s blk3--><section class="wrap" aria-labelledby="f4"><h2 class="duo-title" id="f4"><span class="duo-title__light">{{blk3.t1}}</span> <span class="duo-title__bold">{{blk3.t2}}</span></h2><ol class="opts"><!--cms:list blk3.list1--><li class="{{i.cls}}"><span class="fopt__n">{{i.t1}}</span><h3>{{i.t2}}</h3><p>{{i.t3}}</p></li><!--/cms:list--></ol></section><!--/cms:s blk3-->    <!--cms:s blk4--><section class="wrap prose ">
+      <h2 class="duo-title "><span class="duo-title__light">{{blk4.t1}}</span> <span class="duo-title__bold">{{blk4.t2}}</span></h2>
+      <div class="prose__body"><p>{{blk4.t3}}</p></div>
+    </section><!--/cms:s blk4-->    <!--cms:s pf--><section class="faq" id="pf" aria-labelledby="pf-t">
       <div class="wrap faq__in">
         <div><h2 class="duo-title" id="pf-t"><span class="duo-title__light">{{pf.t1}}</span> <span class="duo-title__bold">{{pf.t2}} <span class="hl">{{pf.t3}}</span></span></h2></div>
         <div class="faq__list"><!--cms:list pf.list1--><details{{#if first}} open{{/if}}><summary>{{i.t1}}<i aria-hidden="true"></i></summary><p>{{i.t2}}</p></details><!--/cms:list--></div>

@@ -2218,6 +2218,24 @@
       },
       {
        "id": "g2",
+       "label": "כפתור / קישור",
+       "num": 1,
+       "kind": "link",
+       "fields": [
+        {
+         "key": "blk1.l1",
+         "kind": "url",
+         "label": "קישור"
+        },
+        {
+         "key": "blk1.t4",
+         "kind": "text",
+         "long": false
+        }
+       ]
+      },
+      {
+       "id": "g3",
        "label": "תמונה",
        "num": 1,
        "kind": "image",
@@ -2236,26 +2254,39 @@
     },
     {
      "id": "blk2",
-     "label": "בלוק 2",
-     "title": "",
+     "label": "ב״סודות ורמזים בחיפה״ הילדים לא מחכים",
+     "title": "ב״סודות ורמזים בחיפה״ הילדים לא מחכים",
      "locked": false,
      "scripted": false,
      "groups": [
       {
        "id": "g1",
-       "label": "כפתור / קישור",
+       "label": "כותרת",
        "num": 1,
-       "kind": "link",
+       "kind": "text",
        "fields": [
-        {
-         "key": "blk2.l1",
-         "kind": "url",
-         "label": "קישור"
-        },
         {
          "key": "blk2.t1",
          "kind": "text",
          "long": false
+        },
+        {
+         "key": "blk2.t2",
+         "kind": "text",
+         "long": false
+        }
+       ]
+      },
+      {
+       "id": "g2",
+       "label": "פסקה",
+       "num": 1,
+       "kind": "text",
+       "fields": [
+        {
+         "key": "blk2.t3",
+         "kind": "text",
+         "long": true
         }
        ]
       }
@@ -2266,8 +2297,8 @@
     },
     {
      "id": "blk3",
-     "label": "ב״סודות ורמזים בחיפה״ הילדים לא מחכים",
-     "title": "ב״סודות ורמזים בחיפה״ הילדים לא מחכים",
+     "label": "ארבע אפשרויות בחיפה",
+     "title": "ארבע אפשרויות בחיפה",
      "locked": false,
      "scripted": false,
      "groups": [
@@ -2288,54 +2319,11 @@
          "long": false
         }
        ]
-      },
-      {
-       "id": "g2",
-       "label": "פסקה",
-       "num": 1,
-       "kind": "text",
-       "fields": [
-        {
-         "key": "blk3.t3",
-         "kind": "text",
-         "long": true
-        }
-       ]
-      }
-     ],
-     "lists": [],
-     "regions": [],
-     "deps": []
-    },
-    {
-     "id": "blk4",
-     "label": "ארבע אפשרויות בחיפה",
-     "title": "ארבע אפשרויות בחיפה",
-     "locked": false,
-     "scripted": false,
-     "groups": [
-      {
-       "id": "g1",
-       "label": "כותרת",
-       "num": 1,
-       "kind": "text",
-       "fields": [
-        {
-         "key": "blk4.t1",
-         "kind": "text",
-         "long": false
-        },
-        {
-         "key": "blk4.t2",
-         "kind": "text",
-         "long": false
-        }
-       ]
       }
      ],
      "lists": [
       {
-       "key": "blk4.list1",
+       "key": "blk3.list1",
        "label": "רשימת פריטים",
        "itemLabel": "פריט",
        "groups": [
@@ -2387,7 +2375,7 @@
      "deps": []
     },
     {
-     "id": "blk5",
+     "id": "blk4",
      "label": "איך בוחרים",
      "title": "איך בוחרים",
      "locked": false,
@@ -2400,12 +2388,12 @@
        "kind": "text",
        "fields": [
         {
-         "key": "blk5.t1",
+         "key": "blk4.t1",
          "kind": "text",
          "long": false
         },
         {
-         "key": "blk5.t2",
+         "key": "blk4.t2",
          "kind": "text",
          "long": false
         }
@@ -2418,7 +2406,7 @@
        "kind": "text",
        "fields": [
         {
-         "key": "blk5.t3",
+         "key": "blk4.t3",
          "kind": "text",
          "long": true
         }
@@ -2600,7 +2588,6 @@
     "blk2",
     "blk3",
     "blk4",
-    "blk5",
     "pf",
     "lead"
    ]
@@ -2643,6 +2630,24 @@
       },
       {
        "id": "g2",
+       "label": "כפתור / קישור",
+       "num": 1,
+       "kind": "link",
+       "fields": [
+        {
+         "key": "blk1.l1",
+         "kind": "url",
+         "label": "קישור"
+        },
+        {
+         "key": "blk1.t4",
+         "kind": "text",
+         "long": false
+        }
+       ]
+      },
+      {
+       "id": "g3",
        "label": "תמונה",
        "num": 1,
        "kind": "image",
@@ -2661,26 +2666,52 @@
     },
     {
      "id": "blk2",
-     "label": "בלוק 2",
-     "title": "",
+     "label": "יום גיבוש טוב לא מתחיל בבחירת אטרקציה",
+     "title": "יום גיבוש טוב לא מתחיל בבחירת אטרקציה",
      "locked": false,
      "scripted": false,
      "groups": [
       {
        "id": "g1",
-       "label": "כפתור / קישור",
+       "label": "כותרת",
        "num": 1,
-       "kind": "link",
+       "kind": "text",
        "fields": [
-        {
-         "key": "blk2.l1",
-         "kind": "url",
-         "label": "קישור"
-        },
         {
          "key": "blk2.t1",
          "kind": "text",
          "long": false
+        },
+        {
+         "key": "blk2.t2",
+         "kind": "text",
+         "long": false
+        }
+       ]
+      },
+      {
+       "id": "g2",
+       "label": "פסקה",
+       "num": 1,
+       "kind": "text",
+       "fields": [
+        {
+         "key": "blk2.t3",
+         "kind": "text",
+         "long": true
+        }
+       ]
+      },
+      {
+       "id": "g3",
+       "label": "פסקה",
+       "num": 2,
+       "kind": "text",
+       "fields": [
+        {
+         "key": "blk2.t4",
+         "kind": "text",
+         "long": true
         }
        ]
       }
@@ -2691,8 +2722,8 @@
     },
     {
      "id": "blk3",
-     "label": "יום גיבוש טוב לא מתחיל בבחירת אטרקציה",
-     "title": "יום גיבוש טוב לא מתחיל בבחירת אטרקציה",
+     "label": "למה זה עובד לצוותים שונים",
+     "title": "למה זה עובד לצוותים שונים",
      "locked": false,
      "scripted": false,
      "groups": [
@@ -2711,6 +2742,11 @@
          "key": "blk3.t2",
          "kind": "text",
          "long": false
+        },
+        {
+         "key": "blk3.t3",
+         "kind": "text",
+         "long": false
         }
        ]
       },
@@ -2721,7 +2757,7 @@
        "kind": "text",
        "fields": [
         {
-         "key": "blk3.t3",
+         "key": "blk3.t4",
          "kind": "text",
          "long": true
         }
@@ -2734,7 +2770,7 @@
        "kind": "text",
        "fields": [
         {
-         "key": "blk3.t4",
+         "key": "blk3.t5",
          "kind": "text",
          "long": true
         }
@@ -2747,8 +2783,8 @@
     },
     {
      "id": "blk4",
-     "label": "למה זה עובד לצוותים שונים",
-     "title": "למה זה עובד לצוותים שונים",
+     "label": "מה אפשר לבנות",
+     "title": "מה אפשר לבנות",
      "locked": false,
      "scripted": false,
      "groups": [
@@ -2767,74 +2803,13 @@
          "key": "blk4.t2",
          "kind": "text",
          "long": false
-        },
-        {
-         "key": "blk4.t3",
-         "kind": "text",
-         "long": false
-        }
-       ]
-      },
-      {
-       "id": "g2",
-       "label": "פסקה",
-       "num": 1,
-       "kind": "text",
-       "fields": [
-        {
-         "key": "blk4.t4",
-         "kind": "text",
-         "long": true
-        }
-       ]
-      },
-      {
-       "id": "g3",
-       "label": "פסקה",
-       "num": 2,
-       "kind": "text",
-       "fields": [
-        {
-         "key": "blk4.t5",
-         "kind": "text",
-         "long": true
-        }
-       ]
-      }
-     ],
-     "lists": [],
-     "regions": [],
-     "deps": []
-    },
-    {
-     "id": "blk5",
-     "label": "מה אפשר לבנות",
-     "title": "מה אפשר לבנות",
-     "locked": false,
-     "scripted": false,
-     "groups": [
-      {
-       "id": "g1",
-       "label": "כותרת",
-       "num": 1,
-       "kind": "text",
-       "fields": [
-        {
-         "key": "blk5.t1",
-         "kind": "text",
-         "long": false
-        },
-        {
-         "key": "blk5.t2",
-         "kind": "text",
-         "long": false
         }
        ]
       }
      ],
      "lists": [
       {
-       "key": "blk5.list1",
+       "key": "blk4.list1",
        "label": "נקודות",
        "itemLabel": "פריט",
        "groups": [
@@ -2872,7 +2847,7 @@
      "deps": []
     },
     {
-     "id": "blk6",
+     "id": "blk5",
      "label": "איך זה עובד",
      "title": "איך זה עובד",
      "locked": false,
@@ -2885,12 +2860,12 @@
        "kind": "text",
        "fields": [
         {
-         "key": "blk6.t1",
+         "key": "blk5.t1",
          "kind": "text",
          "long": false
         },
         {
-         "key": "blk6.t2",
+         "key": "blk5.t2",
          "kind": "text",
          "long": false
         }
@@ -2899,7 +2874,7 @@
      ],
      "lists": [
       {
-       "key": "blk6.list1",
+       "key": "blk5.list1",
        "label": "רשימת פריטים",
        "itemLabel": "פריט",
        "groups": [
@@ -2951,7 +2926,7 @@
      "deps": []
     },
     {
-     "id": "blk7",
+     "id": "blk6",
      "label": "ומה אם חלק מהצוות לא אוהב סיורים?",
      "title": "ומה אם חלק מהצוות לא אוהב סיורים?",
      "locked": false,
@@ -2964,12 +2939,12 @@
        "kind": "text",
        "fields": [
         {
-         "key": "blk7.t1",
+         "key": "blk6.t1",
          "kind": "text",
          "long": false
         },
         {
-         "key": "blk7.t2",
+         "key": "blk6.t2",
          "kind": "text",
          "long": false
         }
@@ -2982,7 +2957,7 @@
        "kind": "text",
        "fields": [
         {
-         "key": "blk7.t3",
+         "key": "blk6.t3",
          "kind": "text",
          "long": true
         }
@@ -3095,7 +3070,6 @@
     "blk4",
     "blk5",
     "blk6",
-    "blk7",
     "lead"
    ]
   },

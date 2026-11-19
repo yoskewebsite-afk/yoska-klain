@@ -2179,3 +2179,37 @@ html.a11y-still .cb-logos__track { animation: none; }
   .phead .duo-title { font-size: 2.125rem; }
   .phead__photo { padding-inline: 12px; }
 }
+
+/* inner pages, second pass (19.11.2026, owner: "not there yet"): the head carries the page's button; the arch photo gets
+   the home page's thin offset outline; the sections below run on one rhythm, every second one on a soft full-bleed band */
+.phead__acts { display: flex; flex-wrap: wrap; gap: 12px; margin-top: var(--s6); }
+.phead__photo { position: relative; isolation: isolate; }
+.phead__photo .frame { position: relative; z-index: 1; }
+.phead__photo::before { content: ''; position: absolute; z-index: 0; inset: 0; border: 2px solid var(--orange); border-radius: inherit; pointer-events: none;
+  translate: -14px -14px; border-radius: 50% 50% 22px 22px / 32% 32% 22px 22px; opacity: .85; }
+@media (min-width: 900px) {
+  .phead__photo::before { inset: 0 0 0 auto; width: min(100%, calc(70svh * .86)); aspect-ratio: .86; height: auto; border-radius: var(--r-moon); translate: -22px -22px; }
+  .phead .duo-title { margin-top: 0; }
+}
+@media (max-width: 699px) {
+  .phead__photo::before { inset: 0 12px; translate: -8px -8px; }
+  .phead__acts .btn { width: 100%; justify-content: center; }
+}
+body:not(.home) main > section.wrap { padding-block: clamp(44px, 5.5vw, 88px); margin-block: 0; }
+body:not(.home) main > section.wrap:nth-of-type(2n+3) { background: #F5F9FA; box-shadow: 0 0 0 100vmax #F5F9FA; clip-path: inset(0 -100vmax); }
+body:not(.home) main > section.wrap > .duo-title { margin-bottom: var(--s5); }
+body:not(.home) .prose__body { max-width: 64ch; }
+body:not(.home) .prose__body p { font-size: clamp(1.0625rem, 1rem + .25vw, 1.1875rem); line-height: 1.75; color: var(--text); }
+body:not(.home) .prose__body p + p { margin-top: var(--s4); }
+.fopt { transition: transform .25s cubic-bezier(.22, 1, .36, 1), box-shadow .25s cubic-bezier(.22, 1, .36, 1); }
+@media (hover: hover) { .fopt:hover { transform: translateY(-3px); box-shadow: 0 2px 4px rgba(42, 58, 92, .06), 0 18px 32px -18px rgba(42, 58, 92, .35); } }
+@media (prefers-reduced-motion: reduce) { .fopt { transition: none; } .fopt:hover { transform: none; } }
+/* text sections read as an editorial spread on wide screens: the title on the start side, the text beside it */
+@media (min-width: 1000px) {
+  body:not(.home) main > section.wrap.prose { display: grid; grid-template-columns: minmax(0, .78fr) minmax(0, 1.22fr); column-gap: clamp(40px, 6vw, 120px); align-items: start; }
+  body:not(.home) main > section.wrap.prose > .duo-title { grid-column: 1; margin: 0; position: sticky; top: 112px; }
+  body:not(.home) main > section.wrap.prose > :not(.duo-title) { grid-column: 2; }
+  body:not(.home) main > section.wrap.prose > .duo-title + * { margin-top: 0; }
+}
+/* a band that holds only a button is not a card: just the button, centred, with air around it */
+.ctaband:not(:has(h2, h3, p)) { border: 0 !important; box-shadow: none; background: none !important; padding: var(--s6) 0 var(--s8) !important; margin: 0 auto !important; clip-path: none !important; }

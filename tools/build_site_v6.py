@@ -213,6 +213,21 @@ def dedupe_page_heads():
         m = re.search(r'<section class="phead[^"]*">.*?<span class="duo-title__light">(.*?)</span>.*?(\s*<p class="phead__lede">(.*?)</p>)', html, re.S)
         if not m:
             continue
+        # the page's main button sat alone under the head: it moves into the head, under the title and the lede
+        html0 = html
+        cta = re.search(r'(</section>)(<div class="wrap">(<a class="btn[^"]*"[^>]*>.*?</a>)</div>)', html[m.start():], re.S)
+        if cta and html[m.start():].find('</section>') == cta.start(1):
+            a, b = m.start() + cta.start(2), m.start() + cta.end(2)
+            btn = cta.group(3)
+            html = html[:a] + html[b:]
+            end_wrap = html.find('</div>', html.find('<div class="wrap">', m.start()))
+            html = html[:end_wrap] + f'\n        <div class="phead__acts">{btn}</div>\n      ' + html[end_wrap:]
+            print('  page head: button moved into the head in', f.name)
+        if html != html0:
+            f.write_text(html)
+            m = re.search(r'<section class="phead[^"]*">.*?<span class="duo-title__light">(.*?)</span>.*?(\s*<p class="phead__lede">(.*?)</p>)', html, re.S)
+            if not m:
+                continue
         light, lede = norm(m.group(1)), norm(m.group(3))
         if light and lede and (lede.startswith(light[:28]) or light.startswith(lede[:28])):
             f.write_text(html[:m.start(2)] + html[m.end(2):])
