@@ -90,7 +90,7 @@ try {
 
   console.log('— draft, preview, publish');
   r = await call('GET', '/api/admin/bundle');
-  t('bundle carries schema, defaults and tours', r.j.ok && r.j.schema.pages.index.sections.length >= 11 && r.j.tours.length === 7 && Object.keys(r.j.schema.pages).length === 21);
+  t('bundle carries schema, defaults and tours', r.j.ok && r.j.schema.pages.index.sections.length >= 10 && r.j.tours.length === 7 && Object.keys(r.j.schema.pages).length === 21);
   const idx = r.j.schema.pages.index;
   const heroKey = idx.sections[0].groups[0].fields[0].key;
   const faqKey = idx.sections.find((x) => x.id === 'faq').lists[0].key;
@@ -123,7 +123,7 @@ try {
   {
     t('old /admin path is not the admin', !/כניסה|app\.js/.test((await call('GET', '/admin', null, { auth: false })).text));
     const home = (await call('GET', '/', null, { auth: false })).text;
-    t('home: no map, upcoming tours is a built-in section, uniqueness after the reviews', !/id="map"/.test(home) && /cb--trips[^>]*id="upcoming"/.test(home) && home.indexOf('id="unique"') > home.indexOf('id="reviews"'));
+    t('home: no map, no uniqueness block, upcoming tours is a built-in section', !/id="map"/.test(home) && !/id="unique"/.test(home) && /cb--trips[^>]*id="upcoming"/.test(home));
     t('home: the logos section stays hidden while it has no logos', !/cb--logos/.test(home));
     let c = await call('POST', '/api/admin/code', { code: '123' });
     t('a too short code is refused', c.s === 400);

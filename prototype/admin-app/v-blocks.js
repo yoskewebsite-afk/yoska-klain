@@ -1,7 +1,7 @@
 // Sections the owner adds: the library (pick a type) and the editor (content + design). The spec comes from the server
 // (api/_lib/blocks.mjs via the bundle), so labels, defaults and options are the same on both sides.
 import { h, icon, drawer, pickMedia, clone, rid, confirmDialog } from './ui.js';
-import { S, touch, blockOf } from './state.js';
+import { S, touch, editBlock } from './state.js';
 
 // ------------------------------------------------------------ small wireframes of each type (pure markup, styled in admin.css)
 const L = (cls, n = 1) => Array.from({ length: n }, () => h('i', { class: cls }));
@@ -30,7 +30,7 @@ export function openLibrary() {
 
 // ------------------------------------------------------------ editor
 export function blockEditor({ pid, cid, onChange }) {
-  const b = blockOf(pid, cid);
+  const b = editBlock(pid, cid);
   const T = S.blocks.types[b.type], F = S.blocks.fields, D = S.blocks.design;
   let tab = 'content';
   const box = h('div', { style: 'display:grid;gap:16px' });

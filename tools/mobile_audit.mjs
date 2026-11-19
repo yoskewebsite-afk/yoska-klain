@@ -41,11 +41,11 @@ const run = async (label, url, hook) => {
   report.push({ label, issues }); console.log(issues.length ? `✗ ${label}\n    ${issues.join('\n    ')}` : `✓ ${label}`);
 };
 for (const u of site) await run(u, B + u);
-await p.goto(B + '/admin'); await p.fill('#email', 'yossi@example.com'); await p.fill('#password', 'yoske-demo-2026'); await p.click('#go'); await p.waitForTimeout(2500);
+await p.goto(B + '/yoske-nihul-7k4q'); if (await p.$('[data-way="pw"]')) await p.click('[data-way="pw"]'); await p.fill('#email', 'yossi@example.com'); await p.fill('#password', 'yoske-demo-2026'); await p.click('#go'); await p.waitForTimeout(2500);
 await p.evaluate(() => { try { localStorage.setItem('yoske-admin-install-seen', '1'); } catch (e) { /* */ } });
 for (const t of ['glass', 'dark']) {
   await p.evaluate((t) => { document.documentElement.dataset.theme = t; }, t);
-  for (const a of admin) await run(`admin ${t} ${a}`, `${B}/admin#/${a}`, async () => { await p.evaluate((t) => { document.documentElement.dataset.theme = t; }, t); await p.waitForTimeout(900); });
+  for (const a of admin) await run(`admin ${t} ${a}`, `${B}/yoske-nihul-7k4q#/${a}`, async () => { await p.evaluate((t) => { document.documentElement.dataset.theme = t; }, t); await p.waitForTimeout(900); });
 }
 await b.close();
 console.log(`\n${report.filter((r) => !r.issues.length).length}/${report.length} clean at ${W}px`);

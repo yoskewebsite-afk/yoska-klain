@@ -87,7 +87,9 @@ export function removeBlock(pid, cid) {
   p.order = order(pid).filter((i) => i !== cid);
   touch('pages', pid);
 }
-export const blockOf = (pid, cid) => customOf(pid)[cid];
+// read-only look at a block (does not copy the built-in sections into the draft); editing goes through editBlock
+export const blockOf = (pid, cid) => customView(pid)[cid];
+export const editBlock = (pid, cid) => customOf(pid)[cid];
 export function blockTitle(b) {
   const T = S.blocks.types[b.type];
   const t = [b.c?.t1, b.c?.t2].filter(Boolean).join(' ').replace(/\*/g, '') || b.c?.quote || '';

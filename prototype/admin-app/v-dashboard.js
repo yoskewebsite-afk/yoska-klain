@@ -1,5 +1,6 @@
 import { h, icon, api, chart, statusTag, fmtDateTime, toast } from './ui.js';
 import { go } from './app.js';
+import { S, blockOf, order } from './state.js';
 
 const SRC = { google: 'גוגל', facebook: 'פייסבוק', instagram: 'אינסטגרם', whatsapp: 'וואטסאפ', search: 'מנועי חיפוש אחרים', social: 'רשתות אחרות', other: 'אתרים אחרים', direct: 'כניסה ישירה' };
 const iso = (d) => d.toISOString().slice(0, 10);
@@ -18,7 +19,18 @@ export async function render(root) {
   const wide = matchMedia('(min-width: 961px)'); custom.open = wide.matches || !!range.from; wide.addEventListener('change', () => { custom.open = wide.matches || !!range.from; });
   const toolbar = h('div', { class: 'toolbar' }, rangeSeg, custom, h('span', { class: 'pagehead__sp' }), bseg);
   const body = h('div', { style: 'display:grid;gap:20px' });
-  root.append(head, toolbar, body);
+  // 19.11.2026: the things the owner changes most, one tap away (upcoming tours, client logos, the sign-in code)
+  const quick = () => {
+    const cards = [];
+    const ids = order('index');
+    const trips = ids.find((i) => blockOf('index', i)?.type === 'trips'), logos = ids.find((i) => blockOf('index', i)?.type === 'logos');
+    const n = (id) => (blockOf('index', id)?.items || []).length;
+    if (trips) cards.push(['#/pages/index/' + trips, 'route', 'סיורים קרובים', n(trips) ? `${n(trips)} סיורים פתוחים באתר` : 'אין כרגע סיורים ברשימה. הוסיפו סיור עם תמונה, מועד וקישור הרשמה.']);
+    if (logos) cards.push(['#/pages/index/' + logos, 'image', 'לוגואים של לקוחות', n(logos) ? `${n(logos)} לוגואים ברצועה` : 'הרצועה מוסתרת עד שמעלים לוגו ראשון.']);
+    cards.push(['#/settings?code', 'gear', 'כניסה עם קוד', S.me?.hasCode ? 'פעילה. אפשר להחליף או לכבות.' : 'אפשר להיכנס עם קוד ספרות במקום מייל וסיסמה.']);
+    return h('div', { class: 'quick' }, cards.map(([href, ic, t, d]) => h('a', { class: 'glass quick__c', href }, h('span', { class: 'quick__i' }, icon(ic)), h('span', { class: 'quick__t' }, h('b', { text: t }), h('span', { text: d })))));
+  };
+  root.append(head, quick(), toolbar, body);
 
   async function load() {
     $$all(rangeSeg).forEach((b, i) => b.setAttribute('aria-pressed', String(range.days === RANGES[i][0])));

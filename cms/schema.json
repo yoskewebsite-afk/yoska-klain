@@ -803,236 +803,6 @@
      "deps": []
     },
     {
-     "id": "unique",
-     "label": "מכירים מקום דרך האנשים שלו, דרך החברה והתרבות.",
-     "title": "מכירים מקום דרך האנשים שלו, דרך החברה והתרבות.",
-     "locked": false,
-     "scripted": false,
-     "groups": [
-      {
-       "id": "g1",
-       "label": "כותרת",
-       "num": 1,
-       "kind": "text",
-       "fields": [
-        {
-         "key": "unique.t1",
-         "kind": "text",
-         "long": false
-        },
-        {
-         "key": "unique.t2",
-         "kind": "text",
-         "long": false
-        },
-        {
-         "key": "unique.t3",
-         "kind": "text",
-         "long": false
-        }
-       ]
-      },
-      {
-       "id": "g2",
-       "label": "פסקה",
-       "num": 1,
-       "kind": "text",
-       "fields": [
-        {
-         "key": "unique.t4",
-         "kind": "text",
-         "long": false
-        },
-        {
-         "key": "unique.t5",
-         "kind": "text",
-         "long": false
-        },
-        {
-         "key": "unique.t6",
-         "kind": "text",
-         "long": false
-        }
-       ]
-      },
-      {
-       "id": "g3",
-       "label": "פסקה",
-       "num": 2,
-       "kind": "text",
-       "fields": [
-        {
-         "key": "unique.t7",
-         "kind": "text",
-         "long": false
-        }
-       ]
-      },
-      {
-       "id": "g4",
-       "label": "פסקה",
-       "num": 3,
-       "kind": "text",
-       "fields": [
-        {
-         "key": "unique.t8",
-         "kind": "text",
-         "long": false
-        },
-        {
-         "key": "unique.t9",
-         "kind": "text",
-         "long": false
-        },
-        {
-         "key": "unique.t10",
-         "kind": "text",
-         "long": false
-        },
-        {
-         "key": "unique.t11",
-         "kind": "text",
-         "long": false
-        }
-       ]
-      },
-      {
-       "id": "g5",
-       "label": "פסקה",
-       "num": 4,
-       "kind": "text",
-       "fields": [
-        {
-         "key": "unique.t12",
-         "kind": "text",
-         "long": true
-        }
-       ]
-      },
-      {
-       "id": "g6",
-       "label": "פסקה",
-       "num": 5,
-       "kind": "text",
-       "fields": [
-        {
-         "key": "unique.t13",
-         "kind": "text",
-         "long": false
-        }
-       ]
-      },
-      {
-       "id": "g7",
-       "label": "פסקה",
-       "num": 6,
-       "kind": "text",
-       "fields": [
-        {
-         "key": "unique.t14",
-         "kind": "text",
-         "long": false
-        },
-        {
-         "key": "unique.t15",
-         "kind": "text",
-         "long": false
-        }
-       ]
-      },
-      {
-       "id": "g8",
-       "label": "פסקה",
-       "num": 7,
-       "kind": "text",
-       "fields": [
-        {
-         "key": "unique.t16",
-         "kind": "text",
-         "long": false
-        }
-       ]
-      },
-      {
-       "id": "g9",
-       "label": "פסקה",
-       "num": 8,
-       "kind": "text",
-       "fields": [
-        {
-         "key": "unique.t17",
-         "kind": "text",
-         "long": false
-        }
-       ]
-      },
-      {
-       "id": "g10",
-       "label": "פסקה",
-       "num": 9,
-       "kind": "text",
-       "fields": [
-        {
-         "key": "unique.t18",
-         "kind": "text",
-         "long": false
-        },
-        {
-         "key": "unique.t19",
-         "kind": "text",
-         "long": false
-        },
-        {
-         "key": "unique.t20",
-         "kind": "text",
-         "long": false
-        }
-       ]
-      },
-      {
-       "id": "g11",
-       "label": "פסקה",
-       "num": 10,
-       "kind": "text",
-       "fields": [
-        {
-         "key": "unique.t21",
-         "kind": "text",
-         "long": false
-        }
-       ]
-      }
-     ],
-     "lists": [
-      {
-       "key": "unique.list1",
-       "label": "ערכים",
-       "itemLabel": "פריט",
-       "groups": [
-        {
-         "id": "g1",
-         "label": "פריט ברשימה",
-         "num": 1,
-         "kind": "text",
-         "fields": [
-          {
-           "key": "i.t1",
-           "kind": "text",
-           "long": false
-          }
-         ]
-        }
-       ],
-       "min": 0,
-       "hasImages": false
-      }
-     ],
-     "regions": [],
-     "deps": [
-      "ניווט הצד והתפריט התחתון בדף"
-     ]
-    },
-    {
      "id": "abroad",
      "label": "מסעות בדרום אמריקה",
      "title": "חיפה במרכז, ולא רק היא. יוסק׳ה בדרום אמריקה",
@@ -1409,7 +1179,6 @@
     "moments",
     "reviews",
     "blk7",
-    "unique",
     "abroad",
     "faq",
     "contact"
@@ -1453,19 +1222,6 @@
       },
       {
        "id": "g2",
-       "label": "פסקה",
-       "num": 1,
-       "kind": "text",
-       "fields": [
-        {
-         "key": "blk1.t4",
-         "kind": "text",
-         "long": true
-        }
-       ]
-      },
-      {
-       "id": "g3",
        "label": "תמונה",
        "num": 1,
        "kind": "image",
@@ -2168,19 +1924,6 @@
       },
       {
        "id": "g2",
-       "label": "פסקה",
-       "num": 1,
-       "kind": "text",
-       "fields": [
-        {
-         "key": "blk3.t4",
-         "kind": "text",
-         "long": true
-        }
-       ]
-      },
-      {
-       "id": "g3",
        "label": "תמונה",
        "num": 1,
        "kind": "image",
@@ -2475,19 +2218,6 @@
       },
       {
        "id": "g2",
-       "label": "פסקה",
-       "num": 1,
-       "kind": "text",
-       "fields": [
-        {
-         "key": "blk1.t4",
-         "kind": "text",
-         "long": true
-        }
-       ]
-      },
-      {
-       "id": "g3",
        "label": "תמונה",
        "num": 1,
        "kind": "image",
@@ -2913,19 +2643,6 @@
       },
       {
        "id": "g2",
-       "label": "פסקה",
-       "num": 1,
-       "kind": "text",
-       "fields": [
-        {
-         "key": "blk1.t4",
-         "kind": "text",
-         "long": true
-        }
-       ]
-      },
-      {
-       "id": "g3",
        "label": "תמונה",
        "num": 1,
        "kind": "image",
@@ -3425,19 +3142,6 @@
       },
       {
        "id": "g2",
-       "label": "פסקה",
-       "num": 1,
-       "kind": "text",
-       "fields": [
-        {
-         "key": "blk1.t5",
-         "kind": "text",
-         "long": true
-        }
-       ]
-      },
-      {
-       "id": "g3",
        "label": "תמונה",
        "num": 1,
        "kind": "image",
@@ -3705,19 +3409,6 @@
       },
       {
        "id": "g2",
-       "label": "פסקה",
-       "num": 1,
-       "kind": "text",
-       "fields": [
-        {
-         "key": "blk3.t4",
-         "kind": "text",
-         "long": true
-        }
-       ]
-      },
-      {
-       "id": "g3",
        "label": "תמונה",
        "num": 1,
        "kind": "image",

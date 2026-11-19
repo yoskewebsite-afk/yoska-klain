@@ -131,10 +131,9 @@ def swap_home(body):
     # logos are uploaded); the uniqueness block («איזון נכון: אושר + העשרה») moves down, it cannot open the page
     body = cut_section(body, 'map')
     body = cut_section(body, 'upsec')
+    # 19.11.2026 evening (owner): the uniqueness block (value pills + balance) reads childish: it goes
     uq = re.search(r'\n\s*<!-- =+ UNIQUENESS.*?</section>', body, re.S)
     body = body[:uq.start()] + body[uq.end():]
-    at = re.search(r'\n\s*<!-- =+ 10\. ABROAD', body)
-    body = body[:at.start()] + uq.group(0) + '\n' + body[at.start():]
     return body
 
 
@@ -203,14 +202,35 @@ def home():
                   body, body_class='home', preload=pre)
 
 
+
+def dedupe_page_heads():
+    """19.11.2026 (owner): inner page heads said the same sentence twice (the light title line and the lede under it).
+    When the lede only repeats the light line, the lede goes."""
+    root = Path(__file__).resolve().parents[1] / 'prototype'
+    norm = lambda t: re.sub(r'[^\w\u0590-\u05FF]+', ' ', re.sub(r'<[^>]+>', '', t)).strip()
+    for f in list(root.glob('*.html')) + list(root.glob('tours/*.html')):
+        html = f.read_text()
+        m = re.search(r'<section class="phead[^"]*">.*?<span class="duo-title__light">(.*?)</span>.*?(\s*<p class="phead__lede">(.*?)</p>)', html, re.S)
+        if not m:
+            continue
+        light, lede = norm(m.group(1)), norm(m.group(3))
+        if light and lede and (lede.startswith(light[:28]) or light.startswith(lede[:28])):
+            f.write_text(html[:m.start(2)] + html[m.end(2):])
+            print('  page head: dropped the repeated lede in', f.name)
+
+
 if __name__ == '__main__':
     v.RAIL[:] = [r for r in v.RAIL if r[0] != 'trail']   # the closing trail section is gone (17.11.2026)
     # 19.11.2026: no map; the uniqueness block sits after the reviews; the rail follows the page order
     rail = {r[0]: r for r in v.RAIL}
-    v.RAIL[:] = [rail[k] for k in ('top', 'about', 'tours', 'upcoming', 'groups', 'moments', 'reviews', 'unique', 'abroad', 'faq', 'contact')]
+    v.RAIL[:] = [rail[k] for k in ('top', 'about', 'tours', 'upcoming', 'groups', 'moments', 'reviews', 'abroad', 'faq', 'contact')]
     v.TABBAR[:] = ['about', 'tours', 'upcoming', 'groups', 'contact']
     v.tour_cards = tour_cards
     v.upcoming_box = upcoming_box
     v.render = render
     v5.home = home
-    v5.main()
+    try:
+        v5.main()   # ends with an error on the retired prototype/admin/admin.css; the pages are written by then
+    finally:
+        dedupe_page_heads()
+

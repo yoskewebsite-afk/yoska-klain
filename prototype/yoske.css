@@ -2108,14 +2108,74 @@ body:has(.cbanner) .fab { visibility: hidden; }
 }
 html.a11y-still .cb-logos__track { animation: none; }
 
-/* logo-colour stripes: four thin parallel lines in the logo's colours run between the home sections and draw themselves
-   with the scroll, so the page reads as one route. Decorative only; static (fully drawn) without motion */
-.stripes { position: relative; z-index: 2; height: clamp(56px, 8vw, 110px); margin-block: calc(clamp(56px, 8vw, 110px) / -2); pointer-events: none; }
-.stripes svg { display: block; width: 100%; height: 100%; overflow: visible; }
-.stripes path { fill: none; stroke-width: 5; stroke-linecap: round; vector-effect: non-scaling-stroke; stroke-dasharray: 1; stroke-dashoffset: calc(1 - var(--p, 1)); }
-.stripes path:nth-child(1) { stroke: var(--orange); }
-.stripes path:nth-child(2) { stroke: var(--sun); }
-.stripes path:nth-child(3) { stroke: var(--teal); }
-.stripes path:nth-child(4) { stroke: var(--leaf); }
-.stripes--flip svg { transform: scaleX(-1); }
-@media (max-width: 699px) { .stripes path { stroke-width: 3.5; } }
+
+/* ===================================================================== 19.11.2026 evening: phones, as the owner's references */
+@media (max-width: 699px) {
+  /* hero: the photo is an inset card under the subline; Yoske's head and arm rise above its top edge; the button is centred */
+  .hero__scene { padding-inline: 12px; }
+  .hero__sky { background: var(--white); }
+  /* no soft drop shadow here: above the photo it painted a faint grey box (clipped by the mask) on the white */
+  .hero__yoske { filter: saturate(1.06) contrast(1.04) brightness(1.03) sepia(.06); }
+  .hero__fore { inset: 0 12px; }
+  .hero__photo img { border-radius: 4px; }
+  .hero__cta { left: 43% !important; translate: -50% 0 !important; white-space: nowrap; }
+  .hero__scene::after { inset-inline: 12px; }
+  .hero-arrive .hero__yoske { animation: hero-step .9s cubic-bezier(.22, 1, .36, 1) .25s both; }
+  .hero-arrive .hero__cta { animation: hero-cta .7s cubic-bezier(.22, 1, .36, 1) .55s both; }
+}
+@keyframes hero-step { from { opacity: 0; transform: translateX(14%) scale(.96); } to { opacity: 1; transform: none; } }
+@keyframes hero-cta { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .hero-arrive .hero__yoske, .hero-arrive .hero__cta { animation: none; } }
+
+/* South America on phones, as the owner's reference: the title first, then a wide oval photo cut by the start edge with
+   the plane flying off its top and its dashed trail; the orange name, the text, the countries, a full-width button,
+   the question link, and a row of arch photos with the orange fade */
+@media (max-width: 699px) {
+  .abroad { display: flex; flex-direction: column; padding: var(--s8) 0 var(--s7); }
+  .abroad__in, .abroad__feature, .abroad__copy { display: contents; }
+  .abroad .duo-title { order: 1; padding-inline: var(--gut); margin: 0; }
+  .abroad__lens { order: 2; position: relative; inset: auto; width: 90vw !important; height: auto !important; aspect-ratio: 1.42 !important; margin: var(--s6) 0 0 !important;
+    margin-left: -16vw !important; align-self: flex-end; outline: 0 !important; border-radius: 50%; overflow: visible; }
+  .abroad .tcard[data-reveal] { opacity: 1 !important; transform: none !important; translate: none !important; }
+  .abroad__lens img { position: absolute; inset: 0; width: 100%; height: 100% !important; border-radius: 50%; box-shadow: 0 0 0 2.5px var(--navy); object-position: 50% 70%;
+    -webkit-mask-image: none !important; mask-image: none !important; }
+  .abroad__lens::before, .abroad__lens::after { display: none; }
+  .abroad__name { order: 3; padding-inline: var(--gut); margin-top: var(--s6); font-size: 2rem; }
+  .abroad__copy p { order: 4; padding-inline: var(--gut); margin-top: var(--s3); font-size: 1.0625rem; line-height: 1.6; }
+  .abroad__facts { order: 5; padding: 0 var(--gut); margin-top: var(--s5); border: 0; }
+  .abroad__facts li:not(:nth-child(2)) { display: none; }
+  .abroad__facts li { font-weight: 800; font-size: 1.0625rem; gap: 12px; }
+  .abroad__more { order: 6; align-self: stretch; justify-content: center; margin: var(--s6) var(--gut) 0; min-height: 52px; }
+  .abroad__copy .textlink { order: 7; align-self: center; margin-top: var(--s4); }
+  .abroad__cards { order: 8; grid-auto-columns: 38vw; gap: 12px; margin: var(--s6) 0 0; padding: 6px var(--gut) 14px; }
+  .abroad .tcard a { aspect-ratio: .62; }
+  .abroad .tcard__title { font-size: .9375rem; }
+  /* the plane and its trail sit on the top edge of the oval (yoske.js places them there and flies the plane with the scroll) */
+  .abroad .trailline { top: var(--lens-top, 180px); height: 120px; }
+  .abroad .obj--plane { width: 170px; top: 0; right: 0; z-index: 3; }
+}
+
+/* ===================================================================== 19.11.2026 evening: one page head for every inner page
+   The same composition everywhere: a soft sky band, the duo title (light line + bold line with the accent word) and the
+   lede on the start side, the page's photo as an arch card (navy edge, navy base) on the other side. Phones: the arch
+   photo follows the text, full width inside the gutter. Pages without a photo keep the same band and type. */
+.phead { position: relative; padding: clamp(24px, 3.5vw, 56px) 0 clamp(40px, 5vw, 84px);
+  background: linear-gradient(to bottom, #EEF6F8 0, #F6FAFB 55%, var(--white) 100%); }
+.phead .duo-title { font-size: clamp(2.25rem, 1.15rem + 3.3vw, 4.25rem); max-width: 17ch; text-wrap: balance; }
+.phead .duo-title__light { display: block; font-size: .5em; line-height: 1.35; margin-bottom: .35em; color: var(--navy-90, #3A4A6B); text-wrap: pretty; }
+.phead__lede { max-width: 52ch; margin-top: var(--s5); color: var(--text); font-size: clamp(1.0625rem, 1rem + .3vw, 1.25rem); line-height: 1.6; }
+.phead__photo { margin-top: var(--s6); }
+.phead__photo .frame { position: relative; overflow: hidden; aspect-ratio: 1.08; border: var(--edge); border-bottom: 8px solid var(--navy);
+  border-radius: 50% 50% 22px 22px / 32% 32% 22px 22px !important; box-shadow: 0 2px 6px rgba(42, 58, 92, .08), 0 24px 48px -24px rgba(42, 58, 92, .35); background: var(--paper); }
+.phead__photo .frame img { width: 100%; height: 100%; object-fit: cover; }
+@media (min-width: 900px) {
+  .phead:has(.phead__photo) { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr); align-items: center; column-gap: clamp(40px, 5vw, 96px);
+    padding-inline: max(var(--gut), calc((100vw - 1240px) / 2)); min-height: min(78svh, 760px); }
+  .phead:has(.phead__photo) > .wrap { padding: 0; max-width: none; margin: 0; width: auto; }
+  .phead__photo { margin: 0; }
+  .phead__photo .frame { aspect-ratio: .86; max-height: 70svh; margin-inline-start: auto; border-radius: var(--r-moon) !important; }
+}
+@media (max-width: 699px) {
+  .phead .duo-title { font-size: 2.125rem; }
+  .phead__photo { padding-inline: 12px; }
+}

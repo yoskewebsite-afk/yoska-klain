@@ -184,11 +184,14 @@
     const place = () => {
       const tall = matchMedia('(max-width: 699px), (max-width: 999px) and (orientation: portrait)').matches;
       const r = tall ? 1280 / 1763 : 2160 / 1434, sky = tall ? .05 : .15;
-      const h = document.documentElement.clientWidth / r;
+      const phone = innerWidth < 700;
+      // 19.11.2026 (owner's reference): on phones the photo is an inset card (12px from each edge) that starts just
+      // under the subline, so Yoske's head and raised arm stand above its top edge
+      const h = (document.documentElement.clientWidth - (phone ? 24 : 0)) / r;
       const hb = head.offsetTop + head.offsetHeight;
-      const top = Math.round(hb + (tall ? 14 : 18) - sky * h);
+      const top = Math.round(phone ? hb + 18 : hb + (tall ? 14 : 18) - sky * h);
       scene.parentElement.style.setProperty('--scene-top', top + 'px');
-      scene.style.setProperty('--cta-top', Math.round(sky * h + (tall ? 18 : 30)) + 'px');
+      scene.style.setProperty('--cta-top', Math.round(phone ? h * .12 : sky * h + (tall ? 18 : 30)) + 'px');
     };
     // Yoske: the middle of his raised hand (6% / 14% of the cut-out) sits just above the first letter (ש) of the second line
     const yoske = $('[data-hero-yoske]'), l2 = $('.hero__l2'), fore = $('[data-hero-fore]');
@@ -201,7 +204,7 @@
       const sh = rg.getBoundingClientRect(), sr = scene.getBoundingClientRect(), iw = document.documentElement.clientWidth, ih = innerHeight;
       const narrow = innerWidth < 700, ratio = 908 / 900, hx = sh.left + sh.width * .55;
       const shTop = sh.top + scrollY, scTop = sr.top + scrollY;
-      const w = narrow ? Math.min(iw * .56, 250) : Math.max(260, Math.min((iw + 60 - sh.right) / .9, ih * .74 / ratio, 620)), h = w * ratio;  // 17.11.2026: bigger
+      const w = narrow ? Math.min(iw * .52, 250) : Math.max(260, Math.min((iw + 60 - sh.right) / .9, ih * .74 / ratio, 620)), h = w * ratio;  // 17.11.2026: bigger
       const shiftX = narrow ? 0 : iw * .03;
       // his fingertips reach the top of the ש (never above it)
       // 17.11.2026: he is bigger now, so the hand points at the letter from its side (mid-height) instead of from above,
@@ -213,18 +216,30 @@
       if (!narrow) y = Math.max(y, imgH * .3 + 70 - h);
       // phones: the headline spans the whole width, so he stands on the photo under the button, among its trees
       // …and never higher than the subline: his raised hand points at the button below it, not into the text
-      else { const sb = $('.hero__sub'); y = Math.max(imgH * .3 - h, sb ? sb.getBoundingClientRect().bottom + scrollY - scTop + 10 : -1e9); }
+      // 19.11.2026 (owner's reference): on phones his raised hand starts right under the subline and his head stands
+      // above the top edge of the inset photo
+      else { const sb = $('.hero__sub'); y = sb ? sb.getBoundingClientRect().bottom + scrollY - scTop + 2 - h * .02 : imgH * .3 - h; }
       yoske.style.setProperty('--yw', Math.round(w) + 'px');
       // phones: the ש can sit at the very edge, keep him (most of him) on screen
-      const x = narrow ? iw - sr.left - w * .9 : sh.right + 14 - sr.left - w * .03;
+      const x = narrow ? iw - 12 - sr.left - w * .8 : sh.right + 14 - sr.left - w * .03;
       yoske.style.setProperty('--yx', Math.round(x) + 'px');
+      // phones: as on the reference he is cut by the right edge of the inset photo
+      yoske.style.clipPath = narrow ? `inset(-300px ${Math.max(0, Math.round(x + w - (iw - 12 - sr.left)))}px -300px -300px)` : '';
       yoske.style.setProperty('--yy', Math.round(y) + 'px');
-      yoske.classList.remove('is-fade');
+      yoske.classList.toggle('is-fade', narrow);   // phones: his cut-out waist fades into the trees
       if (fore) fore.style.setProperty('--fy', Math.round(y + h - (narrow ? 45 : 95)) + 'px');
     };
     const both = () => { place(); placeYoske(); };
     both(); addEventListener('resize', both);
     document.fonts && document.fonts.ready.then(both);
+    // 19.11.2026: phones: Yoske and the button arrive (he steps in from the side, the button settles), then he drifts a
+    // little slower than the photo while it scrolls up, so he reads as standing in front of Haifa, not printed on it
+    if (yoske && innerWidth < 700 && !still()) {
+      document.documentElement.classList.add('hero-arrive');
+      let q = 0;
+      const drift = () => { q = 0; const y = Math.min(scrollY, innerHeight * 1.2); yoske.style.translate = '0 ' + (y * .1).toFixed(1) + 'px'; };
+      addEventListener('scroll', () => { if (!q) q = requestAnimationFrame(drift); }, { passive: true });
+    }
   };
   heroPlace();
 
@@ -263,6 +278,22 @@
             if (d.travel === 'camera') {
               const x = -p * (vw + 260) + 90, y = 6 + 14 * Math.sin(p * Math.PI * 3);
               el.style.transform = 'translate(' + x.toFixed(0) + 'px,' + y.toFixed(0) + 'px) rotate(' + (8 * Math.sin(p * Math.PI * 2)).toFixed(1) + 'deg)';
+            }
+            if (d.travel === 'plane' && vw < 700) {
+              // 19.11.2026 phones (owner's reference): the plane takes off from the top of the oval photo towards the end
+              // edge, rising, while its dashed trail draws behind it
+              const lens = sec.querySelector('.abroad__lens');
+              if (lens) {
+                const lt = lens.offsetTop, lw = lens.offsetWidth;
+                sec.style.setProperty('--lens-top', (lt - 30) + 'px');
+                const q = Math.min(1, Math.max(0, (p - .12) / .5));
+                // it comes in from the end edge (its nose points to the start side) and climbs over the oval's top
+                const x = 140 - q * (lw * .55 + 140), y = lt + 34 - q * 72 - 10 * Math.sin(q * Math.PI);
+                el.style.transform = 'translate(' + x.toFixed(0) + 'px,' + y.toFixed(0) + 'px) rotate(' + (4 + 6 * q).toFixed(1) + 'deg)';
+                const tr = sec.querySelector('.trailline');
+                if (tr) tr.style.clipPath = 'inset(0 0 0 ' + Math.min(100, Math.max(0, (vw - el.offsetWidth + x + el.offsetWidth * .7) / vw * 100)).toFixed(1) + '%)';
+              }
+              return;
             }
             if (d.travel === 'plane') {
               const x = -p * (vw + 260) + 90, y = 330 - p * 320 - 40 * Math.sin(p * Math.PI);
@@ -558,42 +589,3 @@
   else addEventListener('DOMContentLoaded', motion, { once: true });
 })();
 
-/* 19.11.2026: logo-colour stripes between the home sections. Four parallel lines (orange, sun, teal, leaf) cross the seam
-   between two sections and draw themselves as that seam scrolls through the screen, so the page reads as one route.
-   Decorative (aria-hidden), injected only on the home page; without motion they are simply drawn. */
-(() => {
-  if (!document.body.classList.contains('home')) return;
-  const seams = ['tours', 'moments', 'unique', 'faq'];   // not before #groups: the cable-car line crosses that seam
-  const still = () => matchMedia('(prefers-reduced-motion: reduce)').matches || document.documentElement.classList.contains('a11y-still');
-  const W = 1200, H = 100;
-  const line = (k) => { const o = (k - 1.5) * 9; return `M-20 ${70 + o} C ${W * .22} ${92 + o}, ${W * .38} ${18 + o}, ${W * .6} ${38 + o} S ${W * .9} ${66 + o}, ${W + 20} ${24 + o}`; };
-  const svg = `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" focusable="false">${[0, 1, 2, 3].map((k) => `<path pathLength="1" d="${line(k)}"/>`).join('')}</svg>`;
-  const bands = [];
-  seams.forEach((id, i) => {
-    const sec = document.getElementById(id);
-    if (!sec || !sec.parentNode) return;
-    const d = document.createElement('div');
-    d.className = 'stripes' + (i % 2 ? ' stripes--flip' : '');
-    d.setAttribute('aria-hidden', 'true');
-    d.innerHTML = svg;
-    sec.parentNode.insertBefore(d, sec);
-    bands.push(d);
-  });
-  if (!bands.length || still()) return;
-  let raf = 0;
-  const paint = () => {
-    raf = 0;
-    const vh = innerHeight;
-    for (const b of bands) {
-      const r = b.getBoundingClientRect();
-      // 0 when the seam enters at the bottom of the screen, 1 once it reaches 35% from the top
-      const p = Math.min(1, Math.max(0, (vh - r.top) / (vh * .65)));
-      b.style.setProperty('--p', p.toFixed(3));
-    }
-  };
-  const ask = () => { if (!raf) raf = requestAnimationFrame(paint); };
-  bands.forEach((b) => b.style.setProperty('--p', '0'));
-  addEventListener('scroll', ask, { passive: true });
-  addEventListener('resize', ask);
-  paint();
-})();
