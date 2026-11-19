@@ -95,6 +95,11 @@ export async function handle(req, res, path) {
     const who = sess.email;
     const draftSnap = async () => content.getDraft(store);
 
+    if (path === '/api/admin/password' && m === 'POST') {
+      const b = await readJson(req);
+      try { await auth.changePassword(store, sess.email, b.current, b.next); } catch (e) { return fail(res, e.status || 400, e.message); }
+      return ok(res, {});
+    }
     if (path === '/api/admin/code' && m === 'POST') {   // sign-in code: set (6-12 digits) or turn off (code: null)
       const b = await readJson(req);
       try { await auth.setCode(store, sess.email, b.code === null ? null : String(b.code ?? '').trim()); } catch (e) { return fail(res, e.status || 400, e.message); }

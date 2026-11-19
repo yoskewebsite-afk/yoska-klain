@@ -51,11 +51,33 @@ export async function render(root) {
   };
 
   if (location.hash.includes('code')) setTimeout(() => document.getElementById('code')?.scrollIntoView({ block: 'start' }), 50);
+  // 19.11.2026: change my password
+  const pwCard = () => {
+    const box = h('section', { class: 'glass card codebox' });
+    const cur = h('input', { type: 'password', autocomplete: 'current-password', dir: 'ltr', 'aria-label': 'הסיסמה הנוכחית' });
+    const nw = h('input', { type: 'password', autocomplete: 'new-password', dir: 'ltr', 'aria-label': 'סיסמה חדשה' });
+    const nw2 = h('input', { type: 'password', autocomplete: 'new-password', dir: 'ltr', 'aria-label': 'הסיסמה החדשה שוב' });
+    const err = h('p', { class: 'fld__err', role: 'alert', hidden: true });
+    const fail = (m) => { err.textContent = m; err.hidden = false; };
+    const go = h('button', { class: 'btn btn--primary', type: 'button', onclick: async () => {
+      err.hidden = true;
+      if (nw.value.length < 10) return fail('הסיסמה החדשה צריכה להכיל לפחות 10 תווים.');
+      if (nw.value !== nw2.value) return fail('שתי הסיסמאות החדשות לא זהות.');
+      go.setAttribute('aria-busy', 'true');
+      try { await api('POST', '/api/admin/password', { current: cur.value, next: nw.value }); cur.value = nw.value = nw2.value = ''; toast('הסיסמה הוחלפה.'); }
+      catch (e) { fail(e.message); } finally { go.removeAttribute('aria-busy'); }
+    } }, icon('save'), 'החלפת הסיסמה');
+    box.append(h('h2', { class: 'card__h', text: 'החלפת סיסמה' }), h('p', { class: 'count', text: 'סיסמה של 10 תווים לפחות, שלא משמשת לשום חשבון אחר (לא הסיסמה של המייל).' }),
+      fld('הסיסמה הנוכחית', cur), h('div', { class: 'codebox__row' }, fld('סיסמה חדשה', nw), fld('הסיסמה החדשה שוב', nw2)), err, h('div', {}, go));
+    return box;
+  };
+
   root.append(h('div', { class: 'pagehead' }, h('h1', { text: 'הגדרות אתר' })),
     h('div', { class: 'savebar glass shellglass' }, status, h('span', { class: 'savebar__sp' }), save, h('button', { class: 'btn btn--primary', type: 'button', onclick: async () => { await publishFlow(); paintSt(); } }, icon('send'), 'פרסום לאתר')),
     h('div', { class: 'grid grid--2', style: 'align-items:start' },
       h('div', { style: 'display:grid;gap:20px' },
         codeCard(),
+        pwCard(),
         h('section', { class: 'glass card', style: 'display:grid;gap:14px' }, h('h2', { class: 'card__h', text: 'העסק ויצירת קשר' }),
           fld('שם העסק', text('siteName')), h('div', { class: 'grid grid--2' }, fld('טלפון (להצגה ולחיוג)', text('phone', { dir: true, type: 'tel' })), fld('מספר וואטסאפ', text('whatsapp', { dir: true }), 'בפורמט בינלאומי, למשל 972501234567.')),
           fld('הודעת הפתיחה בוואטסאפ', text('waText', { area: true }), 'הטקסט שמוכן מראש כשגולש לוחץ על וואטסאפ.'), fld('מייל', text('email', { dir: true, type: 'email' })),

@@ -136,6 +136,13 @@ try {
     t('a wrong code does not sign in', c.s === 401);
     c = await call('POST', '/api/admin/login', { code: '730194' }, { auth: false });
     t('the right code signs in', c.s === 200 && c.j.ok); if (c.j?.csrf) csrf = c.j.csrf;
+    let pw = await call('POST', '/api/admin/password', { current: 'wrong-password', next: 'brand-new-pass-1' });
+    t('password change needs the current password', pw.s === 400);
+    pw = await call('POST', '/api/admin/password', { current: 'correct-horse-9', next: 'short' });
+    t('a short new password is refused', pw.s === 400);
+    pw = await call('POST', '/api/admin/password', { current: 'correct-horse-9', next: 'correct-horse-10' });
+    t('the password can be changed', pw.s === 200 && (await call('POST', '/api/admin/login', { email: 'yossi@example.com', password: 'correct-horse-10' }, { auth: false })).s === 200);
+    if (pw.s === 200) { const back = await call('POST', '/api/admin/login', { email: 'yossi@example.com', password: 'correct-horse-10' }, { auth: false }); if (back.j?.csrf) csrf = back.j.csrf; await call('POST', '/api/admin/password', { current: 'correct-horse-10', next: 'correct-horse-9' }); }
     c = await call('POST', '/api/admin/code', { code: null });
     t('the code can be turned off', c.s === 200 && (await call('GET', '/api/admin/bundle')).j.me.hasCode === false);
   }

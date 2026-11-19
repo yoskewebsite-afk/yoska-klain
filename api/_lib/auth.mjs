@@ -51,6 +51,18 @@ export async function setCode(store, email, code) {
   await store.put('users', email, user);
   await audit(store, email, code === null ? 'code-off' : 'code-set', {});
 }
+// 19.11.2026: the signed-in admin changes his own password (the current one is required)
+export async function changePassword(store, email, current, next) {
+  if (!(await rateLimit(store, `pwchange:${email}`, 5, 15 * 60)).ok) throw Object.assign(new Error('יותר מדי ניסיונות. נסו שוב בעוד רבע שעה.'), { status: 429 });
+  const user = await store.get('users', email);
+  if (!user || !(await verifyPassword(String(current || ''), user.pw))) throw Object.assign(new Error('הסיסמה הנוכחית לא נכונה.'), { status: 400 });
+  const bad = passwordProblem(next);
+  if (bad) throw Object.assign(new Error(bad), { status: 400 });
+  if (String(next) === String(current)) throw Object.assign(new Error('הסיסמה החדשה זהה לנוכחית.'), { status: 400 });
+  user.pw = await hashPassword(String(next));
+  await store.put('users', email, user);
+  await audit(store, email, 'password-change', {});
+}
 async function userByCode(store, code) {
   const users = (await store.list('users', { limit: 20 })).map((r) => r.data || {});
   let hit = null;
