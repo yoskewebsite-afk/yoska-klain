@@ -183,15 +183,15 @@
     if (!stage || !head || !scene) return;
     const place = () => {
       const tall = matchMedia('(max-width: 699px), (max-width: 999px) and (orientation: portrait)').matches;
-      const r = tall ? 1280 / 1763 : 2160 / 1434, sky = tall ? .05 : .15;
+      const r = tall ? 1280 / 1763 : 1600 / 750, sky = tall ? .05 : .2;   // 21.11.2026: photos without the hotel (wide: the 16.11 garden)
       const phone = innerWidth < 700;
       // 19.11.2026 (owner's reference): on phones the photo is an inset card (12px from each edge) that starts just
       // under the subline, so Yoske's head and raised arm stand above its top edge
-      const h = (document.documentElement.clientWidth - (phone ? 24 : 0)) / r;
+      const h = (document.documentElement.clientWidth - (phone ? 24 : 0)) * (phone ? 1.22 : 1) / r;   // phones: the photo is zoomed in (bigger Shrine), as on the reference
       const hb = head.offsetTop + head.offsetHeight;
-      const top = Math.round(phone ? hb + 18 : hb + (tall ? 14 : 18) - sky * h);
+      const top = Math.round(phone ? hb + 34 : hb + (tall ? 14 : 18) - sky * h);
       scene.parentElement.style.setProperty('--scene-top', top + 'px');
-      scene.style.setProperty('--cta-top', Math.round(phone ? h * .12 : sky * h + (tall ? 18 : 30)) + 'px');
+      scene.style.setProperty('--cta-top', Math.round(phone ? h * .1 : sky * h + (tall ? 18 : 30)) + 'px');
     };
     // Yoske: the middle of his raised hand (6% / 14% of the cut-out) sits just above the first letter (ש) of the second line
     const yoske = $('[data-hero-yoske]'), l2 = $('.hero__l2'), fore = $('[data-hero-fore]');
@@ -204,7 +204,7 @@
       const sh = rg.getBoundingClientRect(), sr = scene.getBoundingClientRect(), iw = document.documentElement.clientWidth, ih = innerHeight;
       const narrow = innerWidth < 700, ratio = 908 / 900, hx = sh.left + sh.width * .55;
       const shTop = sh.top + scrollY, scTop = sr.top + scrollY;
-      const w = narrow ? Math.min(iw * .52, 250) : Math.max(260, Math.min((iw + 60 - sh.right) / .9, ih * .74 / ratio, 620)), h = w * ratio;  // 17.11.2026: bigger
+      const w = narrow ? Math.min(iw * .6, 280) : Math.max(260, Math.min((iw + 60 - sh.right) / .9, ih * .74 / ratio, 620)), h = w * ratio;  // 17.11.2026: bigger
       const shiftX = narrow ? 0 : iw * .03;
       // his fingertips reach the top of the ש (never above it)
       // 17.11.2026: he is bigger now, so the hand points at the letter from its side (mid-height) instead of from above,
@@ -221,13 +221,15 @@
       else { const sb = $('.hero__sub'); y = sb ? sb.getBoundingClientRect().bottom + scrollY - scTop + 2 - h * .02 : imgH * .3 - h; }
       yoske.style.setProperty('--yw', Math.round(w) + 'px');
       // phones: the ש can sit at the very edge, keep him (most of him) on screen
-      const x = narrow ? iw - 12 - sr.left - w * .8 : sh.right + 14 - sr.left - w * .03;
+      const x = narrow ? iw - 12 - sr.left - w * .84 : sh.right + 14 - sr.left - w * .03;
       yoske.style.setProperty('--yx', Math.round(x) + 'px');
       // phones: as on the reference he is cut by the right edge of the inset photo
       yoske.style.clipPath = narrow ? `inset(-300px ${Math.max(0, Math.round(x + w - (iw - 12 - sr.left)))}px -300px -300px)` : '';
       yoske.style.setProperty('--yy', Math.round(y) + 'px');
-      yoske.classList.toggle('is-fade', narrow);   // phones: his cut-out waist fades into the trees
+      yoske.classList.add('is-fade');   // his cut-out waist fades into the trees (no hard edge over the garden)
       if (fore) fore.style.setProperty('--fy', Math.round(y + h - (narrow ? 45 : 95)) + 'px');
+      // phones (owner's reference): the button sits under his raised arm, left of his shoulder, never across him
+      if (narrow) scene.style.setProperty('--cta-top', Math.round(y + h * .36) + 'px');
     };
     const both = () => { place(); placeYoske(); };
     both(); addEventListener('resize', both);

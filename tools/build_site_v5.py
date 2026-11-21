@@ -313,7 +313,7 @@ def home_body():
 
 
 def home():
-    pre = '<link rel="preload" as="image" href="/assets/v4/hero-wide-1440.webp" media="(min-width: 700px)" fetchpriority="high">'
+    pre = '<link rel="preload" as="image" href="/assets/hero26/garden-2400.webp" media="(min-width: 700px)" fetchpriority="high">'
     return v.page('index.html', 'יוסק׳ה | טיולים, חברה, תרבות. סיורים בחיפה',
                   'סיורים בחיפה וימי גיבוש לארגונים, לצוותים, למשפחות ולקבוצות. עם תוכן מעניין, תכנון מסודר ויוסק׳ה אחד שיודע להחזיק את היום.',
                   home_body(), current='home', body_class='home', preload=pre)

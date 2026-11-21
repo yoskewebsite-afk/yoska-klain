@@ -196,7 +196,7 @@ def render(src, form_id='c', lead_kind='general'):
 
 def home():
     body = v5.objects_for(v.render('home.html'), {'tours': v5.CAMERA_FLY, 'groups': v5.CABLE, 'abroad': v5.PLANE})
-    pre = '<link rel="preload" as="image" href="/assets/v4/hero-wide-1440.webp" media="(min-width: 700px)" fetchpriority="high">'
+    pre = '<link rel="preload" as="image" href="/assets/hero26/garden-2400.webp" media="(min-width: 700px)" fetchpriority="high">'
     return v.page('index.html', 'יוסק׳ה | טיולים, חברה, תרבות. סיורים בחיפה',
                   'סיורים בחיפה וימי גיבוש לארגונים, לצוותים, למשפחות ולקבוצות. עם תוכן מעניין, תכנון מסודר ויוסק׳ה אחד שיודע להחזיק את היום.',
                   body, body_class='home', preload=pre)

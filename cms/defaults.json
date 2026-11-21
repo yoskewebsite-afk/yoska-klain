@@ -13,13 +13,13 @@
     "top.t3": "סיורים בחיפה וימי גיבוש",
     "top.t4": "עם תוכן מעניין, ויוסק׳ה אחד שיודע להחזיק את היום.",
     "top.img1": {
-     "src": "/assets/v4/hero-wide-1440.webp",
+     "src": "/assets/hero26/garden-2400.webp",
      "alt": "מקדש הבאב וטרסות הגנים הבהאיים במורד הכרמל, מבט מלמטה לאורך הציר",
-     "srcset": "/assets/v4/hero-wide-960.webp 960w, /assets/v4/hero-wide-1440.webp 1440w, /assets/v4/hero-wide-2160.webp 2160w",
-     "w": "2160",
-     "h": "1434",
+     "srcset": "/assets/hero26/garden-1600.webp 1600w, /assets/hero26/garden-2400.webp 2400w, /assets/hero26/garden-3600.webp 3600w",
+     "w": "1600",
+     "h": "750",
      "s": [
-      "/assets/v4/hero-tall-640.webp 640w, /assets/v4/hero-tall-960.webp 960w, /assets/v4/hero-tall-1280.webp 1280w"
+      "/assets/v4/hero-tall-nh-640.webp 640w, /assets/v4/hero-tall-nh-960.webp 960w, /assets/v4/hero-tall-nh-1280.webp 1280w"
      ]
     },
     "top.img2": {

@@ -1,13 +1,13 @@
 [
 {
-"id": "b-assets-v4-hero-wide-1440-webp",
-"url": "/assets/v4/hero-wide-1440.webp",
-"name": "hero-wide-1440",
-"w": 1440,
-"h": 956,
+"id": "b-assets-hero26-garden-2400-webp",
+"url": "/assets/hero26/garden-2400.webp",
+"name": "garden-2400",
+"w": 2400,
+"h": 1125,
 "alt": "מקדש הבאב וטרסות הגנים הבהאיים במורד הכרמל, מבט מלמטה לאורך הציר",
 "pos": "50% 50%",
-"group": "v4"
+"group": "hero26"
 },
 {
 "id": "b-assets-yoske-cutout-640-webp",

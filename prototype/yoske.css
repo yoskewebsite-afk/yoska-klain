@@ -2118,7 +2118,7 @@ html.a11y-still .cb-logos__track { animation: none; }
   .hero__yoske { filter: saturate(1.06) contrast(1.04) brightness(1.03) sepia(.06); }
   .hero__fore { inset: 0 12px; }
   .hero__photo img { border-radius: 4px; }
-  .hero__cta { left: 43% !important; translate: -50% 0 !important; white-space: nowrap; }
+  .hero__cta { left: 38% !important; translate: -50% 0 !important; white-space: nowrap; }
   .hero__scene::after { inset-inline: 12px; }
   .hero-arrive .hero__yoske { animation: hero-step .9s cubic-bezier(.22, 1, .36, 1) .25s both; }
   .hero-arrive .hero__cta { animation: hero-cta .7s cubic-bezier(.22, 1, .36, 1) .55s both; }
@@ -2213,3 +2213,34 @@ body:not(.home) .prose__body p + p { margin-top: var(--s4); }
 }
 /* a band that holds only a button is not a card: just the button, centred, with air around it */
 .ctaband:not(:has(h2, h3, p)) { border: 0 !important; box-shadow: none; background: none !important; padding: var(--s6) 0 var(--s8) !important; margin: 0 auto !important; clip-path: none !important; }
+
+/* ===================================================================== 21.11.2026: partner's final notes */
+/* hero: a bigger headline (desktop and phones) */
+.hero__l2 { font-size: calc(var(--u) * 11); }
+@media (max-width: 699px), (max-width: 999px) and (orientation: portrait) {
+  .hero__l1 { font-size: min(10.4vw, 76px); }
+  .hero__l2 { font-size: min(15.4vw, 112px); }
+  /* the photo's top edge is now the canopy itself (no hotel): no card corners there */
+  .hero__photo img { border-radius: 0 0 4px 4px; }
+}
+
+/* phones: the hero arrives as one short sequence (headline lines, subline, the gardens rise, Yoske steps in, the button
+   settles); ~1.4s in all, transform and opacity only, nothing when the visitor asked for less motion */
+@media (max-width: 699px) {
+  .hero-arrive .hero__l1 { animation: hero-rise .7s cubic-bezier(.22, 1, .36, 1) .05s both; }
+  .hero-arrive .hero__l2 { animation: hero-rise .75s cubic-bezier(.22, 1, .36, 1) .16s both; }
+  .hero-arrive .hero__sub { animation: hero-fade .6s ease-out .32s both; }
+  .hero-arrive .hero__photo, .hero-arrive .hero__fore { animation: hero-garden 1s cubic-bezier(.22, 1, .36, 1) .3s both; }
+  .hero-arrive .hero__yoske { animation: hero-step .9s cubic-bezier(.22, 1, .36, 1) .62s both; }
+  .hero-arrive .hero__cta { animation: hero-cta .7s cubic-bezier(.22, 1, .36, 1) .95s both; }
+}
+@keyframes hero-rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+@keyframes hero-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes hero-garden { from { opacity: 0; transform: translateY(28px) scale(1.03); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .hero-arrive .hero__l1, .hero-arrive .hero__l2, .hero-arrive .hero__sub, .hero-arrive .hero__photo, .hero-arrive .hero__fore { animation: none; } }
+
+/* phones: the gardens are zoomed in inside the card (the Shrine bigger, as on the owner's reference) */
+@media (max-width: 699px) {
+  .hero__photo, .hero__fore picture { display: block; overflow: hidden; }
+  .hero__photo img, .hero__fore img { width: 122%; max-width: none; margin-inline: -11%; }
+}
