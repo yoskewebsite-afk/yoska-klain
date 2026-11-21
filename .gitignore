@@ -20,3 +20,4 @@ backups/
 .vercel
 .env*
 .secrets/
+handoff/*.webm
