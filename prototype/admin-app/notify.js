@@ -28,7 +28,10 @@ async function poll() {
   } catch { /* offline or signed out: the next tick tries again */ }
 }
 
+let started = false;
 export async function initNotify() {
+  // 21.11.2026: once per visit (it ran on every screen change: the invitation stacked up and the polling multiplied)
+  if (started) return; started = true;
   if ('serviceWorker' in navigator) { try { reg = await navigator.serviceWorker.register('/admin-app/sw.js', { scope: '/yoske-nihul-7k4q' }); } catch { reg = null; } }
   window.addEventListener('beforeinstallprompt', (e) => { e.preventDefault(); deferred = e; });
   setInterval(poll, 25000);
