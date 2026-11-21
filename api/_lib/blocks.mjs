@@ -144,7 +144,7 @@ export function cleanBlock(b) {
   if (anchor && /^[a-z][a-z0-9-]{1,30}$/.test(anchor)) out.d.anchor = anchor;
   if (T.items) {
     const arr = Array.isArray(b.items) ? b.items.slice(0, T.items.max) : [];
-    out.items = arr.map((it) => { const r = { id: txt(it?.id, 24).replace(/[^\w-]/g, '') || Math.random().toString(36).slice(2, 8) }; for (const k of T.items.f) { const v = cleanField(k, it?.[k]); if (v != null && v !== '') r[k] = v; } return r; });
+    out.items = arr.map((it) => { const r = { id: txt(it?.id, 24).replace(/[^\w-]/g, '') || Math.random().toString(36).slice(2, 8) }; if (b.type === 'trips' && /^[a-z0-9-]{1,60}$/.test(it?.tour || '')) r.tour = it.tour; for (const k of T.items.f) { const v = cleanField(k, it?.[k]); if (v != null && v !== '') r[k] = v; } return r; });
   }
   return out;
 }

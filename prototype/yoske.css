@@ -2216,9 +2216,9 @@ body:not(.home) .prose__body p + p { margin-top: var(--s4); }
 
 /* ===================================================================== 21.11.2026: partner's final notes */
 /* hero: a bigger headline (desktop and phones) */
-.hero__l2 { font-size: calc(var(--u) * 11); }
+.hero__l2 { font-size: calc(var(--u) * 10.4); }
 @media (max-width: 699px), (max-width: 999px) and (orientation: portrait) {
-  .hero__l1 { font-size: min(10.4vw, 76px); }
+  .hero__l1 { font-size: min(7.4vw, 54px); }   /* as on the owner's mock-up: a smaller first line over a big orange second line */
   .hero__l2 { font-size: min(15.4vw, 112px); }
   /* the photo's top edge is now the canopy itself (no hotel): no card corners there */
   .hero__photo img { border-radius: 0 0 4px 4px; }
@@ -2244,3 +2244,43 @@ body:not(.home) .prose__body p + p { margin-top: var(--s4); }
   .hero__photo, .hero__fore picture { display: block; overflow: hidden; }
   .hero__photo img, .hero__fore img { width: 122%; max-width: none; margin-inline: -11%; }
 }
+
+/* the travelling objects never cross text or another section's background:
+   cable car: the cable starts inside its own section (it began above it, over the previous section's colour) and the
+   section's copy starts below the cabin's path; plane: it flies in a band above the South America title, its dashed
+   trail stays in that band; camera: a little more air above the tours title on phones */
+.cable { top: 26px !important; }
+#groups { padding-top: calc(var(--s10) + 150px) !important; }
+@media (max-width: 699px) { #groups { padding-top: calc(var(--s8) + 150px) !important; } #tours { padding-top: calc(var(--s8) + 40px); } }
+@media (min-width: 700px) {
+  .abroad { padding-top: calc(var(--s9) + 150px); }
+  .abroad .trailline { top: 20px; height: 150px; }
+}
+/* phones: the teal panel sits behind the photo cards only, never behind the steps' text */
+@media (max-width: 699px) {
+  .groups__panel { height: auto !important; top: var(--panel-top, auto) !important; bottom: 0 !important; }
+}
+
+/* FAQ (partner: "too white"): a warm sun band, each question a soft card with a brand-colour edge that cycles
+   (teal, sun, orange, leaf); the open one lifts, its icon turns, the answer slides in. Hover nudges the card. */
+.faq { position: relative; background: linear-gradient(180deg, #FFF8E8 0%, #FDF3DC 100%); }
+.faq__list { border-top: 0 !important; display: grid; gap: 12px; }
+.faq details { --c: var(--teal); border: 1px solid rgba(42, 58, 92, .14) !important; border-inline-start: 6px solid var(--c) !important; border-radius: 20px !important;
+  background: var(--white); box-shadow: 0 1px 2px rgba(42, 58, 92, .05); transition: box-shadow .3s cubic-bezier(.22, 1, .36, 1), transform .3s cubic-bezier(.22, 1, .36, 1); }
+.faq details:nth-child(4n+2) { --c: var(--sun); }
+.faq details:nth-child(4n+3) { --c: var(--orange); }
+.faq details:nth-child(4n+4) { --c: var(--leaf); }
+.faq summary { padding: 16px 20px !important; min-height: 60px; }
+.faq details p { padding: 0 20px 20px !important; }
+.faq details[open] { box-shadow: 0 2px 4px rgba(42, 58, 92, .06), 0 20px 36px -22px rgba(42, 58, 92, .4); }
+.faq summary i { border-color: var(--c) !important; background: color-mix(in srgb, var(--c) 12%, white); transition: background-color .25s ease-out, rotate .35s cubic-bezier(.22, 1, .36, 1); }
+.faq summary i::before, .faq summary i::after { background: var(--navy); }
+.faq details[open] summary i { background: var(--c) !important; rotate: 180deg; }
+.faq details[open] p { animation: faq-in .38s cubic-bezier(.22, 1, .36, 1) both; }
+@keyframes faq-in { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+@media (hover: hover) { .faq details:not([open]):hover { transform: translateX(-4px); box-shadow: 0 10px 22px -16px rgba(42, 58, 92, .45); } }
+.faq .duo-title .hl { color: var(--orange); }
+@media (prefers-reduced-motion: reduce) { .faq details, .faq summary i { transition: none; } .faq details[open] p { animation: none; } .faq details:hover { transform: none; } }
+/* section titles: the bold line used to type itself in over a second (22 steps) and read as a cut sentence while
+   scrolling; now a short smooth wipe that is done before the title reaches the middle of the screen */
+.motion [data-wipe].is-in { transition: clip-path .55s cubic-bezier(.22, 1, .36, 1) !important; }

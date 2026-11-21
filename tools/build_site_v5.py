@@ -106,6 +106,8 @@ v.FOOTER = re.sub(r'<a href="https://www\.brazilao\.com/organized-tours"[^>]*>.*
 # ------------------------------------------------------------------ small building blocks
 def lead_form(uid, kind='tour', tour_slug='', submit='שליחה', msg_label='משהו נוסף שכדאי לדעת', interest=False, extras=(), note=None):
     """A real lead form (saved in the CRM). extras: (name, label, type, placeholder) fields that are added to the message under their label."""
+    # 21.11.2026 (partner): every form is short: name, phone and an optional note; nothing else
+    interest, extras = False, ()
     opts = ''.join(f'<option value="{k}"{" selected" if k == kind else ""}>{l}</option>' for k, l in v.KIND_OPTIONS)
     kind_field = (f'<div class="field"><label for="{uid}-kind">במה מתעניינים?</label><select id="{uid}-kind" name="kind">{opts}</select></div>' if interest
                   else f'<input type="hidden" name="kind" value="{kind}">')

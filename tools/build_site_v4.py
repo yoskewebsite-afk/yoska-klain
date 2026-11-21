@@ -278,6 +278,7 @@ KIND_OPTIONS = [('general', 'עוד לא בטוחים, רוצים לשמוע'), 
 
 
 def lead_form(uid, kind='general', tour_slug='', submit='שליחת הפנייה', msg_label='על מה חשבתם?', show_kind=True, extra_hidden=''):
+    show_kind = False   # 21.11.2026 (partner): name, phone and an optional note only
     opts = ''.join(f'<option value="{v}"{" selected" if v == kind else ""}>{l}</option>' for v, l in KIND_OPTIONS)
     if kind not in [v for v, _ in KIND_OPTIONS]:
         opts += f'<option value="{kind}" selected>{ {"quiz": "אחרי השאלון", "sale": "הרשמה", "date": "מועד מהלוח"}.get(kind, kind) }</option>'
@@ -287,7 +288,7 @@ def lead_form(uid, kind='general', tour_slug='', submit='שליחת הפנייה
             <p class="cform__context" data-lead-context hidden></p>
             <div class="cform__row">
               <div class="field"><label for="{uid}-name">שם</label><input id="{uid}-name" name="name" autocomplete="name" required maxlength="80" aria-describedby="{uid}-name-err"><p class="field__err" id="{uid}-name-err" data-err="name" hidden></p></div>
-              <div class="field"><label for="{uid}-phone">טלפון לחזרה</label><input id="{uid}-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" required maxlength="20" aria-describedby="{uid}-phone-err"><p class="field__err" id="{uid}-phone-err" data-err="phone" hidden></p></div>
+              <div class="field"><label for="{uid}-phone">טלפון</label><input id="{uid}-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" required maxlength="20" aria-describedby="{uid}-phone-err"><p class="field__err" id="{uid}-phone-err" data-err="phone" hidden></p></div>
               {kind_field}
               <div class="field field--wide"><label for="{uid}-msg">{msg_label} <span class="opt">(לא חובה)</span></label><textarea id="{uid}-msg" name="message" rows="2" maxlength="1500"></textarea></div>
               <input type="hidden" name="tour_slug" value="{tour_slug}"><input type="hidden" name="date_id" value="">{extra_hidden}

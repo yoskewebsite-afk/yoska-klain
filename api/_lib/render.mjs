@@ -181,14 +181,20 @@ export function sectionState(snap, pid) {
   // a section missing from a saved order goes back next to the section it follows by default
   for (const i of base) if (!order.includes(i)) { const k = base.indexOf(i); const prev = base.slice(0, k).reverse().find((x) => order.includes(x)); order.splice(prev ? order.indexOf(prev) + 1 : 0, 0, i); }
   const hidden = new Set(ids.filter((i) => pg?.sec?.[i]?.hidden || pg?.sec?.[i]?.removed));
-  return { ids, order, hidden };
+  // 21.11.2026: upcoming tours / logos with nothing in them are off the page (and their menu links with them)
+  const anchors = {};
+  for (const [cid, b] of Object.entries(custom)) {
+    anchors[cid] = b?.d?.anchor || cid;
+    if ((b?.type === 'trips' && !(b.items || []).some((it) => it.title)) || (b?.type === 'logos' && !(b.items || []).some((it) => it.img?.src))) hidden.add(cid);
+  }
+  return { ids, order, hidden, anchors };
 }
 
 /** anchors that point at hidden or removed home sections (so menus and rails can drop the dead links) */
 export function deadAnchors(snap) {
   const st = sectionState(snap, 'index');
   const set = new Set();
-  for (const id of st.hidden) { set.add('#' + id); set.add('/#' + id); }
+  for (const id of st.hidden) { const a = st.anchors?.[id] || id; set.add('#' + a); set.add('/#' + a); }
   return set;
 }
 
@@ -228,10 +234,12 @@ export function renderPage({ snap, pid, draft = false, origin = '' }) {
       out = tpl.slice(0, first) + mid + '\n' + tpl.slice(last);
       out = renderRegions(out);
       // dead rail / tab links
-      for (const id of st.hidden) out = out.replace(new RegExp(`<li><a href="#${id}" data-rail-link="${id}">[\\s\\S]*?</a></li>`, 'g'), '');
+      for (const id0 of st.hidden) { const id = st.anchors?.[id0] || id0; out = out.replace(new RegExp(`<li><a href="#${id}" data-rail-link="${id}">[\\s\\S]*?</a></li>`, 'g'), ''); }
     }
   }
   out = fill(out, vals);
+  // menu / footer / button links into home sections that are off the page right now are dropped (any page)
+  for (const a of dead) if (a.startsWith('/#')) out = out.replace(new RegExp(`<a [^>]*href="${a}"[^>]*>[\\s\\S]*?</a>`, 'g'), '');
 
   // head: seo, robots, canonical, social image
   const siteUrl = String(settings.siteUrl || '').replace(/\/+$/, '');

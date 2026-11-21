@@ -123,7 +123,7 @@ try {
   {
     t('old /admin path is not the admin', !/כניסה|app\.js/.test((await call('GET', '/admin', null, { auth: false })).text));
     const home = (await call('GET', '/', null, { auth: false })).text;
-    t('home: no map, no uniqueness block, upcoming tours is a built-in section', !/id="map"/.test(home) && !/id="unique"/.test(home) && /cb--trips[^>]*id="upcoming"/.test(home));
+    t('home: no map, no uniqueness block; upcoming tours off the page (and out of the menu) while it has no tours', !/id="map"/.test(home) && !/id="unique"/.test(home) && !/cb--trips/.test(home) && !/href="\/#upcoming"/.test(home));
     t('home: the logos section stays hidden while it has no logos', !/cb--logos/.test(home));
     let c = await call('POST', '/api/admin/code', { code: '123' });
     t('a too short code is refused', c.s === 400);

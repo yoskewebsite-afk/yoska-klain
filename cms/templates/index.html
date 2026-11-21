@@ -19,7 +19,7 @@
   <link rel="preload" href="/fonts/heebo-hebrew-300-900.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/karantina-hebrew-700.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" as="image" href="/assets/hero26/garden-2400.webp" media="(min-width: 700px)" fetchpriority="high">
-  <link rel="stylesheet" href="/yoske.css?v=ee6d435f1f">
+  <link rel="stylesheet" href="/yoske.css?v=6b9cdb7d38">
 {{{head.extra}}}</head>
 <body class="home" data-ga4="">
   <a class="skip" href="#main">דילוג לתוכן</a>
@@ -232,7 +232,7 @@
             <div class="cform__row">
               <div class="field"><label for="c-name">שם</label><input id="c-name" name="name" autocomplete="name" required maxlength="80" aria-describedby="c-name-err"><p class="field__err" id="c-name-err" data-err="name" hidden></p></div>
               <div class="field"><label for="c-phone">טלפון</label><input id="c-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" required maxlength="20" aria-describedby="c-phone-err"><p class="field__err" id="c-phone-err" data-err="phone" hidden></p></div>
-              <div class="field"><label for="c-kind">במה מתעניינים?</label><select id="c-kind" name="kind"><option value="tour" selected>סיור בחיפה</option><option value="org">יום לצוות או לארגון</option><option value="family">פעילות למשפחה</option><option value="private">טיול פרטי לקבוצה</option><option value="general">עוד לא בטוח, רוצים לשמוע</option></select></div><div class="field"><label for="c-people">כמה משתתפים בערך?</label><input id="c-people" name="x_people" data-msg="כמה משתתפים בערך?" type="text" autocomplete="off" maxlength="120"></div><div class="field"><label for="c-dates">תאריך או טווח תאריכים</label><input id="c-dates" name="x_dates" data-msg="תאריך או טווח תאריכים" type="text" autocomplete="off" maxlength="120"></div>
+              <input type="hidden" name="kind" value="tour">
               <div class="field field--wide"><label for="c-msg">משהו נוסף שכדאי לדעת <span class="opt">(לא חובה)</span></label><textarea id="c-msg" name="message" rows="2" maxlength="1200"></textarea></div>
               <input type="hidden" name="tour_slug" value=""><input type="hidden" name="date_id" value="">
               <div class="hp" aria-hidden="true"><label for="c-web">אתר</label><input id="c-web" name="website" tabindex="-1" autocomplete="off"></div>
@@ -288,7 +288,7 @@
   <script src="/vendor/lenis.min.js" defer></script>
   <script src="/vendor/gsap.min.js" defer></script>
   <script src="/vendor/ScrollTrigger.min.js" defer></script>
-  <script src="/yoske.js?v=384d3e9561" defer></script>
+  <script src="/yoske.js?v=dda02beb74" defer></script>
   <script src="/prefs.js?v=c81a171d4f" defer></script>
   <script src="/analytics.js?v=a7c59f0871" defer></script>
   <script src="/forms.js?v=0cbd686e0a" defer></script>

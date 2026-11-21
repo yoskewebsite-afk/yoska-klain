@@ -298,7 +298,8 @@
               return;
             }
             if (d.travel === 'plane') {
-              const x = -p * (vw + 260) + 90, y = 330 - p * 320 - 40 * Math.sin(p * Math.PI);
+              // 21.11.2026: in the band above the title (the section keeps ~150px free there), never across the copy
+              const x = -p * (vw + 260) + 90, y = 70 - p * 50 - 22 * Math.sin(p * Math.PI);
               el.style.transform = 'translate(' + x.toFixed(0) + 'px,' + y.toFixed(0) + 'px) rotate(' + (5 + 9 * p).toFixed(1) + 'deg)';
               const tr = sec.querySelector('.trailline'); if (tr) tr.style.clipPath = 'inset(0 0 0 ' + (100 - p * 100).toFixed(1) + '%)';
             }
@@ -423,7 +424,7 @@
       const l = $('.duo-title__light', t), b = $('.duo-title__bold', t);
       if (l) l.setAttribute('data-rise', '');
       if (b) b.setAttribute('data-wipe', '');
-      ST.create({ trigger: t, start: 'top 82%', once: true, onEnter: () => { l && l.classList.add('is-in'); setTimeout(() => b && b.classList.add('is-in'), 240); } });
+      ST.create({ trigger: t, start: 'top 96%', once: true, onEnter: () => { l && l.classList.add('is-in'); setTimeout(() => b && b.classList.add('is-in'), 90); } });
     });
 
     /* the big arc of the map section draws in as the section arrives */
@@ -591,3 +592,11 @@
   else addEventListener('DOMContentLoaded', motion, { once: true });
 })();
 
+/* 21.11.2026: phones: the groups teal panel starts at the photo cards (below the steps), measured, so it never covers text */
+(() => {
+  const sec = document.getElementById('groups'), panel = sec && sec.querySelector('.groups__panel'), steps = sec && sec.querySelector('.steps');
+  if (!panel || !steps) return;
+  const set = () => { if (innerWidth >= 700) { sec.style.removeProperty('--panel-top'); return; }
+    const t = steps.getBoundingClientRect().bottom - sec.getBoundingClientRect().top + 40; sec.style.setProperty('--panel-top', Math.round(t) + 'px'); };
+  set(); addEventListener('resize', set); document.fonts && document.fonts.ready.then(set);
+})();

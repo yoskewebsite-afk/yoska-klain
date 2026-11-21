@@ -58,17 +58,29 @@ export function blockEditor({ pid, cid, onChange }) {
     b.items ||= [];
     const wrap = h('div', { class: 'group' });
     const paintItems = () => {
-      wrap.replaceChildren(h('div', { class: 'group__h' }, h('span', { text: { cards: 'הכרטיסים', faq: 'השאלות', gallery: 'התמונות', facts: 'המספרים' }[b.type] || 'פריטים' }), h('span', { class: 'count', text: `${b.items.length} מתוך ${I.max}` }), h('span', { style: 'flex:1' }),
+      wrap.replaceChildren(h('div', { class: 'group__h' }, h('span', { text: { cards: 'הכרטיסים', faq: 'השאלות', gallery: 'התמונות', facts: 'המספרים', trips: 'הסיורים הפתוחים', logos: 'הלוגואים' }[b.type] || 'פריטים' }), h('span', { class: 'count', text: `${b.items.length} מתוך ${I.max}` }), h('span', { style: 'flex:1' }),
         h('button', { class: 'btn btn--sm btn--primary', type: 'button', disabled: b.items.length >= I.max, onclick: add }, icon('plus'), `הוספת ${I.label}`)),
       ...b.items.map((it, i) => h('div', { class: 'item' }, h('div', { class: 'item__h' }, h('span', { text: `${I.label} ${i + 1}` }), h('span', { class: 'sp' }),
         h('button', { class: 'btn btn--sm btn--icon btn--ghost', type: 'button', 'aria-label': `העלאת ${I.label} ${i + 1}`, disabled: i === 0, onclick: () => mv(i, -1) }, icon('up')),
         h('button', { class: 'btn btn--sm btn--icon btn--ghost', type: 'button', 'aria-label': `הורדת ${I.label} ${i + 1}`, disabled: i === b.items.length - 1, onclick: () => mv(i, 1) }, icon('down')),
         h('button', { class: 'btn btn--sm btn--icon btn--ghost', type: 'button', 'aria-label': `שכפול ${I.label} ${i + 1}`, disabled: b.items.length >= I.max, onclick: () => { b.items.splice(i + 1, 0, { ...clone(it), id: rid() }); commit(); paintItems(); } }, icon('copy')),
         h('button', { class: 'btn btn--sm btn--icon btn--ghost', type: 'button', 'aria-label': `הסרת ${I.label} ${i + 1}`, onclick: () => { b.items.splice(i, 1); commit(); paintItems(); } }, icon('trash'))),
+        // 21.11.2026: upcoming tours: one tap fills the item from one of his tours (name, photo, a short line, its page)
+        b.type === 'trips' ? h('div', { class: 'fld' }, h('label', { text: 'בחירה מהסיורים שלי (ממלא את הפרטים, ואפשר לשנות אחר כך)' }), (() => {
+          const sel = h('select', { 'aria-label': 'בחירת סיור' }, h('option', { value: '', text: 'סיור חדש / אחר' }), ...(S.tours || []).filter((t) => t.status !== 'archived').map((t) => h('option', { value: t.slug, text: t.name })));
+          sel.value = it.tour || '';
+          sel.addEventListener('change', () => {
+            const t = (S.tours || []).find((x) => x.slug === sel.value); it.tour = sel.value || undefined;
+            if (t) { it.title = t.name; if (t.card?.src) it.img = { src: t.card.src, w: t.card.w || '', h: t.card.h || '', alt: t.card.alt || t.name, pos: t.card.pos || '' }; it.text = it.text || t.place || '';
+              if (!it.reg?.href) it.reg = { label: 'להרשמה ותשלום', href: t.page ? `/tours/${t.slug}.html` : 'wa' }; }
+            commit(); paintItems();
+          });
+          return sel;
+        })()) : null,
         ...I.f.map((k) => F[k].kind === 'image' ? imageField(() => it[k], (v) => { it[k] = v; commit(); })
           : F[k].kind === 'link' ? h('div', { class: 'fld' }, h('label', { text: k === 'reg' ? F[k].label : 'קישור (לא חובה)' }), linkField(() => it[k], (v) => { it[k] = v; commit(); }, true))
             : textField(F[k], () => it[k], (v) => { it[k] = v; commit(); })))));
-      if (!b.items.length) wrap.append(h('p', { class: 'count', text: b.type === 'gallery' ? 'עדיין אין תמונות. ״הוספת תמונה״ פותח את ספריית המדיה.' : 'הרשימה ריקה.' }));
+      if (!b.items.length) wrap.append(h('p', { class: 'count', text: b.type === 'trips' ? 'אין כרגע סיורים פתוחים, ולכן הסקשן לא מופיע באתר. ״הוספת סיור״ מחזיר אותו.' : b.type === 'logos' ? 'אין עדיין לוגואים, ולכן הרצועה לא מופיעה באתר.' : b.type === 'gallery' ? 'עדיין אין תמונות. ״הוספת תמונה״ פותח את ספריית המדיה.' : 'הרשימה ריקה.' }));
     };
     const mv = (i, d) => { const j = i + d; [b.items[i], b.items[j]] = [b.items[j], b.items[i]]; commit(); paintItems(); };
     async function add() {

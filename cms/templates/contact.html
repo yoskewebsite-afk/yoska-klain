@@ -19,7 +19,7 @@
   <link rel="preload" href="/fonts/heebo-hebrew-300-900.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/karantina-hebrew-700.woff2" as="font" type="font/woff2" crossorigin>
   
-  <link rel="stylesheet" href="/yoske.css?v=ee6d435f1f">
+  <link rel="stylesheet" href="/yoske.css?v=6b9cdb7d38">
 {{{head.extra}}}</head>
 <body class="page" data-ga4="">
   <a class="skip" href="#main">דילוג לתוכן</a>
@@ -59,8 +59,8 @@
             <p class="cform__context" data-lead-context hidden></p>
             <div class="cform__row">
               <div class="field"><label for="cp-name">שם</label><input id="cp-name" name="name" autocomplete="name" required maxlength="80" aria-describedby="cp-name-err"><p class="field__err" id="cp-name-err" data-err="name" hidden></p></div>
-              <div class="field"><label for="cp-phone">טלפון לחזרה</label><input id="cp-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" required maxlength="20" aria-describedby="cp-phone-err"><p class="field__err" id="cp-phone-err" data-err="phone" hidden></p></div>
-              <div class="field"><label for="cp-kind">מי מגיע?</label><select id="cp-kind" name="kind"><option value="tour">סיור בחיפה</option><option value="org">יום לצוות או לארגון</option><option value="family">פעילות למשפחה</option><option value="private">טיול פרטי לקבוצה</option><option value="general" selected>עוד לא בטוח, רוצים לשמוע</option></select></div>
+              <div class="field"><label for="cp-phone">טלפון</label><input id="cp-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" required maxlength="20" aria-describedby="cp-phone-err"><p class="field__err" id="cp-phone-err" data-err="phone" hidden></p></div>
+              <input type="hidden" name="kind" value="general">
               <div class="field field--wide"><label for="cp-msg">על מה חשבתם? <span class="opt">(לא חובה)</span></label><textarea id="cp-msg" name="message" rows="2" maxlength="1500"></textarea></div>
               <input type="hidden" name="tour_slug" value=""><input type="hidden" name="date_id" value="">
               <div class="hp" aria-hidden="true"><label for="cp-web">אתר</label><input id="cp-web" name="website" tabindex="-1" autocomplete="off"></div>
@@ -127,7 +127,7 @@
   <script src="/vendor/lenis.min.js" defer></script>
   <script src="/vendor/gsap.min.js" defer></script>
   <script src="/vendor/ScrollTrigger.min.js" defer></script>
-  <script src="/yoske.js?v=384d3e9561" defer></script>
+  <script src="/yoske.js?v=dda02beb74" defer></script>
   <script src="/prefs.js?v=c81a171d4f" defer></script>
   <script src="/analytics.js?v=a7c59f0871" defer></script>
   <script src="/forms.js?v=0cbd686e0a" defer></script>
