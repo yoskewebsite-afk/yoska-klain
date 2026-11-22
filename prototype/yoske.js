@@ -505,7 +505,7 @@
        release. Card transforms end at zero and the pan is a plain translate, so nothing jumps at the release. */
     if (innerWidth < 700) document.querySelectorAll('[data-rwall-grid]').forEach(g => { const t = document.createElement('p'); t.className = 'rwall__swipe'; t.setAttribute('aria-hidden', 'true'); t.textContent = 'החליקו לעוד ביקורות'; g.after(t); });
     // phones (16.11.2026): no pinned 3D wall; the shots become a readable swipe row (CSS), one review per screen
-    const rw = innerWidth >= 700 ? $('[data-rwall]') : null;   // 22.11.2026: phones: a swipe row of readable screenshots (the 3D wall broke on iPhone Safari: cards cut off and a tall empty gap)
+    const rw = $('[data-rwall]');   // 22.11.2026 (owner): phones get the animated wall exactly like the desktop
     if (rw) {
       root.classList.add('rwall-on');
       const stage = $('[data-rwall-stage]', rw), grid = $('[data-rwall-grid]', rw), cards = $$('.rshot', rw), n = cards.length;
@@ -515,7 +515,7 @@
       ST.create({ trigger: rw, start: 'top 300%', once: true, onEnter: () => $$('img', rw).forEach(i => { i.loading = 'eager'; }) });
       const measure = () => {
         gsap.set(cards, { clearProps: 'transform' }); gsap.set(grid, { clearProps: 'transform' });
-        const ih = innerHeight, sw = stage.offsetWidth;
+        const ih = stage.offsetHeight || innerHeight, sw = stage.offsetWidth;   // phones: the stage sits under the fixed top bar
         const gx = grid.offsetLeft, gy = grid.offsetTop;
         pan = Math.max(0, gy + grid.offsetHeight - (ih - 24));
         rw.style.setProperty('--rwall-h', Math.round(ih * (narrow() ? 2.1 : 2.4) + pan * 1.15) + 'px');
@@ -526,7 +526,7 @@
         // keep the arc in the wall's left-to-right order so the landing never crosses
         const order = arcSet.slice().sort((a, b) => cards[a].offsetLeft - cards[b].offsetLeft || cards[a].offsetTop - cards[b].offsetTop);
         const R = narrow() ? sw * 1.05 : Math.min(sw * .6, 820), spread = narrow() ? 34 : 64;
-        const ax = sw / 2, ay = ih * .6 + R;
+        const ax = sw / 2, ay = ih * (narrow() ? .4 : .6) + R;   // phones: the arc in the upper part of the screen, not at the bottom
         geo = cards.map((c, i) => {
           const cx = gx + c.offsetLeft + c.offsetWidth / 2, cy = gy + c.offsetTop + c.offsetHeight / 2;
           if (!inArc.has(i)) return { cx, cy, arc: false, wave: 2, zi: 0 };
@@ -550,7 +550,7 @@
         };
       };
       const tl = gsap.timeline({ defaults: { ease: 'none' },
-        scrollTrigger: { trigger: rw, start: 'top top', end: 'bottom bottom', scrub: .4, invalidateOnRefresh: true } });
+        scrollTrigger: { trigger: rw, start: () => (narrow() ? 'top 65%' : 'top top'), end: 'bottom bottom', scrub: .4, invalidateOnRefresh: true } });   // phones: the throw starts as the section comes in, so the screen is never empty
       // 1. the throw: fast, overlapping waves
       cards.forEach((c, i) => {
         if (!geo[i].arc) return;

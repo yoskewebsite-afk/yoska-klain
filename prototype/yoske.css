@@ -2314,3 +2314,19 @@ body:not(.home) .prose__body p + p { margin-top: var(--s4); }
 .contact { background: linear-gradient(180deg, #FDF3DC 0, #FFF6E2 60%, #FFFFFF 100%); }
 .rwall { background: linear-gradient(180deg, #FFFFFF 0, #F3F8FA 100%); }
 .groups__head .hl, .rwall__title .hl { text-decoration: none; }
+
+/* 22.11.2026 (owner, iPhone): no CSS drop-shadow on anything that moves on phones. On iOS Safari a filter on a moving,
+   composited image is drawn as a faint box around it (the "background" behind the cable car and the plane), and every
+   filtered layer is re-rasterised while scrolling, which made the page slow. The pictures are transparent and need none. */
+@media (max-width: 999px) {
+  .obj img, .obj svg, .obj--camera img, .obj--plane img, .obj--cabin img { filter: none !important; }
+  .hero__yoske { filter: none !important; }
+  .obj { will-change: auto; }
+  .sgs-on .sgs__item { will-change: auto; }
+  .ab2__collage figure { box-shadow: none; }
+}
+/* phones: the pinned review wall sits under the fixed top bar (its title was hidden behind the bar) */
+@media (max-width: 999px) {
+  .rwall-on .rwall__stage { top: 75px; height: calc(100svh - 75px); padding-top: var(--s5); }
+  .rwall-on .rwall__head { margin-top: calc(var(--s5) * -1); padding-top: var(--s5); }
+}
