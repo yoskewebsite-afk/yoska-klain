@@ -204,7 +204,10 @@
       // measured on the page at rest (the scene may already have moved, so take scrollY out)
       const sh = rg.getBoundingClientRect(), sr = scene.getBoundingClientRect(), iw = document.documentElement.clientWidth, ih = innerHeight;
       const narrow = innerWidth < 700, ratio = 908 / 900, hx = sh.left + sh.width * .55;
-      const shTop = sh.top + scrollY, scTop = sr.top + scrollY;
+      // 23.11.2026: the headline sits in a sticky stage; take its stuck shift out, so a re-measure in the middle of a scroll
+      // (iPhone fires resize when the address bar shrinks) never moves him down: he only travels with the photo
+      const hero = stage.parentElement, stick = Math.max(0, stage.getBoundingClientRect().top - hero.getBoundingClientRect().top);
+      const shTop = sh.top - stick + scrollY, scTop = sr.top + scrollY;
       const w = narrow ? Math.min(iw * .6, 280) : Math.max(260, Math.min((iw + 60 - sh.right) / .9, ih * .74 / ratio, 620)), h = w * ratio;  // 17.11.2026: bigger
       const shiftX = narrow ? 0 : iw * .03;
       // his fingertips reach the top of the ש (never above it)
@@ -219,7 +222,7 @@
       // …and never higher than the subline: his raised hand points at the button below it, not into the text
       // 19.11.2026 (owner's reference): on phones his raised hand starts right under the subline and his head stands
       // above the top edge of the inset photo
-      else { const sb = $('.hero__sub'); y = sb ? sb.getBoundingClientRect().bottom + scrollY - scTop + 2 - h * .02 : imgH * .3 - h; }
+      else { const sb = $('.hero__sub'); y = sb ? sb.getBoundingClientRect().bottom - stick + scrollY - scTop + 2 - h * .02 : imgH * .3 - h; }
       yoske.style.setProperty('--yw', Math.round(w) + 'px');
       // phones: the ש can sit at the very edge, keep him (most of him) on screen
       const x = narrow ? iw - sr.left - w * .84 : sh.right + 14 - sr.left - w * .03;
@@ -233,7 +236,9 @@
 
     };
     const both = () => { place(); placeYoske(); };
-    both(); addEventListener('resize', both);
+    // only a real width change re-places the hero (a phone's address bar showing or hiding is not one)
+    let lastW = innerWidth;
+    both(); addEventListener('resize', () => { if (innerWidth === lastW) return; lastW = innerWidth; both(); });
     document.fonts && document.fonts.ready.then(both);
     // 22.11.2026: phones: a short arrival (Yoske appears where he stands, the garden rises from below up to him and in front
     // of his lower body, the button settles above the dome). He then stays in place inside the picture while scrolling.
@@ -498,16 +503,11 @@
        ones small and tilted), they settle into the wall, the wall pans up inside the pinned stage until its last row,
        release. Card transforms end at zero and the pan is a plain translate, so nothing jumps at the release. */
     // phones (16.11.2026): no pinned 3D wall; the shots become a readable swipe row (CSS), one review per screen
-    // 23.11.2026 (partner): on phones the pinned 3D wall stuttered, hid its title and cut shots at the screen edges. Phones now
-    // get a calm two-column wall under a title that stays in view: each shot rises in softly as it reaches the screen.
+    // 23.11.2026 (owner): phones keep the arc animation, made calmer: the title stays above it the whole time, the arc is
+    // narrow enough that no shot is cut by the screen edge, fewer shots fly at once, flat turns only (no 3D swing), and the
+    // scrub follows the finger with a soft lag
     const rw = $('[data-rwall]');
-    if (rw && innerWidth < 700) {
-      root.classList.add('rwall-soft');
-      const shotsIn = $$('.rshot', rw);
-      const ioR = new IntersectionObserver(es => es.forEach(e => { if (!e.isIntersecting) return; ioR.unobserve(e.target); e.target.classList.add('is-in'); }), { rootMargin: '0px 0px -8% 0px' });
-      shotsIn.forEach((c, i) => { c.style.transitionDelay = (i % 2) * 90 + 'ms'; ioR.observe(c); });
-    }
-    if (rw && innerWidth >= 700) {
+    if (rw) {
       root.classList.add('rwall-on');
       const stage = $('[data-rwall-stage]', rw), grid = $('[data-rwall-grid]', rw), cards = $$('.rshot', rw), n = cards.length;
       const narrow = () => innerWidth < 700;
@@ -522,11 +522,11 @@
         rw.style.setProperty('--rwall-h', Math.round(ih * (narrow() ? 2.1 : 2.4) + pan * 1.15) + 'px');
         // the arc: every shot on a desktop, the ten nearest the first screen on a phone (fewer moving at once)
         const byTop = cards.map((c, i) => [c.offsetTop, i]).sort((a, b) => a[0] - b[0]).map(p => p[1]);
-        arcSet = narrow() ? byTop.slice(0, 10) : byTop.slice();
+        arcSet = narrow() ? byTop.slice(0, 8) : byTop.slice();
         const inArc = new Set(arcSet), m = arcSet.length, mid = (m - 1) / 2;
         // keep the arc in the wall's left-to-right order so the landing never crosses
         const order = arcSet.slice().sort((a, b) => cards[a].offsetLeft - cards[b].offsetLeft || cards[a].offsetTop - cards[b].offsetTop);
-        const R = narrow() ? sw * 1.05 : Math.min(sw * .6, 820), spread = narrow() ? 34 : 64;
+        const R = narrow() ? sw * .95 : Math.min(sw * .6, 820), spread = narrow() ? 20 : 64;
         const ax = sw / 2, ay = ih * (narrow() ? .4 : .6) + R;   // phones: the arc in the upper part of the screen, not at the bottom
         geo = cards.map((c, i) => {
           const cx = gx + c.offsetLeft + c.offsetWidth / 2, cy = gy + c.offsetTop + c.offsetHeight / 2;
@@ -535,7 +535,7 @@
           const near = 1 - Math.abs(k - mid) / Math.max(mid, 1);
           return {
             cx, cy, arc: true, x: ax + R * Math.sin(rad) - cx, y: ay - R * Math.cos(rad) - cy,
-            rz: th * .5, ry: -th * .4, z: -40 - (1 - near) * 320, s: (narrow() ? .55 : .5) + near * .22, wave: k % 3, zi: Math.round(near * 20)
+            rz: th * .5, ry: narrow() ? 0 : -th * .4, z: narrow() ? 0 : -40 - (1 - near) * 320, s: (narrow() ? .5 : .5) + near * (narrow() ? .14 : .22), wave: k % 3, zi: Math.round(near * 20)
           };
         });
         cards.forEach((c, i) => { c.style.zIndex = geo[i].zi; c.style.position = 'relative'; });
@@ -546,18 +546,18 @@
         const g = geo[i], w = g.wave, iw = innerWidth, ih = innerHeight, bx = g.arc ? g.x : 0, by = g.arc ? g.y : 0;
         return {
           x: bx + (w === 0 ? iw * .8 : w === 1 ? -iw * .8 : (i % 2 ? 60 : -60)), y: by + (w === 2 ? ih : -ih * .1),
-          rotationZ: w === 0 ? 34 : w === 1 ? -34 : (i % 2 ? 18 : -18), rotationY: w === 0 ? -65 : w === 1 ? 65 : 0,
-          rotationX: w === 2 ? 50 : 8, z: -800, scale: (g.arc ? g.s : 1) * .8, opacity: 0
+          rotationZ: w === 0 ? 34 : w === 1 ? -34 : (i % 2 ? 18 : -18), rotationY: narrow() ? 0 : w === 0 ? -65 : w === 1 ? 65 : 0,
+          rotationX: narrow() ? 0 : w === 2 ? 50 : 8, z: narrow() ? 0 : -800, scale: (g.arc ? g.s : 1) * .8, opacity: 0
         };
       };
       const tl = gsap.timeline({ defaults: { ease: 'none' },
-        scrollTrigger: { trigger: rw, start: () => (narrow() ? 'top 65%' : 'top top'), end: 'bottom bottom', scrub: .4, invalidateOnRefresh: true } });   // phones: the throw starts as the section comes in, so the screen is never empty
+        scrollTrigger: { trigger: rw, start: () => (narrow() ? 'top 65%' : 'top top'), end: 'bottom bottom', scrub: narrow() ? .9 : .4, invalidateOnRefresh: true } });   // phones: the throw starts as the section comes in, so the screen is never empty
       // 1. the throw: fast, overlapping waves
       cards.forEach((c, i) => {
         if (!geo[i].arc) return;
         const k = arcSet.indexOf(i);
         tl.fromTo(c, { x: () => from(i).x, y: () => from(i).y, rotationZ: () => from(i).rotationZ, rotationY: () => from(i).rotationY,
-          rotationX: () => from(i).rotationX, z: -800, scale: () => from(i).scale, opacity: 0 },
+          rotationX: () => from(i).rotationX, z: () => from(i).z, scale: () => from(i).scale, opacity: 0 },
         { x: () => geo[i].x, y: () => geo[i].y, rotationZ: () => geo[i].rz, rotationY: () => geo[i].ry, rotationX: 0, z: () => geo[i].z,
           scale: () => geo[i].s, opacity: 1, duration: .1, ease: 'power4.out' }, .01 + (k % 3) * .02 + Math.floor(k / 3) * .016);
       });
@@ -565,7 +565,7 @@
       const land = .3;
       cards.forEach((c, i) => {
         if (geo[i].arc) return;
-        tl.fromTo(c, { x: () => from(i).x, y: () => from(i).y, rotationZ: () => from(i).rotationZ, rotationX: () => from(i).rotationX, z: -400, scale: .8, opacity: 0 },
+        tl.fromTo(c, { x: () => from(i).x, y: () => from(i).y, rotationZ: () => from(i).rotationZ, rotationX: () => from(i).rotationX, z: () => (narrow() ? 0 : -400), scale: .8, opacity: 0 },
           { x: 0, y: 0, rotationZ: 0, rotationX: 0, z: 0, scale: 1, opacity: 1, duration: .2, ease: 'power3.out' }, land + .02);
       });
       tl.to(cards.filter((c, i) => geo[i].arc), { x: 0, y: 0, z: 0, rotationZ: 0, rotationY: 0, scale: 1, duration: .2, ease: 'power2.inOut',

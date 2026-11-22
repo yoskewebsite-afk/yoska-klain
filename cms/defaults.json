@@ -19,13 +19,13 @@
      "w": "1600",
      "h": "750",
      "s": [
-      "/assets/v4/hero-tall-nh-640.webp 640w, /assets/v4/hero-tall-nh-960.webp 960w, /assets/v4/hero-tall-nh-1280.webp 1280w"
+      "/assets/v4/hero-tall-nh-v2-640.webp 640w, /assets/v4/hero-tall-nh-v2-960.webp 960w, /assets/v4/hero-tall-nh-v2-1280.webp 1280w"
      ]
     },
     "top.img2": {
-     "src": "/assets/yoske-cutout-640.webp",
+     "src": "/assets/yoske-cutout-v2-640.webp",
      "alt": "יוסק׳ה, מדריך הטיולים, מצביע על הכותרת",
-     "srcset": "/assets/yoske-cutout-640.webp 640w, /assets/yoske-cutout-900.webp 900w, /assets/yoske-cutout.webp 1252w",
+     "srcset": "/assets/yoske-cutout-v2-640.webp 640w, /assets/yoske-cutout-v2-900.webp 900w, /assets/yoske-cutout.webp 1252w",
      "w": "900",
      "h": "908"
     },
@@ -80,7 +80,7 @@
     "abroad.t1": "חיפה במרכז, ולא רק היא.",
     "abroad.t2": "יוסק׳ה בדרום אמריקה",
     "abroad.t3": "מסעות עם ברזילאו",
-    "abroad.t4": "לעיתים יוסק׳ה *מדריך קבוצות ישראליות* במסעות המאורגנים של ברזילאו *בדרום אמריקה*. גם שם הוא מביא את אותה סקרנות *לאנשים, לתרבות ולסיפורים* שמאחורי הנוף. ההרשמה, המסלולים והתפעול נעשים *דרך ברזילאו*.",
+    "abroad.t4": "לעיתים יוסק׳ה מדריך קבוצות ישראליות במסעות המאורגנים של ברזילאו בדרום אמריקה, ומביא גם לשם את אותה סקרנות לאנשים, לתרבות ולסיפורים שמאחורי הנוף. ההרשמה, המסלולים והתפעול נעשים דרך ברזילאו.",
     "abroad.l1": "https://wa.me/{{set.waNumber}}?text=%D7%94%D7%99%D7%99%20%D7%99%D7%95%D7%A1%D7%A7%D7%B3%D7%94%2C%20%D7%91%D7%90%D7%99%D7%9C%D7%95%20%D7%9E%D7%A1%D7%A2%D7%95%D7%AA%20%D7%91%D7%93%D7%A8%D7%95%D7%9D%20%D7%90%D7%9E%D7%A8%D7%99%D7%A7%D7%94%20%D7%90%D7%AA%D7%94%20%D7%9E%D7%93%D7%A8%D7%99%D7%9A%3F",
     "abroad.t5": "באילו מסעות אני מדריך? שאלו אותי",
     "abroad.l2": "/south-america.html",
@@ -1811,12 +1811,12 @@
       "i.cls": "gitem gitem--wide"
      },
      {
-      "i.l1": "/assets/photos/andes-village.jpg",
+      "i.l1": "/assets/photos/andes-village-v2-900.webp",
       "i.t1": "לפתיחת התמונה בגודל מלא: רחוב מרוצף ובית צבעוני למרגלות הרים, מאחד המסעות בדרום אמריקה",
       "i.img1": {
-       "src": "/assets/photos/andes-village-sm.jpg",
+       "src": "/assets/photos/andes-village-v2-820.webp",
        "alt": "רחוב מרוצף ובית צבעוני למרגלות הרים, מאחד המסעות בדרום אמריקה",
-       "srcset": "/assets/photos/andes-village-xs.jpg 480w, /assets/photos/andes-village-sm.jpg 820w, /assets/photos/andes-village.jpg 900w",
+       "srcset": "/assets/photos/andes-village-v2-480.webp 480w, /assets/photos/andes-village-v2-820.webp 820w, /assets/photos/andes-village-v2-900.webp 900w",
        "w": "900",
        "h": "1600"
       },
