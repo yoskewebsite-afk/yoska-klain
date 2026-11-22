@@ -228,6 +228,7 @@
       yoske.style.clipPath = narrow ? `inset(-300px ${Math.max(0, Math.round(x + w - (iw - 12 - sr.left)))}px -300px -300px)` : '';
       yoske.style.setProperty('--yy', Math.round(y) + 'px');
       yoske.classList.add('is-fade');   // his cut-out waist fades into the trees (no hard edge over the garden)
+      yoske.dataset.pin = narrow ? Math.round(h - 40) : 0;   // phones: how far he stays pinned while the garden rises over him
       if (fore) fore.style.setProperty('--fy', Math.round(y + h - (narrow ? 45 : 95)) + 'px');
 
     };
@@ -236,7 +237,16 @@
     document.fonts && document.fonts.ready.then(both);
     // 22.11.2026: phones: a short arrival (Yoske appears where he stands, the garden rises from below up to him and in front
     // of his lower body, the button settles above the dome). He then stays in place inside the picture while scrolling.
-    if (yoske && innerWidth < 700 && !still()) document.documentElement.classList.add('hero-arrive');
+    if (yoske && innerWidth < 700 && !still()) {
+      document.documentElement.classList.add('hero-arrive');
+      // 22.11.2026 (owner): while scrolling he stays where he stands on the screen and the garden rises over him: the page moves
+      // up, he is moved down by the same amount, and the front layer of trees (above him, from his waist down) covers him bit
+      // by bit. Once he is fully covered he moves away with the page.
+      let q = 0;
+      const pin = () => { q = 0; const max = +yoske.dataset.pin || 0; yoske.style.translate = '0 ' + Math.min(Math.max(scrollY, 0), max).toFixed(1) + 'px'; };
+      addEventListener('scroll', () => { if (!q) q = requestAnimationFrame(pin); }, { passive: true });
+      pin();
+    }
   };
   heroPlace();
 
@@ -270,6 +280,7 @@
                 const a = new DOMPoint(-20, 18).matrixTransform(m), b = new DOMPoint(1460, 112).matrixTransform(m);
                 const X = b.x + 60 - p * (b.x - a.x + 120 + el.offsetWidth), Y = a.y + (b.y - a.y) * (X - a.x) / (b.x - a.x);
                 el.style.transform = 'translate(' + (X - r.left - el.offsetWidth * .645).toFixed(1) + 'px,' + (Y - r.top - el.offsetHeight * .05).toFixed(1) + 'px)';
+                el.style.opacity = p > .62 ? Math.max(0, (1 - p) / .3).toFixed(2) : '1';   // gone before it reaches the next section's photos
               }
             }
             if (d.travel === 'camera') {
@@ -285,7 +296,7 @@
                 sec.style.setProperty('--lens-top', (lt - 30) + 'px');
                 const q = Math.min(1, Math.max(0, (p - .12) / .5));
                 // it comes in from the end edge (its nose points to the start side) and climbs over the oval's top
-                const x = 140 - q * (lw * .55 + 140), y = lt + 34 - q * 72 - 10 * Math.sin(q * Math.PI);
+                const x = 140 - q * (lw * .55 + 140), y = lt + 30 - q * 30 - 4 * Math.sin(q * Math.PI);   // always below the title (never across it)
                 el.style.transform = 'translate(' + x.toFixed(0) + 'px,' + y.toFixed(0) + 'px) rotate(' + (4 + 6 * q).toFixed(1) + 'deg)';
                 const tr = sec.querySelector('.trailline');
                 if (tr) tr.style.clipPath = 'inset(0 0 0 ' + Math.min(100, Math.max(0, (vw - el.offsetWidth + x + el.offsetWidth * .7) / vw * 100)).toFixed(1) + '%)';

@@ -2299,3 +2299,18 @@ body:not(.home) .prose__body p + p { margin-top: var(--s4); }
   .cb-trips:focus-visible { outline: 3px solid var(--teal); outline-offset: -3px; border-radius: 12px; }
   .cb-trip { flex: 0 0 78vw; scroll-snap-align: center; }
 }
+
+/* 22.11.2026 (automatic overlap check): the travelling objects stay in their own band, never across a title */
+@media (min-width: 700px) {
+  #tours { padding-top: calc(var(--s9) + 120px); }
+  .obj--cabin { width: clamp(110px, 9vw, 150px); }
+  #groups { padding-top: calc(var(--s10) + clamp(140px, 9vw + 50px, 230px)) !important; }
+}
+
+/* 22.11.2026 (partner: "too much white"): soft brand-colour bands between the white sections, so the page changes colour as it goes */
+.tours { background: linear-gradient(180deg, #FFFFFF 0, #EAF6F8 14%, #EAF6F8 86%, #FFFFFF 100%); }
+.abroad { background: linear-gradient(180deg, #FFFFFF 0, #E7F5EF 12%, #E7F5EF 100%); }
+.faq { background: linear-gradient(180deg, #E7F5EF 0, #FFF8E8 18%, #FDF3DC 100%); }
+.contact { background: linear-gradient(180deg, #FDF3DC 0, #FFF6E2 60%, #FFFFFF 100%); }
+.rwall { background: linear-gradient(180deg, #FFFFFF 0, #F3F8FA 100%); }
+.groups__head .hl, .rwall__title .hl { text-decoration: none; }
