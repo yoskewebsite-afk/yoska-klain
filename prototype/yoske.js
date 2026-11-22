@@ -505,7 +505,7 @@
        release. Card transforms end at zero and the pan is a plain translate, so nothing jumps at the release. */
     if (innerWidth < 700) document.querySelectorAll('[data-rwall-grid]').forEach(g => { const t = document.createElement('p'); t.className = 'rwall__swipe'; t.setAttribute('aria-hidden', 'true'); t.textContent = 'החליקו לעוד ביקורות'; g.after(t); });
     // phones (16.11.2026): no pinned 3D wall; the shots become a readable swipe row (CSS), one review per screen
-    const rw = $('[data-rwall]');  // 17.11.2026: phones get the animated wall again (partner)
+    const rw = innerWidth >= 700 ? $('[data-rwall]') : null;   // 22.11.2026: phones: a swipe row of readable screenshots (the 3D wall broke on iPhone Safari: cards cut off and a tall empty gap)
     if (rw) {
       root.classList.add('rwall-on');
       const stage = $('[data-rwall-stage]', rw), grid = $('[data-rwall-grid]', rw), cards = $$('.rshot', rw), n = cards.length;
