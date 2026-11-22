@@ -2,6 +2,7 @@
 import { h, icon, api, toast, drawer, dialog, confirmDialog, pickMedia, clone, rid, $ } from './ui.js';
 import { S, pageDef, order, setOrder, pageState, secState, val, setVal, items, setItems, seoOf, setSeo, pathOf, saveDraft, touch, onChange, isCustom, blockOf, blockTitle, addBlock, dupBlock, removeBlock } from './state.js';
 import { openLibrary, blockEditor, confirmRemove } from './v-blocks.js';
+import { linkPicker } from './links.js';
 import { go, publishFlow, historyFlow, unsavedDialog } from './app.js';
 
 const ICONS = ['gate', 'pin', 'route', 'person', 'group', 'camera', 'heart', 'question', 'globe', 'phone', 'clock', 'sun'];
@@ -159,9 +160,7 @@ async function renderEditor(root, pid, sid0, q = {}) {
     }
     if (f.kind === 'url') {
       const v = val(shared ? 'index' : pid, k) ?? '';
-      const el = h('input', { type: 'text', class: 'ltr', dir: 'ltr', placeholder: '/tours/ או https://…', value: v, 'aria-label': 'כתובת הקישור' });
-      el.addEventListener('input', () => setVal(shared ? 'index' : pid, s.id, k, el.value));
-      return h('div', { class: 'fld' }, h('label', { text: 'לאן הקישור מוביל' }), el, /\{\{set\./.test(v) ? h('span', { class: 'hint', text: 'חלק מהכתובת מתעדכן אוטומטית מהגדרות האתר (טלפון/וואטסאפ).' }) : null);
+      return linkPicker(v, (nv) => setVal(shared ? 'index' : pid, s.id, k, nv));   // 23.11.2026: pick from a list
     }
     if (f.kind === 'image') return imageField(shared ? 'index' : pid, s.id, k, f.locked, null);
     return null;
@@ -208,7 +207,7 @@ async function renderEditor(root, pid, sid0, q = {}) {
       const fields = [];
       for (const g of l.groups) for (const f of g.fields) {
         if (f.kind === 'text') { const long = f.long || String(it[f.key] || '').length > 70; const el = long ? h('textarea', { rows: '3' }) : h('input', { type: 'text' }); el.value = it[f.key] ?? ''; el.setAttribute('aria-label', `${g.label} ${l.itemLabel} ${i + 1}`); el.addEventListener('input', () => { it[f.key] = el.value; commit(); }); fields.push(h('div', { class: 'fld' }, h('label', { text: g.label }), el)); }
-        else if (f.kind === 'url') { const el = h('input', { type: 'text', dir: 'ltr', class: 'ltr', value: it[f.key] ?? '', 'aria-label': 'כתובת הקישור' }); el.addEventListener('input', () => { it[f.key] = el.value; commit(); }); fields.push(h('div', { class: 'fld' }, h('label', { text: 'קישור' }), el)); }
+        else if (f.kind === 'url') fields.push(linkPicker(it[f.key] ?? '', (nv) => { it[f.key] = nv; commit(); }, { label: 'קישור' }));
         else if (f.kind === 'image') fields.push(imageField(P, s.id, f.key, false, { item: it, commit }));
         else if (f.kind === 'icon') { const sel = h('select', { 'aria-label': 'אייקון' }, ICONS.map((n) => h('option', { value: n, selected: it[f.key] === n }, ICON_LABEL[n]))); sel.addEventListener('change', () => { it[f.key] = sel.value; commit(); }); fields.push(h('div', { class: 'fld' }, h('label', { text: 'אייקון' }), sel)); }
       }

@@ -124,7 +124,7 @@ try {
     t('old /admin path is not the admin', !/כניסה|app\.js/.test((await call('GET', '/admin', null, { auth: false })).text));
     const home = (await call('GET', '/', null, { auth: false })).text;
     t('home: no map, no uniqueness block', !/id="map"/.test(home) && !/id="unique"/.test(home));
-    t('home: upcoming tours show his 6 tours, each with a register-and-pay button, plus the WhatsApp catalog link', /cb--trips/.test(home) && (home.match(/class="cb-trip"/g) || []).length === 6 && (home.match(/paypage\.takbull\.co\.il/g) || []).length >= 7 && /wa\.me\/c\/972544361667/.test(home) && /href="\/#upcoming"/.test(home));
+    t('home: upcoming tours show his 6 tours, each with a register-and-pay button, and no WhatsApp catalog button (partner, 23.11)', /cb--trips/.test(home) && (home.match(/class="cb-trip"/g) || []).length === 6 && (home.match(/paypage\.takbull\.co\.il/g) || []).length >= 7 && !/wa\.me\/c\/972544361667/.test(home) && !/cb-trip__wa"[^>]*><svg/.test(home) && /href="\/#upcoming"/.test(home));
     await call('PATCH', '/api/admin/draft', { pages: { index: { order: idx.order, custom: { 'c-trips01': { type: 'trips', c: { t1: 'בדיקה' }, d: { anchor: 'upcoming' }, items: [] } } } } });
     const pv = (await call('GET', '/__preview/')).text;
     t('upcoming tours with no tours is off the page and out of the menu', !/cb--trips/.test(pv) && !/href="[^"]*#upcoming"/.test(pv));

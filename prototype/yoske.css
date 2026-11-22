@@ -2330,3 +2330,89 @@ body:not(.home) .prose__body p + p { margin-top: var(--s4); }
   .rwall-on .rwall__stage { top: 75px; height: calc(100svh - 75px); padding-top: var(--s5); }
   .rwall-on .rwall__head { margin-top: calc(var(--s5) * -1); padding-top: var(--s5); }
 }
+
+/* ===================================================================== 23.11.2026: partner's phone review + smoothness pass */
+/* every device shows the same colours: no automatic dark mode (Samsung Internet / Chrome "darken web pages" used to
+   invert the site's colours on some phones) */
+:root { color-scheme: only light; }
+
+/* hero (phones): the gardens run edge to edge, the subline is bigger and easier to read, and the arrival is short so
+   nothing is still moving when the visitor starts to scroll */
+@media (max-width: 699px) {
+  .hero__scene { padding-inline: 0; }
+  .hero__fore { inset: 0; }
+  .hero__scene::after { inset-inline: 0; }
+  .hero__photo img, .hero__fore img { border-radius: 0 !important; }
+  .hero__sub { font-size: 1.25rem; line-height: 1.5; max-width: 26ch; }
+  .hero-arrive .hero__yoske { animation: hero-appear .5s ease-out .2s both; }
+  .hero-arrive .hero__photo, .hero-arrive .hero__fore { animation: hero-garden .9s cubic-bezier(.16, 1, .3, 1) .3s both; }
+  .hero-arrive .hero__cta { animation: hero-cta .45s cubic-bezier(.22, 1, .36, 1) 1s both; }
+}
+
+/* about: the coloured marker highlights are gone (partner); the words keep a quiet weight */
+.ab2 .mk, .motion .ab2 .mk { background: none !important; padding: 0; font-weight: 600; }
+
+/* moving objects (cable car, plane, camera): no drop shadow on any device. Safari (iPhone, iPad and Mac) draws a filtered,
+   moving picture as a pale box around it, and re-paints it on every scroll frame */
+.obj svg, .obj img, .obj--cabin img, .obj--plane img, .obj--camera img { filter: none !important; }
+
+/* groups: the big turquoise panel with the wavy lines is replaced by a quiet light band behind the cards, and on phones
+   the cards are one even row: every card the same width and height, the first one flush with the text, the next one
+   peeking by the same amount */
+.groups__panel { background: #EAF6F8 !important; }
+.groups__panel svg { display: none; }
+.groups__cards > li { display: flex; flex-direction: column; }
+.groups .acard--open { height: 100%; }
+.groups .acard--open .acard__body { display: flex; flex-direction: column; align-items: flex-start; flex: 1; }
+.groups .acard--open .acard__body .btn { margin-top: auto; }
+@media (max-width: 899px) {
+  .groups__panel { top: var(--panel-top, auto) !important; bottom: 0 !important; height: auto !important; width: 100% !important; border-radius: 0 !important; }
+  .groups__cards { grid-auto-columns: calc(100vw - var(--gut) * 2 - 34px); gap: 14px; scroll-padding-inline: var(--gut); align-items: stretch; }
+  .groups__cards > li { scroll-snap-align: start; }
+  .groups .acard--open .acard__media { aspect-ratio: 4 / 3; }
+}
+
+/* reviews on phones (23.11.2026): two calm columns, every shot whole (nothing cut by the screen edge), the title stays
+   above them; each shot rises in once as it arrives (transform + opacity only) */
+@media (max-width: 699px) {
+  .rwall__grid { display: block !important; columns: 2; column-gap: 10px; overflow: visible !important; width: calc(100% - 2 * var(--gut)) !important; margin: var(--s5) auto 0 !important; padding: 0 !important; scroll-snap-type: none !important; }
+  .rwall__grid .rshot { margin: 0 0 10px !important; }
+  .rwall__grid .rshot img, .rwall__extra .rshot img { max-height: none !important; }
+  .rwall__swipe { display: none !important; }
+  .rwall__title { font-size: 2rem; }
+  .rwall { padding: var(--s8) 0 var(--s4); }
+  .rwall-soft .rshot { opacity: 0; transform: translateY(28px); transition: opacity .5s ease-out, transform .6s cubic-bezier(.22, 1, .36, 1); }
+  .rwall-soft .rshot.is-in { opacity: 1; transform: none; }
+  .rshot__a { box-shadow: 0 1px 3px rgba(42, 58, 92, .1) !important; }
+  /* the "more reviews" button and the extra shots: one centred button, then the same two columns (no stacked buttons) */
+  .rwall__more { padding: var(--s4) var(--gut) var(--s7) !important; }
+  .rwall__extra { display: block !important; columns: 2; column-gap: 10px; overflow: visible !important; padding: 0 !important; scroll-snap-type: none !important; }
+  .rwall__extra .rshot { margin: 0 0 10px !important; }
+}
+/* desktop wall: the title stays above the flying shots */
+.rwall-on .rwall__head { z-index: 40; }
+
+/* South America (23.11.2026, partner): back to the earlier photo (a whole round photo, centred, no plane over it), the
+   countries line is gone, and the paragraph marks its important words so it reads at a glance */
+.abroad__facts { display: none !important; }
+.abroad__copy .kw { color: var(--navy); font-weight: 800; background: linear-gradient(transparent 62%, rgba(242, 182, 50, .38) 62%); padding: 0 .08em; }
+.abroad__copy p { max-width: 44ch; }
+@media (max-width: 699px) {
+  .abroad__lens { width: min(78vw, 320px) !important; aspect-ratio: 1 !important; margin: var(--s6) auto 0 !important; align-self: center; }
+  .abroad__lens img { object-position: 50% 62%; box-shadow: none; }
+  .abroad .obj--plane, .abroad .trailline { display: none !important; }
+  .abroad__copy p { font-size: 1.125rem; line-height: 1.65; }
+}
+
+/* smoothness (23.11.2026): with the drop-shadows gone, the pieces that move on every scroll frame get their own GPU layer
+   again (they were re-painted on each frame on phones, which is what made scrolling feel heavy) */
+.obj { will-change: transform !important; }
+.sgs-on .sgs__item { will-change: transform !important; }
+.sgs-on .sgs__grid { will-change: transform; }
+@media (max-width: 699px) {
+  /* the about collage stays still on phones (three masked photos re-placed on every frame) */
+  .ab2__collage figure { translate: none !important; }
+}
+/* the photo frame keeps one ratio whatever the photo (the family photo is tall and stretched its card) */
+.groups .acard--open .acard__media { flex: none; min-height: 0; overflow: hidden; }
+.groups .acard--open .acard__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }

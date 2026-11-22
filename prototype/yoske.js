@@ -186,7 +186,7 @@
       const phone = innerWidth < 700;
       // 19.11.2026 (owner's reference): on phones the photo is an inset card (12px from each edge) that starts just
       // under the subline, so Yoske's head and raised arm stand above its top edge
-      const h = (document.documentElement.clientWidth - (phone ? 24 : 0)) * (phone ? 1.22 : 1) / r;   // phones: the photo is zoomed in (bigger Shrine), as on the reference
+      const h = document.documentElement.clientWidth * (phone ? 1.22 : 1) / r;   // 23.11.2026 (partner): full width on phones too   // phones: the photo is zoomed in (bigger Shrine), as on the reference
       const hb = head.offsetTop + head.offsetHeight;
       const top = Math.round(phone ? hb + 34 : hb + (tall ? 14 : 18) - sky * h);
       scene.parentElement.style.setProperty('--scene-top', top + 'px');
@@ -222,10 +222,10 @@
       else { const sb = $('.hero__sub'); y = sb ? sb.getBoundingClientRect().bottom + scrollY - scTop + 2 - h * .02 : imgH * .3 - h; }
       yoske.style.setProperty('--yw', Math.round(w) + 'px');
       // phones: the ש can sit at the very edge, keep him (most of him) on screen
-      const x = narrow ? iw - 12 - sr.left - w * .84 : sh.right + 14 - sr.left - w * .03;
+      const x = narrow ? iw - sr.left - w * .84 : sh.right + 14 - sr.left - w * .03;
       yoske.style.setProperty('--yx', Math.round(x) + 'px');
       // phones: as on the reference he is cut by the right edge of the inset photo
-      yoske.style.clipPath = narrow ? `inset(-300px ${Math.max(0, Math.round(x + w - (iw - 12 - sr.left)))}px -300px -300px)` : '';
+      yoske.style.clipPath = narrow ? `inset(-300px ${Math.max(0, Math.round(x + w - (iw - sr.left)))}px -300px -300px)` : '';
       yoske.style.setProperty('--yy', Math.round(y) + 'px');
       yoske.classList.add('is-fade');   // his cut-out waist fades into the trees (no hard edge over the garden)
       yoske.dataset.pin = narrow ? Math.round(h - 40) : 0;   // phones: how far he stays pinned while the garden rises over him
@@ -239,13 +239,7 @@
     // of his lower body, the button settles above the dome). He then stays in place inside the picture while scrolling.
     if (yoske && innerWidth < 700 && !still()) {
       document.documentElement.classList.add('hero-arrive');
-      // 22.11.2026 (owner): while scrolling he stays where he stands on the screen and the garden rises over him: the page moves
-      // up, he is moved down by the same amount, and the front layer of trees (above him, from his waist down) covers him bit
-      // by bit. Once he is fully covered he moves away with the page.
-      let q = 0;
-      const pin = () => { q = 0; const max = +yoske.dataset.pin || 0; yoske.style.translate = '0 ' + Math.min(Math.max(scrollY, 0), max).toFixed(1) + 'px'; };
-      addEventListener('scroll', () => { if (!q) q = requestAnimationFrame(pin); }, { passive: true });
-      pin();
+      // 23.11.2026 (partner): he no longer stays pinned while scrolling (it read as stuck); he moves with the page
     }
   };
   heroPlace();
@@ -269,7 +263,7 @@
     if (objs.length) {
       let tk = false;
       const run = () => { tk = false; const vh = innerHeight, vw = document.documentElement.clientWidth;
-        objs.forEach(el => { const sec = el.parentElement, r = sec.getBoundingClientRect(); if (r.bottom < -200 || r.top > vh + 200) return;
+        objs.forEach(el => { if (!el.offsetWidth) return; const sec = el.parentElement, r = sec.getBoundingClientRect(); if (r.bottom < -200 || r.top > vh + 200) return;
           const c = r.top + r.height / 2 - vh / 2, d = el.dataset;
           if (d.travel) {
             const p = Math.min(1, Math.max(0, (vh - r.top) / (vh + r.height)));
@@ -340,7 +334,7 @@
     $$('[data-count]').forEach(el => io3.observe(el));
     // parallax: photos with data-parallax drift at their own speed while their section is on screen
     const par = $$('[data-parallax]');
-    if (par.length) {
+    if (par.length && innerWidth >= 700) {   // phones: the collage stays still (smoother scrolling)
       let tick = false;
       const move = () => { tick = false; par.forEach(el => { const r = el.parentElement.getBoundingClientRect(); if (r.bottom < -100 || r.top > innerHeight + 100) return;
         const c = (r.top + r.height / 2 - innerHeight / 2); el.style.translate = '0 ' + (c * +el.dataset.parallax).toFixed(1) + 'px'; }); };
@@ -503,10 +497,17 @@
     /* reviews wall (screenshots): thrown in fast in waves (right, left, below), a wide arc in depth (near ones big, far
        ones small and tilted), they settle into the wall, the wall pans up inside the pinned stage until its last row,
        release. Card transforms end at zero and the pan is a plain translate, so nothing jumps at the release. */
-    if (innerWidth < 700) document.querySelectorAll('[data-rwall-grid]').forEach(g => { const t = document.createElement('p'); t.className = 'rwall__swipe'; t.setAttribute('aria-hidden', 'true'); t.textContent = 'החליקו לעוד ביקורות'; g.after(t); });
     // phones (16.11.2026): no pinned 3D wall; the shots become a readable swipe row (CSS), one review per screen
-    const rw = $('[data-rwall]');   // 22.11.2026 (owner): phones get the animated wall exactly like the desktop
-    if (rw) {
+    // 23.11.2026 (partner): on phones the pinned 3D wall stuttered, hid its title and cut shots at the screen edges. Phones now
+    // get a calm two-column wall under a title that stays in view: each shot rises in softly as it reaches the screen.
+    const rw = $('[data-rwall]');
+    if (rw && innerWidth < 700) {
+      root.classList.add('rwall-soft');
+      const shotsIn = $$('.rshot', rw);
+      const ioR = new IntersectionObserver(es => es.forEach(e => { if (!e.isIntersecting) return; ioR.unobserve(e.target); e.target.classList.add('is-in'); }), { rootMargin: '0px 0px -8% 0px' });
+      shotsIn.forEach((c, i) => { c.style.transitionDelay = (i % 2) * 90 + 'ms'; ioR.observe(c); });
+    }
+    if (rw && innerWidth >= 700) {
       root.classList.add('rwall-on');
       const stage = $('[data-rwall-stage]', rw), grid = $('[data-rwall-grid]', rw), cards = $$('.rshot', rw), n = cards.length;
       const narrow = () => innerWidth < 700;

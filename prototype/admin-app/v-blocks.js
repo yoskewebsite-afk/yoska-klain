@@ -2,6 +2,7 @@
 // (api/_lib/blocks.mjs via the bundle), so labels, defaults and options are the same on both sides.
 import { h, icon, drawer, pickMedia, clone, rid, confirmDialog } from './ui.js';
 import { S, touch, editBlock } from './state.js';
+import { linkPicker } from './links.js';
 
 // ------------------------------------------------------------ small wireframes of each type (pure markup, styled in admin.css)
 const L = (cls, n = 1) => Array.from({ length: n }, () => h('i', { class: cls }));
@@ -130,13 +131,14 @@ export function blockEditor({ pid, cid, onChange }) {
     const kind = (href) => (href === 'wa' ? 'wa' : href === 'tel' ? 'tel' : href === 'mail' ? 'mail' : href ? 'url' : 'none');
     let k = kind(v0.href);
     const label = h('input', { type: 'text', value: v0.label || '', placeholder: 'מה כתוב על הכפתור', 'aria-label': 'טקסט הכפתור', maxLength: 60 });
-    const url = h('input', { type: 'text', dir: 'ltr', class: 'ltr', value: k === 'url' ? v0.href : '', placeholder: '/contact.html או https://…', 'aria-label': 'כתובת הקישור' });
+    let urlVal = k === 'url' ? v0.href : '';
+    const url = linkPicker(urlVal, (nv) => { urlVal = nv; save(); }, { label: 'עמוד או כתובת' });   // 23.11.2026: pick from a list
     const sel = h('select', { 'aria-label': 'לאן הכפתור מוביל' }, [['none', 'בלי כפתור'], ['wa', 'וואטסאפ ליוסק׳ה'], ['tel', 'שיחת טלפון'], ['mail', 'מייל'], ['url', 'עמוד באתר או כתובת אחרת']].map(([v, l]) => h('option', { value: v, selected: k === v }, l)));
-    const save = () => { const href = k === 'url' ? url.value.trim() : k === 'none' ? '' : k; set(k === 'none' ? null : { label: label.value, href }); };
+    const save = () => { const href = k === 'url' ? urlVal : k === 'none' ? '' : k; set(k === 'none' ? null : { label: label.value, href }); };
     const show = () => { url.parentNode.hidden = k !== 'url'; label.parentNode.hidden = k === 'none'; };
     sel.addEventListener('change', () => { k = sel.value; if (k !== 'none' && !label.value) label.value = { wa: 'לכתוב בוואטסאפ', tel: 'להתקשר', mail: 'לשלוח מייל', url: 'לפרטים' }[k]; show(); save(); });
-    label.addEventListener('input', save); url.addEventListener('input', save);
-    const el = h('div', { style: 'display:grid;gap:10px' }, h('div', { class: 'fld' }, compact ? null : h('label', { text: 'לאן מוביל' }), sel), h('div', { class: 'fld' }, h('label', { text: 'טקסט' }), label), h('div', { class: 'fld' }, h('label', { text: 'כתובת' }), url));
+    label.addEventListener('input', save);
+    const el = h('div', { style: 'display:grid;gap:10px' }, h('div', { class: 'fld' }, compact ? null : h('label', { text: 'לאן מוביל' }), sel), h('div', { class: 'fld' }, h('label', { text: 'טקסט' }), label), h('div', {}, url));
     queueMicrotask(show);
     return el;
   }

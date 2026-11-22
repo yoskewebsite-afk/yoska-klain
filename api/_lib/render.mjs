@@ -80,7 +80,10 @@ function lookup(vals, key) {
 const EXT = ' target="_blank" rel="noopener"';
 const styOf = (vals, key) => { const o = vals[key]; return o && o.pos ? ` style="object-position:${esc(o.pos)}"` : ''; };
 const extOf = (href) => (/^https?:/i.test(href) ? EXT : '');
+// 23.11.2026: {{mk:key}} prints a text field where *words between stars* are marked as the important part
+const mkOf = (t) => esc(t).replace(/\*([^*\n]+)\*/g, '<b class="kw">$1</b>').replace(/\*/g, '');
 function fill(tpl, vals) {
+  tpl = tpl.replace(/\{\{mk:([\w.\-]+)\}\}/g, (m, key) => mkOf(lookup(vals, key)));
   tpl = tpl.replace(/\{\{ext:([\w.\-]+)\}\}/g, (m, key) => extOf(lookup(vals, key))).replace(/\{\{sty:([\w.\-]+)\}\}/g, (m, key) => styOf(vals, key));
   return tpl.replace(/(?<!\{)\{\{([\w.\-]+)\}\}(?!\})/g, (m, key) => (key.startsWith('set.') || key.startsWith('seo.') ? m : esc(lookup(vals, key))));
 }
