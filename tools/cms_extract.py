@@ -646,23 +646,29 @@ def main():
                 if not same:
                     diff = [k for k, v in sc.values.items() if defaults['shared']['fields'].get(k) != v][:3]
                     print(f'  ! shared {name} differs on {pid}: {diff}', file=sys.stderr)
+    defaults['tours'] = tours_defaults()
     # 19.11.2026: sections the home page starts with as "added sections" (the owner edits, hides, moves or deletes them in the
     # admin like any section he added himself): the upcoming tours (items empty until he adds a tour) and the client logos
     # (not shown until logos are uploaded). Nothing invented: the texts and links are the ones the upcoming section had.
+    # 22.11.2026 (owner): the section shows his real tours right away, each with its photo, a line, and a register-and-pay
+    # button that opens his payment page (no dates are invented: the owner adds a date per tour in the admin when there is one)
+    TRIPS = [{'id': 't-' + t['slug'], 'tour': t['slug'], 'title': t['name'], 'text': t.get('place', ''),
+              'img': {'src': t['card']['src'], 'w': t['card'].get('w', ''), 'h': t['card'].get('h', ''), 'alt': t['name'], 'pos': t['card'].get('pos', '')},
+              'reg': {'label': 'להרשמה ותשלום', 'href': B.TAKBULL}}
+             for t in defaults['tours'] if t.get('status') == 'published' and t.get('card')]
     defaults['pages']['index']['custom'] = {
         'c-logos01': {'type': 'logos', 'c': {'t1': 'כבר יצאנו', 't2': 'לדרך *עם*'}, 'd': {'bg': 'white', 'pad': 's', 'align': 'center', 'accent': 'orange'}, 'items': []},
         'c-trips01': {'type': 'trips', 'c': {
             't1': 'רוצים להצטרף לסיור בלי לארגן קבוצה משלכם?', 't2': 'הסיורים *הקרובים*',
             'body': 'כאן מופיעים הסיורים הפתוחים להרשמה. בעמוד ההרשמה מחכים כל המועדים, הפרטים ואפשרות להזמין מקום ולשלם.',
-            'link': {'label': 'למועדים, הרשמה ותשלום', 'href': B.TAKBULL}, 'link2': {'label': 'לא בטוחים? לשאלון ההתאמה', 'href': '/quiz.html'}},
-            'd': {'bg': 'sunsoft', 'pad': 'm', 'align': 'start', 'width': 'wide', 'accent': 'sun', 'shape': 'moon', 'cols': '3', 'btn': 'sun', 'reveal': 'rise', 'anchor': 'upcoming'}, 'items': []},
+            'link': {'label': 'למועדים, הרשמה ותשלום', 'href': B.TAKBULL}, 'link2': {'label': 'לקטלוג בוואטסאפ', 'href': 'https://wa.me/c/972544361667'}, 'link3': {'label': 'לא בטוחים? לשאלון ההתאמה', 'href': '/quiz.html'}},
+            'd': {'bg': 'sunsoft', 'pad': 'm', 'align': 'start', 'width': 'wide', 'accent': 'sun', 'shape': 'moon', 'cols': '3', 'btn': 'sun', 'reveal': 'rise', 'anchor': 'upcoming'}, 'items': TRIPS},
     }
     ids = schema['pages']['index']['order']
     order = list(ids)
     order.insert(order.index('top') + 1, 'c-logos01')
     order.insert(order.index('tours') + 1, 'c-trips01')
     defaults['pages']['index']['order'] = order
-    defaults['tours'] = tours_defaults()
     defaults['settings'] = {
         'siteName': 'יוסק׳ה קליין', 'phone': B.PHONE_HUMAN, 'whatsapp': B.PHONE_INTL, 'waText': 'היי יוסק׳ה, הגענו דרך האתר ונשמח לתכנן טיול.',
         'email': B.EMAIL, 'facebook': B.base.FB_PAGE, 'instagram': '', 'logo': '/assets/brand/logo-horizontal.svg', 'logoDark': '/assets/brand/logo-horizontal-on-navy.svg',

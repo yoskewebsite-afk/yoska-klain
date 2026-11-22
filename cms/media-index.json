@@ -430,6 +430,66 @@
 "group": "photos"
 },
 {
+"id": "b-assets-approved-bahai-bay-960-webp",
+"url": "/assets/approved/bahai-bay-960.webp",
+"name": "bahai-bay",
+"w": 960,
+"h": 1706,
+"alt": "חיפה אהובתי",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-carmelit-960-webp",
+"url": "/assets/approved/carmelit-960.webp",
+"name": "carmelit",
+"w": 960,
+"h": 720,
+"alt": "חיפה אהובתי מקוצר",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-bahai-terraces-960-webp",
+"url": "/assets/approved/bahai-terraces-960.webp",
+"name": "bahai-terraces",
+"w": 960,
+"h": 935,
+"alt": "חיפה של מעלה",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-clock-tower-960-webp",
+"url": "/assets/approved/clock-tower-960.webp",
+"name": "clock-tower",
+"w": 960,
+"h": 960,
+"alt": "חיפה של מטה",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-arches-group-960-webp",
+"url": "/assets/approved/arches-group-960.webp",
+"name": "arches-group",
+"w": 960,
+"h": 720,
+"alt": "טעימה מחיפה",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
+"id": "b-assets-approved-square-group-960-webp",
+"url": "/assets/approved/square-group-960.webp",
+"name": "square-group",
+"w": 960,
+"h": 852,
+"alt": "טבע, אדם, חברה, סביבה",
+"pos": "50% 50%",
+"group": "approved"
+},
+{
 "id": "b-assets-approved-lookout-dusk-960-webp",
 "url": "/assets/approved/lookout-dusk-960.webp",
 "name": "lookout-dusk",
@@ -770,36 +830,6 @@
 "group": "photos"
 },
 {
-"id": "b-assets-approved-bahai-bay-960-webp",
-"url": "/assets/approved/bahai-bay-960.webp",
-"name": "bahai-bay",
-"w": 960,
-"h": 1706,
-"alt": "ציר הגנים הבהאיים יורד עד העיר והים",
-"pos": "50% 50%",
-"group": "approved"
-},
-{
-"id": "b-assets-approved-carmelit-960-webp",
-"url": "/assets/approved/carmelit-960.webp",
-"name": "carmelit",
-"w": 960,
-"h": 720,
-"alt": "ילדים מציצים אל קרון ברציף תחתי",
-"pos": "50% 50%",
-"group": "approved"
-},
-{
-"id": "b-assets-approved-bahai-terraces-960-webp",
-"url": "/assets/approved/bahai-terraces-960.webp",
-"name": "bahai-terraces",
-"w": 960,
-"h": 935,
-"alt": "הגנים הבהאיים מלמעלה עם כיפת הזהב, העיר והנמל",
-"pos": "50% 50%",
-"group": "approved"
-},
-{
 "id": "b-assets-approved-telescope-960-webp",
 "url": "/assets/approved/telescope-960.webp",
 "name": "telescope",
@@ -810,42 +840,12 @@
 "group": "approved"
 },
 {
-"id": "b-assets-approved-clock-tower-960-webp",
-"url": "/assets/approved/clock-tower-960.webp",
-"name": "clock-tower",
-"w": 960,
-"h": 960,
-"alt": "מגדל שעון מאבן מול שמיים כחולים",
-"pos": "50% 50%",
-"group": "approved"
-},
-{
 "id": "b-assets-approved-stone-street-960-webp",
 "url": "/assets/approved/stone-street-960.webp",
 "name": "stone-street",
 "w": 960,
 "h": 947,
 "alt": "רחוב עם בנייני אבן ישנים",
-"pos": "50% 50%",
-"group": "approved"
-},
-{
-"id": "b-assets-approved-arches-group-960-webp",
-"url": "/assets/approved/arches-group-960.webp",
-"name": "arches-group",
-"w": 960,
-"h": 720,
-"alt": "קבוצה מתחת לקשתות אבן",
-"pos": "50% 50%",
-"group": "approved"
-},
-{
-"id": "b-assets-approved-square-group-960-webp",
-"url": "/assets/approved/square-group-960.webp",
-"name": "square-group",
-"w": 960,
-"h": 852,
-"alt": "קבוצה יושבת בכיכר מרוצפת בצל עצים",
 "pos": "50% 50%",
 "group": "approved"
 },

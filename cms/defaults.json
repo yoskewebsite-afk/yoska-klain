@@ -734,6 +734,10 @@
        "href": "https://paypage.takbull.co.il/3BEQx"
       },
       "link2": {
+       "label": "לקטלוג בוואטסאפ",
+       "href": "https://wa.me/c/972544361667"
+      },
+      "link3": {
        "label": "לא בטוחים? לשאלון ההתאמה",
        "href": "/quiz.html"
       }
@@ -750,7 +754,110 @@
       "reveal": "rise",
       "anchor": "upcoming"
      },
-     "items": []
+     "items": [
+      {
+       "id": "t-haifa-ahuvati",
+       "tour": "haifa-ahuvati",
+       "title": "חיפה אהובתי",
+       "text": "להבין את חיפה מההר ועד הנמל",
+       "img": {
+        "src": "/assets/approved/bahai-bay-960.webp",
+        "w": 1134,
+        "h": 2015,
+        "alt": "חיפה אהובתי",
+        "pos": "50% 62%"
+       },
+       "reg": {
+        "label": "להרשמה ותשלום",
+        "href": "https://paypage.takbull.co.il/3BEQx"
+       }
+      },
+      {
+       "id": "t-haifa-ahuvati-mekutzar",
+       "tour": "haifa-ahuvati-mekutzar",
+       "title": "חיפה אהובתי מקוצר",
+       "text": "התמונה הרחבה, בזמן קצר יותר",
+       "img": {
+        "src": "/assets/approved/carmelit-960.webp",
+        "w": 1920,
+        "h": 1440,
+        "alt": "חיפה אהובתי מקוצר",
+        "pos": "50% 40%"
+       },
+       "reg": {
+        "label": "להרשמה ותשלום",
+        "href": "https://paypage.takbull.co.il/3BEQx"
+       }
+      },
+      {
+       "id": "t-haifa-shel-maala",
+       "tour": "haifa-shel-maala",
+       "title": "חיפה של מעלה",
+       "text": "לראות את העיר מלמעלה, ולהבין מה קורה מתחת",
+       "img": {
+        "src": "/assets/approved/bahai-terraces-960.webp",
+        "w": 1211,
+        "h": 1180,
+        "alt": "חיפה של מעלה",
+        "pos": "50% 45%"
+       },
+       "reg": {
+        "label": "להרשמה ותשלום",
+        "href": "https://paypage.takbull.co.il/3BEQx"
+       }
+      },
+      {
+       "id": "t-haifa-shel-mata",
+       "tour": "haifa-shel-mata",
+       "title": "חיפה של מטה",
+       "text": "החלק של חיפה שמרגישים דרך הרחוב",
+       "img": {
+        "src": "/assets/approved/clock-tower-960.webp",
+        "w": 1536,
+        "h": 1536,
+        "alt": "חיפה של מטה",
+        "pos": "50% 35%"
+       },
+       "reg": {
+        "label": "להרשמה ותשלום",
+        "href": "https://paypage.takbull.co.il/3BEQx"
+       }
+      },
+      {
+       "id": "t-teima-mehaifa",
+       "tour": "teima-mehaifa",
+       "title": "טעימה מחיפה",
+       "text": "להבין את העיר גם דרך מה שאוכלים בה",
+       "img": {
+        "src": "/assets/approved/arches-group-960.webp",
+        "w": 1010,
+        "h": 758,
+        "alt": "טעימה מחיפה",
+        "pos": "50% 50%"
+       },
+       "reg": {
+        "label": "להרשמה ותשלום",
+        "href": "https://paypage.takbull.co.il/3BEQx"
+       }
+      },
+      {
+       "id": "t-teva-adam-hevra-sviva",
+       "tour": "teva-adam-hevra-sviva",
+       "title": "טבע, אדם, חברה, סביבה",
+       "text": "יום שמחבר בין רעיונות גדולים למה שפוגשים בשטח",
+       "img": {
+        "src": "/assets/approved/square-group-960.webp",
+        "w": 1920,
+        "h": 1705,
+        "alt": "טבע, אדם, חברה, סביבה",
+        "pos": "50% 45%"
+       },
+       "reg": {
+        "label": "להרשמה ותשלום",
+        "href": "https://paypage.takbull.co.il/3BEQx"
+       }
+      }
+     ]
     }
    },
    "order": [

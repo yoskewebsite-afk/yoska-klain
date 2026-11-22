@@ -21,3 +21,4 @@ backups/
 .env*
 .secrets/
 handoff/*.webm
+handoff/*.mp4

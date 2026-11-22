@@ -123,7 +123,12 @@ try {
   {
     t('old /admin path is not the admin', !/כניסה|app\.js/.test((await call('GET', '/admin', null, { auth: false })).text));
     const home = (await call('GET', '/', null, { auth: false })).text;
-    t('home: no map, no uniqueness block; upcoming tours off the page (and out of the menu) while it has no tours', !/id="map"/.test(home) && !/id="unique"/.test(home) && !/cb--trips/.test(home) && !/href="\/#upcoming"/.test(home));
+    t('home: no map, no uniqueness block', !/id="map"/.test(home) && !/id="unique"/.test(home));
+    t('home: upcoming tours show his 6 tours, each with a register-and-pay button, plus the WhatsApp catalog link', /cb--trips/.test(home) && (home.match(/class="cb-trip"/g) || []).length === 6 && (home.match(/paypage\.takbull\.co\.il/g) || []).length >= 7 && /wa\.me\/c\/972544361667/.test(home) && /href="\/#upcoming"/.test(home));
+    await call('PATCH', '/api/admin/draft', { pages: { index: { order: idx.order, custom: { 'c-trips01': { type: 'trips', c: { t1: 'בדיקה' }, d: { anchor: 'upcoming' }, items: [] } } } } });
+    const pv = (await call('GET', '/__preview/')).text;
+    t('upcoming tours with no tours is off the page and out of the menu', !/cb--trips/.test(pv) && !/href="[^"]*#upcoming"/.test(pv));
+    await call('PATCH', '/api/admin/draft', { pages: { index: { order: idx.order } } });
     t('home: the logos section stays hidden while it has no logos', !/cb--logos/.test(home));
     let c = await call('POST', '/api/admin/code', { code: '123' });
     t('a too short code is refused', c.s === 400);
@@ -257,7 +262,7 @@ try {
   r = await call('PATCH', '/api/admin/draft', { settings: { phone: '052-1112233', whatsapp: '972521112233' } });
   await call('POST', '/api/admin/publish', {});
   r = await call('GET', '/', null, { auth: false });
-  t('changed phone and WhatsApp number reach every link', /tel:\+972521112233/.test(r.text) && /wa\.me\/972521112233/.test(r.text) && !/972544361667/.test(r.text));
+  t('changed phone and WhatsApp number reach every link', /tel:\+972521112233/.test(r.text) && /wa\.me\/972521112233/.test(r.text) && !/wa\.me\/972544361667/.test(r.text));
   r = await call('GET', '/api/admin/integrations');
   t('integrations report real states', r.j.integrations.find((i) => i.id === 'db').state === 'dev' && r.j.integrations.find((i) => i.id === 'notify-email').state === 'off');
 

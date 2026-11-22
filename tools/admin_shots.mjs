@@ -1,0 +1,23 @@
+// 22.11.2026: screenshots of the admin screens for the PDF guide. node tools/admin_shots.mjs <base> <outdir> <email> <password>
+import { chromium } from 'playwright-core'; import path from 'node:path'; import os from 'node:os';
+const exe = path.join(os.homedir(), 'Library/Caches/ms-playwright/chromium-1194/chrome-mac/Chromium.app/Contents/MacOS/Chromium');
+const [base, out, email, pw] = process.argv.slice(2);
+const A = base + '/yoske-nihul-7k4q';
+const b = await chromium.launch({ executablePath: exe });
+const ctx = await b.newContext({ viewport: { width: 1280, height: 800 }, deviceScaleFactor: 1.5 });
+await ctx.addInitScript(() => { try { localStorage.setItem('yoske-code-nudge', JSON.stringify({ never: true })); localStorage.setItem('yoske-admin-install-seen', '1'); } catch {} });
+const p = await ctx.newPage();
+await p.goto(A); if (await p.$('[data-way="pw"]')) await p.click('[data-way="pw"]');
+await p.screenshot({ path: `${out}/login.png` });
+await p.fill('#email', email); await p.fill('#password', pw); await p.click('#go'); await p.waitForSelector('#main'); await p.waitForTimeout(2200);
+const hide = () => p.addStyleTag({ content: '.side__user .ltr{visibility:hidden}' });
+const shot = async (name, hash, wait = 2200, sel) => { await p.goto(A + hash); await p.waitForTimeout(wait); await hide(); if (sel) { const e = await p.$(sel); if (e) await e.scrollIntoViewIfNeeded(); await p.waitForTimeout(300); } await p.screenshot({ path: `${out}/${name}.png` }); };
+await shot('dashboard', '#/dashboard');
+await shot('leads', '#/leads');
+await shot('pages', '#/pages/index', 2600);
+await shot('trips', '#/pages/index/c-trips01', 2800);
+await shot('logos', '#/pages/index/c-logos01', 2800);
+await shot('tours', '#/tours');
+await shot('media', '#/media');
+await shot('settings', '#/settings', 2400);
+await b.close(); console.log('done');

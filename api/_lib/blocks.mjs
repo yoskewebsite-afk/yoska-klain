@@ -81,7 +81,7 @@ export const TYPES = {
   // 19.11.2026 (owner + partner): upcoming tours the owner changes all the time, and the client logos strip
   trips: {
     label: 'סיורים קרובים', desc: 'הסיורים הפתוחים להרשמה: תמונה, מועד, כמה מילים, קישור להרשמה ולתשלום וכפתור לוואטסאפ. בלי סיורים ברשימה מוצגים רק הכותרת והכפתורים.',
-    c: [...HEAD, 'link', 'link2'], items: { label: 'סיור', max: 12, f: ['img', 'title', 'when', 'text', 'reg'] },
+    c: [...HEAD, 'link', 'link2', 'link3'], items: { label: 'סיור', max: 12, f: ['img', 'title', 'when', 'text', 'reg'] },
     d: { bg: 'sunsoft', pad: 'm', align: 'start', width: 'wide', accent: 'sun', shape: 'moon', cols: '3', btn: 'sun', reveal: 'rise' },
     sample: { t1: 'רוצים להצטרף לסיור בלי לארגן קבוצה משלכם?', t2: 'הסיורים *הקרובים*' },
     sampleItems: [],
@@ -100,7 +100,7 @@ export const FIELD = {
   t1: { kind: 'text', label: 'שורת כותרת עליונה (דקה)', max: 120 },
   t2: { kind: 'text', label: 'שורת כותרת מודגשת', hint: 'מילה בין כוכביות, *כך*, תיצבע בצבע ההדגשה.', max: 120 },
   body: { kind: 'long', label: 'טקסט', hint: 'שורה ריקה מתחילה פסקה חדשה.', max: 2400 },
-  link: { kind: 'link', label: 'כפתור' }, link2: { kind: 'link', label: 'קישור נוסף (לא חובה)' },
+  link: { kind: 'link', label: 'כפתור' }, link2: { kind: 'link', label: 'קישור נוסף (לא חובה)' }, link3: { kind: 'link', label: 'קישור שלישי (לא חובה)' },
   img: { kind: 'image', label: 'תמונה' },
   quote: { kind: 'long', label: 'הציטוט', max: 600 }, name: { kind: 'text', label: 'שם', max: 80 }, role: { kind: 'text', label: 'תיאור קצר (לא חובה)', max: 120 },
   title: { kind: 'text', label: 'כותרת', max: 100 }, text: { kind: 'long', label: 'טקסט', max: 600 },
@@ -215,8 +215,8 @@ export function renderBlock(cid, b) {
       const live = items.filter((it) => it.title);
       const waOf = (it) => `https://wa.me/{{set.waNumber}}?text=${encodeURIComponent(`היי יוסק׳ה, אשמח לפרטים על ${it.title}${it.when ? ` (${it.when})` : ''}`)}`;
       const card = (it) => `<li class="cb-trip"${rv}>${it.img?.src ? `<div class="cb-trip__media cb-media">${img(it.img, '(min-width: 1000px) 30vw, (min-width: 600px) 46vw, 92vw')}</div>` : ''}<div class="cb-trip__body">${it.when ? `<p class="cb-trip__when"><svg aria-hidden="true"><use href="#b-calendar"/></svg>${esc(it.when)}</p>` : ''}<h3 class="cb-trip__t">${esc(it.title)}</h3>${it.text ? paras(it.text) : ''}<div class="cb-trip__acts">${it.reg?.href ? `<a class="btn btn--sun btn--sm" href="${hrefOf(it.reg.href)}"${ext(it.reg.href)} data-track="upcoming_trip_register">${esc(it.reg.label || 'להרשמה ותשלום')}<span class="visually-hidden">: ${esc(it.title)}${/^https?:/i.test(it.reg.href) ? ' (נפתח בלשונית חדשה)' : ''}</span></a>` : ''}<a class="textlink cb-trip__wa" href="${waOf(it)}" target="_blank" rel="noopener" data-track="upcoming_trip_whatsapp"><svg aria-hidden="true"><use href="#i-chat"/></svg>לשאול בוואטסאפ<span class="visually-hidden"> על ${esc(it.title)} (נפתח בלשונית חדשה)</span></a></div></div></li>`;
-      const acts = c.link?.label || c.link2?.label ? `<div class="btnrow cb__acts cb-trips__acts">${btn(c.link, d.btn, false)}${c.link2?.label && c.link2.href ? `<a class="btn btn--line" href="${hrefOf(c.link2.href)}"${ext(c.link2.href)}>${esc(c.link2.label)}</a>` : ''}</div>` : '';
-      inner = `<div class="wrap cb__in">${head(c, d, hid)}${live.length ? `<ul class="cb-trips" role="list">${live.map(card).join('')}</ul>` : ''}${acts}</div>`;
+      const acts = c.link?.label || c.link2?.label || c.link3?.label ? `<div class="btnrow cb__acts cb-trips__acts">${btn(c.link, d.btn, false)}${[c.link2, c.link3].map((l) => (l?.label && l.href ? `<a class="btn btn--line" href="${hrefOf(l.href)}"${ext(l.href)}>${esc(l.label)}</a>` : '')).join('')}</div>` : '';
+      inner = `<div class="wrap cb__in">${head(c, d, hid)}${live.length ? `<ul class="cb-trips" role="list" tabindex="0" aria-label="הסיורים הפתוחים להרשמה">${live.map(card).join('')}</ul>` : ''}${acts}</div>`;
       break;
     }
     case 'logos': {

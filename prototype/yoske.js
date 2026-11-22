@@ -51,8 +51,7 @@
       } else if (stuck && y <= 4) unstick();
       if (!stuck || document.body.classList.contains('menu-open')) return;
       if (top.contains(document.activeElement)) { top.classList.remove('is-away'); return; }
-      if (dy > 6 && y > h * 2) top.classList.add('is-away');
-      else if (dy < -6) top.classList.remove('is-away');
+      top.classList.remove('is-away');   // 22.11.2026: the bar stays on screen along the whole site
     };
     addEventListener('scroll', () => { if (!tick) { tick = true; requestAnimationFrame(upd); } }, { passive: true });
     top.addEventListener('focusin', () => top.classList.remove('is-away'));
@@ -191,7 +190,9 @@
       const hb = head.offsetTop + head.offsetHeight;
       const top = Math.round(phone ? hb + 34 : hb + (tall ? 14 : 18) - sky * h);
       scene.parentElement.style.setProperty('--scene-top', top + 'px');
-      scene.style.setProperty('--cta-top', Math.round(phone ? h * .1 : sky * h + (tall ? 18 : 30)) + 'px');
+      // phones: the button is small and sits centred right above the finial of the dome (tip at 238/1763 of the photo, centre at 50%)
+      const cta = $('[data-hero-cta]');
+      scene.style.setProperty('--cta-top', Math.round(phone ? h * 238 / 1763 - ((cta && cta.offsetHeight) || 44) - 8 : sky * h + (tall ? 18 : 30)) + 'px');
     };
     // Yoske: the middle of his raised hand (6% / 14% of the cut-out) sits just above the first letter (ש) of the second line
     const yoske = $('[data-hero-yoske]'), l2 = $('.hero__l2'), fore = $('[data-hero-fore]');
@@ -228,20 +229,14 @@
       yoske.style.setProperty('--yy', Math.round(y) + 'px');
       yoske.classList.add('is-fade');   // his cut-out waist fades into the trees (no hard edge over the garden)
       if (fore) fore.style.setProperty('--fy', Math.round(y + h - (narrow ? 45 : 95)) + 'px');
-      // phones (owner's reference): the button sits under his raised arm, left of his shoulder, never across him
-      if (narrow) scene.style.setProperty('--cta-top', Math.round(y + h * .36) + 'px');
+
     };
     const both = () => { place(); placeYoske(); };
     both(); addEventListener('resize', both);
     document.fonts && document.fonts.ready.then(both);
-    // 19.11.2026: phones: Yoske and the button arrive (he steps in from the side, the button settles), then he drifts a
-    // little slower than the photo while it scrolls up, so he reads as standing in front of Haifa, not printed on it
-    if (yoske && innerWidth < 700 && !still()) {
-      document.documentElement.classList.add('hero-arrive');
-      let q = 0;
-      const drift = () => { q = 0; const y = Math.min(scrollY, innerHeight * 1.2); yoske.style.translate = '0 ' + (y * .1).toFixed(1) + 'px'; };
-      addEventListener('scroll', () => { if (!q) q = requestAnimationFrame(drift); }, { passive: true });
-    }
+    // 22.11.2026: phones: a short arrival (Yoske appears where he stands, the garden rises from below up to him and in front
+    // of his lower body, the button settles above the dome). He then stays in place inside the picture while scrolling.
+    if (yoske && innerWidth < 700 && !still()) document.documentElement.classList.add('hero-arrive');
   };
   heroPlace();
 

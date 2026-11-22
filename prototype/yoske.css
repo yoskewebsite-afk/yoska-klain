@@ -2118,7 +2118,8 @@ html.a11y-still .cb-logos__track { animation: none; }
   .hero__yoske { filter: saturate(1.06) contrast(1.04) brightness(1.03) sepia(.06); }
   .hero__fore { inset: 0 12px; }
   .hero__photo img { border-radius: 4px; }
-  .hero__cta { left: 38% !important; translate: -50% 0 !important; white-space: nowrap; }
+  .hero__cta { left: 50% !important; translate: -50% 0 !important; white-space: nowrap; min-height: 44px; padding: 0 16px; font-size: .875rem; gap: 8px; }
+  .hero__cta svg { width: 16px; height: 16px; }
   .hero__scene::after { inset-inline: 12px; }
   .hero-arrive .hero__yoske { animation: hero-step .9s cubic-bezier(.22, 1, .36, 1) .25s both; }
   .hero-arrive .hero__cta { animation: hero-cta .7s cubic-bezier(.22, 1, .36, 1) .55s both; }
@@ -2230,13 +2231,16 @@ body:not(.home) .prose__body p + p { margin-top: var(--s4); }
   .hero-arrive .hero__l1 { animation: hero-rise .7s cubic-bezier(.22, 1, .36, 1) .05s both; }
   .hero-arrive .hero__l2 { animation: hero-rise .75s cubic-bezier(.22, 1, .36, 1) .16s both; }
   .hero-arrive .hero__sub { animation: hero-fade .6s ease-out .32s both; }
-  .hero-arrive .hero__photo, .hero-arrive .hero__fore { animation: hero-garden 1s cubic-bezier(.22, 1, .36, 1) .3s both; }
-  .hero-arrive .hero__yoske { animation: hero-step .9s cubic-bezier(.22, 1, .36, 1) .62s both; }
-  .hero-arrive .hero__cta { animation: hero-cta .7s cubic-bezier(.22, 1, .36, 1) .95s both; }
+  /* 22.11.2026: Yoske appears first, where he stands; then the whole garden rises from below, up to him and in front of his
+     lower body (the front layer rises with it); the button settles last. ~2.2s, transform and opacity only */
+  .hero-arrive .hero__yoske { animation: hero-appear .7s ease-out .4s both; }
+  .hero-arrive .hero__photo, .hero-arrive .hero__fore { animation: hero-garden 1.5s cubic-bezier(.16, 1, .3, 1) .8s both; }
+  .hero-arrive .hero__cta { animation: hero-cta .6s cubic-bezier(.22, 1, .36, 1) 2.05s both; }
 }
 @keyframes hero-rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
 @keyframes hero-fade { from { opacity: 0; } to { opacity: 1; } }
-@keyframes hero-garden { from { opacity: 0; transform: translateY(28px) scale(1.03); } to { opacity: 1; transform: none; } }
+@keyframes hero-garden { from { opacity: 0; transform: translateY(62vh); } 30% { opacity: 1; } to { opacity: 1; transform: none; } }
+@keyframes hero-appear { from { opacity: 0; } to { opacity: 1; } }
 @media (prefers-reduced-motion: reduce) { .hero-arrive .hero__l1, .hero-arrive .hero__l2, .hero-arrive .hero__sub, .hero-arrive .hero__photo, .hero-arrive .hero__fore { animation: none; } }
 
 /* phones: the gardens are zoomed in inside the card (the Shrine bigger, as on the owner's reference) */
@@ -2284,3 +2288,14 @@ body:not(.home) .prose__body p + p { margin-top: var(--s4); }
 /* section titles: the bold line used to type itself in over a second (22 steps) and read as a cut sentence while
    scrolling; now a short smooth wipe that is done before the title reaches the middle of the screen */
 .motion [data-wipe].is-in { transition: clip-path .55s cubic-bezier(.22, 1, .36, 1) !important; }
+
+/* phones (owner, 22.11.2026): no bottom tab bar; the top bar (logo, accessibility, menu) stays on screen along the whole site */
+@media (max-width: 999px) { .tabbar { display: none !important; } .top.is-stuck.is-away { transform: none !important; } }
+
+/* upcoming tours on phones: one swipe row (one card and a peek of the next) instead of six tall cards */
+@media (max-width: 699px) {
+  .cb-trips { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 14px; margin-inline: calc(var(--gut) * -1); padding: 6px var(--gut) 20px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+  .cb-trips::-webkit-scrollbar { display: none; }
+  .cb-trips:focus-visible { outline: 3px solid var(--teal); outline-offset: -3px; border-radius: 12px; }
+  .cb-trip { flex: 0 0 78vw; scroll-snap-align: center; }
+}
