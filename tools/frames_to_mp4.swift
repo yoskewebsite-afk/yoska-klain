@@ -1,4 +1,4 @@
-// 22.11.2026: JPG frames -> H.264 mp4 (macOS AVFoundation, no extra tools). swiftc -O tools/frames_to_mp4.swift -o /tmp/frames_to_mp4
+// 22.11.2026: JPG or PNG frames -> H.264 mp4 (macOS AVFoundation, no extra tools). swiftc -O tools/frames_to_mp4.swift -o /tmp/frames_to_mp4
 // usage: frames_to_mp4 <framesDir> <fps> <out.mp4>
 import Foundation
 import AVFoundation
@@ -7,7 +7,7 @@ import AppKit
 let args = CommandLine.arguments
 guard args.count == 4, let fps = Int32(args[2]) else { print("usage: frames_to_mp4 <dir> <fps> <out.mp4>"); exit(1) }
 let dir = URL(fileURLWithPath: args[1]); let outURL = URL(fileURLWithPath: args[3])
-let files = try FileManager.default.contentsOfDirectory(atPath: dir.path).filter { $0.hasSuffix(".jpg") }.sorted()
+let files = try FileManager.default.contentsOfDirectory(atPath: dir.path).filter { $0.hasSuffix(".jpg") || $0.hasSuffix(".png") }.sorted()
 guard let first = NSImage(contentsOf: dir.appendingPathComponent(files[0])), let rep = first.representations.first else { print("no frames"); exit(1) }
 let w = rep.pixelsWide, h = rep.pixelsHigh
 try? FileManager.default.removeItem(at: outURL)
