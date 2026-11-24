@@ -721,7 +721,170 @@
       "align": "center",
       "accent": "orange"
      },
-     "items": []
+     "items": [
+      {
+       "img": {
+        "src": "/assets/clients/client-01.webp",
+        "w": 366,
+        "h": 160,
+        "alt": "קרן הדרים"
+       },
+       "org": "קרן הדרים"
+      },
+      {
+       "img": {
+        "src": "/assets/clients/client-02.webp",
+        "w": 164,
+        "h": 160,
+        "alt": "עמותת תיירות חיפה"
+       },
+       "org": "עמותת תיירות חיפה"
+      },
+      {
+       "img": {
+        "src": "/assets/clients/client-03.webp",
+        "w": 347,
+        "h": 160,
+        "alt": "עיריית חיפה"
+       },
+       "org": "עיריית חיפה"
+      },
+      {
+       "img": {
+        "src": "/assets/clients/client-04.webp",
+        "w": 421,
+        "h": 160,
+        "alt": "בינה, הבית של היהדות הישראלית"
+       },
+       "org": "בינה, הבית של היהדות הישראלית"
+      },
+      {
+       "img": {
+        "src": "/assets/clients/client-05.webp",
+        "w": 615,
+        "h": 160,
+        "alt": "בנק אוצר החייל"
+       },
+       "org": "בנק אוצר החייל"
+      },
+      {
+       "img": {
+        "src": "/assets/clients/client-06.webp",
+        "w": 126,
+        "h": 160,
+        "alt": "בית הגפן"
+       },
+       "org": "בית הגפן"
+      },
+      {
+       "img": {
+        "src": "/assets/clients/client-07.webp",
+        "w": 121,
+        "h": 160,
+        "alt": "עיר דוד"
+       },
+       "org": "עיר דוד"
+      },
+      {
+       "img": {
+        "src": "/assets/clients/client-08.webp",
+        "w": 170,
+        "h": 160,
+        "alt": "ליונס"
+       },
+       "org": "ליונס"
+      },
+      {
+       "img": {
+        "src": "/assets/clients/client-09.webp",
+        "w": 374,
+        "h": 160,
+        "alt": "מלכת השוק"
+       },
+       "org": "מלכת השוק"
+      },
+      {
+       "img": {
+        "src": "/assets/clients/client-10.webp",
+        "w": 191,
+        "h": 49,
+        "alt": "מכינת צור"
+       },
+       "org": "מכינת צור"
+      },
+      {
+       "img": {
+        "src": "/assets/clients/client-11.webp",
+        "w": 164,
+        "h": 148,
+        "alt": "מכבי חיפה"
+       },
+       "org": "מכבי חיפה"
+      },
+      {
+       "img": {
+        "src": "/assets/clients/client-12.webp",
+        "w": 303,
+        "h": 160,
+        "alt": "לכיש טורס"
+       },
+       "org": "לכיש טורס"
+      },
+      {
+       "img": {
+        "src": "/assets/clients/client-13.webp",
+        "w": 222,
+        "h": 92,
+        "alt": "מכבי שירותי בריאות"
+       },
+       "org": "מכבי שירותי בריאות"
+      },
+      {
+       "img": {
+        "src": "/assets/clients/client-14.webp",
+        "w": 414,
+        "h": 124,
+        "alt": "טורנדו"
+       },
+       "org": "טורנדו"
+      },
+      {
+       "img": {
+        "src": "/assets/clients/client-15.webp",
+        "w": 273,
+        "h": 160,
+        "alt": "התאחדות התעשיינים בישראל"
+       },
+       "org": "התאחדות התעשיינים בישראל"
+      },
+      {
+       "img": {
+        "src": "/assets/clients/client-16.webp",
+        "w": 324,
+        "h": 81,
+        "alt": "ברזילאו"
+       },
+       "org": "ברזילאו"
+      },
+      {
+       "img": {
+        "src": "/assets/clients/client-17.webp",
+        "w": 263,
+        "h": 92,
+        "alt": "שירותי בריאות כללית"
+       },
+       "org": "שירותי בריאות כללית"
+      },
+      {
+       "img": {
+        "src": "/assets/clients/client-18.webp",
+        "w": 234,
+        "h": 53,
+        "alt": "תנובה"
+       },
+       "org": "תנובה"
+      }
+     ]
     },
     "c-trips01": {
      "type": "trips",

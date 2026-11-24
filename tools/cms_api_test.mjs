@@ -129,7 +129,7 @@ try {
     const pv = (await call('GET', '/__preview/')).text;
     t('upcoming tours with no tours is off the page and out of the menu', !/cb--trips/.test(pv) && !/href="[^"]*#upcoming"/.test(pv));
     await call('PATCH', '/api/admin/draft', { pages: { index: { order: idx.order } } });
-    t('home: the logos section stays hidden while it has no logos', !/cb--logos/.test(home));
+    t('home: the client logos strip shows the 18 logos from the old site (24.11)', /cb--logos/.test(home) && (home.match(/\/assets\/clients\/client-\d+\.webp/g) || []).length === 36);
     let c = await call('POST', '/api/admin/code', { code: '123' });
     t('a too short code is refused', c.s === 400);
     c = await call('POST', '/api/admin/code', { code: '111111' });
